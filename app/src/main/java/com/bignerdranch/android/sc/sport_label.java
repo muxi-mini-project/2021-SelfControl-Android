@@ -1,4 +1,4 @@
-package com.example.part;
+package com.bignerdranch.android.sc;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class sport extends AppCompatActivity {
+public class sport_label extends AppCompatActivity {
 
     private ImageButton health;
     private ImageButton sport;
