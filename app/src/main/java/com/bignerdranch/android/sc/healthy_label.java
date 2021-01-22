@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.bignerdranch.android.sc.R;
 
+import static com.bignerdranch.android.sc.study_label.makeStatusBarTransparent;
+
 public class healthy_label extends AppCompatActivity {
 
     private ImageButton healthy;
@@ -202,6 +204,12 @@ public class healthy_label extends AppCompatActivity {
         });
 
         add = (ImageButton)findViewById(R.id.add);
+
+        //设置状态栏透明
+        makeStatusBarTransparent(this);
+        //状态栏文字自适应
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
     }
 
     public void textViewInit(){
