@@ -194,7 +194,7 @@ public class study_label extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(study_label.this,);
+                Intent intent=new Intent(study_label.this,sport_label.class);
                 startActivity(intent);
             }
         });
@@ -204,7 +204,8 @@ public class study_label extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                startActivity();
+                Intent intent=new Intent(study_label.this,healthy_label.class);
+                startActivity(intent);
             }
         });
         //设置状态栏透明
