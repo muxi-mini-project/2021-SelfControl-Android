@@ -334,13 +334,14 @@
         android:text="我已选择完成，进入打卡"
         android:textColor="#FFFFFF"
         app:backgroundTint="#9B99F3"
-        android:background="@drawable/shape"/>
+        android:background="@drawable/shape_rectangle"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <ImageButton
             android:id="@+id/fankui"

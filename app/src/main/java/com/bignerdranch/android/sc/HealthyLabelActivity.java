@@ -4,21 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.bignerdranch.android.sc.R;
-
-import static com.bignerdranch.android.sc.study_label.makeStatusBarTransparent;
-
-public class healthy_label extends AppCompatActivity {
+public class HealthyLabelActivity extends AppCompatActivity {
 
     private ImageButton healthy;
     private ImageButton sport;

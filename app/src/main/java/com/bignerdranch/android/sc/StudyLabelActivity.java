@@ -12,7 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
-public class study_label extends AppCompatActivity {
+public class StudyLabelActivity extends AppCompatActivity {
     int f1=0;int f2=0;int f3=0;int f4=0;int f5=0;int f6=0;int f7=0;int f8=0;int f9=0;int f10=0;
     private ImageButton mzixi;
     private ImageButton myueduxinwen;
@@ -194,7 +194,7 @@ public class study_label extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(study_label.this,sport_label.class);
+                Intent intent=new Intent(StudyLabelActivity.this, SportLabelActivity.class);
                 startActivity(intent);
             }
         });
@@ -204,7 +204,7 @@ public class study_label extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(study_label.this,healthy_label.class);
+                Intent intent=new Intent(StudyLabelActivity.this, HealthyLabelActivity.class);
                 startActivity(intent);
             }
         });
