@@ -3,6 +3,7 @@ package com.bignerdranch.android.sc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +24,8 @@ public class study_label extends AppCompatActivity {
     private ImageButton mtinglixunlian;
     private ImageButton mlianzi;
     private ImageButton myingyuyueduxunlian;
+    private ImageButton myundong;
+    private ImageButton mjiankang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,6 +189,25 @@ public class study_label extends AppCompatActivity {
             }
         });
 
+        myundong= (ImageButton)findViewById(R.id.yundong_normal);
+        myundong.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(study_label.this,sport_label.class);
+                startActivity(intent);
+            }
+        });
+
+        mjiankang=(ImageButton)findViewById(R.id.jiankang_normal);
+        mjiankang.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(study_label.this,healthy_label.class);
+                startActivity(intent);
+            }
+        });
         //设置状态栏透明
         makeStatusBarTransparent(this);
         //状态栏文字自适应

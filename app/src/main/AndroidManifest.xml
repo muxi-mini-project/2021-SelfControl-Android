@@ -12,10 +12,11 @@
         <activity android:name=".study_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".sport_label"></activity>
+        <activity android:name=".healthy_label"></activity>
     </application>
 
 </manifest>

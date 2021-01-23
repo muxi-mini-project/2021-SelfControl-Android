@@ -286,7 +286,7 @@
         android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <ImageButton

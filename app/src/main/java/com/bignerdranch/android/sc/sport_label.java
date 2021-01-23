@@ -12,7 +12,9 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class sport extends AppCompatActivity {
+import static com.bignerdranch.android.sc.study_label.makeStatusBarTransparent;
+
+public class sport_label extends AppCompatActivity {
 
     private ImageButton health;
     private ImageButton sport;
@@ -74,10 +76,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag1 == 0) {
-                    paobu.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    paobu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag1 = 1;
                 } else {
-                    paobu.setBackgroundResource(R.drawable.paobu);
+                    paobu.setBackgroundResource(R.mipmap.paobu);
                     flag1 = 0;
                 }
             }
@@ -89,10 +91,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag2 == 0) {
-                    fuwocheng.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    fuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag2 = 1;
                 } else {
-                    fuwocheng.setBackgroundResource(R.drawable.fuwocheng);
+                    fuwocheng.setBackgroundResource(R.mipmap.fuwocheng);
                     flag2 = 0;
                 }
             }
@@ -103,10 +105,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag3 == 0) {
-                    tiaosheng.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    tiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag3 = 1;
                 } else {
-                    tiaosheng.setBackgroundResource(R.drawable.tiaosheng);
+                    tiaosheng.setBackgroundResource(R.mipmap.tiaosheng);
                     flag3 = 0;
                 }
             }
@@ -117,10 +119,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag4 == 0) {
-                    yangwoqizuo.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    yangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag4 = 1;
                 } else {
-                    yangwoqizuo.setBackgroundResource(R.drawable.yangwuoqizuo);
+                    yangwoqizuo.setBackgroundResource(R.mipmap.yangwuoqizuo);
                     flag4 = 0;
                 }
             }
@@ -131,10 +133,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag5 == 0) {
-                    sanbu.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    sanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag5 = 1;
                 } else {
-                    sanbu.setBackgroundResource(R.drawable.sanbu);
+                    sanbu.setBackgroundResource(R.mipmap.sanbu);
                     flag5 = 0;
                 }
             }
@@ -145,10 +147,10 @@ public class sport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag6 == 0) {
-                    lashen.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    lashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag6 = 1;
                 } else {
-                    lashen.setBackgroundResource(R.drawable.yangwuoqizuo);
+                    lashen.setBackgroundResource(R.mipmap.yangwuoqizuo);
                     flag6 = 0;
                 }
             }
@@ -197,7 +199,15 @@ public class sport extends AppCompatActivity {
         });
 
         add = (ImageButton)findViewById(R.id.add_imageButton);
+
+        //设置状态栏透明
+        makeStatusBarTransparent(this);
+        //状态栏文字自适应
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
     }
+
+
 
     public void textViewInit(){
         paobu1 = (TextView)findViewById(R.id.paobu_textView);
@@ -213,6 +223,7 @@ public class sport extends AppCompatActivity {
         add1 = (TextView)findViewById(R.id.textView4);
         add2 = (TextView)findViewById(R.id.textView5);
     }
+
     public static void makeStatusBarTransparent(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
