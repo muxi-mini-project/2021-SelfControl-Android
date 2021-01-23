@@ -67,10 +67,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag1 == 0){
-                    mchishuiguo.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mchishuiguo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag1 = 1;
                 }else{
-                    mchishuiguo.setBackgroundResource(R.drawable.chishuiguo);
+                    mchishuiguo.setBackgroundResource(R.mipmap.chishuiguo);
                     flag1 = 0;
                 }
             }
@@ -81,10 +81,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag2 == 0){
-                    mchizaocan.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mchizaocan.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag2 =1;
                 }else{
-                    mchizaocan.setBackgroundResource(R.drawable.chizaocan);
+                    mchizaocan.setBackgroundResource(R.mipmap.chizaocan);
                     flag2 = 0;
                 }
             }
@@ -95,10 +95,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag3 == 0){
-                    mduoheshui.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mduoheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag3 =1;
                 }else{
-                    mduoheshui.setBackgroundResource(R.drawable.duoheshui);
+                    mduoheshui.setBackgroundResource(R.mipmap.duoheshui);
                     flag3 = 0;
                 }
             }
@@ -109,10 +109,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag4 == 0){
-                    mjujueyexiao.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag4 =1;
                 }else{
-                    mjujueyexiao.setBackgroundResource(R.drawable.jujueyexiao);
+                    mjujueyexiao.setBackgroundResource(R.mipmap.jujueyexiao);
                     flag4 = 0;
                 }
             }
@@ -123,10 +123,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag5 == 0){
-                    mjujueyinliao.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mjujueyinliao.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag5 =1;
                 }else{
-                    mjujueyinliao.setBackgroundResource(R.drawable.jujueyinliao);
+                    mjujueyinliao.setBackgroundResource(R.mipmap.jujueyinliao);
                     flag5 = 0;
                 }
             }
@@ -137,10 +137,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag6 == 0){
-                    mjujuejiuzuo.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mjujuejiuzuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag6 =1;
                 }else{
-                    mjujuejiuzuo.setBackgroundResource(R.drawable.jujuejiuzuo);
+                    mjujuejiuzuo.setBackgroundResource(R.mipmap.jujuejiuzuo);
                     flag6 = 0;
                 }
             }
@@ -151,10 +151,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag7 == 0){
-                    mzaoqi.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mzaoqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag7 =1;
                 }else{
-                    mzaoqi.setBackgroundResource(R.drawable.zaoqi);
+                    mzaoqi.setBackgroundResource(R.mipmap.zaoqi);
                     flag7 = 0;
                 }
             }
@@ -165,10 +165,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag8 == 0){
-                    mzaoshui.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mzaoshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag8 =1;
                 }else{
-                    mzaoshui.setBackgroundResource(R.drawable.zaoshui);
+                    mzaoshui.setBackgroundResource(R.mipmap.zaoshui);
                     flag8 = 0;
                 }
             }
@@ -179,10 +179,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag9 == 0){
-                    mbuqiaoerlangtui.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag9 =1;
                 }else{
-                    mbuqiaoerlangtui.setBackgroundResource(R.drawable.buqiaoerlangtui);
+                    mbuqiaoerlangtui.setBackgroundResource(R.mipmap.buqiaoerlangtui);
                     flag9 = 0;
                 }
             }
@@ -193,10 +193,10 @@ public class HealthyLabelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag10 == 0){
-                    mzaoqikongfuheshui.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag10 =1;
                 }else{
-                    mzaoqikongfuheshui.setBackgroundResource(R.drawable.zaoqikongfuheshui);
+                    mzaoqikongfuheshui.setBackgroundResource(R.mipmap.zaoqikongfuheshui);
                     flag10 = 0;
                 }
             }
@@ -210,8 +210,6 @@ public class HealthyLabelActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
     }
-
-
 
     public void textViewInit(){
 
@@ -228,7 +226,6 @@ public class HealthyLabelActivity extends AppCompatActivity {
 
     }
 
-
     public static void makeStatusBarTransparent(Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
@@ -244,4 +241,5 @@ public class HealthyLabelActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
+
 }
