@@ -327,14 +327,14 @@
 
     <Button
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/shape"
         android:text="我已选择完成，进入打卡"
         android:textColor="#FFFFFF"
-        app:backgroundTint="#9B99F3"
-        android:background="@drawable/shape"/>
+        app:backgroundTint="#9B99F3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout10"
