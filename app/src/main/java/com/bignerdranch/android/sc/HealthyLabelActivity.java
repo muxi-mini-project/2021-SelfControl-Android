@@ -240,6 +240,6 @@ public class HealthyLabelActivity extends AppCompatActivity {
         } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-    }
+    }//test;
 
 }
