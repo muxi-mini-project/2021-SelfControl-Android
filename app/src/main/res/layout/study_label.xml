@@ -329,7 +329,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp" android:background="@drawable/shape"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/shape"
         android:text="我已选择完成，进入打卡"
         android:textColor="#FFFFFF"
         app:backgroundTint="#9B99F3" />
