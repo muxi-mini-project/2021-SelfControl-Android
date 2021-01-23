@@ -73,7 +73,7 @@ public class healthy_label extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(flag1 == 0){
-                    mchishuiguo.setBackgroundResource(R.mipmap.chishuiguo);
+                    mchishuiguo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag1 = 1;
                 }else{
                     mchishuiguo.setBackgroundResource(R.mipmap.chishuiguo);
