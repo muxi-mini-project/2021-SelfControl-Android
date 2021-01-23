@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private EditText musername;
+    private EditText mpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
