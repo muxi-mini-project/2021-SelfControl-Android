@@ -76,10 +76,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag1 == 0) {
-                    paobu.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    paobu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag1 = 1;
                 } else {
-                    paobu.setBackgroundResource(R.drawable.paobu);
+                    paobu.setBackgroundResource(R.mipmap.paobu);
                     flag1 = 0;
                 }
             }
@@ -91,10 +91,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag2 == 0) {
-                    fuwocheng.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    fuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag2 = 1;
                 } else {
-                    fuwocheng.setBackgroundResource(R.drawable.fuwocheng);
+                    fuwocheng.setBackgroundResource(R.mipmap.fuwocheng);
                     flag2 = 0;
                 }
             }
@@ -105,10 +105,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag3 == 0) {
-                    tiaosheng.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    tiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag3 = 1;
                 } else {
-                    tiaosheng.setBackgroundResource(R.drawable.tiaosheng);
+                    tiaosheng.setBackgroundResource(R.mipmap.tiaosheng);
                     flag3 = 0;
                 }
             }
@@ -119,10 +119,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag4 == 0) {
-                    yangwoqizuo.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    yangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag4 = 1;
                 } else {
-                    yangwoqizuo.setBackgroundResource(R.drawable.yangwuoqizuo);
+                    yangwoqizuo.setBackgroundResource(R.mipmap.yangwuoqizuo);
                     flag4 = 0;
                 }
             }
@@ -133,10 +133,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag5 == 0) {
-                    sanbu.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    sanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag5 = 1;
                 } else {
-                    sanbu.setBackgroundResource(R.drawable.sanbu);
+                    sanbu.setBackgroundResource(R.mipmap.sanbu);
                     flag5 = 0;
                 }
             }
@@ -147,10 +147,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag6 == 0) {
-                    lashen.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    lashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag6 = 1;
                 } else {
-                    lashen.setBackgroundResource(R.drawable.yangwuoqizuo);
+                    lashen.setBackgroundResource(R.mipmap.yangwuoqizuo);
                     flag6 = 0;
                 }
             }
@@ -161,10 +161,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag7 == 0) {
-                    dalanqiu.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    dalanqiu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag7 = 1;
                 } else {
-                    dalanqiu.setBackgroundResource(R.drawable.yangwuoqizuo);
+                    dalanqiu.setBackgroundResource(R.mipmap.yangwuoqizuo);
                     flag7 = 0;
                 }
             }
@@ -175,10 +175,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag8 == 0) {
-                    jianshen.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    jianshen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag8 = 1;
                 } else {
-                    jianshen.setBackgroundResource(R.drawable.jianshen);
+                    jianshen.setBackgroundResource(R.mipmap.jianshen);
                     flag8 = 0;
                 }
             }
@@ -189,10 +189,10 @@ public class sport_label extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (flag9 == 0) {
-                    qiche.setBackgroundResource(R.drawable.yixuanbiaoqian);
+                    qiche.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     flag9 = 1;
                 } else {
-                    qiche.setBackgroundResource(R.drawable.qiche);
+                    qiche.setBackgroundResource(R.mipmap.qiche);
                     flag9 = 0;
                 }
             }

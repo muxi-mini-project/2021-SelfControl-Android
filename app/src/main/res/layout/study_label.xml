@@ -329,17 +329,18 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/shape"
+        android:layout_marginTop="60dp" android:background="@drawable/shape"
         android:text="我已选择完成，进入打卡"
         android:textColor="#FFFFFF"
         app:backgroundTint="#9B99F3" />
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <ImageButton
@@ -350,24 +351,25 @@
             android:background="@mipmap/fankui"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.760" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
             android:text="没有我想添加的标签......"
             app:layout_constraintStart_toEndOf="@+id/fankui"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"/>
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:text="反馈给我们~~"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/fankui" />
