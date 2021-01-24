@@ -1,0 +1,63 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        >
+
+        <!--layout_weight这个属性为权重，让三个textview平分这个linearLayout-->
+        <TextView
+            android:id="@+id/jiankang_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="健康"
+            android:textColor="#000000"
+            android:textSize="20dip" />
+        <TextView
+            android:id="@+id/yundong_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="运动"
+            android:textColor="#000000"
+            android:textSize="20dip" />
+        <TextView
+            android:id="@+id/xuexi_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="学习"
+            android:textColor="#000000"
+            android:textSize="20dip" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linearLayout"
+            android:id="@+id/scrollbar"
+            android:scaleType="matrix"
+            android:background="@mipmap/back"/>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scrollbar">
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>
