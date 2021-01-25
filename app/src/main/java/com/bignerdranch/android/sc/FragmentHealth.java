@@ -47,7 +47,7 @@ public class FragmentHealth extends Fragment {
     private TextView zaoqikongfuheshui;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.jiankang_test,container,false) ;
+        View view=inflater .inflate(R.layout.jiankang_pager,container,false) ;
         mchishuiguo = (ImageButton) view.findViewById(R.id.chishuiguo);
         mchishuiguo.setOnClickListener(new View.OnClickListener(){
             @Override

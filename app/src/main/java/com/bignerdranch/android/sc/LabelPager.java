@@ -4,17 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagerTest extends AppCompatActivity implements View.OnClickListener {
+public class LabelPager extends AppCompatActivity implements View.OnClickListener {
 
     private List<Fragment> mList;
     private ViewPager mViewPager;
@@ -27,7 +24,7 @@ public class PagerTest extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pager_test);
+        setContentView(R.layout.pager_label);
         mjiankang = (ImageButton) findViewById(R.id.health1_button);
         mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
         mjiankang.setOnClickListener(this);

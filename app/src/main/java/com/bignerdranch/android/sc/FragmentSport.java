@@ -51,7 +51,7 @@ public class FragmentSport extends Fragment {
 
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.yundong_test ,container,false) ;
+        View view=inflater .inflate(R.layout.yundong_pager,container,false) ;
 
             paobu = (ImageButton)view.findViewById(R.id.paobu_imagebutton);
             paobu.setOnClickListener(new View.OnClickListener() {

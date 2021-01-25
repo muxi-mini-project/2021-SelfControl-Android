@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -26,7 +25,7 @@ public class FragmentStudy extends Fragment {
     private ImageButton mjiankang;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.xuexi_test  ,container,false) ;
+        View view=inflater .inflate(R.layout.xuexi_pager,container,false) ;
 
             mzixi=(ImageButton)view.findViewById(R.id.zixi_B);
             mzixi.setOnClickListener(new View.OnClickListener() {
