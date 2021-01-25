@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.label;
 
 import android.os.Bundle;
 
@@ -9,7 +9,9 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
-public class FragmentStudy extends Fragment {
+import com.bignerdranch.android.sc.R;
+
+public class StudyFragment extends Fragment {
     int f1=0;int f2=0;int f3=0;int f4=0;int f5=0;int f6=0;int f7=0;int f8=0;int f9=0;int f10=0;
     private ImageButton mzixi;
     private ImageButton myueduxinwen;
@@ -25,7 +27,7 @@ public class FragmentStudy extends Fragment {
     private ImageButton mjiankang;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.xuexi_pager,container,false) ;
+        View view=inflater .inflate(R.layout.study_pager,container,false) ;
 
             mzixi=(ImageButton)view.findViewById(R.id.zixi_B);
             mzixi.setOnClickListener(new View.OnClickListener() {

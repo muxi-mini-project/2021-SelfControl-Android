@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.label;
 
 
 import android.os.Bundle;
@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.R;
 
-public class FragmentHealth extends Fragment {
+
+public class HealthFragment extends Fragment {
     private ImageButton mchishuiguo;
     private ImageButton mchizaocan;
     private ImageButton mduoheshui;
@@ -47,7 +49,7 @@ public class FragmentHealth extends Fragment {
     private TextView zaoqikongfuheshui;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.jiankang_pager,container,false) ;
+        View view=inflater .inflate(R.layout.health_pager,container,false) ;
         mchishuiguo = (ImageButton) view.findViewById(R.id.chishuiguo);
         mchishuiguo.setOnClickListener(new View.OnClickListener(){
             @Override
