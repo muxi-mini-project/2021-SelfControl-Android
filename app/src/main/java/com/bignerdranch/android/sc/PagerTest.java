@@ -22,7 +22,7 @@ public class PagerTest extends AppCompatActivity implements View.OnClickListener
     private ImageButton mjiankang;
     private ImageButton myundong;
     private ImageButton mxuexi;
-    private MyOnPageChangeListener mMyOnPageChangeListener;
+    private MyOnPageChangeListener mMyOnPageChangeListener = new MyOnPageChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
