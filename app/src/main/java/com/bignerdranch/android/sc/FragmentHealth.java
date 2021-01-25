@@ -1,23 +1,17 @@
 package com.bignerdranch.android.sc;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class HealthyLabelActivity extends AppCompatActivity {
+import androidx.fragment.app.Fragment;
 
-    private ImageButton healthy;
-    private ImageButton sport;
-    private ImageButton study;
 
+public class FragmentHealth extends Fragment {
     private ImageButton mchishuiguo;
     private ImageButton mchizaocan;
     private ImageButton mduoheshui;
@@ -30,6 +24,16 @@ public class HealthyLabelActivity extends AppCompatActivity {
     private ImageButton mzaoqikongfuheshui;
 
     private ImageButton add;
+    private int flag1 = 0;
+    private int flag2 = 0;
+    private int flag3 = 0;
+    private int flag4 = 0;
+    private int flag5 = 0;
+    private int flag6 = 0;
+    private int flag7 = 0;
+    private int flag8 = 0;
+    private int flag9 = 0;
+    private int flag10 = 0;
 
     private TextView chishuiguo;
     private TextView chizaocan;
@@ -42,26 +46,9 @@ public class HealthyLabelActivity extends AppCompatActivity {
     private TextView buqiaoerlangtui;
     private TextView zaoqikongfuheshui;
 
-    private TextView add1;
-    private TextView add2;
-
-    private int flag1 = 0;
-    private int flag2 = 0;
-    private int flag3 = 0;
-    private int flag4 = 0;
-    private int flag5 = 0;
-    private int flag6 = 0;
-    private int flag7 = 0;
-    private int flag8 = 0;
-    private int flag9 = 0;
-    private int flag10 = 0;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.healthy_label);
-
-        mchishuiguo = (ImageButton) findViewById(R.id.chishuiguo);
+    public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
+        View view=inflater .inflate(R.layout.jiankang_test,container,false) ;
+        mchishuiguo = (ImageButton) view.findViewById(R.id.chishuiguo);
         mchishuiguo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -75,7 +62,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mchizaocan = (ImageButton)findViewById(R.id.chizaocan);
+        mchizaocan = (ImageButton)view.findViewById(R.id.chizaocan);
         mchizaocan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -89,7 +76,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mduoheshui = (ImageButton)findViewById(R.id.duoheshui);
+        mduoheshui = (ImageButton)view.findViewById(R.id.duoheshui);
         mduoheshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -103,7 +90,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mjujueyexiao = (ImageButton)findViewById(R.id.jujueyexiao);
+        mjujueyexiao = (ImageButton)view.findViewById(R.id.jujueyexiao);
         mjujueyexiao.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -117,7 +104,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mjujueyinliao = (ImageButton)findViewById(R.id.jujueyinliao);
+        mjujueyinliao = (ImageButton)view.findViewById(R.id.jujueyinliao);
         mjujueyinliao.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -131,7 +118,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mjujuejiuzuo = (ImageButton)findViewById(R.id.jujuejiuzuo);
+        mjujuejiuzuo = (ImageButton)view.findViewById(R.id.jujuejiuzuo);
         mjujuejiuzuo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -145,7 +132,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mzaoqi = (ImageButton)findViewById(R.id.zaoqi);
+        mzaoqi = (ImageButton)view.findViewById(R.id.zaoqi);
         mzaoqi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -159,7 +146,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mzaoshui = (ImageButton)findViewById(R.id.zaoshui);
+        mzaoshui = (ImageButton)view.findViewById(R.id.zaoshui);
         mzaoshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -173,7 +160,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mbuqiaoerlangtui = (ImageButton)findViewById(R.id.buqiaoerlangtui);
+        mbuqiaoerlangtui = (ImageButton)view.findViewById(R.id.buqiaoerlangtui);
         mbuqiaoerlangtui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -187,7 +174,7 @@ public class HealthyLabelActivity extends AppCompatActivity {
             }
         });
 
-        mzaoqikongfuheshui = (ImageButton)findViewById(R.id.zapqikongfuheshui);
+        mzaoqikongfuheshui = (ImageButton)view.findViewById(R.id.zapqikongfuheshui);
         mzaoqikongfuheshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -200,45 +187,20 @@ public class HealthyLabelActivity extends AppCompatActivity {
                 }
             }
         });
+        chishuiguo = (TextView)view.findViewById(R.id.chishuiguo_textView);
+        chizaocan = (TextView)view.findViewById(R.id.chizaocan_textView);
+        duoheshui = (TextView)view.findViewById(R.id.duoheshui_textView);
+        jujueyexiao = (TextView)view.findViewById(R.id.jujueyexiao_textView);
+        jujueyinliao = (TextView)view.findViewById(R.id.jujueyinliao_textView);
+        jujuejiuzuo = (TextView)view.findViewById(R.id.jujuejiuzuo_textView);
+        zaoqi = (TextView)view.findViewById(R.id.zaoqi_textView);
+        zaoshui = (TextView)view.findViewById(R.id.zaoshui_textView);
+        buqiaoerlangtui = (TextView)view.findViewById(R.id.buqiaoerlangtui_textView);
+        zaoqikongfuheshui = (TextView)view.findViewById(R.id.zapqikongfuheshui_textView);
 
-        add = (ImageButton)findViewById(R.id.add);
+        add = (ImageButton)view.findViewById(R.id.add);
 
-        //设置状态栏透明
-        makeStatusBarTransparent(this);
-        //状态栏文字自适应
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
-    }
-
-    public void textViewInit(){
-
-        chishuiguo = (TextView)findViewById(R.id.chishuiguo_textView);
-        chizaocan = (TextView)findViewById(R.id.chizaocan_textView);
-        duoheshui = (TextView)findViewById(R.id.duoheshui_textView);
-        jujueyexiao = (TextView)findViewById(R.id.jujueyexiao_textView);
-        jujueyinliao = (TextView)findViewById(R.id.jujueyinliao_textView);
-        jujuejiuzuo = (TextView)findViewById(R.id.jujuejiuzuo_textView);
-        zaoqi = (TextView)findViewById(R.id.zaoqi_textView);
-        zaoshui = (TextView)findViewById(R.id.zaoshui_textView);
-        buqiaoerlangtui = (TextView)findViewById(R.id.buqiaoerlangtui_textView);
-        zaoqikongfuheshui = (TextView)findViewById(R.id.zapqikongfuheshui_textView);
-
-    }
-
-    public static void makeStatusBarTransparent(Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return;
-        }
-        Window window = activity.getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            int option = window.getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            window.getDecorView().setSystemUiVisibility(option);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        } else {
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
+        return view;
     }
 
 }

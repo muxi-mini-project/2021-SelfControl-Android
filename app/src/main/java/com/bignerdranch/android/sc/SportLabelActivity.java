@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class SportLabelActivity extends AppCompatActivity {
-//
+
     private ImageButton health;
     private ImageButton sport;
     private ImageButton study;
@@ -29,7 +29,6 @@ public class SportLabelActivity extends AppCompatActivity {
     private ImageButton qiche;
 
     private ImageButton add;
-    private ImageButton chosen;
 
     private TextView paobu1;
     private TextView fuwocheng1;
