@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+import com.bignerdranch.android.sc.label.HealthFragment;
+
+public class LoginActivity extends StatusBar {
 
     private EditText musername;
     private EditText mpassword;
@@ -28,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,StudyLabelActivity.class);
+                Intent intent=new Intent(LoginActivity.this, HealthFragment.class);
                 startActivity(intent);
             }
         });
@@ -38,21 +40,5 @@ public class LoginActivity extends AppCompatActivity {
         //状态栏文字自适应
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-    }
-
-    public static void makeStatusBarTransparent(Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return;
-        }
-        Window window = activity.getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            int option = window.getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-            window.getDecorView().setSystemUiVisibility(option);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        } else {
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
     }
 }
