@@ -28,16 +28,18 @@ public class PagerTest extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pager_test);
-        mjiankang = (ImageButton) findViewById(R.id.jiankang_button);
-        myundong = (ImageButton) findViewById(R.id.yundong_button);
-        mxuexi = (ImageButton) findViewById(R.id.xuexi_button);
+        mjiankang = (ImageButton) findViewById(R.id.health1_button);
+        mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
+        mjiankang.setOnClickListener(this);
+        myundong = (ImageButton) findViewById(R.id.sport1_button);
+        myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+        myundong.setOnClickListener(this);
+        mxuexi = (ImageButton) findViewById(R.id.study1_button);
+        mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
+        mxuexi.setOnClickListener(this);
 
         mViewPager = (ViewPager) findViewById(R.id.myViewPager);
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
-
-        mjiankang.setOnClickListener(this);
-        myundong.setOnClickListener(this);
-        mxuexi.setOnClickListener(this);
 
         mList = new ArrayList<>();
         mList.add(new FragmentHealth() );
@@ -60,22 +62,21 @@ public class PagerTest extends AppCompatActivity implements View.OnClickListener
 
         @Override
         public void onPageSelected(int position) {
-            mViewPager.setCurrentItem(position);
             switch (position){
                 case 0 :
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
-                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
                 case 1 :
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
-                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
-                    myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                    myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
+                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
                 case 2 :
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
-                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
-                    myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
+                    myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                    mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
                     break;
             }
 
@@ -90,26 +91,26 @@ public class PagerTest extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.jiankang_button:
+            case R.id.health1_button:
                 //点击"健康"时切换到第一页
                 mViewPager.setCurrentItem(0);
                 mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
-                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                 myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                 break;
-            case R.id.yundong_button:
+            case R.id.sport1_button:
                 //点击“运动”时切换到第二页
                 mViewPager.setCurrentItem(1);
                 mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
-                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
-                myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
+                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                 break;
-            case R.id.xuexi_button:
+            case R.id.study1_button:
                 //点击“学习”时切换到第三页
                 mViewPager.setCurrentItem(2);
                 mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
-                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
-                myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
+                myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
+                mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
                 break;
         }
     }
