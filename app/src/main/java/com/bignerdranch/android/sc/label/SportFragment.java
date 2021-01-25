@@ -12,10 +12,6 @@ import androidx.fragment.app.Fragment;
 import com.bignerdranch.android.sc.R;
 
 public class SportFragment extends Fragment {
-    private ImageButton mhealth;
-    private ImageButton msport;
-    private ImageButton mstudy;
-
     private ImageButton mpaobu;
     private ImageButton mfuwocheng;
     private ImageButton mtiaosheng;
