@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.label;
 
 import android.view.ViewGroup;
 

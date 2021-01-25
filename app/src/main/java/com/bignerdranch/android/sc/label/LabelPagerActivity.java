@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.label;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +8,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.label.HealthFragment;
+import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
+import com.bignerdranch.android.sc.label.SportFragment;
+import com.bignerdranch.android.sc.label.StudyFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class LabelPager extends AppCompatActivity implements View.OnClickListener {
+public class LabelPagerActivity extends AppCompatActivity implements View.OnClickListener {
 
     private List<Fragment> mList;
     private ViewPager mViewPager;
@@ -39,9 +45,9 @@ public class LabelPager extends AppCompatActivity implements View.OnClickListene
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new FragmentHealth() );
-        mList.add(new FragmentSport() );
-        mList.add(new FragmentStudy() );
+        mList.add(new HealthFragment() );
+        mList.add(new SportFragment() );
+        mList.add(new StudyFragment() );
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(0);
