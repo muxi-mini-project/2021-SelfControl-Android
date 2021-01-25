@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,238 +7,200 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-
-        <ImageButton
-            android:id="@+id/jiankang_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@mipmap/nav_jiankang_pressed"
-            android:layout_marginLeft="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/yundong_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@mipmap/nav_yundong_normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/xuexi_button"
-            app:layout_constraintStart_toEndOf="@+id/jiankang_button"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/xuexi_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginRight="60dp"
-            android:background="@mipmap/nav_xuexi_normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/chishuiguo"
+            android:id="@+id/paobu_imagebutton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="25dp"
-            android:background="@mipmap/chishuiguo"
+            android:layout_marginStart="25dp"
+            android:background="@mipmap/paobu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/chizaocan"
+            android:id="@+id/fuwocheng_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@mipmap/chizaocan"
+            android:background="@mipmap/fuwocheng"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/duoheshui"
+            app:layout_constraintEnd_toStartOf="@+id/tiaosheng_imageButton"
             app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toEndOf="@+id/chishuiguo"
-            app:layout_constraintTop_toTopOf="parent"/>
-
+            app:layout_constraintStart_toEndOf="@+id/paobu_imagebutton"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/duoheshui"
+            android:id="@+id/tiaosheng_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginRight="25dp"
-            android:background="@mipmap/duoheshui"
+            android:layout_marginEnd="25dp"
+            android:background="@mipmap/tiaosheng"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="30dp">
 
         <TextView
-            android:id="@+id/chishuiguo_textView"
-            android:layout_width="60dp"
+            android:id="@+id/paobu_textView"
+            android:layout_width="38dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="38dp"
-            android:text="吃水果"
+            android:layout_marginStart="44dp"
+            android:text="跑步"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/chizaocan_textView"
+            android:id="@+id/fuwocheng_textView"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:layout_marginRight="10dp"
-            android:text="吃早餐"
+            android:layout_marginStart="10dp"
+            android:text="俯卧撑"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/duoheshui_textView"
+            app:layout_constraintEnd_toStartOf="@+id/tiaosheng_textView"
             app:layout_constraintHorizontal_bias="0.534"
-            app:layout_constraintStart_toEndOf="@+id/chishuiguo_textView"
+            app:layout_constraintStart_toEndOf="@+id/paobu_textView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/duoheshui_textView"
+            android:id="@+id/tiaosheng_textView"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:layout_marginRight="24dp"
-            android:text="多喝水"
+            android:layout_marginEnd="16dp"
+            android:text="跳绳"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/jujueyexiao"
+            android:id="@+id/yangwoqizuo_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="25dp"
-            android:background="@mipmap/jujueyexiao"
+            android:layout_marginStart="25dp"
+            android:background="@mipmap/yangwuoqizuo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/jujueyinliao"
+            android:id="@+id/sanbu_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@mipmap/jujueyinliao"
+            android:background="@mipmap/sanbu"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/jujuejiuzuo"
+            app:layout_constraintEnd_toStartOf="@+id/lashen_imageButton"
             app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toEndOf="@+id/jujueyexiao"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toEndOf="@+id/yangwoqizuo_imageButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/jujuejiuzuo"
+            android:id="@+id/lashen_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@mipmap/jujuejiuzuo"
-            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@mipmap/lashen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="30dp">
 
         <TextView
-            android:id="@+id/jujueyexiao_textView"
+            android:id="@+id/yangwoqizuo_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="33dp"
-            android:text="拒绝夜宵"
+            android:layout_marginStart="28dp"
+            android:text="仰卧起坐"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.545" />
 
         <TextView
-            android:id="@+id/jujueyinliao_textView"
+            android:id="@+id/sanbu_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="拒绝饮料"
+            android:layout_marginEnd="10dp"
+            android:text="散步"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/jujuejiuzuo_textView"
+            app:layout_constraintEnd_toStartOf="@+id/lashen_textView"
             app:layout_constraintHorizontal_bias="0.475"
-            app:layout_constraintStart_toEndOf="@+id/jujueyexiao_textView"
+            app:layout_constraintStart_toEndOf="@+id/yangwoqizuo_textView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"  />
+            app:layout_constraintVertical_bias="0.545" />
 
         <TextView
-            android:id="@+id/jujuejiuzuo_textView"
+            android:id="@+id/lashen_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="33dp"
-            android:text="拒绝久坐"
+            android:layout_marginEnd="48dp"
+            android:text="拉伸"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"  />
+            app:layout_constraintVertical_bias="0.545" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/zaoqi"
+            android:id="@+id/dalanqiu_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="25dp"
-            android:background="@mipmap/zaoqi"
+            android:layout_marginStart="25dp"
+            android:background="@mipmap/dalanqiu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/zaoshui"
+            android:id="@+id/jianshen_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@mipmap/zaoshui"
+            android:background="@mipmap/jianshen"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buqiaoerlangtui"
+            app:layout_constraintEnd_toStartOf="@+id/qiche_imageButton"
             app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toEndOf="@id/zaoqi"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/dalanqiu_imageButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/buqiaoerlangtui"
+            android:id="@+id/qiche_imageButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginRight="25dp"
-            android:background="@mipmap/buqiaoerlangtui"
+            android:layout_marginEnd="25dp"
+            android:background="@mipmap/qiche"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,80 +210,44 @@
         android:layout_height="30dp">
 
         <TextView
-            android:id="@+id/zaoqi_textView"
+            android:id="@+id/dalanqiu_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:text="早起"
+            android:layout_marginStart="36dp"
+            android:text="打篮球"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.454"/>
+            app:layout_constraintVertical_bias="0.454" />
 
         <TextView
-            android:id="@+id/zaoshui_textView"
+            android:id="@+id/jianshen_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="早睡"
+            android:layout_marginEnd="30dp"
+            android:text="健身"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buqiaoerlangtui_textView"
-            app:layout_constraintHorizontal_bias="0.539"
-            app:layout_constraintStart_toEndOf="@+id/zaoqi_textView"
+            app:layout_constraintEnd_toStartOf="@+id/qiche_textView"
+            app:layout_constraintHorizontal_bias="0.573"
+            app:layout_constraintStart_toEndOf="@+id/dalanqiu_textView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"/>
+            app:layout_constraintVertical_bias="0.545" />
 
         <TextView
-            android:id="@+id/buqiaoerlangtui_textView"
+            android:id="@+id/qiche_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="不翘二郎腿"
+            android:layout_marginEnd="44dp"
+            android:text="骑车"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/zapqikongfuheshui"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="25dp"
-            android:background="@mipmap/zaoqikongfuheshui"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/zapqikongfuheshui_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="早起空腹喝水"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.545" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout10"
+        android:id="@+id/linearLayout8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
@@ -330,7 +255,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/fankui"
+            android:id="@+id/add_imageButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
@@ -338,7 +263,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.888" />
+            app:layout_constraintVertical_bias="0.927" />
 
         <TextView
             android:id="@+id/textView4"
@@ -347,8 +272,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="24dp"
             android:text="没有我想添加的标签......"
-            app:layout_constraintStart_toEndOf="@+id/fankui"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"/>
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/add_imageButton" />
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
@@ -357,7 +283,7 @@
             android:layout_marginBottom="32dp"
             android:text="反馈给我们~~"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/fankui" />
+            app:layout_constraintStart_toEndOf="@+id/add_imageButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
