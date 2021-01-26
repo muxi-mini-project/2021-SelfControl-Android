@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#9B99F3"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tv_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:background="#A9A7F2"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/scoller_text"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="27dp"
+            tools:layout_conversion_absoluteWidth="391dp" />
+
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="264dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            android:background="@mipmap/settings"
+            app:layout_constraintEnd_toStartOf="@+id/users"
+            app:layout_constraintHorizontal_bias="0.754"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_scroll"
+            tools:layout_conversion_absoluteHeight="32dp"
+            tools:layout_conversion_absoluteWidth="32dp" />
+
+        <ImageButton
+            android:id="@+id/users"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:background="@mipmap/user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_scroll" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
