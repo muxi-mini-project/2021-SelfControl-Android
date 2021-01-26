@@ -23,8 +23,6 @@ public class StudyFragment extends Fragment {
     private ImageButton mtinglixunlian;
     private ImageButton mlianzi;
     private ImageButton myingyuyueduxunlian;
-    private ImageButton myundong;
-    private ImageButton mjiankang;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
         View view=inflater .inflate(R.layout.study_pager,container,false) ;
