@@ -189,6 +189,7 @@ public class HealthFragment extends Fragment {
                 }
             }
         });
+
         chishuiguo = (TextView)view.findViewById(R.id.chishuiguo_textView);
         chizaocan = (TextView)view.findViewById(R.id.chizaocan_textView);
         duoheshui = (TextView)view.findViewById(R.id.duoheshui_textView);
