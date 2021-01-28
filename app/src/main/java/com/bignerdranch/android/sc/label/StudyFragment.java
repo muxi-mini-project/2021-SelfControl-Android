@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.clockin.Clockin;
+import com.bignerdranch.android.sc.clockin.ClockinActivity;
 
 public class StudyFragment extends Fragment {
     int f1 = 0;
@@ -222,7 +222,7 @@ public class StudyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), Clockin.class);
+                intent.setClass(getActivity(), ClockinActivity.class);
                 startActivity(intent);
             }
         });

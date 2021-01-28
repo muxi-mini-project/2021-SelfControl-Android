@@ -39,12 +39,12 @@ public class ClockinListFragment extends Fragment {
 
     private class ClockinHolder extends RecyclerView.ViewHolder{
 
-        private Clockin mClockin;
+        private ClockinActivity mClockin;
         private ImageView mImageView;
         private TextView mTextView1;
         private TextView mTextView2;
         private Button mButton;
-        private int mDay;
+        private int mTimes;
 
         public ClockinHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.clockin_list,parent,false));
@@ -55,10 +55,10 @@ public class ClockinListFragment extends Fragment {
             mButton = (Button) itemView.findViewById(R.id.clockin);
         }
 
-        public void bind(Clockin clockin){
+        public void bind(ClockinActivity clockin){
             mClockin = clockin;
             mTextView1.getText();
-            mTextView2.setText("你已打卡：" + mDay + "天");
+            mTextView2.setText("你已打卡：" + mTimes + "次");
         }
 
     }
@@ -66,9 +66,9 @@ public class ClockinListFragment extends Fragment {
 
     private class ClockinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-        private List<Clockin> mClockins;
+        private List<ClockinActivity> mClockins;
 
-        public ClockinAdapter(List<Clockin> clockins){
+        public ClockinAdapter(List<ClockinActivity> clockins){
             mClockins = clockins;
         }
 
@@ -80,7 +80,7 @@ public class ClockinListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-            Clockin clockin = mClockins.get(position);
+            ClockinActivity clockin = mClockins.get(position);
                 ((ClockinHolder)holder).bind(clockin);
         }
 

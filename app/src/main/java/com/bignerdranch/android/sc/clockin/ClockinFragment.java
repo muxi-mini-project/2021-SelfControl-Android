@@ -12,7 +12,7 @@ import java.util.UUID;
 public class ClockinFragment extends Fragment {
     private static final String ARG_CRIME_ID = "clockin_id";
 
-    private Clockin mClockin;
+    private ClockinActivity mClockin;
     private ImageView mImageView;
     private TextView mTextView;
     private int mDay;

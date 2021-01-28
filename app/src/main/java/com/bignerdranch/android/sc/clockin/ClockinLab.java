@@ -8,7 +8,7 @@ import java.util.List;
 public class ClockinLab {
     private static ClockinLab sClockinLab;
 
-    private List<Clockin> mClockins;
+    private List<ClockinActivity> mClockins;
 
     public static ClockinLab get(Context context){
         if(sClockinLab == null){
@@ -20,11 +20,11 @@ public class ClockinLab {
     private ClockinLab(Context context){
         mClockins = new ArrayList<>();
         for (int i = 0;i < 100;i++){
-            Clockin clockin = new Clockin();
+            ClockinActivity clockin = new ClockinActivity();
         }
     }
 
-    public List<Clockin> getmClockins(){
+    public List<ClockinActivity> getmClockins(){
         return mClockins;
     }
 

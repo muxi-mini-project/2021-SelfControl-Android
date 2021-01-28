@@ -6,10 +6,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Clockin extends AppCompatActivity {
+public class ClockinActivity extends AppCompatActivity {
     private ImageView mImageView;
     private TextView mTextView;
-    private int mDay;
+    private int mTimes;
     private Button mButton;
 
     public ImageView getImageView(){
@@ -28,12 +28,12 @@ public class Clockin extends AppCompatActivity {
         mTextView = textView;
     }
 
-    public int getmDay() {
-        return mDay;
+    public int getmTimes() {
+        return mTimes;
     }
 
-    public void setmDay(int day) {
-        mDay = day;
+    public void setmTimes(int day) {
+        mTimes = day;
     }
 
     public Button getmButton() {
