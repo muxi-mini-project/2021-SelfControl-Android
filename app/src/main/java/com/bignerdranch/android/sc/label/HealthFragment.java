@@ -25,7 +25,7 @@ public class HealthFragment extends Fragment {
     private ImageButton mbuqiaoerlangtui;
     private ImageButton mzaoqikongfuheshui;
 
-    private ImageButton add;
+    private ImageButton fankui;
     private int flag1 = 0;
     private int flag2 = 0;
     private int flag3 = 0;
@@ -190,18 +190,7 @@ public class HealthFragment extends Fragment {
             }
         });
 
-        chishuiguo = (TextView)view.findViewById(R.id.chishuiguo_textView);
-        chizaocan = (TextView)view.findViewById(R.id.chizaocan_textView);
-        duoheshui = (TextView)view.findViewById(R.id.duoheshui_textView);
-        jujueyexiao = (TextView)view.findViewById(R.id.jujueyexiao_textView);
-        jujueyinliao = (TextView)view.findViewById(R.id.jujueyinliao_textView);
-        jujuejiuzuo = (TextView)view.findViewById(R.id.jujuejiuzuo_textView);
-        zaoqi = (TextView)view.findViewById(R.id.zaoqi_textView);
-        zaoshui = (TextView)view.findViewById(R.id.zaoshui_textView);
-        buqiaoerlangtui = (TextView)view.findViewById(R.id.buqiaoerlangtui_textView);
-        zaoqikongfuheshui = (TextView)view.findViewById(R.id.zapqikongfuheshui_textView);
-
-        add = (ImageButton)view.findViewById(R.id.add);
+        fankui = (ImageButton)view.findViewById(R.id.fankui_imageButton);
 
         return view;
     }

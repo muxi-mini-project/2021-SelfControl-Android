@@ -22,7 +22,7 @@ public class SportFragment extends Fragment {
     private ImageButton mjianshen;
     private ImageButton mqiche;
 
-    private ImageButton madd;
+    private ImageButton mfankui;
 
     private TextView mpaobu1;
     private TextView mfuwocheng1;
@@ -178,7 +178,7 @@ public class SportFragment extends Fragment {
                 }
             });
 
-            madd = (ImageButton)view.findViewById(R.id.add_imageButton);
+            mfankui = (ImageButton)view.findViewById(R.id.fankui_imageButton);
 
             mpaobu1 = (TextView)view.findViewById(R.id.paobu_textView);
             mfuwocheng1 = (TextView)view.findViewById(R.id.fuwocheng_textView);

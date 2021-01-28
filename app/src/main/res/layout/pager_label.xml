@@ -50,7 +50,9 @@
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"></FrameLayout>
+            android:layout_weight="1">
+        </FrameLayout>
+
     </androidx.viewpager.widget.ViewPager>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +65,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/add_imageButton"
+            android:id="@+id/fankui_imageButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="10dp"
@@ -81,7 +83,7 @@
             android:layout_marginBottom="24dp"
             android:text="没有我想添加的标签......"
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintStart_toEndOf="@+id/add_imageButton" />
+            app:layout_constraintStart_toEndOf="@+id/fankui_imageButton" />
 
         <TextView
             android:id="@+id/textView5"
@@ -91,7 +93,7 @@
             android:layout_marginBottom="16dp"
             android:text="反馈给我们~~"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/add_imageButton" />
+            app:layout_constraintStart_toEndOf="@+id/fankui_imageButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

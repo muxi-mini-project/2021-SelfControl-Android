@@ -4,16 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.label.HealthFragment;
-import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
-import com.bignerdranch.android.sc.label.SportFragment;
-import com.bignerdranch.android.sc.label.StudyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +42,14 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
         mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
         mxuexi.setOnClickListener(this);
 
+
         mViewPager = (ViewPager) findViewById(R.id.myViewPager);
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new HealthFragment() );
-        mList.add(new SportFragment() );
-        mList.add(new StudyFragment() );
+        mList.add(new HealthFragment());
+        mList.add(new SportFragment());
+        mList.add(new StudyFragment());
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 
@@ -77,18 +73,18 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
 
         @Override
         public void onPageSelected(int position) {
-            switch (position){
-                case 0 :
+            switch (position) {
+                case 0:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
-                case 1 :
+                case 1:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
-                case 2 :
+                case 2:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
