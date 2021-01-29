@@ -32,8 +32,8 @@ public class ClockinActivity extends AppCompatActivity {
         return mTimes;
     }
 
-    public void setmTimes(int day) {
-        mTimes = day;
+    public void setmTimes(int times) {
+        mTimes = times;
     }
 
     public Button getmButton() {

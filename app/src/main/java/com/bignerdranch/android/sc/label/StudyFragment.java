@@ -1,6 +1,8 @@
 package com.bignerdranch.android.sc.label;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -16,16 +18,6 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.clockin.ClockinActivity;
 
 public class StudyFragment extends Fragment {
-    int f1 = 0;
-    int f2 = 0;
-    int f3 = 0;
-    int f4 = 0;
-    int f5 = 0;
-    int f6 = 0;
-    int f7 = 0;
-    int f8 = 0;
-    int f9 = 0;
-    int f10 = 0;
 
     private ImageButton mzixi;
     private ImageButton myueduxinwen;
@@ -39,6 +31,9 @@ public class StudyFragment extends Fragment {
     private ImageButton myingyuyueduxunlian;
 
     private ImageButton mfankui;
+
+    int[] flag = {0};
+    int times3 = 0;
 
     private Button mButton;
 
@@ -56,6 +51,15 @@ public class StudyFragment extends Fragment {
     private TextView madd1;
     private TextView madd2;
 
+    SendValue mSendValue;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mSendValue= (SendValue) getActivity();
+    }
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.study_pager, container, false);
         Button button = (Button) getActivity().findViewById(R.id.next);
@@ -68,15 +72,19 @@ public class StudyFragment extends Fragment {
             public void onClick(View v) {
 
                 // IB_PullDown.setBackgroundResource(R.drawable.pulldown_button_image);
-                if (f1 == 0) {
+                if (flag[0] == 0) {
                     // TODO Auto-generated method stub
                     mzixi.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                     //ll_AirItem.setVisibility(View.VISIBLE);
-                    f1 = 1;
+                    flag[0] = 1;
+                    final TextView textView = view.findViewById(R.id.zixi_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mzixi.setBackgroundResource(R.mipmap.zixi);
                     //ll_AirItem.setVisibility(View.GONE);
-                    f1 = 0;
+                    flag[0] = 0;
                 }
             }
 
@@ -87,12 +95,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f2 == 0) {
+                if (flag[1] == 0) {
                     myueduxinwen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f2 = 1;
+                    flag[1] = 1;
+                    final TextView textView = view.findViewById(R.id.yueduxinwen_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     myueduxinwen.setBackgroundResource(R.mipmap.yueduxinwen);
-                    f2 = 0;
+                    flag[1] = 0;
                 }
             }
         });
@@ -102,12 +114,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f3 == 0) {
+                if (flag[2] == 0) {
                     mlianxiyueqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f3 = 1;
+                    flag[2] = 1;
+                    final TextView textView = view.findViewById(R.id.lianxiyueqi_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mlianxiyueqi.setBackgroundResource(R.mipmap.lianxiyueqi);
-                    f3 = 0;
+                    flag[2] = 0;
                 }
             }
         });
@@ -117,12 +133,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f4 == 0) {
+                if (flag[3] == 0) {
                     mxuexixinyuyan.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f4 = 1;
+                    flag[3] = 1;
+                    final TextView textView = view.findViewById(R.id.xuexixinyuyan_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mxuexixinyuyan.setBackgroundResource(R.mipmap.xuexixinyvyan);
-                    f4 = 0;
+                    flag[3] = 0;
                 }
             }
         });
@@ -132,12 +152,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f5 == 0) {
+                if (flag[4] == 0) {
                     mbeidanci.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f5 = 1;
+                    flag[4] = 1;
+                    final TextView textView = view.findViewById(R.id.beidanci_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mbeidanci.setBackgroundResource(R.mipmap.beidanci);
-                    f5 = 0;
+                    flag[4] = 0;
                 }
             }
         });
@@ -147,12 +171,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f6 == 0) {
+                if (flag[5] == 0) {
                     mkanjilupian.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f6 = 1;
+                    flag[5] = 1;
+                    final TextView textView = view.findViewById(R.id.kanjilupian_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mkanjilupian.setBackgroundResource(R.mipmap.kanjilupian);
-                    f6 = 0;
+                    flag[5] = 0;
                 }
             }
         });
@@ -162,12 +190,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f7 == 0) {
+                if (flag[6] == 0) {
                     mzuojinrijihua.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f7 = 1;
+                    flag[6] = 1;
+                    final TextView textView = view.findViewById(R.id.zuojinrijihua_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mzuojinrijihua.setBackgroundResource(R.mipmap.zuojinrijihua);
-                    f7 = 0;
+                    flag[6] = 0;
                 }
             }
         });
@@ -177,12 +209,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f8 == 0) {
+                if (flag[7] == 0) {
                     mtinglixunlian.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f8 = 1;
+                    flag[7] = 1;
+                    final TextView textView = view.findViewById(R.id.tinglixunjian_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mtinglixunlian.setBackgroundResource(R.mipmap.tinglilianxi);
-                    f8 = 0;
+                    flag[7] = 0;
                 }
             }
         });
@@ -192,12 +228,16 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f9 == 0) {
+                if (flag[8] == 0) {
                     mlianzi.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f9 = 1;
+                    flag[8] = 1;
+                    final TextView textView = view.findViewById(R.id.lianzi_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
                 } else {
                     mlianzi.setBackgroundResource(R.mipmap.lianzi);
-                    f9 = 0;
+                    flag[8] = 0;
                 }
             }
         });
@@ -207,12 +247,17 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                if (f10 == 0) {
+                if (flag[9] == 0) {
                     myingyuyueduxunlian.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    f10 = 1;
+                    flag[9] = 1;
+                    final TextView textView = view.findViewById(R.id.yingyuyueduxunlian_T);
+                    times3++;
+                    String s=textView.getText().toString();
+                    mSendValue.Send1(s);
+                    mSendValue.Send2(times3);
                 } else {
                     myingyuyueduxunlian.setBackgroundResource(R.mipmap.yingyuyueduxunlian);
-                    f10 = 0;
+                    flag[9] = 0;
                 }
             }
         });
@@ -229,7 +274,6 @@ public class StudyFragment extends Fragment {
 
         mfankui = (ImageButton) view.findViewById(R.id.fankui_imageButton);
 
-
         mzixi1 = (TextView) view.findViewById(R.id.zixi_T);
         myueduxinwen1 = (TextView) view.findViewById(R.id.yueduxinwen_T);
         mlianxiyueqi1 = (TextView) view.findViewById(R.id.lianxiyueqi_T);
@@ -245,6 +289,11 @@ public class StudyFragment extends Fragment {
         madd2 = (TextView) view.findViewById(R.id.textView5);
 
         return view;
+    }
+
+    public interface SendValue{
+        void Send1(String s);
+        void Send2(int times3);
     }
 
 }

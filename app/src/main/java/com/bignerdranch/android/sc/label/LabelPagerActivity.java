@@ -55,7 +55,7 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
 
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(0);
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(3);
 
         //设置状态栏透明
         makeStatusBarTransparent(this);
