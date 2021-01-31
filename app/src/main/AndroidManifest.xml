@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SC">
-        <activity android:name=".SeeUserLabelActivity">
+        <activity android:name=".settings.BackgroundActivity"></activity>
+        <activity android:name=".settings.CoinFunctionActivity"></activity>
+        <activity android:name=".settings.CourseActivity"></activity>
+        <activity android:name=".settings.PrivateActivity"></activity>
+        <activity android:name=".settings.SettingPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
