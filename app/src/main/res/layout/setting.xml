@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/coin_layout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#FFFFFF"
@@ -105,6 +106,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/course_layout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#FFFFFF"
@@ -155,6 +157,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/theme_layout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#FFFFFF"
@@ -205,6 +208,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/private_layout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#FFFFFF"

@@ -13,7 +13,10 @@
         <activity android:name=".settings.CoinFunctionActivity"></activity>
         <activity android:name=".settings.CourseActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
-        <activity android:name=".settings.SettingPageActivity">
+        <activity android:name=".user.RankQueryActivity"></activity>
+        <activity android:name=".user.MonthReportActivity"></activity>
+        <activity android:name=".user.CoinQueryActivity"></activity>
+        <activity android:name=".user.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

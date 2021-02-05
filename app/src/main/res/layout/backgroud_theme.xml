@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme2"
             app:layout_constraintTop_toTopOf="@+id/theme2"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -150,7 +150,7 @@
             app:layout_constraintTop_toBottomOf="@+id/theme6" />
 
         <ImageView
-            android:id="@+id/imageView17"
+            android:id="@+id/choose6"
             android:layout_width="33dp"
             android:layout_height="26dp"
             app:layout_constraintBottom_toBottomOf="@+id/theme6"
@@ -159,7 +159,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme6"
             app:layout_constraintTop_toTopOf="@+id/theme6"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -205,7 +205,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme5"
             app:layout_constraintTop_toTopOf="@+id/theme5"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -250,7 +250,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme4"
             app:layout_constraintTop_toTopOf="@+id/theme4"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -295,7 +295,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme3"
             app:layout_constraintTop_toTopOf="@+id/theme3"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -342,7 +342,7 @@
             app:layout_constraintStart_toStartOf="@+id/theme1"
             app:layout_constraintTop_toTopOf="@+id/theme1"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/choose" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
