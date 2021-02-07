@@ -8,7 +8,7 @@ public class SpecialCalendar {
     private int dayOfWeek = 0;
     private int eachDayOfWeek = 0;
 
-
+    //判断是否是闰年
     public boolean isLeapYear(int year) {
         if (year % 100 == 0 && year % 400 == 0) {
             return true;
@@ -18,7 +18,7 @@ public class SpecialCalendar {
         return false;
     }
 
-
+    //得到每个月有几天
     public int getDaysOfMonth(boolean isLeapyear, int month) {
         switch (month) {
             case 1:
@@ -47,17 +47,17 @@ public class SpecialCalendar {
         return daysOfMonth;
     }
 
-
+    //判断月有几周
     public int getWeekdayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
-        cal.set(year, month - 1, 1);
+        cal.set(year, month - 1, 1);//跳转到特定的时间点
         dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;
         return dayOfWeek;
     }
 
     public int getWeekDayOfLastMonth(int year, int month, int day) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, month - 1, day);
+        Calendar cal = Calendar.getInstance();//实例化了一个calendar
+        cal.set(year, month - 1,  day);
         eachDayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;
         return eachDayOfWeek;
     }

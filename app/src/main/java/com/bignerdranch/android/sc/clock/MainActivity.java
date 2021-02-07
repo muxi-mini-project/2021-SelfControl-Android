@@ -61,6 +61,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
         currentYear = year_c;
         currentMonth = month_c;
         currentDay = day_c;
+
         sc = new SpecialCalendar();
         getCalendar(year_c, month_c);
         week_num = getWeeksOfMonth();
@@ -136,6 +137,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clock_main_page);
+
         tvDate = (TextView) findViewById(R.id.tv_date);
         tvDate.setText(year_c + "年" + month_c + "月" + day_c + "日");
         gestureDetector = new GestureDetector(this);
@@ -147,6 +149,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
         selectPostion = dateAdapter.getTodayPosition();
         gridView.setSelection(selectPostion);
         flipper1.addView(gridView, 0);
+
         ticker = (TextView) findViewById(R.id.tv_scroll);
         ticker.setSelected(true);
     }

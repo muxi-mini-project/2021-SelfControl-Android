@@ -48,28 +48,27 @@ public class DateAdapter extends BaseAdapter {
         sys_day = sysDate.split("-")[2];
     }
 
-    public DateAdapter(Context context, int year_c, int month_c, int week_c,
-                       boolean isStart) {
+    public DateAdapter(Context context, int year_c, int month_c, int week_c, boolean isStart) {
         this();
         this.context = context;
         this.isStart = isStart;
         sc = new SpecialCalendar();
 
-        currentYear = String.valueOf(year_c);
+        currentYear = String.valueOf(year_c);//将int型变量转化为字符串
         currentMonth = String.valueOf(month_c);
-
         currentDay = String.valueOf(sys_day);
-        getCalendar(Integer.parseInt(currentYear),
-                Integer.parseInt(currentMonth));
+        getCalendar(Integer.parseInt(currentYear), Integer.parseInt(currentMonth));
+
         currentWeek = String.valueOf(week_c);
-        getWeek(Integer.parseInt(currentYear), Integer.parseInt(currentMonth),
-                Integer.parseInt(currentWeek));
+        getWeek(Integer.parseInt(currentYear), Integer.parseInt(currentMonth), Integer.parseInt(currentWeek));
 
     }
 
+    //确定今天是星期几如果今天是星期日则返回0;如果是星期一则直接返回1;以此类推
     public int getTodayPosition() {
-        int todayWeek = sc.getWeekDayOfLastMonth(Integer.parseInt(sys_year),
-                Integer.parseInt(sys_month), Integer.parseInt(sys_day));
+        //Integer.parseInt将字符串变为整型
+        int todayWeek = sc.getWeekDayOfLastMonth(Integer.parseInt(sys_year), Integer.parseInt(sys_month), Integer.parseInt(sys_day));
+
         if (todayWeek == 7) {
             clickTemp = 0;
         } else {
@@ -78,40 +77,26 @@ public class DateAdapter extends BaseAdapter {
         return clickTemp;
     }
 
-
+    //获得当前的月份
     public int getCurrentMonth(int position) {
-        int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear),
-                Integer.parseInt(currentMonth));
+        int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear), Integer.parseInt(currentMonth));
         if (isStart) {
-            if (thisDayOfWeek != 7) {
-                if (position < thisDayOfWeek) {
-                    return Integer.parseInt(currentMonth) - 1 == 0 ? 12
-                            : Integer.parseInt(currentMonth) - 1;
-                } else {
-                    return Integer.parseInt(currentMonth);
-                }
+            if (thisDayOfWeek != 7 && position < thisDayOfWeek) {
+                    return Integer.parseInt(currentMonth) - 1 == 0 ? 12 : Integer.parseInt(currentMonth) - 1;
             } else {
                 return Integer.parseInt(currentMonth);
             }
         } else {
             return Integer.parseInt(currentMonth);
         }
-
     }
 
-
+    //获得当前年份
     public int getCurrentYear(int position) {
-        int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear),
-                Integer.parseInt(currentMonth));
+        int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear), Integer.parseInt(currentMonth));
         if (isStart) {
-            if (thisDayOfWeek != 7) {
-                if (position < thisDayOfWeek) {
-                    return Integer.parseInt(currentMonth) - 1 == 0 ? Integer
-                            .parseInt(currentYear) - 1 : Integer
-                            .parseInt(currentYear);
-                } else {
-                    return Integer.parseInt(currentYear);
-                }
+            if (thisDayOfWeek != 7 && position < thisDayOfWeek) {
+                    return Integer.parseInt(currentMonth) - 1 == 0 ? Integer.parseInt(currentYear) - 1 : Integer.parseInt(currentYear);
             } else {
                 return Integer.parseInt(currentYear);
             }
@@ -134,24 +119,20 @@ public class DateAdapter extends BaseAdapter {
             } else {
                 if (week == 1) {
                     if (i < dayOfWeek) {
-                        dayNumber[i] = String.valueOf(lastDaysOfMonth
-                                - (dayOfWeek - (i + 1)));
+                        dayNumber[i] = String.valueOf(lastDaysOfMonth - (dayOfWeek - (i + 1)));
                     } else {
                         dayNumber[i] = String.valueOf(i - dayOfWeek + 1);
                     }
                 } else {
-                    dayNumber[i] = String.valueOf((7 - dayOfWeek + 1 + i) + 7
-                            * (week - 2));
+                    dayNumber[i] = String.valueOf((7 - dayOfWeek + 1 + i) + 7 * (week - 2));
                 }
             }
-
         }
     }
 
     public String[] getDayNumbers() {
         return dayNumber;
     }
-
 
     public int getWeeksOfMonth() {
 
@@ -187,6 +168,12 @@ public class DateAdapter extends BaseAdapter {
         return position;
     }
 
+    class Holder {
+        private LinearLayout ll_data;
+        private TextView tv;
+        private View view_line;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Holder holder;
@@ -202,6 +189,7 @@ public class DateAdapter extends BaseAdapter {
             holder = (Holder) convertView.getTag();
         }
         holder.tv.setText(dayNumber[position]);
+        holder.tv.setTextSize(20);
 
         if (clickTemp == position) {
             holder.ll_data.setSelected(true);
@@ -216,9 +204,4 @@ public class DateAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class Holder {
-        LinearLayout ll_data;
-        TextView tv;
-        View view_line;
-    }
 }
