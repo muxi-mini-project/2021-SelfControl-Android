@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clock.weekcalendar;
+package com.bignerdranch.android.sc.clockpage.weekcalendar;
 
 import java.util.Calendar;
 
@@ -47,11 +47,11 @@ public class SpecialCalendar {
         return daysOfMonth;
     }
 
-    //判断月有几周
+    //判断选定的日期是星期几
     public int getWeekdayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month - 1, 1);//跳转到特定的时间点
-        dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        dayOfWeek = cal.get(Calendar.DAY_OF_WEEK) - 1;//获取你设置的cal那年那月那日是星期几  如果是星期日则返回0,星期一返回1 以此类推
         return dayOfWeek;
     }
 

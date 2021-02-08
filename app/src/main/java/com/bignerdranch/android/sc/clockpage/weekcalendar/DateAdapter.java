@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clock.weekcalendar;
+package com.bignerdranch.android.sc.clockpage.weekcalendar;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -64,22 +64,25 @@ public class DateAdapter extends BaseAdapter {
 
     }
 
-    //确定今天是星期几如果今天是星期日则返回0;如果是星期一则直接返回1;以此类推
+    //确定今天是星期几  如果今天是星期日则返回0;如果是星期一则直接返回1;以此类推
     public int getTodayPosition() {
         //Integer.parseInt将字符串变为整型
         int todayWeek = sc.getWeekDayOfLastMonth(Integer.parseInt(sys_year), Integer.parseInt(sys_month), Integer.parseInt(sys_day));
 
+        //之所以要判断是因为防止有的规则是按照星期一为起点
         if (todayWeek == 7) {
             clickTemp = 0;
         } else {
             clickTemp = todayWeek;
         }
+
         return clickTemp;
     }
 
     //获得当前的月份
     public int getCurrentMonth(int position) {
         int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear), Integer.parseInt(currentMonth));
+
         if (isStart) {
             if (thisDayOfWeek != 7 && position < thisDayOfWeek) {
                     return Integer.parseInt(currentMonth) - 1 == 0 ? 12 : Integer.parseInt(currentMonth) - 1;
@@ -105,6 +108,7 @@ public class DateAdapter extends BaseAdapter {
         }
     }
 
+    //
     public void getCalendar(int year, int month) {
         isLeapyear = sc.isLeapYear(year);
         daysOfMonth = sc.getDaysOfMonth(isLeapyear, month);

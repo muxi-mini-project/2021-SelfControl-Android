@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clock;
+package com.bignerdranch.android.sc.clockpage;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,12 +16,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.clock.weekcalendar.DateAdapter;
-import com.bignerdranch.android.sc.clock.weekcalendar.SpecialCalendar;
+import com.bignerdranch.android.sc.clockpage.flower.FriFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.MonFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.SatFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
+import com.bignerdranch.android.sc.clockpage.flower.SunFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.ThuFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.TueFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.WesFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
+import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends StatusBar implements GestureDetector.OnGestureListener {
@@ -51,13 +65,27 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
     private int currentNum;
     public TextView ticker;
 
+    private ArrayList<Fragment> fragments;
+    private ViewPager mViewPager;
+    SunFlowerFragment mSunFlowerFragment;
+    MonFlowerFragment mMonFlowerFragment;
+    TueFlowerFragment mTueFlowerFragment;
+    WesFlowerFragment mWesFlowerFragment;
+    ThuFlowerFragment mThuFlowerFragment;
+    FriFlowerFragment mFriFlowerFragment;
+    SatFlowerFragment mSatFlowerFragment;
+    FragmentManager mFragmentManager;
+    FragmentPagerAdapter mFragmentPagerAdapter;
+
     public MainActivity() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
         currentDate = sdf.format(date);
+
         year_c = Integer.parseInt(currentDate.split("-")[0]);
         month_c = Integer.parseInt(currentDate.split("-")[1]);
         day_c = Integer.parseInt(currentDate.split("-")[2]);
+
         currentYear = year_c;
         currentMonth = month_c;
         currentDay = day_c;
@@ -142,6 +170,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
         tvDate.setText(year_c + "年" + month_c + "月" + day_c + "日");
         gestureDetector = new GestureDetector(this);
         flipper1 = (ViewFlipper) findViewById(R.id.flipper1);
+
         dateAdapter = new DateAdapter(this, currentYear, currentMonth,currentWeek, currentWeek == 1 ? true : false);
         addGridView();
         dayNumbers = dateAdapter.getDayNumbers();
@@ -152,6 +181,46 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
 
         ticker = (TextView) findViewById(R.id.tv_scroll);
         ticker.setSelected(true);
+
+        initView();
+
+        mViewPager.setCurrentItem(0);
+
+        //设置边距5dp
+        mViewPager.setPageMargin( dip2px(5));
+    }
+
+    //dp转px的函数
+    private int dip2px(int value) {
+        final float scale = getResources().getDisplayMetrics().density;
+        return (int)(value * scale + 0.5f);
+    }
+
+
+    private void initView(){
+        mViewPager = (ViewPager)findViewById(R.id.ViewPager);
+
+        mSunFlowerFragment = new SunFlowerFragment();
+        mMonFlowerFragment = new MonFlowerFragment();
+        mTueFlowerFragment = new TueFlowerFragment();
+        mWesFlowerFragment = new WesFlowerFragment();
+        mThuFlowerFragment = new ThuFlowerFragment();
+        mFriFlowerFragment = new FriFlowerFragment();
+        mSatFlowerFragment = new SatFlowerFragment();
+
+        fragments = new ArrayList<>();
+        fragments.add(mSunFlowerFragment);
+        fragments.add(mMonFlowerFragment);
+        fragments.add(mTueFlowerFragment);
+        fragments.add(mWesFlowerFragment);
+        fragments.add(mThuFlowerFragment);
+        fragments.add(mFriFlowerFragment);
+        fragments.add(mSatFlowerFragment);
+
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager,fragments);
+
+        mViewPager.setAdapter(mFragmentPagerAdapter);
     }
 
     private void addGridView() {
@@ -179,9 +248,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
                 selectPostion = position;
                 dateAdapter.setSeclection(position);
                 dateAdapter.notifyDataSetChanged();
-                tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年"
-                        + dateAdapter.getCurrentMonth(selectPostion) + "月"
-                        + dayNumbers[position] + "日");
+                tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
             }
         });
         gridView.setLayoutParams(params);
@@ -265,9 +332,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
             dateAdapter = new DateAdapter(this, currentYear, currentMonth, currentWeek, currentWeek == 1 ? true : false);
             dayNumbers = dateAdapter.getDayNumbers();
             gridView.setAdapter(dateAdapter);
-            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年"
-                    + dateAdapter.getCurrentMonth(selectPostion) + "月"
-                    + dayNumbers[selectPostion] + "日");
+            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[selectPostion] + "日");
             gvFlag++;
             flipper1.addView(gridView, gvFlag);
             dateAdapter.setSeclection(selectPostion);
@@ -285,9 +350,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
                     currentWeek, currentWeek == 1 ? true : false);
             dayNumbers = dateAdapter.getDayNumbers();
             gridView.setAdapter(dateAdapter);
-            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年"
-                    + dateAdapter.getCurrentMonth(selectPostion) + "月"
-                    + dayNumbers[selectPostion] + "日");
+            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[selectPostion] + "日");
             gvFlag++;
             flipper1.addView(gridView, gvFlag);
             dateAdapter.setSeclection(selectPostion);
