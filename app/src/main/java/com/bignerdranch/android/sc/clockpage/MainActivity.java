@@ -185,9 +185,13 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
         initView();
 
         mViewPager.setCurrentItem(0);
-
         //设置边距5dp
         mViewPager.setPageMargin( dip2px(5));
+
+        //设置状态栏透明
+        makeStatusBarTransparent(this);
+        //状态栏文字自适应
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     //dp转px的函数

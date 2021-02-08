@@ -8,10 +8,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#9B99F3"
+        android:layout_height="230dp"
+        android:background="@mipmap/background_default"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp"
+        android:paddingTop="35dp"
         android:id="@+id/linearLayout">
 
         <TextView

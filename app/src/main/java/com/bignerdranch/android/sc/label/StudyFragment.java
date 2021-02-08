@@ -1,15 +1,18 @@
 package com.bignerdranch.android.sc.label;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.clockpage.MainActivity;
 
 public class StudyFragment extends Fragment {
     int f1=0;int f2=0;int f3=0;int f4=0;int f5=0;int f6=0;int f7=0;int f8=0;int f9=0;int f10=0;
@@ -23,6 +26,7 @@ public class StudyFragment extends Fragment {
     private ImageButton mtinglixunlian;
     private ImageButton mlianzi;
     private ImageButton myingyuyueduxunlian;
+    private Button mButton;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
         View view=inflater .inflate(R.layout.study_pager,container,false) ;
@@ -181,6 +185,15 @@ public class StudyFragment extends Fragment {
                         myingyuyueduxunlian.setBackgroundResource(R.mipmap.yingyuyueduxunlian);
                         f10 = 0;
                     }
+                }
+            });
+
+            mButton=(Button)view.findViewById(R.id.complete);
+            mButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Intent intent=new Intent(LabelPagerActivity.this, MainActivity.class);
+                    //startActivity(intent);
                 }
             });
 
