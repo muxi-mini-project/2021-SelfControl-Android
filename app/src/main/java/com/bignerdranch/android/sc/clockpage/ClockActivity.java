@@ -38,7 +38,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MainActivity extends StatusBar implements GestureDetector.OnGestureListener {
+public class ClockActivity extends StatusBar implements GestureDetector.OnGestureListener {
     private static String TAG = "MainActivity";
     private ViewFlipper flipper1 = null;
     private GridView gridView = null;
@@ -77,7 +77,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
     FragmentManager mFragmentManager;
     FragmentPagerAdapter mFragmentPagerAdapter;
 
-    public MainActivity() {
+    public ClockActivity() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
         currentDate = sdf.format(date);
@@ -239,7 +239,7 @@ public class MainActivity extends StatusBar implements GestureDetector.OnGesture
         gridView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return MainActivity.this.gestureDetector.onTouchEvent(event);
+                return ClockActivity.this.gestureDetector.onTouchEvent(event);
             }
         });
 
