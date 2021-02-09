@@ -65,7 +65,6 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
         makeStatusBarTransparent(this);
         //状态栏文字自适应
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
     }
 
     public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
