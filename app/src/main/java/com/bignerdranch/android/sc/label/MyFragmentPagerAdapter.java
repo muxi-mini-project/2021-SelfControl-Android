@@ -2,6 +2,7 @@ package com.bignerdranch.android.sc.label;
 
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -10,7 +11,7 @@ import java.util.List;
 
 
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-    private FragmentManager mfragmentManager;
+    private FragmentManager fm;
     private List<Fragment> mlist;
 
 
@@ -20,8 +21,9 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public void setPrimaryItem(ViewGroup container, int position, Object object) {
-        super.setPrimaryItem(container, position, object);
+    public void destroyItem(@NonNull ViewGroup container,int position,@NonNull Object object){
+        Fragment fragment = mlist.get(position);
+        fm.beginTransaction().hide(fragment).commit();
     }
 
     @Override
