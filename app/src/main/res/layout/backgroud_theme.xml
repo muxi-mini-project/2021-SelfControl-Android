@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="568dp" />
+        app:layout_constraintGuide_begin="497dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="208dp"
@@ -79,7 +79,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/theme2"
@@ -114,8 +115,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/theme2"
             app:layout_constraintTop_toTopOf="@+id/theme2"
-            app:layout_constraintVertical_bias="1.0"
-             />
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -301,6 +301,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout7"
         android:layout_width="205dp"
         android:layout_height="166dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
@@ -319,8 +320,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.506"
-             />
+            app:layout_constraintVertical_bias="0.506" />
 
         <TextView
             android:id="@+id/moren"
@@ -343,8 +343,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/theme1"
             app:layout_constraintTop_toTopOf="@+id/theme1"
-            app:layout_constraintVertical_bias="1.0"
-            />
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
