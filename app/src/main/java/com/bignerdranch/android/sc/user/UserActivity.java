@@ -9,8 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends StatusBar {
 
     private ConstraintLayout mJinbi,mYuebao,mPaihangbang;
     private ImageButton mJinbiButton,mYuebaoButton,mPaihangbangButton;
@@ -20,6 +21,9 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user);
         init();
+
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     private void init(){
         mJinbi = findViewById(R.id.user_jinbi);

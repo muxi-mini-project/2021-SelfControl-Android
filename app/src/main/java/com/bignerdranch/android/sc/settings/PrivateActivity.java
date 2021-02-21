@@ -9,8 +9,9 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
 
-public class PrivateActivity extends AppCompatActivity {
+public class PrivateActivity extends StatusBar {
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
@@ -21,6 +22,8 @@ public class PrivateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_open);
         init();
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     private void init(){
