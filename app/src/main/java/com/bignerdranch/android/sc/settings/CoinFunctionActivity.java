@@ -8,8 +8,9 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
 
-public class CoinFunctionActivity extends AppCompatActivity {
+public class CoinFunctionActivity extends StatusBar {
 
     private ImageButton mBack;
 
@@ -26,5 +27,7 @@ public class CoinFunctionActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 }

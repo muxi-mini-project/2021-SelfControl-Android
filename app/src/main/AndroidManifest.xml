@@ -21,6 +21,7 @@
         <activity android:name=".settings.CoinFunctionActivity"></activity>
         <activity android:name=".settings.CourseActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
+        <activity android:name=".settings.SettingPageActivity"></activity>
         <activity android:name=".user.RankQueryActivity"></activity>
         <activity android:name=".user.MonthReportActivity"></activity>
         <activity android:name=".user.CoinQueryActivity"></activity>
