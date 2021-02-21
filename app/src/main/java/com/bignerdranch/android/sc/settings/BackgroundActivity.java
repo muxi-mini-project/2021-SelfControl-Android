@@ -10,8 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
 
-public class BackgroundActivity extends AppCompatActivity {
+public class BackgroundActivity extends StatusBar {
 
     private ImageButton mBack;
     private ImageView mTheme1,mTheme2,mTheme3,mTheme4,mTheme5,mTheme6;
@@ -25,6 +26,8 @@ public class BackgroundActivity extends AppCompatActivity {
         setContentView(R.layout.backgroud_theme);
 
         init();
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     private void init(){
 

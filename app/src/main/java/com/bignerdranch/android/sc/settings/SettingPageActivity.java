@@ -9,18 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
 
-public class SettingPageActivity extends AppCompatActivity {
+public class SettingPageActivity extends StatusBar {
 
     private ImageButton mBack, mBackground, mCoin, mCourse, mPrivate;
     private ConstraintLayout mThemeLayout,mCoinLayout,mCourseLayout,mPrivateLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
-
         init();
     }
 
@@ -97,7 +96,7 @@ public class SettingPageActivity extends AppCompatActivity {
             }
         });
 
-        mPrivateLayout = findViewById(R.id.postLayout);
+        mPrivateLayout = findViewById(R.id.private_layout);
         mPrivateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,5 +105,9 @@ public class SettingPageActivity extends AppCompatActivity {
 
             }
         });
+
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
+
 }
