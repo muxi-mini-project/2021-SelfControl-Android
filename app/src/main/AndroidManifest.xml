@@ -24,6 +24,6 @@
         <activity android:name=".user.RankQueryActivity"></activity>
         <activity android:name=".user.MonthReportActivity"></activity>
         <activity android:name=".user.CoinQueryActivity"></activity>
-        <activity android:name=".user.UserActivity">
+        <activity android:name=".user.UserActivity"></activity>
     </application>
 </manifest>
