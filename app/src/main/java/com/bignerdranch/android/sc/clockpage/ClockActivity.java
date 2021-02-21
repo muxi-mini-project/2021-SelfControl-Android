@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.clockpage;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -33,13 +35,15 @@ import com.bignerdranch.android.sc.clockpage.flower.TueFlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.WesFlowerFragment;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
+import com.bignerdranch.android.sc.settings.SettingPageActivity;
+import com.bignerdranch.android.sc.user.UserActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ClockActivity extends StatusBar implements GestureDetector.OnGestureListener {
-    private static String TAG = "MainActivity";
+    private static String TAG = "ClockActivity";
     private ViewFlipper flipper1 = null;
     private GridView gridView = null;
     private GestureDetector gestureDetector = null;
@@ -64,6 +68,8 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private int currentDay;
     private int currentNum;
     public TextView ticker;
+    public ImageButton settings;
+    public ImageButton users;
 
     private ArrayList<Fragment> fragments;
     private ViewPager mViewPager;
@@ -184,6 +190,24 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
         initView();
 
+        settings=(ImageButton)findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        users=(ImageButton)findViewById(R.id.users);
+        users.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClockActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mViewPager.setCurrentItem(0);
         //设置边距5dp
         mViewPager.setPageMargin( dip2px(5));
@@ -246,8 +270,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i(TAG, "day:" + dayNumbers[position]);
                 selectPostion = position;
                 dateAdapter.setSeclection(position);
