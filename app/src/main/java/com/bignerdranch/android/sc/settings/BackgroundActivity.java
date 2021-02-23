@@ -2,15 +2,27 @@ package com.bignerdranch.android.sc.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 
 public class BackgroundActivity extends StatusBar {
 
@@ -28,7 +40,46 @@ public class BackgroundActivity extends StatusBar {
         init();
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+     /*   new Thread() {
+            @Override
+            public void run() {
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl("https://124.71.184.107/")
+                        .addConverterFactory(GsonConverterFactory.create());
+
+                Retrofit retrofit = builder.build();
+
+                GoldClient client = retrofit.create(GoldClient.class);
+                Call<Gold> call = client.usersGold();
+
+                call.enqueue(new Callback<Gold>() {
+
+                    @Override
+                    public void onResponse(Call<Gold> call, Response<Gold> response) {
+                        Gold gold = response.body();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Gold> call, Throwable t) {
+
+                    }
+                });
+            }
+
+        }.start();*/
+
     }
+
+    public interface GoldClient{
+        @GET("/user/gold")
+        Call<Gold> usersGold(@Header("token")String token);
+    }
+    public class Gold{
+        int gold;
+    }
+
+
     private void init(){
 
         mBack = (ImageButton)findViewById(R.id.background_back);
@@ -101,7 +152,7 @@ public class BackgroundActivity extends StatusBar {
         if(f1 == 1){
             mChoose1.setBackgroundResource(R.mipmap.choose);
         }else {
-
+            
         }
         if(f2 == 1){
             mChoose2.setBackgroundResource(R.mipmap.choose);
