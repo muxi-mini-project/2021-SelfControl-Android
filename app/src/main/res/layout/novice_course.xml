@@ -244,7 +244,7 @@
         android:id="@+id/textView28"
         android:layout_width="345dp"
         android:layout_height="58dp"
-        android:text="排行榜分为周、月排行榜。同事，在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
+        android:text="排行榜分为周、月排行榜。同时，在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView29"
         app:layout_constraintEnd_toEndOf="@+id/imageView29"
@@ -252,4 +252,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24"
         app:layout_constraintVertical_bias="0.645" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="676dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

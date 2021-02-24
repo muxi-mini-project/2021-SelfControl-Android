@@ -129,7 +129,7 @@
 
         <ImageView
             android:id="@+id/week_rank_iv"
-            android:layout_width="197dp"
+            android:layout_width="206dp"
             android:layout_height="3dp"
             android:background="#9A9AF3"
             app:layout_constraintBottom_toBottomOf="parent"
