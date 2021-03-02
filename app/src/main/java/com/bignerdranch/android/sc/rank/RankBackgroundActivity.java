@@ -21,6 +21,10 @@ import com.bignerdranch.android.sc.label.StudyFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+
 public class RankBackgroundActivity extends StatusBar implements View.OnClickListener {
     private List<Fragment> mList;
     private ViewPager mViewPager;
@@ -107,6 +111,27 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
                 mMonthRank.setTextColor(Color.parseColor("#A1A1A1"));
                 mMonthRankIv.setBackgroundResource(R.drawable.rankbar_gray);
                 break;
+        }
+    }
+
+    public interface RankClient{
+        @GET("/list/{type}")
+        Call<List<RankList>> list(@Path("type")String type);
+    }
+    public class RankList{
+        private List<Rank> mList;
+
+        public RankList(){
+            mList = new ArrayList<Rank>();
+        }
+
+    }
+    public class Rank{
+        private int number;
+        private String id;
+        public Rank(int number,String id){
+            this.number = number;
+            this.id = id;
         }
     }
 }

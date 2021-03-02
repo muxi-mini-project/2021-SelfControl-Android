@@ -42,12 +42,12 @@
             app:srcCompat="@mipmap/user_profile" />
 
         <TextView
-            android:id="@+id/textView42"
+            android:id="@+id/w_first_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/textView43"
+            app:layout_constraintBottom_toTopOf="@+id/w_first_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toEndOf="@+id/imageView35"
@@ -55,16 +55,16 @@
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
-            android:id="@+id/textView43"
+            android:id="@+id/w_first_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView42"
+            app:layout_constraintEnd_toEndOf="@+id/w_first_n"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView42" />
+            app:layout_constraintStart_toStartOf="@+id/w_first_n" />
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -118,12 +118,12 @@
             app:srcCompat="@mipmap/user_profile" />
 
         <TextView
-            android:id="@+id/textView45"
+            android:id="@+id/w_second_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/textView46"
+            app:layout_constraintBottom_toTopOf="@+id/w_second_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toEndOf="@+id/imageView36"
@@ -131,16 +131,16 @@
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
-            android:id="@+id/textView46"
+            android:id="@+id/w_second_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView45"
+            app:layout_constraintEnd_toEndOf="@+id/w_second_n"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView45" />
+            app:layout_constraintStart_toStartOf="@+id/w_second_n" />
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -193,12 +193,12 @@
             app:srcCompat="@mipmap/user_profile" />
 
         <TextView
-            android:id="@+id/textView55"
+            android:id="@+id/w_third_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/textView56"
+            app:layout_constraintBottom_toTopOf="@+id/w_third_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toEndOf="@+id/imageView46"
@@ -206,16 +206,16 @@
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
-            android:id="@+id/textView56"
+            android:id="@+id/w_third_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView55"
+            app:layout_constraintEnd_toEndOf="@+id/w_third_n"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView55" />
+            app:layout_constraintStart_toStartOf="@+id/w_third_n" />
 
         <ImageButton
             android:id="@+id/imageButton5"
@@ -256,12 +256,12 @@
             app:srcCompat="@mipmap/user_profile" />
 
         <TextView
-            android:id="@+id/textView65"
+            android:id="@+id/w_fourth_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/textView66"
+            app:layout_constraintBottom_toTopOf="@+id/w_fourth_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toEndOf="@+id/imageView56"
@@ -269,16 +269,16 @@
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
-            android:id="@+id/textView66"
+            android:id="@+id/w_fourth_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView65"
+            app:layout_constraintEnd_toEndOf="@+id/w_fourth_n"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView65" />
+            app:layout_constraintStart_toStartOf="@+id/w_fourth_n" />
 
         <ImageButton
             android:id="@+id/imageButton6"
@@ -333,12 +333,12 @@
             app:srcCompat="@mipmap/user_profile" />
 
         <TextView
-            android:id="@+id/textView75"
+            android:id="@+id/w_fifth_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/textView76"
+            app:layout_constraintBottom_toTopOf="@+id/w_fifth_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
             app:layout_constraintStart_toEndOf="@+id/imageView66"
@@ -346,16 +346,16 @@
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
-            android:id="@+id/textView76"
+            android:id="@+id/w_fifth_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView75"
+            app:layout_constraintEnd_toEndOf="@+id/w_fifth_n"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView75" />
+            app:layout_constraintStart_toStartOf="@+id/w_fifth_n" />
 
         <ImageButton
             android:id="@+id/imageButton7"
