@@ -71,8 +71,10 @@
             app:layout_constraintVertical_bias="0.125" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="326dp"
+            android:layout_width="match_parent"
             android:layout_height="138dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/shape_coin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,8 +112,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
-                android:textSize="40sp"
                 android:textColor="#000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView32"
                 app:layout_constraintStart_toStartOf="@+id/textView32"
@@ -122,8 +124,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
-                android:textSize="40sp"
                 android:textColor="#000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView33"
                 app:layout_constraintStart_toStartOf="@+id/textView33"
@@ -144,8 +146,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="326dp"
+            android:layout_width="match_parent"
             android:layout_height="138dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/shape_coin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -183,8 +187,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
-                android:textSize="40sp"
                 android:textColor="#000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView34"
                 app:layout_constraintStart_toStartOf="@+id/textView34"
@@ -195,8 +199,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
-                android:textSize="40sp"
                 android:textColor="#000000"
+                android:textSize="40sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textView35"
                 app:layout_constraintStart_toStartOf="@+id/textView35"

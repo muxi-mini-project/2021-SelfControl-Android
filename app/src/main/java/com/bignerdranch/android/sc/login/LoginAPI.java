@@ -9,6 +9,6 @@ public interface LoginAPI {
 
     @POST("uesr")
     @FormUrlEncoded
-    Call<LoginTranslate> getCall(@Field("student_id") String param1,@Field("password") String param2);
+    Call<User> getCall(@Field("student_id") String param1, @Field("password") String param2);
 
 }

@@ -43,7 +43,7 @@ public class BackgroundActivity extends StatusBar {
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        new Thread() {
+       /* new Thread() {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
@@ -69,7 +69,7 @@ public class BackgroundActivity extends StatusBar {
                 });
             }
 
-        }.start();
+        }.start();*/
 
     }
 
