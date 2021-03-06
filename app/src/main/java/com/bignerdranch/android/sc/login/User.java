@@ -1,6 +1,6 @@
 package com.bignerdranch.android.sc.login;
 
-public class LoginTranslate {
+public class User {
 
     /**
      * gold : 0

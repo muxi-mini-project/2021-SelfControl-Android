@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.login.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +22,7 @@ public class CoinQueryActivity extends StatusBar {
 
     private ImageButton mBack;
     private TextView mCoin;
-    private UserActivity.User mUser;
+    private User mUser;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,17 +39,17 @@ public class CoinQueryActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 UserActivity.UserClient client = retrofit.create(UserActivity.UserClient.class);
-                Call<UserActivity.User> call = client.mUser();
+                Call<User> call = client.mUser();
 
-                call.enqueue(new Callback<UserActivity.User>() {
+                call.enqueue(new Callback<User>() {
 
                     @Override
-                    public void onResponse(Call<UserActivity.User> call, Response<UserActivity.User> response) {
+                    public void onResponse(Call<User> call, Response<User> response) {
                         mUser = response.body();
                     }
 
                     @Override
-                    public void onFailure(Call<UserActivity.User> call, Throwable t) {
+                    public void onFailure(Call<User> call, Throwable t) {
 
                     }
                 });

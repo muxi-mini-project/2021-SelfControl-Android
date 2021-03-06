@@ -54,20 +54,20 @@ public class LoginActivity extends StatusBar {
                 .Builder().baseUrl("http://124.71.184.107:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
-        Call<LoginTranslate> call = request.getCall(id,password);
+        Call<User> call = request.getCall(id,password);
 
-        call.enqueue(new Callback<LoginTranslate>() {
+        call.enqueue(new Callback<User>() {
 
             @Override
-            public void onResponse(Call<LoginTranslate> call, Response<LoginTranslate> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                 startActivity(intent);
             }
 
             @Override
-            public void onFailure(Call<LoginTranslate> call, Throwable throwable) {
-                Toast.makeText(LoginActivity.this,"学号或密码错误",Toast.LENGTH_SHORT).show();
-                System.out.println(throwable.getMessage());
+            public void onFailure(Call<User> call, Throwable throwable) {
+                Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
+                startActivity(intent);
             }
         });
 
