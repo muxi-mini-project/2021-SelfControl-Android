@@ -91,7 +91,7 @@
 
             <ImageView
                 android:id="@+id/choose1"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme1"
                 app:layout_constraintEnd_toEndOf="@+id/theme1"
@@ -139,7 +139,7 @@
 
             <ImageView
                 android:id="@+id/choose2"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme2"
                 app:layout_constraintEnd_toEndOf="@+id/theme2"
@@ -194,7 +194,7 @@
 
             <ImageView
                 android:id="@+id/choose3"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme3"
                 app:layout_constraintEnd_toEndOf="@+id/theme3"
@@ -242,7 +242,7 @@
 
             <ImageView
                 android:id="@+id/choose6"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme6"
                 app:layout_constraintEnd_toEndOf="@+id/theme6"
@@ -298,7 +298,7 @@
 
             <ImageView
                 android:id="@+id/choose5"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme5"
                 app:layout_constraintEnd_toEndOf="@+id/theme5"
@@ -347,7 +347,7 @@
 
             <ImageView
                 android:id="@+id/choose4"
-                android:layout_width="33dp"
+                android:layout_width="26dp"
                 android:layout_height="26dp"
                 app:layout_constraintBottom_toBottomOf="@+id/theme4"
                 app:layout_constraintEnd_toEndOf="@+id/theme4"
