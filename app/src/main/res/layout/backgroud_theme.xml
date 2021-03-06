@@ -66,7 +66,7 @@
             <ImageButton
                 android:id="@+id/theme1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="#928DDC"
@@ -113,7 +113,7 @@
             <ImageView
                 android:id="@+id/theme2"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="fitXY"
@@ -168,10 +168,10 @@
             <ImageView
                 android:id="@+id/theme3"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:scaleType="fitXY"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -216,7 +216,7 @@
             <ImageView
                 android:id="@+id/theme6"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="fitXY"
@@ -272,7 +272,7 @@
             <ImageView
                 android:id="@+id/theme5"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="fitXY"
@@ -321,7 +321,7 @@
             <ImageView
                 android:id="@+id/theme4"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:scaleType="fitXY"
