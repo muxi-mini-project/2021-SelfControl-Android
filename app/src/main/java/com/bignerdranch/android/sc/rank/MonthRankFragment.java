@@ -35,7 +35,7 @@ public class MonthRankFragment extends Fragment {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("https://124.71.184.107/")
+                        .baseUrl("https://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
