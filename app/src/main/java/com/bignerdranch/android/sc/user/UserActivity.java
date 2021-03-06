@@ -10,6 +10,18 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 
 public class UserActivity extends StatusBar {
 
@@ -21,6 +33,8 @@ public class UserActivity extends StatusBar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user);
         init();
+
+
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -76,5 +90,61 @@ public class UserActivity extends StatusBar {
                 startActivity(intent4);
             }
         });
+    }
+    public interface UserClient{
+        @GET("/user")
+        @Headers("token")
+        Call<User> mUser();
+    }
+    public class User {
+        private int gold;
+
+        private String name;
+
+        private String password;
+
+        private int privacy;
+
+        private String student_id;
+
+        private String user_picture;
+
+        public void setGold(int gold){
+            this.gold = gold;
+        }
+        public int getGold(){
+            return this.gold;
+        }
+        public void setName(String name){
+            this.name = name;
+        }
+        public String getName(){
+            return this.name;
+        }
+        public void setPassword(String password){
+            this.password = password;
+        }
+        public String getPassword(){
+            return this.password;
+        }
+        public void setPrivacy(int privacy){
+            this.privacy = privacy;
+        }
+        public int getPrivacy(){
+            return this.privacy;
+        }
+        public void setStudent_id(String student_id){
+            this.student_id = student_id;
+        }
+        public String getStudent_id(){
+            return this.student_id;
+        }
+        public void setUser_picture(String user_picture){
+            this.user_picture = user_picture;
+        }
+        public String getUser_picture(){
+            return this.user_picture;
+        }
+
     }
 }
