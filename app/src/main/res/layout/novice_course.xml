@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -19,15 +19,17 @@
 
         <ImageButton
             android:id="@+id/course_back"
-            android:layout_width="47dp"
-            android:layout_height="34dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginTop="30dp"
             android:background="#00000000"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.016"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
             app:srcCompat="@mipmap/back" />
 
         <TextView
@@ -49,14 +51,13 @@
         android:id="@+id/imageView27"
         android:layout_width="381dp"
         android:layout_height="130dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/shape_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.662" />
+        app:layout_constraintVertical_bias="0.661" />
 
     <TextView
         android:id="@+id/textView13"
@@ -99,14 +100,12 @@
         android:id="@+id/imageView28"
         android:layout_width="381dp"
         android:layout_height="190dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/shape_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.02" />
 
     <TextView
         android:id="@+id/textView14"
@@ -151,14 +150,12 @@
         android:id="@+id/imageView26"
         android:layout_width="381dp"
         android:layout_height="131dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/shape_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.397" />
 
     <TextView
         android:id="@+id/textView12"
@@ -203,14 +200,13 @@
         android:id="@+id/imageView29"
         android:layout_width="381dp"
         android:layout_height="152dp"
-        android:layout_marginTop="28dp"
         android:background="@drawable/shape_coin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="0.989" />
+        app:layout_constraintVertical_bias="0.969" />
 
     <TextView
         android:id="@+id/textView24"
@@ -242,7 +238,7 @@
         android:id="@+id/textView28"
         android:layout_width="345dp"
         android:layout_height="58dp"
-        android:text="排行榜分为周、月排行榜。同事，在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
+        android:text="排行榜分为周、月排行榜。同时，在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView29"
         app:layout_constraintEnd_toEndOf="@+id/imageView29"
@@ -251,3 +247,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24"
         app:layout_constraintVertical_bias="0.645" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

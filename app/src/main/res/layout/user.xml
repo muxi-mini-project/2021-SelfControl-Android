@@ -22,8 +22,8 @@
 
     <ImageButton
         android:id="@+id/user_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginTop="30dp"
         android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
@@ -32,7 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.152"
-        app:srcCompat="@mipmap/back" />
+        app:srcCompat="@mipmap/back"
+        android:scaleType="fitXY"/>
 
     <ImageView
         android:id="@+id/imageView6"

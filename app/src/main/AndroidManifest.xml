@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bignerdranch.android.sc">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SC">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".settings.CourseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,9 +20,7 @@
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.BackgroundActivity"></activity>
         <activity android:name=".settings.CoinFunctionActivity"></activity>
-        <activity android:name=".settings.CourseActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
-        <activity android:name=".settings.SettingPageActivity"></activity>
         <activity android:name=".user.RankQueryActivity"></activity>
         <activity android:name=".user.MonthReportActivity"></activity>
         <activity android:name=".user.CoinQueryActivity"></activity>
