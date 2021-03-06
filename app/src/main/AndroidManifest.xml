@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SC">
-        <activity android:name=".settings.SettingPageActivity">
+        <activity android:name=".settings.CourseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,7 +20,6 @@
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.BackgroundActivity"></activity>
         <activity android:name=".settings.CoinFunctionActivity"></activity>
-        <activity android:name=".settings.CourseActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
         <activity android:name=".user.RankQueryActivity"></activity>
         <activity android:name=".user.MonthReportActivity"></activity>

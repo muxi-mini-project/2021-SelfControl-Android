@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
 
 import java.util.List;
 
@@ -20,10 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeekRankFragment extends Fragment {
 
-    private List<RankBackgroundActivity.RankList> mList;
+    private List<Rank> mList;
     private TextView n1,n2,n3,n4,n5,o1,o2,o3,o4,o5;
-    private int num1,num2,num3,num4,num5;
-    private String name1,name2,name3,name4,name5;
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.week_rank, container, false);
@@ -38,17 +37,17 @@ public class WeekRankFragment extends Fragment {
                 Retrofit retrofit = builder.build();
 
                 RankBackgroundActivity.RankClient client = retrofit.create(RankBackgroundActivity.RankClient.class);
-                Call<List<RankBackgroundActivity.RankList>> call = client.list("week");
+                Call<List<Rank>> call = client.list("week");
 
-                call.enqueue(new Callback<List<RankBackgroundActivity.RankList>>() {
+                call.enqueue(new Callback<List<Rank>>() {
 
                     @Override
-                    public void onResponse(Call<List<RankBackgroundActivity.RankList>> call, Response<List<RankBackgroundActivity.RankList>> response) {
+                    public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
                     }
 
                     @Override
-                    public void onFailure(Call<List<RankBackgroundActivity.RankList>> call, Throwable t) {
+                    public void onFailure(Call<List<Rank>> call, Throwable t) {
 
                     }
                 });
@@ -62,85 +61,41 @@ public class WeekRankFragment extends Fragment {
     private void init(){
 
         n1 = n1.findViewById(R.id.w_first_n);
-        n1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n1.setText();
-            }
-        });
+        n1.setText(mList.get(0).getId());
 
         n2 = n2.findViewById(R.id.w_second_n);
-        n2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n2.setText();
-            }
-        });
+        n2.setText(mList.get(1).getId());
+
 
         n3 = n3.findViewById(R.id.w_third_n);
-        n3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n3.setText();
-            }
-        });
+        n3.setText(mList.get(2).getId());
+
 
         n4 = n4.findViewById(R.id.w_fourth_n);
-        n4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n4.setText();
-            }
-        });
+        n4.setText(mList.get(3).getId());
+
 
         n5 = n5.findViewById(R.id.w_fifth_n);
-        n5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                n5.setText();
-            }
-        });
+        n5.setText(mList.get(4).getId());
+
 
         o1 = o1.findViewById(R.id.w_first_o);
-        o1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o1.setText();
-            }
-        });
+        o1.setText(mList.get(0).getNumber());
+
 
         o2 = o2.findViewById(R.id.w_second_o);
-        o2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o2.setText();
-            }
-        });
+        o2.setText(mList.get(1).getNumber());
+
 
         o3 = o3.findViewById(R.id.w_third_o);
-        o3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o3.setText();
-            }
-        });
+        o3.setText(mList.get(2).getNumber());
+
 
         o4 = o4.findViewById(R.id.w_fourth_o);
-        o4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o4.setText();
-            }
-        });
+        o4.setText(mList.get(3).getNumber());
+
 
         o5 = o5.findViewById(R.id.w_fifth_o);
-        o5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                o5.setText();
-            }
-        });
-
-
+        o5.setText(mList.get(4).getNumber());
     }
 }

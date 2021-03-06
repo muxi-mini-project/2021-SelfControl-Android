@@ -106,7 +106,7 @@
                 app:layout_constraintVertical_bias="0.294" />
 
             <TextView
-                android:id="@+id/textView36"
+                android:id="@+id/zpm_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
@@ -118,7 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
             <TextView
-                android:id="@+id/textView37"
+                android:id="@+id/zpm_hl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
@@ -134,9 +134,9 @@
                 android:layout_width="78dp"
                 android:layout_height="33dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView37"
+                app:layout_constraintEnd_toStartOf="@+id/zpm_hl"
                 app:layout_constraintHorizontal_bias="0.472"
-                app:layout_constraintStart_toEndOf="@+id/textView36"
+                app:layout_constraintStart_toEndOf="@+id/zpm_start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.742"
                 app:srcCompat="@mipmap/arrow" />
@@ -179,7 +179,7 @@
                 app:layout_constraintVertical_bias="0.294" />
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/ypm_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
@@ -191,7 +191,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
             <TextView
-                android:id="@+id/textView39"
+                android:id="@+id/ypm_hl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
@@ -207,8 +207,8 @@
                 android:layout_width="78dp"
                 android:layout_height="33dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView39"
-                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintEnd_toStartOf="@+id/ypm_hl"
+                app:layout_constraintStart_toEndOf="@+id/ypm_start"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.752"
                 app:srcCompat="@mipmap/arrow" />
