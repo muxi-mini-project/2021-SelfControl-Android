@@ -79,6 +79,18 @@ public class DateAdapter extends BaseAdapter {
         return clickTemp;
     }
 
+    public int getSelectedPosition( int year , int month , int day){
+
+        int todayWeek = sc.getWeekDayOfLastMonth(year,month,day);
+
+        if (todayWeek == 7) {
+            return 0;
+        } else {
+            return todayWeek;
+        }
+
+    }
+
     //获得当前的月份
     public int getCurrentMonth(int position) {
         int thisDayOfWeek = sc.getWeekdayOfMonth(Integer.parseInt(currentYear), Integer.parseInt(currentMonth));
