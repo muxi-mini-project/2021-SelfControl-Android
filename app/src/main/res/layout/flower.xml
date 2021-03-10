@@ -27,12 +27,12 @@
         app:layout_constraintTop_toBottomOf="@+id/line" />
 
     <TextView
-        android:id="@+id/today_date"
+        android:id="@+id/today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="星期三"
+        android:text="日期"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +42,10 @@
         android:id="@+id/line"
         android:layout_width="48dp"
         android:layout_height="2dp"
+        android:layout_marginTop="70dp"
         android:background="#FDD682"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/today_date" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

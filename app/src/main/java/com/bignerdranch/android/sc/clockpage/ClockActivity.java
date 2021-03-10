@@ -25,14 +25,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.clockpage.flower.FriFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.MonFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.SatFlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
-import com.bignerdranch.android.sc.clockpage.flower.SunFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.ThuFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.TueFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.WesFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
@@ -73,14 +67,14 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
     private ArrayList<Fragment> fragments;
     private ViewPager mViewPager;
-    SunFlowerFragment mSunFlowerFragment;
-    MonFlowerFragment mMonFlowerFragment;
-    TueFlowerFragment mTueFlowerFragment;
-    WesFlowerFragment mWesFlowerFragment;
-    ThuFlowerFragment mThuFlowerFragment;
-    FriFlowerFragment mFriFlowerFragment;
-    public SatFlowerFragment mSatFlowerFragment;
-    public SatFlowerFragment mFlowerFragment;
+    public FlowerFragment mSunFlowerFragment;
+    public FlowerFragment mMonFlowerFragment;
+    public FlowerFragment mTueFlowerFragment;
+    public FlowerFragment mWesFlowerFragment;
+    public FlowerFragment mThuFlowerFragment;
+    public FlowerFragment mFriFlowerFragment;
+    public FlowerFragment mSatFlowerFragment;
+    public TextView mTextView;
     FragmentManager mFragmentManager;
     FragmentPagerAdapter mFragmentPagerAdapter;
 
@@ -189,8 +183,6 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         ticker = findViewById(R.id.tv_scroll);
         ticker.setSelected(true);
 
-        initView();
-
         settings=(ImageButton)findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,7 +192,9 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             }
         });
 
-        users=(ImageButton)findViewById(R.id.users);
+        initView();
+
+        users= findViewById(R.id.users);
         users.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +203,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             }
         });
 
-        mViewPager.setCurrentItem(0);
+        mViewPager.setCurrentItem(dateAdapter.getTodayPosition());
         //设置边距5dp
         mViewPager.setPageMargin( dip2px(5));
 
@@ -228,14 +222,13 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
     private void initView(){
         mViewPager = findViewById(R.id.ViewPager);
-        mSunFlowerFragment = new SunFlowerFragment();
-        mMonFlowerFragment = new MonFlowerFragment();
-        mTueFlowerFragment = new TueFlowerFragment();
-        mWesFlowerFragment = new WesFlowerFragment();
-        mThuFlowerFragment = new ThuFlowerFragment();
-        mFriFlowerFragment = new FriFlowerFragment();
-        mSatFlowerFragment = new SatFlowerFragment();
-        mFlowerFragment = new SatFlowerFragment();
+        mSunFlowerFragment = new FlowerFragment();
+        mMonFlowerFragment = new FlowerFragment();
+        mTueFlowerFragment = new FlowerFragment();
+        mWesFlowerFragment = new FlowerFragment();
+        mThuFlowerFragment = new FlowerFragment();
+        mFriFlowerFragment = new FlowerFragment();
+        mSatFlowerFragment = new FlowerFragment();
 
         fragments = new ArrayList<>();
         fragments.add(mSunFlowerFragment);
@@ -245,12 +238,18 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         fragments.add(mThuFlowerFragment);
         fragments.add(mFriFlowerFragment);
         fragments.add(mSatFlowerFragment);
-        fragments.add(mFlowerFragment);
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager,fragments);
 
         mViewPager.setAdapter(mFragmentPagerAdapter);
+
+         mMonFlowerFragment.setTextV("星期一");
+         mTueFlowerFragment.setTextV("星期二");
+         mWesFlowerFragment.setTextV("星期三");
+         mThuFlowerFragment.setTextV("星期四");
+         mFriFlowerFragment.setTextV("星期五");
+         mSatFlowerFragment.setTextV("星期六");
     }
 
     private void addGridView() {

@@ -55,7 +55,7 @@ public class LoginActivity extends StatusBar {
                 .Builder().baseUrl("http://124.71.184.107:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
-        Call<LoginResponse> call = request.getCall(new user(id,password));
+        Call<LoginResponse> call = request.getCall(new User(id,password));
 
         call.enqueue(new Callback<LoginResponse>() {
 
@@ -65,23 +65,15 @@ public class LoginActivity extends StatusBar {
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     Log.d("tag", "code"+response.body());
-                }
-                /**
-                   int code = response.code();
-                   if(code == 200){
-                    Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
-                    startActivity(intent);
-                    Log.d("tag", "code"+response.code());
-                }
-                else{
+                }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
-                }*/
+                }
 
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
-                Toast.makeText(LoginActivity.this,"学号或密码错误",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
                 Log.e("tag",throwable.getMessage());
             }

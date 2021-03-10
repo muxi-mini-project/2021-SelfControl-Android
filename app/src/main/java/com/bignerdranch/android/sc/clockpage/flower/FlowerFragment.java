@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
 
-public class ThuFlowerFragment extends Fragment {
+public class FlowerFragment extends Fragment {
     private TextView mTextView;
     private ImageButton unflower;
     private View mView;
@@ -22,12 +23,16 @@ public class ThuFlowerFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.flower_thu,container,false);
+        View view = inflater.inflate(R.layout.flower,container,false);
 
-        mTextView = (TextView)view.findViewById(R.id.today_date);
-        mView = (View)view.findViewById(R.id.line);
-        unflower = (ImageButton)view.findViewById(R.id.unflower);
+        mTextView = view.findViewById(R.id.today);
+        mView = view.findViewById(R.id.line);
+        unflower = view.findViewById(R.id.unflower);
 
         return view;
+    }
+
+    public void setTextV(String m){
+        mTextView.setText(m);
     }
 }
