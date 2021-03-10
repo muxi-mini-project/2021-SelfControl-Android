@@ -73,9 +73,12 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
+                Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
+                startActivity(intent);
+                /*
                 Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
-                Log.e("tag",throwable.getMessage());
+                Log.e("tag",throwable.getMessage());*/
             }
 
         });

@@ -197,13 +197,14 @@ public class DateAdapter extends BaseAdapter {
             holder = new Holder();
             convertView = LayoutInflater.from(context).inflate(R.layout.item_calendar, null);
 
-            holder.tv = (TextView) convertView.findViewById(R.id.tv_calendar);
-            holder.ll_data = (LinearLayout) convertView.findViewById(R.id.ll_data);
-            holder.view_line = (View) convertView.findViewById(R.id.view_line);
+            holder.tv = convertView.findViewById(R.id.tv_calendar);
+            holder.ll_data = convertView.findViewById(R.id.ll_data);
+            holder.view_line = convertView.findViewById(R.id.view_line);
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
         }
+
         holder.tv.setText(dayNumber[position]);
         holder.tv.setTextSize(20);
 
