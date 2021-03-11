@@ -1,7 +1,9 @@
 package com.bignerdranch.android.sc.user;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -33,7 +35,7 @@ public class CoinQueryActivity extends StatusBar {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("https://124.71.184.107:2333/api/v1/")
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
@@ -46,6 +48,8 @@ public class CoinQueryActivity extends StatusBar {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         mUser = response.body();
+                        mCoin = findViewById(R.id.dangqianjinbi);
+                        mCoin.setText(mUser.getGold());
                     }
 
                     @Override
@@ -65,12 +69,14 @@ public class CoinQueryActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CoinQueryActivity.this,UserActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(CoinQueryActivity.this,UserActivity.class);
+                //startActivity(intent);
+                finish();
+
             }
         });
 
-        mCoin = findViewById(R.id.dangqianjinbi);
-        mCoin.setText(mUser.getGold());
+
     }
+
 }

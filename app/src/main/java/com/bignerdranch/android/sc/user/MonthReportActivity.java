@@ -25,8 +25,7 @@ public class MonthReportActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MonthReportActivity.this,UserActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

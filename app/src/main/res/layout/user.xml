@@ -36,7 +36,7 @@
         android:scaleType="fitXY"/>
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/head"
         android:layout_width="97dp"
         android:layout_height="93dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
@@ -55,10 +55,10 @@
         android:text="TextView"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/head"
         app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/head"
+        app:layout_constraintTop_toBottomOf="@+id/head"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

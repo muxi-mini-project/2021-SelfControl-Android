@@ -35,7 +35,7 @@ public class MonthRankFragment extends Fragment {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("https://124.71.184.107:2333/api/v1/")
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
@@ -48,6 +48,7 @@ public class MonthRankFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
+                        init();
                     }
 
                     @Override
@@ -58,7 +59,7 @@ public class MonthRankFragment extends Fragment {
             }
         }.start();
 
-        init();
+
 
         return view;
     }

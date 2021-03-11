@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.UserActivity;
 
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class BackgroundActivity extends StatusBar {
     private ImageView mTheme1,mTheme2,mTheme3,mTheme4,mTheme5,mTheme6;
     private ImageView mChoose1,mChoose2,mChoose3,mChoose4,mChoose5,mChoose6;
     private int f1 = 0,f2 = 0,f3 = 0,f4 = 0,f5 = 0,f6 = 0;
+    private User mUser;
+    private int mCoin;
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -43,45 +47,34 @@ public class BackgroundActivity extends StatusBar {
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-       /* new Thread() {
+        new Thread() {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("https://124.71.184.107:2333/api/v1/")
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
 
-                GoldClient client = retrofit.create(GoldClient.class);
-                Call<Gold> call = client.usersGold();
+                UserActivity.UserClient client = retrofit.create(UserActivity.UserClient.class);
+                Call<User> call = client.mUser();
 
-                call.enqueue(new Callback<Gold>() {
+                call.enqueue(new Callback<User>() {
 
                     @Override
-                    public void onResponse(Call<Gold> call, Response<Gold> response) {
-                        Gold gold = response.body();
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        mUser = response.body();
+                        mCoin = mUser.getGold();
                     }
 
                     @Override
-                    public void onFailure(Call<Gold> call, Throwable t) {
+                    public void onFailure(Call<User> call, Throwable t) {
 
                     }
                 });
             }
-
-        }.start();*/
-
+        }.start();
     }
-
-    public interface GoldClient{
-        @Headers("token")
-        @GET("/user/gold")
-        Call<Gold> usersGold();
-    }
-    public class Gold{
-        int gold;
-    }
-
 
     private void init(){
 
@@ -89,8 +82,7 @@ public class BackgroundActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BackgroundActivity.this,SettingPageActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

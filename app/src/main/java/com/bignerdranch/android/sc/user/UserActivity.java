@@ -1,10 +1,20 @@
 package com.bignerdranch.android.sc.user;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -13,6 +23,10 @@ import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,6 +42,9 @@ public class UserActivity extends StatusBar {
 
     private ConstraintLayout mJinbi,mYuebao,mPaihangbang;
     private ImageButton mJinbiButton,mYuebaoButton,mPaihangbangButton;
+    private ImageView iv_photo;
+    private Bitmap head;
+    private static String path = "/sdcard/myHead";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +58,21 @@ public class UserActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     private void init(){
+
+        iv_photo = findViewById(R.id.head);
+        iv_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTypeDialog();
+            }
+        });
+        Bitmap bt = BitmapFactory.decodeFile(path + "head.jpg");
+        if(bt != null){
+            @SuppressWarnings("deprecation")
+            Drawable drawable = new BitmapDrawable(bt);
+            iv_photo.setImageDrawable(drawable);
+        }
+
         mJinbi = findViewById(R.id.user_jinbi);
         mJinbi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,5 +128,96 @@ public class UserActivity extends StatusBar {
         @GET("/user")
         @Headers("token")
         Call<User> mUser();
+    }
+    private void showTypeDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog dialog = builder.create();
+        View view = View.inflate(this,R.layout.dialog_select_photo,null);
+        TextView tv_select_gallery = findViewById(R.id.tv_select_gallery);
+        TextView tv_select_camera = findViewById(R.id.tv_select_camera);
+        tv_select_gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(Intent.ACTION_PICK,null);
+                intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
+                startActivityForResult(intent1,1);
+                dialog.dismiss();
+            }
+        });
+        tv_select_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile
+                                (new File(Environment.getExternalStorageDirectory(),"head.jpg")));
+                startActivityForResult(intent2,2);
+                dialog.dismiss();
+            }
+        });
+        dialog.setView(view);
+        dialog.show();
+    }
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        switch (requestCode){
+            case 1:
+                if(resultCode == RESULT_OK){
+                    cropPhoto(data.getData());//裁剪图片
+                }
+                break;
+            case 2:
+                if(resultCode == RESULT_OK){
+                    File temp = new File(Environment.getExternalStorageDirectory() + "/head.jpg");
+                    break;
+                }
+            case 3:
+                if(head != null){
+                    setPicToView(head);
+                    iv_photo.setImageBitmap(head);
+                }
+                break;
+        }
+    }
+    /**
+     * 调用系统的裁剪功能
+     *
+     * @param uri
+     */
+    public void cropPhoto(Uri uri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // outputX outputY 是裁剪图片宽高
+        intent.putExtra("outputX", 150);
+        intent.putExtra("outputY", 150);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, 3);
+    }
+    private void setPicToView(Bitmap mBitmap) {
+        String sdStatus = Environment.getExternalStorageState();
+        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用
+            return;
+        }
+        FileOutputStream b = null;
+        File file = new File(path);
+        file.mkdirs();// 创建文件夹
+        String fileName = path + "head.jpg";// 图片名字
+        try {
+            b = new FileOutputStream(fileName);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+// 关闭流
+                b.flush();
+                b.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
