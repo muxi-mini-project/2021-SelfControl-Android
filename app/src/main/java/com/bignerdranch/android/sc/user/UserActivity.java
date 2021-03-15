@@ -1,11 +1,14 @@
 package com.bignerdranch.android.sc.user;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -15,28 +18,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
+import com.bignerdranch.android.sc.user.CoinQueryActivity;
+import com.bignerdranch.android.sc.user.MonthReportActivity;
+import com.bignerdranch.android.sc.user.RankQueryActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
 
 public class UserActivity extends StatusBar {
 
@@ -63,6 +56,7 @@ public class UserActivity extends StatusBar {
         iv_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                askPermissions();
                 showTypeDialog();
             }
         });
@@ -77,7 +71,7 @@ public class UserActivity extends StatusBar {
         mJinbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(UserActivity.this,CoinQueryActivity.class);
+                Intent intent1 = new Intent(UserActivity.this, CoinQueryActivity.class);
                 startActivity(intent1);
             }
         });
@@ -94,7 +88,7 @@ public class UserActivity extends StatusBar {
         mYuebao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(UserActivity.this,MonthReportActivity.class);
+                Intent intent2 = new Intent(UserActivity.this, MonthReportActivity.class);
                 startActivity(intent2);
             }
         });
@@ -111,7 +105,7 @@ public class UserActivity extends StatusBar {
         mPaihangbang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(UserActivity.this,RankQueryActivity.class);
+                Intent intent1 = new Intent(UserActivity.this, RankQueryActivity.class);
                 startActivity(intent1);
             }
         });
@@ -124,11 +118,7 @@ public class UserActivity extends StatusBar {
             }
         });
     }
-    public interface UserClient{
-        @GET("/user")
-        @Headers("token")
-        Call<User> mUser();
-    }
+
     private void showTypeDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final AlertDialog dialog = builder.create();
@@ -149,7 +139,7 @@ public class UserActivity extends StatusBar {
             public void onClick(View v) {
                 Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile
-                                (new File(Environment.getExternalStorageDirectory(),"head.jpg")));
+                        (new File(Environment.getExternalStorageDirectory(),"head.jpg")));
                 startActivityForResult(intent2,2);
                 dialog.dismiss();
             }
@@ -171,10 +161,16 @@ public class UserActivity extends StatusBar {
                     break;
                 }
             case 3:
-                if(head != null){
-                    setPicToView(head);
-                    iv_photo.setImageBitmap(head);
+                if(data != null){
+                    Bundle extras = data.getExtras();
+                    head = extras.getParcelable("data");
+                    if(head != null) {
+                        setPicToView(head);
+                        iv_photo.setImageBitmap(head);
+                    }
                 }
+                break;
+            default:
                 break;
         }
     }
@@ -217,6 +213,20 @@ public class UserActivity extends StatusBar {
                 b.close();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+    private void askPermissions() {//动态申请权限！
+        if (Build.VERSION.SDK_INT >= 23) {
+            int REQUEST_CODE_CONTACT = 101;
+            String[] permissions = {Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS,//联系人的权限
+                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};//读写SD卡权限
+            //验证是否许可权限
+            for (String str : permissions) {
+                if (this.checkSelfPermission(str) != PackageManager.PERMISSION_GRANTED) {
+                    //申请权限
+                    this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
+                }
             }
         }
     }

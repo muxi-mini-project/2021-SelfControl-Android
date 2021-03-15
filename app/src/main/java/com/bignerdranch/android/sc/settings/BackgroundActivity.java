@@ -15,6 +15,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.UserClient;
 
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class BackgroundActivity extends StatusBar {
 
                 Retrofit retrofit = builder.build();
 
-                UserActivity.UserClient client = retrofit.create(UserActivity.UserClient.class);
+                UserClient client = retrofit.create(UserClient.class);
                 Call<User> call = client.mUser();
 
                 call.enqueue(new Callback<User>() {

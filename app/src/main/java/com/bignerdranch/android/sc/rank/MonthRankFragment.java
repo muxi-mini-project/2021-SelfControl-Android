@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
@@ -100,5 +101,9 @@ public class MonthRankFragment extends Fragment {
         o5 = o5.findViewById(R.id.m_first_n);
         o5.setText(mList.get(4).getNumber());
 
+    }
+    public void privateDialog() {
+        DialogFragment newFragment = new PrivateDialog();
+        newFragment.show(getFragmentManager(),"wrong");
     }
 }

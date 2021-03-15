@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.UserClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,13 +22,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public class PrivateActivity extends StatusBar {
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
-
+    private User mUser;
+    private int mCoin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,7 +55,7 @@ public class PrivateActivity extends StatusBar {
         mTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            /*    new Thread() {
+               new Thread() {
                     @Override
                     public void run() {
                         Retrofit.Builder builder = new Retrofit.Builder()
@@ -58,32 +64,55 @@ public class PrivateActivity extends StatusBar {
 
                         Retrofit retrofit = builder.build();
 
-                        UserActivity.UserClient client = retrofit.create(UserActivity.UserClient.class);
-                        Call<User> call = client.mUser();
+                        PrivateAPI client = retrofit.create(PrivateAPI.class);
+                        Call<User> call = client.getCall(1);
 
                         call.enqueue(new Callback<User>() {
 
                             @Override
                             public void onResponse(Call<User> call, Response<User> response) {
-                                mUser = response.body();
-                                mCoin = findViewById(R.id.dangqianjinbi);
-                                mCoin.setText(mUser.getGold());
+                                Toast.makeText(PrivateActivity.this,"修改成功", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
                             public void onFailure(Call<User> call, Throwable t) {
-
+                                Toast.makeText(PrivateActivity.this,"出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
-                }.start();*/
+                }.start();
             }
         });
         mFalse = (Button)findViewById(R.id.false_button);
         mFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new Thread() {
+                    @Override
+                    public void run() {
+                        Retrofit.Builder builder = new Retrofit.Builder()
+                                .baseUrl("http://124.71.184.107:2333/api/v1/")
+                                .addConverterFactory(GsonConverterFactory.create());
 
+                        Retrofit retrofit = builder.build();
+
+                        PrivateAPI client = retrofit.create(PrivateAPI.class);
+                        Call<User> call = client.getCall(0);
+
+                        call.enqueue(new Callback<User>() {
+
+                            @Override
+                            public void onResponse(Call<User> call, Response<User> response) {
+                                Toast.makeText(PrivateActivity.this,"修改成功", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<User> call, Throwable t) {
+                                Toast.makeText(PrivateActivity.this,"出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }.start();
             }
         });
     }
@@ -93,8 +122,8 @@ public class PrivateActivity extends StatusBar {
     }
     public interface PrivateAPI {
 
-        @POST("user")
-        @FormUrlEncoded
+        @PUT("user")
+        @Headers("")
         Call<User> getCall(@Field("private") int param1);
 
     }

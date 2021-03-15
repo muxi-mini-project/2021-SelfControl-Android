@@ -30,7 +30,7 @@
             app:srcCompat="@mipmap/rank1" />
 
         <ImageView
-            android:id="@+id/imageView35"
+            android:id="@+id/user1"
             android:layout_width="70dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,8 +50,8 @@
             app:layout_constraintBottom_toTopOf="@+id/m_first_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toEndOf="@+id/imageView35"
-            app:layout_constraintTop_toTopOf="@+id/imageView35"
+            app:layout_constraintStart_toEndOf="@+id/user1"
+            app:layout_constraintTop_toTopOf="@+id/user1"
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
@@ -106,7 +106,7 @@
             app:srcCompat="@mipmap/rank2" />
 
         <ImageView
-            android:id="@+id/imageView36"
+            android:id="@+id/user2"
             android:layout_width="70dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -126,8 +126,8 @@
             app:layout_constraintBottom_toTopOf="@+id/m_second_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toEndOf="@+id/imageView36"
-            app:layout_constraintTop_toTopOf="@+id/imageView36"
+            app:layout_constraintStart_toEndOf="@+id/user2"
+            app:layout_constraintTop_toTopOf="@+id/user2"
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
@@ -181,7 +181,7 @@
             app:srcCompat="@mipmap/rank3" />
 
         <ImageView
-            android:id="@+id/imageView46"
+            android:id="@+id/user3"
             android:layout_width="70dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -201,8 +201,8 @@
             app:layout_constraintBottom_toTopOf="@+id/m_third_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toEndOf="@+id/imageView46"
-            app:layout_constraintTop_toTopOf="@+id/imageView46"
+            app:layout_constraintStart_toEndOf="@+id/user3"
+            app:layout_constraintTop_toTopOf="@+id/user3"
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
@@ -244,7 +244,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView56"
+            android:id="@+id/user4"
             android:layout_width="70dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -264,8 +264,8 @@
             app:layout_constraintBottom_toTopOf="@+id/m_fourth_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toEndOf="@+id/imageView56"
-            app:layout_constraintTop_toTopOf="@+id/imageView56"
+            app:layout_constraintStart_toEndOf="@+id/user4"
+            app:layout_constraintTop_toTopOf="@+id/user4"
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
@@ -321,7 +321,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView66"
+            android:id="@+id/user5"
             android:layout_width="70dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -341,8 +341,8 @@
             app:layout_constraintBottom_toTopOf="@+id/m_fifth_o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toEndOf="@+id/imageView66"
-            app:layout_constraintTop_toTopOf="@+id/imageView66"
+            app:layout_constraintStart_toEndOf="@+id/user5"
+            app:layout_constraintTop_toTopOf="@+id/user5"
             app:layout_constraintVertical_bias="0.652" />
 
         <TextView
