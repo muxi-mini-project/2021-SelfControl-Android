@@ -16,6 +16,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.fragment.app.Fragment;
@@ -25,16 +26,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.clockpage.flower.FriFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.MonFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.SatFlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
-import com.bignerdranch.android.sc.clockpage.flower.SunFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.ThuFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.TueFlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.WesFlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
+import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
@@ -67,19 +63,19 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private int currentWeek;
     private int currentDay;
     private int currentNum;
-    public TextView ticker;
-    public ImageButton settings;
-    public ImageButton users;
+    private TextView ticker;
+    private ImageButton settings;
+    private ImageButton users;
 
     private ArrayList<Fragment> fragments;
     private ViewPager mViewPager;
-    SunFlowerFragment mSunFlowerFragment;
-    MonFlowerFragment mMonFlowerFragment;
-    TueFlowerFragment mTueFlowerFragment;
-    WesFlowerFragment mWesFlowerFragment;
-    ThuFlowerFragment mThuFlowerFragment;
-    FriFlowerFragment mFriFlowerFragment;
-    SatFlowerFragment mSatFlowerFragment;
+    private FlowerFragment mSunFlowerFragment;
+    private FlowerFragment mMonFlowerFragment;
+    private FlowerFragment mTueFlowerFragment;
+    private FlowerFragment mWesFlowerFragment;
+    private FlowerFragment mThuFlowerFragment;
+    private FlowerFragment mFriFlowerFragment;
+    private FlowerFragment mSatFlowerFragment;
     FragmentManager mFragmentManager;
     FragmentPagerAdapter mFragmentPagerAdapter;
 
@@ -185,10 +181,8 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         gridView.setSelection(selectPostion);
         flipper1.addView(gridView, 0);
 
-        ticker = (TextView) findViewById(R.id.tv_scroll);
+        ticker = findViewById(R.id.tv_scroll);
         ticker.setSelected(true);
-
-        initView();
 
         settings=(ImageButton)findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -199,7 +193,9 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             }
         });
 
-        users=(ImageButton)findViewById(R.id.users);
+        initView();
+
+        users= findViewById(R.id.users);
         users.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,7 +204,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             }
         });
 
-        mViewPager.setCurrentItem(0);
+        mViewPager.setCurrentItem(dateAdapter.getTodayPosition());
         //设置边距5dp
         mViewPager.setPageMargin( dip2px(5));
 
@@ -226,15 +222,15 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
 
     private void initView(){
-        mViewPager = (ViewPager)findViewById(R.id.ViewPager);
+        mViewPager = findViewById(R.id.ViewPager);
 
-        mSunFlowerFragment = new SunFlowerFragment();
-        mMonFlowerFragment = new MonFlowerFragment();
-        mTueFlowerFragment = new TueFlowerFragment();
-        mWesFlowerFragment = new WesFlowerFragment();
-        mThuFlowerFragment = new ThuFlowerFragment();
-        mFriFlowerFragment = new FriFlowerFragment();
-        mSatFlowerFragment = new SatFlowerFragment();
+        mSunFlowerFragment = new FlowerFragment();
+        mMonFlowerFragment = new FlowerFragment();
+        mTueFlowerFragment = new FlowerFragment();
+        mWesFlowerFragment = new FlowerFragment();
+        mThuFlowerFragment = new FlowerFragment();
+        mFriFlowerFragment = new FlowerFragment();
+        mSatFlowerFragment = new FlowerFragment();
 
         fragments = new ArrayList<>();
         fragments.add(mSunFlowerFragment);
@@ -249,6 +245,45 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager,fragments);
 
         mViewPager.setAdapter(mFragmentPagerAdapter);
+
+        mSunFlowerFragment.FlowerFragment("星期日");
+        mMonFlowerFragment.FlowerFragment("星期一");
+        mTueFlowerFragment.FlowerFragment("星期二");
+        mWesFlowerFragment.FlowerFragment("星期三");
+        mThuFlowerFragment.FlowerFragment("星期四");
+        mFriFlowerFragment.FlowerFragment("星期五");
+        mSatFlowerFragment.FlowerFragment("星期六");
+
+        //设置viewPager页面滑动的事件
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            //页面状态改变时调用,arg0为页面状态
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+
+            }
+
+            //页面滑动过程中调用
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+            }
+
+
+            //页面滑动后调用
+            int preItem = mViewPager.getCurrentItem();
+            @Override
+            public void onPageSelected(int arg0) {
+                if(mViewPager.getCurrentItem() < preItem){//从左向右
+                    return;
+                }
+                if(preItem < mViewPager.getCurrentItem()){//从右向左滑
+
+                    return;
+                }
+
+            }
+        });
     }
 
     private void addGridView() {
@@ -276,6 +311,9 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 dateAdapter.setSeclection(position);
                 dateAdapter.notifyDataSetChanged();
                 tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
+
+                int today =dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion),dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
+                mViewPager.setCurrentItem(today);
             }
         });
         gridView.setLayoutParams(params);
@@ -350,9 +388,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     }
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {//手势滑动效果
         int gvFlag = 0;
-        if (e1.getX() - e2.getX() > 80) {
+        /*getX表示得到他在整个页面的x或者y坐标
+        */
+        if (e1.getX() - e2.getX() > 80) {//向左滑动
             addGridView();
             currentWeek++;
             getCurrent();
@@ -369,7 +409,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             flipper1.removeViewAt(0);
             return true;
 
-        } else if (e1.getX() - e2.getX() < -80) {
+        } else if (e1.getX() - e2.getX() < -80) {//向右滑动
             addGridView();
             currentWeek--;
             getCurrent();
