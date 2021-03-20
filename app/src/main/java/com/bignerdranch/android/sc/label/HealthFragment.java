@@ -1,12 +1,10 @@
 package com.bignerdranch.android.sc.label;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -27,10 +25,17 @@ public class HealthFragment extends Fragment {
     private ImageButton mbuqiaoerlangtui;
     private ImageButton mzaoqikongfuheshui;
 
-    private ImageButton fankui;
-
-    private int[] flag = {0};
-    private int times1 = 0;
+    private ImageButton add;
+    private int flag1 = 0;
+    private int flag2 = 0;
+    private int flag3 = 0;
+    private int flag4 = 0;
+    private int flag5 = 0;
+    private int flag6 = 0;
+    private int flag7 = 0;
+    private int flag8 = 0;
+    private int flag9 = 0;
+    private int flag10 = 0;
 
     private TextView chishuiguo;
     private TextView chizaocan;
@@ -43,30 +48,18 @@ public class HealthFragment extends Fragment {
     private TextView buqiaoerlangtui;
     private TextView zaoqikongfuheshui;
 
-    SendValue mSendValue;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mSendValue= (SendValue) getActivity();
-    }
-
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
         View view=inflater .inflate(R.layout.health_pager,container,false) ;
         mchishuiguo = (ImageButton) view.findViewById(R.id.chishuiguo);
         mchishuiguo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[0] == 0){
+                if(flag1 == 0){
                     mchishuiguo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[0] = 1;
-                    final TextView textView = view.findViewById(R.id.chishuiguo_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag1 = 1;
                 }else{
                     mchishuiguo.setBackgroundResource(R.mipmap.chishuiguo);
-                    flag[0] = 0;
+                    flag1 = 0;
                 }
             }
         });
@@ -75,16 +68,12 @@ public class HealthFragment extends Fragment {
         mchizaocan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[1] == 0){
+                if(flag2 == 0){
                     mchizaocan.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[1] =1;
-                    final TextView textView = view.findViewById(R.id.chizaocan_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag2 =1;
                 }else{
                     mchizaocan.setBackgroundResource(R.mipmap.chizaocan);
-                    flag[1] = 0;
+                    flag2 = 0;
                 }
             }
         });
@@ -93,16 +82,12 @@ public class HealthFragment extends Fragment {
         mduoheshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[2] == 0){
+                if(flag3 == 0){
                     mduoheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[2] =1;
-                    final TextView textView = view.findViewById(R.id.duoheshui_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag3 =1;
                 }else{
                     mduoheshui.setBackgroundResource(R.mipmap.duoheshui);
-                    flag[2] = 0;
+                    flag3 = 0;
                 }
             }
         });
@@ -111,16 +96,12 @@ public class HealthFragment extends Fragment {
         mjujueyexiao.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[3] == 0){
+                if(flag4 == 0){
                     mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[3] =1;
-                    final TextView textView = view.findViewById(R.id.jujueyexiao_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag4 =1;
                 }else{
                     mjujueyexiao.setBackgroundResource(R.mipmap.jujueyexiao);
-                    flag[3] = 0;
+                    flag4 = 0;
                 }
             }
         });
@@ -129,16 +110,12 @@ public class HealthFragment extends Fragment {
         mjujueyinliao.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[4] == 0){
+                if(flag5 == 0){
                     mjujueyinliao.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[4] =1;
-                    final TextView textView = view.findViewById(R.id.jujueyinliao_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag5 =1;
                 }else{
                     mjujueyinliao.setBackgroundResource(R.mipmap.jujueyinliao);
-                    flag[4] = 0;
+                    flag5 = 0;
                 }
             }
         });
@@ -147,16 +124,12 @@ public class HealthFragment extends Fragment {
         mjujuejiuzuo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[5] == 0){
+                if(flag6 == 0){
                     mjujuejiuzuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[5] =1;
-                    final TextView textView = view.findViewById(R.id.jujuejiuzuo_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag6 =1;
                 }else{
                     mjujuejiuzuo.setBackgroundResource(R.mipmap.jujuejiuzuo);
-                    flag[5] = 0;
+                    flag6 = 0;
                 }
             }
         });
@@ -165,16 +138,12 @@ public class HealthFragment extends Fragment {
         mzaoqi.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[6] == 0){
+                if(flag7 == 0){
                     mzaoqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[6] =1;
-                    final TextView textView = view.findViewById(R.id.zaoqi_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag7 =1;
                 }else{
                     mzaoqi.setBackgroundResource(R.mipmap.zaoqi);
-                    flag[6] = 0;
+                    flag7 = 0;
                 }
             }
         });
@@ -183,16 +152,12 @@ public class HealthFragment extends Fragment {
         mzaoshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[7] == 0){
+                if(flag8 == 0){
                     mzaoshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[7] =1;
-                    final TextView textView = view.findViewById(R.id.zaoshui_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag8 =1;
                 }else{
                     mzaoshui.setBackgroundResource(R.mipmap.zaoshui);
-                    flag[7] = 0;
+                    flag8 = 0;
                 }
             }
         });
@@ -201,47 +166,44 @@ public class HealthFragment extends Fragment {
         mbuqiaoerlangtui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[8] == 0){
+                if(flag9 == 0){
                     mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[8] =1;
-                    final TextView textView = view.findViewById(R.id.buqiaoerlangtui_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
+                    flag9 =1;
                 }else{
                     mbuqiaoerlangtui.setBackgroundResource(R.mipmap.buqiaoerlangtui);
-                    flag[8] = 0;
+                    flag9 = 0;
                 }
             }
         });
 
-        mzaoqikongfuheshui = (ImageButton)view.findViewById(R.id.zaoqikongfuheshui);
+        mzaoqikongfuheshui = (ImageButton)view.findViewById(R.id.zapqikongfuheshui);
         mzaoqikongfuheshui.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(flag[9] == 0){
+                if(flag10 == 0){
                     mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                    flag[9] =1;
-                    final TextView textView = view.findViewById(R.id.zaoqikongfuheshui_textView);
-                    times1++;
-                    String s=textView.getText().toString();
-                    mSendValue.Send1(s);
-                    mSendValue.Send2(times1);
+                    flag10 =1;
                 }else{
                     mzaoqikongfuheshui.setBackgroundResource(R.mipmap.zaoqikongfuheshui);
-                    flag[9] = 0;
+                    flag10 = 0;
                 }
             }
         });
 
-        fankui = (ImageButton)view.findViewById(R.id.fankui_imageButton);
+        chishuiguo = (TextView)view.findViewById(R.id.chishuiguo_textView);
+        chizaocan = (TextView)view.findViewById(R.id.chizaocan_textView);
+        duoheshui = (TextView)view.findViewById(R.id.duoheshui_textView);
+        jujueyexiao = (TextView)view.findViewById(R.id.jujueyexiao_textView);
+        jujueyinliao = (TextView)view.findViewById(R.id.jujueyinliao_textView);
+        jujuejiuzuo = (TextView)view.findViewById(R.id.jujuejiuzuo_textView);
+        zaoqi = (TextView)view.findViewById(R.id.zaoqi_textView);
+        zaoshui = (TextView)view.findViewById(R.id.zaoshui_textView);
+        buqiaoerlangtui = (TextView)view.findViewById(R.id.buqiaoerlangtui_textView);
+        zaoqikongfuheshui = (TextView)view.findViewById(R.id.zapqikongfuheshui_textView);
+
+        add = (ImageButton)view.findViewById(R.id.add);
 
         return view;
-    }
-
-    public interface SendValue{
-        void Send1(String s);
-        void Send2(int times1);
     }
 
 }

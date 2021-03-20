@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:paddingTop="35dp">
 
     <Button
         android:id="@+id/login_B"
@@ -73,6 +74,7 @@
             android:background="#FEFEFE"
             android:hint="密码"
             android:textSize="15sp"
+            android:inputType="textWebPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"

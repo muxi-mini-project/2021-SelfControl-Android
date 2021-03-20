@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.clockin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 
+import java.time.Clock;
 import java.util.List;
 
 public class ClockinListFragment extends Fragment {
@@ -32,43 +34,55 @@ public class ClockinListFragment extends Fragment {
         return view;
     }
 
-    private void updateUI(){
-        ClockinLab clockinLab = ClockinLab.get(getActivity());
-        mClockinRecyclerView.setAdapter(mAdapter);
-    }
+    private class ClockinHolder extends RecyclerView.ViewHolder {
 
-    private class ClockinHolder extends RecyclerView.ViewHolder{
-
-        private ClockinActivity mClockin;
+        private Clockin mClockin;
         private ImageView mImageView;
         private TextView mTextView1;
         private TextView mTextView2;
         private Button mButton;
         private int mTimes;
+        private boolean status=false;
 
         public ClockinHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.clockin_list,parent,false));
+
 
             mImageView = (ImageView) itemView.findViewById(R.id.list1);
             mTextView1 = (TextView) itemView.findViewById(R.id.text1);
             mTextView2 = (TextView) itemView.findViewById(R.id.text2);
             mButton = (Button) itemView.findViewById(R.id.clockin);
+            mButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!status){
+                        mButton.setText("已完成");
+                        mButton.setEnabled(false);
+                        status=true;
+                        mTimes++;
+                    }else{
+                        mButton.setText("我要打卡");
+                        mButton.setEnabled(true);
+                        status=false;
+                    }
+
+                    mTimes++;
+                }
+            });
         }
 
-        public void bind(ClockinActivity clockin){
+        public void bind(Clockin clockin){
             mClockin = clockin;
             mTextView1.getText();
             mTextView2.setText("你已打卡：" + mTimes + "次");
         }
-
     }
-
 
     private class ClockinAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-        private List<ClockinActivity> mClockins;
+        private List<Clockin> mClockins;
 
-        public ClockinAdapter(List<ClockinActivity> clockins){
+        public ClockinAdapter(List<Clockin> clockins){
             mClockins = clockins;
         }
 
@@ -80,7 +94,7 @@ public class ClockinListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-            ClockinActivity clockin = mClockins.get(position);
+            Clockin clockin = mClockins.get(position);
                 ((ClockinHolder)holder).bind(clockin);
         }
 
@@ -88,5 +102,13 @@ public class ClockinListFragment extends Fragment {
         public int getItemCount(){
             return mClockins.size();
         }
+    }
+
+    private void updateUI(){
+        ClockinLab clockinLab = ClockinLab.get(getActivity());
+        List<Clockin> crimes = clockinLab.getClockins();
+
+        mAdapter = new ClockinAdapter(crimes);
+        mClockinRecyclerView.setAdapter(mAdapter);
     }
 }

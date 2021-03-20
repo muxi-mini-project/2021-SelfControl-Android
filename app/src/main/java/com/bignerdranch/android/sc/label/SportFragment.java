@@ -1,12 +1,9 @@
 package com.bignerdranch.android.sc.label;
 
-import android.content.Context;
-import android.icu.text.UFormat;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -25,7 +22,7 @@ public class SportFragment extends Fragment {
     private ImageButton mjianshen;
     private ImageButton mqiche;
 
-    private ImageButton mfankui;
+    private ImageButton madd;
 
     private TextView mpaobu1;
     private TextView mfuwocheng1;
@@ -40,15 +37,15 @@ public class SportFragment extends Fragment {
     private TextView madd1;
     private TextView madd2;
 
-    int[] flag = {0};
-    int times2 = 0;
-    SendValue mSendValue;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mSendValue= (SendValue) getActivity();
-    }
+    private int flag1 = 0;
+    private int flag2 = 0;
+    private int flag3 = 0;
+    private int flag4 = 0;
+    private int flag5 = 0;
+    private int flag6 = 0;
+    private int flag7 = 0;
+    private int flag8 = 0;
+    private int flag9 = 0;
 
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
@@ -58,16 +55,12 @@ public class SportFragment extends Fragment {
             mpaobu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[0] == 0) {
+                    if (flag1 == 0) {
                         mpaobu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[0] = 1;
-                        final TextView textView = view.findViewById(R.id.paobu_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag1 = 1;
                     } else {
                         mpaobu.setBackgroundResource(R.mipmap.paobu);
-                        flag[0] = 0;
+                        flag1 = 0;
                     }
                 }
             });
@@ -77,16 +70,12 @@ public class SportFragment extends Fragment {
             mfuwocheng.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[1] == 0) {
+                    if (flag2 == 0) {
                         mfuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[1] = 1;
-                        final TextView textView = view.findViewById(R.id.fuwocheng_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag2 = 1;
                     } else {
                         mfuwocheng.setBackgroundResource(R.mipmap.fuwocheng);
-                        flag[1] = 0;
+                        flag2 = 0;
                     }
                 }
             });
@@ -95,16 +84,12 @@ public class SportFragment extends Fragment {
             mtiaosheng.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[2] == 0) {
+                    if (flag3 == 0) {
                         mtiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[2] = 1;
-                        final TextView textView = view.findViewById(R.id.tiaosheng_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag3 = 1;
                     } else {
                         mtiaosheng.setBackgroundResource(R.mipmap.tiaosheng);
-                        flag[2] = 0;
+                        flag3 = 0;
                     }
                 }
             });
@@ -113,16 +98,12 @@ public class SportFragment extends Fragment {
             myangwoqizuo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[3] == 0) {
+                    if (flag4 == 0) {
                         myangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[3] = 1;
-                        final TextView textView = view.findViewById(R.id.yangwoqizuo_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag4 = 1;
                     } else {
                         myangwoqizuo.setBackgroundResource(R.mipmap.yangwuoqizuo);
-                        flag[3] = 0;
+                        flag4 = 0;
                     }
                 }
             });
@@ -131,16 +112,12 @@ public class SportFragment extends Fragment {
             msanbu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[4] == 0) {
+                    if (flag5 == 0) {
                         msanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[4] = 1;
-                        final TextView textView = view.findViewById(R.id.sanbu_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag5 = 1;
                     } else {
                         msanbu.setBackgroundResource(R.mipmap.sanbu);
-                        flag[4] = 0;
+                        flag5 = 0;
                     }
                 }
             });
@@ -149,16 +126,12 @@ public class SportFragment extends Fragment {
             mlashen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[5] == 0) {
+                    if (flag6 == 0) {
                         mlashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[5] = 1;
-                        final TextView textView = view.findViewById(R.id.lashen_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag6 = 1;
                     } else {
                         mlashen.setBackgroundResource(R.mipmap.yangwuoqizuo);
-                        flag[5] = 0;
+                        flag6 = 0;
                     }
                 }
             });
@@ -167,16 +140,12 @@ public class SportFragment extends Fragment {
             mdalanqiu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[6] == 0) {
+                    if (flag7 == 0) {
                         mdalanqiu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[6] = 1;
-                        final TextView textView = view.findViewById(R.id.dalanqiu_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag7 = 1;
                     } else {
                         mdalanqiu.setBackgroundResource(R.mipmap.yangwuoqizuo);
-                        flag[6] = 0;
+                        flag7 = 0;
                     }
                 }
             });
@@ -185,16 +154,12 @@ public class SportFragment extends Fragment {
             mjianshen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[7] == 0) {
+                    if (flag8 == 0) {
                         mjianshen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[7] = 1;
-                        final TextView textView = view.findViewById(R.id.jianshen_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
+                        flag8 = 1;
                     } else {
                         mjianshen.setBackgroundResource(R.mipmap.jianshen);
-                        flag[7] = 0;
+                        flag8 = 0;
                     }
                 }
             });
@@ -203,22 +168,17 @@ public class SportFragment extends Fragment {
             mqiche.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (flag[8] == 0) {
+                    if (flag9 == 0) {
                         mqiche.setBackgroundResource(R.mipmap.yixuanbiaoqian);
-                        flag[8] = 1;
-                        final TextView textView = view.findViewById(R.id.qiche_textView);
-                        times2++;
-                        String s=textView.getText().toString();
-                        mSendValue.Send1(s);
-                        mSendValue.Send2(times2);
+                        flag9 = 1;
                     } else {
                         mqiche.setBackgroundResource(R.mipmap.qiche);
-                        flag[8] = 0;
+                        flag9 = 0;
                     }
                 }
             });
 
-            mfankui = (ImageButton)view.findViewById(R.id.fankui_imageButton);
+            madd = (ImageButton)view.findViewById(R.id.add_imageButton);
 
             mpaobu1 = (TextView)view.findViewById(R.id.paobu_textView);
             mfuwocheng1 = (TextView)view.findViewById(R.id.fuwocheng_textView);
@@ -234,11 +194,6 @@ public class SportFragment extends Fragment {
             madd2 = (TextView)view.findViewById(R.id.textView5);
 
         return view;
-    }
-
-    public interface SendValue{
-        void Send1(String s);
-        void Send2(int times2);
     }
 
 }

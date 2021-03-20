@@ -1,0 +1,86 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.bignerdranch.android.sc"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:5-66
+11-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:5-66
+12-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:22-64
+13
+14    <application
+14-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:8:5-32:19
+15        android:allowBackup="true"
+15-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:9:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:10:9-43
+19        android:label="@string/app_name"
+19-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:11:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:9-54
+21        android:supportsRtl="true"
+21-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:13:9-35
+22        android:theme="@style/Theme.SC" >
+22-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:14:9-40
+23        <activity android:name="com.bignerdranch.android.sc.login.LoginActivity" >
+23-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:15:9-20:20
+23-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:15:19-54
+24            <intent-filter>
+24-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:16:13-19:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:17:17-69
+25-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:17:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:17-77
+27-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:27-74
+28            </intent-filter>
+29        </activity>
+30        <activity android:name="com.bignerdranch.android.sc.clockpage.ClockActivity" />
+30-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:9-70
+30-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:19-58
+31        <activity android:name="com.bignerdranch.android.sc.label.LabelPagerActivity" />
+31-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:9-71
+31-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:19-59
+32        <activity android:name="com.bignerdranch.android.sc.settings.SettingPageActivity" />
+32-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:9-75
+32-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:19-63
+33        <activity android:name="com.bignerdranch.android.sc.settings.CourseActivity" />
+33-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:9-70
+33-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:19-58
+34        <activity android:name="com.bignerdranch.android.sc.settings.BackgroundActivity" />
+34-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:25:9-74
+34-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:25:19-62
+35        <activity android:name="com.bignerdranch.android.sc.settings.CoinFunctionActivity" />
+35-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:9-76
+35-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:19-64
+36        <activity android:name="com.bignerdranch.android.sc.settings.PrivateActivity" />
+36-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:9-71
+36-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:19-59
+37        <activity android:name="com.bignerdranch.android.sc.user.RankQueryActivity" />
+37-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:9-69
+37-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:19-57
+38        <activity android:name="com.bignerdranch.android.sc.user.MonthReportActivity" />
+38-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:9-71
+38-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:19-59
+39        <activity android:name="com.bignerdranch.android.sc.user.CoinQueryActivity" />
+39-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:9-69
+39-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:19-57
+40        <activity android:name="com.bignerdranch.android.sc.user.UserActivity" />
+40-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:9-64
+40-->/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:19-52
+41    </application>
+42
+43</manifest>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="52.5dp"
         android:orientation="horizontal"
-        android:background="@color/title1">
+        android:background="#9B99F3">
 
         <ImageButton
             android:id="@+id/back"
