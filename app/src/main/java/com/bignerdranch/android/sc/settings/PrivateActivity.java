@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Header;
@@ -27,12 +28,15 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
 public class PrivateActivity extends StatusBar {
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
     private User mUser;
     private int mCoin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,88 +47,77 @@ public class PrivateActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    private void init(){
-        mBack = (ImageButton)findViewById(R.id.private_back);
+    private void init() {
+        mBack = (ImageButton) findViewById(R.id.private_back);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        mTrue = (Button)findViewById(R.id.ture_button);
+        mTrue = (Button) findViewById(R.id.ture_button);
         mTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               new Thread() {
+
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
+                        .addConverterFactory(GsonConverterFactory.create());
+
+                Retrofit retrofit = builder.build();
+
+                PrivateAPI client = retrofit.create(PrivateAPI.class);
+                Call<User> call = client.getCall(new User(1), token);
+
+                call.enqueue(new Callback<User>() {
+
                     @Override
-                    public void run() {
-                        Retrofit.Builder builder = new Retrofit.Builder()
-                                .baseUrl("http://124.71.184.107:2333/api/v1/")
-                                .addConverterFactory(GsonConverterFactory.create());
-
-                        Retrofit retrofit = builder.build();
-
-                        PrivateAPI client = retrofit.create(PrivateAPI.class);
-                        Call<User> call = client.getCall(1);
-
-                        call.enqueue(new Callback<User>() {
-
-                            @Override
-                            public void onResponse(Call<User> call, Response<User> response) {
-                                Toast.makeText(PrivateActivity.this,"修改成功", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onFailure(Call<User> call, Throwable t) {
-                                Toast.makeText(PrivateActivity.this,"出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Toast.makeText(PrivateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                     }
-                }.start();
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(PrivateActivity.this, "出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
-        mFalse = (Button)findViewById(R.id.false_button);
+        mFalse = (Button) findViewById(R.id.false_button);
         mFalse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread() {
+
+                Retrofit.Builder builder = new Retrofit.Builder()
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
+                        .addConverterFactory(GsonConverterFactory.create());
+
+                Retrofit retrofit = builder.build();
+
+                PrivateAPI client = retrofit.create(PrivateAPI.class);
+                Call<User> call = client.getCall(new User(0), token);
+
+                call.enqueue(new Callback<User>() {
+
                     @Override
-                    public void run() {
-                        Retrofit.Builder builder = new Retrofit.Builder()
-                                .baseUrl("http://124.71.184.107:2333/api/v1/")
-                                .addConverterFactory(GsonConverterFactory.create());
-
-                        Retrofit retrofit = builder.build();
-
-                        PrivateAPI client = retrofit.create(PrivateAPI.class);
-                        Call<User> call = client.getCall(0);
-
-                        call.enqueue(new Callback<User>() {
-
-                            @Override
-                            public void onResponse(Call<User> call, Response<User> response) {
-                                Toast.makeText(PrivateActivity.this,"修改成功", Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onFailure(Call<User> call, Throwable t) {
-                                Toast.makeText(PrivateActivity.this,"出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Toast.makeText(PrivateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                     }
-                }.start();
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(PrivateActivity.this, "出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
+
         });
     }
 
-    private void network(){
-
-    }
     public interface PrivateAPI {
 
-        @PUT("user")
-        @Headers("")
-        Call<User> getCall(@Field("private") int param1);
+        @PUT("user/")
+        Call<User> getCall(@Body User mUser, @Header("token") String token);
 
     }
 }

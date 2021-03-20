@@ -29,6 +29,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
 public class BackgroundActivity extends StatusBar {
 
     private ImageButton mBack;
@@ -58,7 +60,7 @@ public class BackgroundActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 UserClient client = retrofit.create(UserClient.class);
-                Call<User> call = client.mUser();
+                Call<User> call = client.mUser(token);
 
                 call.enqueue(new Callback<User>() {
 

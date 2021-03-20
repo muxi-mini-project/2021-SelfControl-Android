@@ -22,6 +22,9 @@ public class User {
         this.student_id = student_id;
         this.password = password;
     }
+    public User(int privacy) {
+        this.privacy = privacy;
+    }
 
     public int getGold() {
         return gold;

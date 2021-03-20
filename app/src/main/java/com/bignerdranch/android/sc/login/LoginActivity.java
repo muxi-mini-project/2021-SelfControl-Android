@@ -23,6 +23,7 @@ public class LoginActivity extends StatusBar {
     private EditText mstudent_id;
     private EditText mpassword;
     private Button mloginbutton;
+    public static String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class LoginActivity extends StatusBar {
                 if(response.isSuccessful()==true){
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
+                    token = response.body().getToken();
                     Log.d("tag", "code"+response.body());
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();

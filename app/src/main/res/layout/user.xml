@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="match_parent"
-        android:layout_height="293dp"
+        android:layout_height="247dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,17 +35,18 @@
         app:srcCompat="@mipmap/back"
         android:scaleType="fitXY"/>
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/head"
         android:layout_width="97dp"
-        android:layout_height="93dp"
+        android:layout_height="97dp"
+        android:onClick="changeAvatar"
+        android:src="@mipmap/user_profile"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36"
-        app:srcCompat="@mipmap/user_profile" />
+        app:layout_constraintVertical_bias="0.52"
+        app:shapeAppearanceOverlay="@style/circleImageStyle" />
 
     <TextView
         android:id="@+id/textView3"
@@ -70,8 +71,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.342">
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView9"
@@ -90,8 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="金币查询"
-            android:textSize="25sp"
             android:textColor="#000000"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.087"
@@ -120,10 +121,10 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.477">
+        app:layout_constraintTop_toBottomOf="@+id/user_jinbi"
+        app:layout_constraintVertical_bias="0.056">
 
         <ImageButton
             android:id="@+id/user_yuebao_button"
@@ -174,8 +175,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.611">
+        app:layout_constraintTop_toBottomOf="@+id/user_yuebao"
+        app:layout_constraintVertical_bias="0.071">
 
         <ImageView
             android:id="@+id/imageView11"
@@ -194,14 +195,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="个人排行榜查询"
-            android:textSize="25sp"
             android:textColor="#000000"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.124"
             app:layout_constraintStart_toEndOf="@+id/imageView11"
             app:layout_constraintTop_toTopOf="@+id/imageView11"
             app:layout_constraintVertical_bias="0.0" />
+
         <ImageButton
             android:id="@+id/user_paihangbang_button"
             android:layout_width="37dp"
