@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,7 +9,6 @@ import android.widget.TextView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,8 +29,6 @@ public class MonthReportActivity extends StatusBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.month_report);
-
-
         new Thread() {
             @Override
             public void run() {
@@ -158,6 +156,3 @@ public class MonthReportActivity extends StatusBar {
         Call<List<myPunch>> getMyPunch();
     }
 }
-
-
-

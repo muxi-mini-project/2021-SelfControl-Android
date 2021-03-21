@@ -1,10 +1,10 @@
 package com.bignerdranch.android.sc.user;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
@@ -16,7 +16,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class CoinQueryActivity extends StatusBar {
@@ -25,12 +24,10 @@ public class CoinQueryActivity extends StatusBar {
     private TextView mCoin, czsj1, czsj2, czsj3, bhsl1, bhsl2, bhsl3, czyy1, czyy2, czyy3;
     private User mUser;
     private List<GoldHistory> mList;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coin_query);
         init();
-
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

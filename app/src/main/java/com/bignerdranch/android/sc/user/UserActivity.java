@@ -80,6 +80,7 @@ public class UserActivity extends StatusBar {
         mJinbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent1 = new Intent(UserActivity.this, CoinQueryActivity.class);
                 startActivity(intent1);
             }
@@ -88,6 +89,7 @@ public class UserActivity extends StatusBar {
         mJinbiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent4 = new Intent(UserActivity.this, CoinQueryActivity.class);
                 startActivity(intent4);
             }
@@ -97,6 +99,7 @@ public class UserActivity extends StatusBar {
         mYuebao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent2 = new Intent(UserActivity.this, MonthReportActivity.class);
                 startActivity(intent2);
             }
@@ -105,6 +108,7 @@ public class UserActivity extends StatusBar {
         mYuebaoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent4 = new Intent(UserActivity.this, MonthReportActivity.class);
                 startActivity(intent4);
             }
@@ -114,6 +118,7 @@ public class UserActivity extends StatusBar {
         mPaihangbang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent1 = new Intent(UserActivity.this, RankQueryActivity.class);
                 startActivity(intent1);
             }
@@ -122,6 +127,7 @@ public class UserActivity extends StatusBar {
         mPaihangbangButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent4 = new Intent(UserActivity.this, RankQueryActivity.class);
                 startActivity(intent4);
             }

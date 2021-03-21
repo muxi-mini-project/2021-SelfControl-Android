@@ -78,7 +78,6 @@ public class DateAdapter extends BaseAdapter {
 
         return clickTemp;
     }
-
     public int getSelectedPosition( int year , int month , int day){
 
         int todayWeek = sc.getWeekDayOfLastMonth(year,month,day);
@@ -196,6 +195,7 @@ public class DateAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new Holder();
             convertView = LayoutInflater.from(context).inflate(R.layout.item_calendar, null);
+
 
             holder.tv = convertView.findViewById(R.id.tv_calendar);
             holder.ll_data = convertView.findViewById(R.id.ll_data);

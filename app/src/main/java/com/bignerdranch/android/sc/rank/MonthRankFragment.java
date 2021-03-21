@@ -36,6 +36,7 @@ public class MonthRankFragment extends Fragment {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
+
                         .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
@@ -49,6 +50,7 @@ public class MonthRankFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
+
                         init();
                     }
 
@@ -59,8 +61,6 @@ public class MonthRankFragment extends Fragment {
                 });
             }
         }.start();
-
-
 
         return view;
     }
@@ -102,6 +102,7 @@ public class MonthRankFragment extends Fragment {
         o5.setText(mList.get(4).getNumber());
 
     }
+
     public void privateDialog() {
         DialogFragment newFragment = new PrivateDialog();
         newFragment.show(getFragmentManager(),"wrong");

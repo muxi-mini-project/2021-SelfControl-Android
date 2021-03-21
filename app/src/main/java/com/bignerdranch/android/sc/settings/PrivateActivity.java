@@ -36,7 +36,6 @@ public class PrivateActivity extends StatusBar {
     private Button mTrue, mFalse;
     private User mUser;
     private int mCoin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

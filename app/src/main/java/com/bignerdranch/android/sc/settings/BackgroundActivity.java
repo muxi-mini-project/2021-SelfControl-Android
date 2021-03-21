@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.UserActivity;
 import com.bignerdranch.android.sc.user.UserClient;
@@ -29,14 +30,15 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 public class BackgroundActivity extends StatusBar {
 
     private ImageButton mBack;
     private ImageView mTheme1,mTheme2,mTheme3,mTheme4,mTheme5,mTheme6;
     private ImageView mChoose1,mChoose2,mChoose3,mChoose4,mChoose5,mChoose6;
     private int f1 = 0,f2 = 0,f3 = 0,f4 = 0,f5 = 0,f6 = 0;
+
     private User mUser;
     private int mCoin;
 
@@ -50,6 +52,7 @@ public class BackgroundActivity extends StatusBar {
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
+
         new Thread() {
             @Override
             public void run() {
@@ -58,6 +61,8 @@ public class BackgroundActivity extends StatusBar {
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
+
+                   @Override
 
                 UserClient client = retrofit.create(UserClient.class);
                 Call<User> call = client.mUser(token);
@@ -75,7 +80,6 @@ public class BackgroundActivity extends StatusBar {
 
                     }
                 });
-            }
         }.start();
     }
 

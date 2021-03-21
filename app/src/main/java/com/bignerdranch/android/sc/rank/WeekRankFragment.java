@@ -31,6 +31,7 @@ public class WeekRankFragment extends Fragment {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
+
                         .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
@@ -44,6 +45,7 @@ public class WeekRankFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
+
                         init();
                     }
 
@@ -54,8 +56,6 @@ public class WeekRankFragment extends Fragment {
                 });
             }
         }.start();
-
-
 
         return view;
     }
