@@ -25,14 +25,18 @@ public class SettingPageActivity extends StatusBar {
 
     private void init(){
         mBack = (ImageButton)findViewById(R.id.setting_back);
-
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         mBackground = (ImageButton)findViewById(R.id.setting_background);
         mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
-                startActivity(intent1);
 
+                finish();
             }
         });
 

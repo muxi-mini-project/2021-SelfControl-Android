@@ -29,8 +29,8 @@ public class CourseActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CourseActivity.this,SettingPageActivity.class);
-                startActivity(intent);
+
+                finish();
             }
         });
 
