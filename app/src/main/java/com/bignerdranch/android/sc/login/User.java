@@ -11,12 +11,20 @@ public class User {
      * user_picture : string
      */
 
-    private int gold;
+    private Integer gold;
     private String name;
     private String password;
     private int privacy;
     private String student_id;
     private String user_picture;
+
+    public User(String student_id, String password) {
+        this.student_id = student_id;
+        this.password = password;
+    }
+    public User(int privacy) {
+        this.privacy = privacy;
+    }
 
     public int getGold() {
         return gold;

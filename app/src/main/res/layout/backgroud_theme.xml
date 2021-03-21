@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout7"
             android:layout_width="match_parent"
@@ -66,9 +67,11 @@
             <ImageButton
                 android:id="@+id/theme1"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:background="#928DDC"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -113,9 +116,12 @@
             <ImageView
                 android:id="@+id/theme2"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
+
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +157,7 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -168,9 +175,12 @@
             <ImageView
                 android:id="@+id/theme3"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
+
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -203,11 +213,12 @@
                 app:layout_constraintTop_toTopOf="@+id/theme3"
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="166dp"
+            android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
@@ -216,9 +227,11 @@
             <ImageView
                 android:id="@+id/theme6"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -226,7 +239,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_52" />
+                app:srcCompat="@mipmap/theme_32" />
 
             <TextView
                 android:id="@+id/tv6"
@@ -272,9 +285,11 @@
             <ImageView
                 android:id="@+id/theme5"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -321,9 +336,11 @@
             <ImageView
                 android:id="@+id/theme4"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="45dp"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -331,7 +348,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_32" />
+                app:srcCompat="@mipmap/theme_52" />
 
             <TextView
                 android:id="@+id/tv4"
@@ -357,7 +374,6 @@
                 app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 
 
     <androidx.constraintlayout.widget.Guideline
