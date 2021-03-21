@@ -26,6 +26,9 @@ public class User {
         this.privacy = privacy;
     }
 
+    public User(Integer gold){
+        this.gold = gold;
+    }
     public int getGold() {
         return gold;
     }
@@ -72,5 +75,17 @@ public class User {
 
     public void setUser_picture(String user_picture) {
         this.user_picture = user_picture;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "gold=" + gold +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", privacy=" + privacy +
+                ", student_id='" + student_id + '\'' +
+                ", user_picture='" + user_picture + '\'' +
+                '}';
     }
 }

@@ -24,6 +24,7 @@ public class LoginActivity extends StatusBar {
     private EditText mpassword;
     private Button mloginbutton;
     public static String token;
+    public static String baseUrl = "http://39.102.42.156:2333/api/v1/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class LoginActivity extends StatusBar {
 
     public void request(String id,String password){
         Retrofit retrofit = new Retrofit
-                .Builder().baseUrl("http://124.71.184.107:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
+                .Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
         Call<LoginResponse> call = request.getCall(new User(id,password));
