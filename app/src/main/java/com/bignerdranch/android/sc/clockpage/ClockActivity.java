@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -220,7 +221,6 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         return (int)(value * scale + 0.5f);
     }
 
-
     private void initView(){
         mViewPager = findViewById(R.id.ViewPager);
 
@@ -254,13 +254,19 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mFriFlowerFragment.FlowerFragment("星期五");
         mSatFlowerFragment.FlowerFragment("星期六");
 
+        View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
+        LinearLayout ll = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.ll_data);
+
+
         //设置viewPager页面滑动的事件
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            int preItem,position;
 
             //页面状态改变时调用,arg0为页面状态
             @Override
             public void onPageScrollStateChanged(int arg0) {
-
+                preItem = mViewPager.getCurrentItem();
             }
 
             //页面滑动过程中调用
@@ -271,15 +277,15 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
 
             //页面滑动后调用
-            int preItem = mViewPager.getCurrentItem();
             @Override
             public void onPageSelected(int arg0) {
                 if(mViewPager.getCurrentItem() < preItem){//从左向右
-                    return;
-                }
-                if(preItem < mViewPager.getCurrentItem()){//从右向左滑
 
                     return;
+                }else {
+                    ll.setSelected(false);
+
+                    view_line.setVisibility(View.INVISIBLE);
                 }
 
             }
