@@ -254,11 +254,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mFriFlowerFragment.FlowerFragment("星期五");
         mSatFlowerFragment.FlowerFragment("星期六");
 
-        View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
+        /*View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
         LinearLayout ll = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.ll_data);
 
 
-        //设置viewPager页面滑动的事件
+        设置viewPager页面滑动的事件
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             int preItem,position;
@@ -289,7 +289,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 }
 
             }
-        });
+        });*/
     }
 
     private void addGridView() {
