@@ -53,35 +53,32 @@ public class BackgroundActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
 
-        new Thread() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://124.71.184.107:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        UserClient client = retrofit.create(UserClient.class);
+        Call<User> call = client.mUser(token);
+
+        call.enqueue(new Callback<User>() {
+
             @Override
-            public void run() {
-                Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://124.71.184.107:2333/api/v1/")
-                        .addConverterFactory(GsonConverterFactory.create());
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                mCoin = mUser.getGold();
+            }
 
-                Retrofit retrofit = builder.build();
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
 
-                   @Override
+            }
+        });
 
-                UserClient client = retrofit.create(UserClient.class);
-                Call<User> call = client.mUser(token);
-
-                call.enqueue(new Callback<User>() {
-
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        mUser = response.body();
-                        mCoin = mUser.getGold();
-                    }
-
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-
-                    }
-                });
-        }.start();
     }
+
+
 
     private void init(){
 
@@ -154,7 +151,7 @@ public class BackgroundActivity extends StatusBar {
         if(f1 == 1){
             mChoose1.setBackgroundResource(R.mipmap.choose);
         }else {
-            
+
         }
         if(f2 == 1){
             mChoose2.setBackgroundResource(R.mipmap.choose);
