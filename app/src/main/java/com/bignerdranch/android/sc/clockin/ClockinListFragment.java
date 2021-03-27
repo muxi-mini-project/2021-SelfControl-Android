@@ -51,24 +51,6 @@ public class ClockinListFragment extends Fragment {
             mImageView = (ImageView) itemView.findViewById(R.id.list1);
             mTextView1 = (TextView) itemView.findViewById(R.id.text1);
             mTextView2 = (TextView) itemView.findViewById(R.id.text2);
-            mButton = (Button) itemView.findViewById(R.id.clockin);
-            mButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(!status){
-                        mButton.setText("已完成");
-                        mButton.setEnabled(false);
-                        status=true;
-                        mTimes++;
-                    }else{
-                        mButton.setText("我要打卡");
-                        mButton.setEnabled(true);
-                        status=false;
-                    }
-
-                    mTimes++;
-                }
-            });
         }
 
         public void bind(Clockin clockin){

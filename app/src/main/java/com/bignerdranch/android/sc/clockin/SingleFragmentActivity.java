@@ -45,29 +45,20 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.clockin_fragment_container);
+        setContentView(R.layout.clockin_pager);
+
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+
+        if(fragment == null){
+            fragment = createFragment();
+            fm.beginTransaction().add(R.id.fragment_container,fragment).commit();
+        }
 
         //new一个手势检测器
         detector = new GestureDetector(this, this);
 
         mImageButton = (ImageButton) findViewById(R.id.clockin);
-        mImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!status) {
-                    mImageButton.setBackgroundResource(R.mipmap.finish);
-                    mImageButton.setEnabled(false);
-                    status = true;
-                    mTimes++;
-                } else {
-                    mImageButton.setBackgroundResource(R.mipmap.clock_in);
-                    mImageButton.setEnabled(true);
-                    status = false;
-                }
-
-                mTimes++;
-            }
-        });
 
         mImageView = (ImageView) findViewById(R.id.list1);
 
@@ -94,6 +85,30 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
 
         if (beginX - endX > minMove && Math.abs(velocityX) > minVelocity) {//左滑  
             mImageButton.setBackgroundResource(R.mipmap.delete2);
+            mImageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    
+                }
+            });
+        }else{
+            mImageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!status) {
+                        mImageButton.setBackgroundResource(R.mipmap.finish);
+                        mImageButton.setEnabled(false);
+                        status = true;
+                        mTimes++;
+                    } else {
+                        mImageButton.setBackgroundResource(R.mipmap.clock_in);
+                        mImageButton.setEnabled(true);
+                        status = false;
+                    }
+
+                    mTimes++;
+                }
+            });
         }
 
         return false;
