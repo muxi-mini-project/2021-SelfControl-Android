@@ -29,16 +29,15 @@ import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 public class MonthRankFragment extends Fragment {
 
     private List<Rank> mList;
-    private TextView n1,n2,n3,n4,n5,o1,o2,o3,o4,o5;
+    private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
 
-    public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
 
         new Thread() {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-
                         .baseUrl(baseUrl)
                         .addConverterFactory(GsonConverterFactory.create());
 
@@ -58,7 +57,7 @@ public class MonthRankFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<List<Rank>> call, Throwable t) {
-                        
+
                     }
                 });
             }
@@ -66,7 +65,8 @@ public class MonthRankFragment extends Fragment {
 
         return view;
     }
-    private void init(){
+
+    private void init() {
 
         n1 = n1.findViewById(R.id.m_first_n);
         n1.setText(mList.get(0).getId());
@@ -107,6 +107,6 @@ public class MonthRankFragment extends Fragment {
 
     public void privateDialog() {
         DialogFragment newFragment = new PrivateDialog();
-        newFragment.show(getFragmentManager(),"wrong");
+        newFragment.show(getFragmentManager(), "wrong");
     }
 }

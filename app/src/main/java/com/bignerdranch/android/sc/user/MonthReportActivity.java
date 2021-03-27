@@ -93,34 +93,88 @@ public class MonthReportActivity extends StatusBar {
         dk5 = findViewById(R.id.dk5_iv);
 
 
-        if(mList.get(0) != null){
+        if(mList.size() == 1){
             dk1_cs.setText(mList.get(0).getNumber());
             dk1_y.setText("次");
             dk1_lb.setText(mList.get(0).getTitle());
             dk1.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
         }
-        if(mList.get(1) != null){
+        if(mList.size() == 2){
+
+            dk1_cs.setText(mList.get(0).getNumber());
+            dk1_y.setText("次");
+            dk1_lb.setText(mList.get(0).getTitle());
+            dk1.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
             dk2_cs.setText(mList.get(1).getNumber());
             dk2_y.setText("次");
             dk2_lb.setText(mList.get(1).getTitle());
             dk2.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
 
         }
-        if(mList.get(2) != null){
+        if(mList.size() == 3){
+
+            dk1_cs.setText(mList.get(0).getNumber());
+            dk1_y.setText("次");
+            dk1_lb.setText(mList.get(0).getTitle());
+            dk1.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk2_cs.setText(mList.get(1).getNumber());
+            dk2_y.setText("次");
+            dk2_lb.setText(mList.get(1).getTitle());
+            dk2.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
             dk3_cs.setText(mList.get(2).getNumber());
             dk3_y.setText("次");
             dk3_lb.setText(mList.get(2).getTitle());
             dk3.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
 
         }
-        if(mList.get(3) != null){
+        if(mList.size() == 4){
+
+            dk1_cs.setText(mList.get(0).getNumber());
+            dk1_y.setText("次");
+            dk1_lb.setText(mList.get(0).getTitle());
+            dk1.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk2_cs.setText(mList.get(1).getNumber());
+            dk2_y.setText("次");
+            dk2_lb.setText(mList.get(1).getTitle());
+            dk2.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk3_cs.setText(mList.get(2).getNumber());
+            dk3_y.setText("次");
+            dk3_lb.setText(mList.get(2).getTitle());
+            dk3.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
             dk4_cs.setText(mList.get(3).getNumber());
             dk4_y.setText("次");
             dk4_lb.setText(mList.get(3).getTitle());
             dk4.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
 
         }
-        if(mList.get(4) != null){
+        if(mList.size() == 5){
+
+            dk1_cs.setText(mList.get(0).getNumber());
+            dk1_y.setText("次");
+            dk1_lb.setText(mList.get(0).getTitle());
+            dk1.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk2_cs.setText(mList.get(1).getNumber());
+            dk2_y.setText("次");
+            dk2_lb.setText(mList.get(1).getTitle());
+            dk2.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk3_cs.setText(mList.get(2).getNumber());
+            dk3_y.setText("次");
+            dk3_lb.setText(mList.get(2).getTitle());
+            dk3.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
+            dk4_cs.setText(mList.get(3).getNumber());
+            dk4_y.setText("次");
+            dk4_lb.setText(mList.get(3).getTitle());
+            dk4.setBackgroundResource(R.drawable.shape_yuanjiao_huise);
+
             dk5_cs.setText(mList.get(4).getNumber());
             dk5_y.setText("次");
             dk5_lb.setText(mList.get(4).getTitle());
