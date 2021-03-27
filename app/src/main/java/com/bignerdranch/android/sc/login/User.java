@@ -18,6 +18,7 @@ public class User {
     private String student_id;
     private String user_picture;
 
+  
     public User(String student_id, String password) {
         this.student_id = student_id;
         this.password = password;
@@ -29,6 +30,11 @@ public class User {
     public User(Integer gold){
         this.gold = gold;
     }
+
+    public User(String name){
+        this.name = name;
+    }
+
     public int getGold() {
         return gold;
     }
@@ -77,15 +83,5 @@ public class User {
         this.user_picture = user_picture;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "gold=" + gold +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", privacy=" + privacy +
-                ", student_id='" + student_id + '\'' +
-                ", user_picture='" + user_picture + '\'' +
-                '}';
-    }
+
 }

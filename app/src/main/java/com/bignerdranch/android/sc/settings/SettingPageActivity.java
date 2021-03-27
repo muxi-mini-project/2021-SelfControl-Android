@@ -31,11 +31,11 @@ public class SettingPageActivity extends StatusBar {
                 finish();
             }
         });
-
         mBackground = (ImageButton)findViewById(R.id.setting_background);
         mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });

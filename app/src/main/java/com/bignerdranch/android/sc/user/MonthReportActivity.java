@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,7 +9,6 @@ import android.widget.TextView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -18,6 +18,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 
 public class MonthReportActivity extends StatusBar {
     private ImageButton mBack;
@@ -29,13 +31,11 @@ public class MonthReportActivity extends StatusBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.month_report);
-
-
         new Thread() {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://124.71.184.107:2333/api/v1/")
+                        .baseUrl(baseUrl)
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
@@ -158,6 +158,3 @@ public class MonthReportActivity extends StatusBar {
         Call<List<myPunch>> getMyPunch();
     }
 }
-
-
-

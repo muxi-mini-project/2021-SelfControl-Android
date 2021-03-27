@@ -1,0 +1,614 @@
+[
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_coin.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_coin.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_illust.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\illust.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_coin_function.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\coin_function.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_user_profile.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\user_profile.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_back.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\back.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_user_profile.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\user_profile.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_back.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\back.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_backgroud_theme.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\backgroud_theme.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_51.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_51.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_xuexixinyvyan.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\xuexixinyvyan.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_tiaosheng.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\tiaosheng.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_jianshen.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\jianshen.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_yuanjiao.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_yuanjiao.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_month_rank.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\month_rank.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_rectangle.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_rectangle.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_kanjilupian.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\kanjilupian.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_lianxiyueqi.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\lianxiyueqi.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_choose.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\choose.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_sat.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_sat.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_chishuiguo.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\chishuiguo.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_frame_shadow.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_frame_shadow.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_42.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_42.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_yingyuyueduxunlian.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\yingyuyueduxunlian.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_paobu.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\paobu.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_yundong_normal.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_yundong_normal.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_login_page.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\login_page.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_user.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\user.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_dalanqiu.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\dalanqiu.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_novice_course.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\novice_course.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_delete.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\delete.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_52.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_52.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_arrow.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\arrow.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_rank1.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\rank1.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_rank3.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\rank3.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_yuanjiao_huise.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_yuanjiao_huise.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_rank3.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\rank3.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_setting.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\setting.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_lianzi.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\lianzi.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_jujueyexiao.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\jujueyexiao.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_zaoqikongfuheshui.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\zaoqikongfuheshui.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_thu.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_thu.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_health_pager.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\health_pager.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_beidanci.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\beidanci.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_buqiaoerlangtui.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\buqiaoerlangtui.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_yixuanbiaoqian.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\yixuanbiaoqian.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_done.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\done.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rankbar_gray.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\rankbar_gray.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_41.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_41.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_popup.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\popup.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_warning.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\warning.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_coin_query.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\coin_query.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_duoheshui.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\duoheshui.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_tinglilianxi.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\tinglilianxi.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_pager_label.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\pager_label.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_4.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_4.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_thumbsup.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\thumbsup.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_fuwocheng.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\fuwocheng.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_choose_open.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\choose_open.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_yellowbar.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\yellowbar.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_settings.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_zuojinrijihua.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\zuojinrijihua.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_private_eye.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\private_eye.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_31.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_31.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_yundong_pressed.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_yundong_pressed.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_qiche.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\qiche.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_clockin_list.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\clockin_list.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_jujuejiuzuo.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\jujuejiuzuo.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_suo.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\suo.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_report.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\report.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_chizaocan.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\chizaocan.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_1.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_1.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_user_background.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\user_background.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_see_user_label.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\see_user_label.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\anim_push_right_out.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\anim\\push_right_out.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_sun.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_sun.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_warning.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\warning.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_private.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\dialog_private.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_thumbsup.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\thumbsup.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_mon.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_mon.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\anim_push_left_in.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\anim\\push_left_in.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_32.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_32.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_3.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_3.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_zixi.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\zixi.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_tag.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\tag.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_rank.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\rank.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_rank1.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\rank1.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_yangwuoqizuo.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\yangwuoqizuo.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_yueduxinwen.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\yueduxinwen.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_frame.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_frame.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_rank.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\rank.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_jiankang_normal.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_jiankang_normal.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_user.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\user.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_login_studentid.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\login_studentid.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_user_background.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\user_background.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_clock_main_page.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\clock_main_page.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_coin_rank.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\coin_rank.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\xml_test_scene.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\xml\\test_scene.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_clockin_pager.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\clockin_pager.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dialog_button.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\dialog_button.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_delete.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\delete.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_done.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\done.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_login_password.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\login_password.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_zaoshui.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\zaoshui.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_week_rank.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\week_rank.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_calendar.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\item_calendar.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\anim_push_right_in.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\anim\\push_right_in.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_userlongback.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\userlongback.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_unfold.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\unfold.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_background_default.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\background_default.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_tue.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_tue.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_corner_up.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\shape_corner_up.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_coin.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\coin.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_guide.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\guide.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_clockin_fragment_container.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\clockin_fragment_container.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_lashen.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\lashen.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_sport_pager.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\sport_pager.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_2.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_2.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_undone.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\undone.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_fankui.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\fankui.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rankbar_purple.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\drawable\\rankbar_purple.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_rank_query.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\rank_query.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_jiankang_pressed.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_jiankang_pressed.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_xuexi_pressed.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_xuexi_pressed.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_fri.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_fri.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_nav_xuexi_normal.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\nav_xuexi_normal.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_login_illustration.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\login_illustration.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_undone.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\undone.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_rank2.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\rank2.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_12.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_12.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_add.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\add.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\anim_push_left_out.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\anim\\push_left_out.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_settings.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_rank2.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\rank2.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_rank_background.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\rank_background.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_select_photo.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\dialog_select_photo.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_tag.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\tag.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_sanbu.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\sanbu.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_study_pager.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\study_pager.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_flower_wes.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\flower_wes.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_beidanci.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\beidanci.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_zaoqi.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\zaoqi.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_22.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_22.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_jujueyinliao.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\jujueyinliao.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_add.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\add.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_clockin_list.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\fragment_clockin_list.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_hint.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-xxxhdpi\\hint.png"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\layout_month_report.xml.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\layout\\month_report.xml"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_theme_5.jpg.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\theme_5.jpg"
+    },
+    {
+        "merged": "D:\\2021-SelfControl-Android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_user.png.flat",
+        "source": "D:\\2021-SelfControl-Android\\app\\src\\main\\res\\mipmap-hdpi\\user.png"
+    }
+]

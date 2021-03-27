@@ -1,0 +1,102 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.bignerdranch.android.sc"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:5:5-66
+11-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:6:5-65
+12-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:6:22-62
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:7:5-96
+13-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:7:22-77
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:8:5-97
+14-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+15-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:9:5-10:47
+15-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:9:22-81
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:5:5-66
+16-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:5:22-64
+17
+18    <application
+18-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:12:5-41:19
+19        android:allowBackup="true"
+19-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:13:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.3.1] C:\Users\86186\.gradle\caches\transforms-2\files-2.1\c560b8721f05ca12656603dd382025ab\core-1.3.1\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:14:9-43
+23        android:label="@string/app_name"
+23-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:15:9-41
+24        android:requestLegacyExternalStorage="true"
+24-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:16:9-52
+25        android:roundIcon="@mipmap/ic_launcher_round"
+25-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:17:9-54
+26        android:supportsRtl="true"
+26-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:18:9-35
+27        android:theme="@style/Theme.SC"
+27-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:22:5-36
+28        android:usesCleartextTraffic="true" >
+28-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:19:9-44
+29        <activity android:name="com.bignerdranch.android.sc.login.LoginActivity" >
+29-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:24:9-29:20
+29-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:24:19-54
+30            <intent-filter>
+30-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:25:13-28:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:26:17-69
+31-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:26:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:27:17-77
+33-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:27:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity android:name="com.bignerdranch.android.sc.clockpage.ClockActivity" />
+36-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:30:9-70
+36-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:30:19-58
+37        <activity android:name="com.bignerdranch.android.sc.label.LabelPagerActivity" />
+37-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:31:9-71
+37-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:31:19-59
+38        <activity android:name="com.bignerdranch.android.sc.settings.SettingPageActivity" />
+38-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:32:9-75
+38-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:32:19-63
+39        <activity android:name="com.bignerdranch.android.sc.settings.CourseActivity" />
+39-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:33:9-70
+39-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:33:19-58
+40        <activity android:name="com.bignerdranch.android.sc.settings.BackgroundActivity" />
+40-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:34:9-74
+40-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:34:19-62
+41        <activity android:name="com.bignerdranch.android.sc.settings.CoinFunctionActivity" />
+41-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:35:9-76
+41-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:35:19-64
+42        <activity android:name="com.bignerdranch.android.sc.settings.PrivateActivity" />
+42-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:36:9-71
+42-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:36:19-59
+43        <activity android:name="com.bignerdranch.android.sc.user.RankQueryActivity" />
+43-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:37:9-69
+43-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:37:19-57
+44        <activity android:name="com.bignerdranch.android.sc.user.MonthReportActivity" />
+44-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:38:9-71
+44-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:38:19-59
+45        <activity android:name="com.bignerdranch.android.sc.user.CoinQueryActivity" />
+45-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:39:9-69
+45-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:39:19-57
+46        <activity android:name="com.bignerdranch.android.sc.user.UserActivity" />
+46-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:40:9-64
+46-->D:\2021-SelfControl-Android\app\src\main\AndroidManifest.xml:40:19-52
+47    </application>
+48
+49</manifest>

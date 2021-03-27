@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user;
 
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -34,7 +36,6 @@ public class CoinQueryActivity extends StatusBar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coin_query);
         init();
-
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -91,6 +92,11 @@ public class CoinQueryActivity extends StatusBar {
             }
         });
 
+        HttpLoggingInterceptor interceptor1 = new HttpLoggingInterceptor()
+                .setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient okHttpClient1 = new OkHttpClient.Builder()
+                .addInterceptor(interceptor1)
+                .build();
 
         Retrofit.Builder builder1 = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -108,32 +114,69 @@ public class CoinQueryActivity extends StatusBar {
                     (Call<List<GoldHistory>> call, Response<List<GoldHistory>> response) {
                 mList = response.body();
 
-                czsj1 = findViewById(R.id.czsj1);
-                czsj1.setText(mList.get(0).getTime());
+                if (mList.size() == 1) {
+                    czsj1 = findViewById(R.id.czsj1);
+                    czsj1.setText(mList.get(0).getTime());
 
-                czsj2 = findViewById(R.id.czsj2);
-                czsj2.setText(mList.get(1).getTime());
+                    bhsl1 = findViewById(R.id.bhsl1);
+                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
 
-                czsj3 = findViewById(R.id.czsj3);
-                czsj3.setText(mList.get(2).getTime());
+                    czyy1 = findViewById(R.id.czyy1);
+                    czyy1.setText(mList.get(0).getReason());
+                }
 
-                bhsl1 = findViewById(R.id.bhsl1);
-                bhsl1.setText(mList.get(0).getResidual_number());
+                if (mList.size() == 2) {
 
-                bhsl2 = findViewById(R.id.bhsl2);
-                bhsl2.setText(mList.get(1).getResidual_number());
+                    czsj1 = findViewById(R.id.czsj1);
+                    czsj1.setText(mList.get(0).getTime());
 
-                bhsl3 = findViewById(R.id.bhsl3);
-                bhsl3.setText(mList.get(2).getResidual_number());
+                    bhsl1 = findViewById(R.id.bhsl1);
+                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
 
-                czyy1 = findViewById(R.id.czyy1);
-                czyy1.setText(mList.get(0).getReason());
+                    czyy1 = findViewById(R.id.czyy1);
+                    czyy1.setText(mList.get(0).getReason());
 
-                czyy2 = findViewById(R.id.czyy2);
-                czyy2.setText(mList.get(1).getReason());
+                    czsj2 = findViewById(R.id.czsj2);
+                    czsj2.setText(mList.get(1).getTime());
 
-                czyy3 = findViewById(R.id.czyy3);
-                czyy3.setText(mList.get(2).getReason());
+                    bhsl2 = findViewById(R.id.bhsl2);
+                    bhsl2.setText(String.valueOf(mList.get(1).getResidual_number()));
+
+                    czyy2 = findViewById(R.id.czyy2);
+                    czyy2.setText(mList.get(1).getReason());
+                }
+
+                if (mList.size() == 3) {
+
+                    czsj1 = findViewById(R.id.czsj1);
+                    czsj1.setText(mList.get(0).getTime());
+
+                    bhsl1 = findViewById(R.id.bhsl1);
+                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
+
+                    czyy1 = findViewById(R.id.czyy1);
+                    czyy1.setText(mList.get(0).getReason());
+
+                    czsj2 = findViewById(R.id.czsj2);
+                    czsj2.setText(mList.get(1).getTime());
+
+                    bhsl2 = findViewById(R.id.bhsl2);
+                    bhsl2.setText(String.valueOf(mList.get(1).getResidual_number()));
+
+                    czyy2 = findViewById(R.id.czyy2);
+                    czyy2.setText(mList.get(1).getReason());
+                    czsj3 = findViewById(R.id.czsj3);
+                    czsj3.setText(mList.get(2).getTime());
+
+
+                    bhsl3 = findViewById(R.id.bhsl3);
+                    bhsl3.setText(String.valueOf(mList.get(2).getResidual_number()));
+
+
+                    czyy3 = findViewById(R.id.czyy3);
+                    czyy3.setText(mList.get(2).getReason());
+                }
+
 
             }
 
