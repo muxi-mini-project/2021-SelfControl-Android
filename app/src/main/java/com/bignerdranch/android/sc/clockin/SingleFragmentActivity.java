@@ -5,14 +5,17 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -117,12 +120,40 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
                         mImageButton.setBackgroundResource(R.mipmap.clock_in);
                         mImageButton.setEnabled(true);
                         status = false;
+                        showTypeDialog();
                     }
                 }
             });
         }
 
         return false;
+    }
+
+    private void showTypeDialog() {
+        View inflate1 = View.inflate(SingleFragmentActivity.this, R.layout.clockin_finished, null);
+        final PopupWindow popupWindow = new PopupWindow(inflate1, 900, 600);//参数为1.View 2.宽度 3.高度
+        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+        popupWindow.setFocusable(true);
+        popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, -100);
+        backgroundAlpha(0.5f);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                //弹窗消失恢复原来的透明度
+                backgroundAlpha(1f);
+            }
+        });
+
+    }
+    /**
+     * 设置添加屏幕的背景透明度
+     * @param bgAlpha
+     */
+    private void backgroundAlpha(float bgAlpha)
+    {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = bgAlpha; //0.0-1.0
+        getWindow().setAttributes(lp);
     }
 
     public void onShowPress(MotionEvent arg0) {
