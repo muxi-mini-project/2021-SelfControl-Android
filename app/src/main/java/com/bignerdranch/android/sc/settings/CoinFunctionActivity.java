@@ -23,8 +23,7 @@ public class CoinFunctionActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CoinFunctionActivity.this,SettingPageActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         makeStatusBarTransparent(this);

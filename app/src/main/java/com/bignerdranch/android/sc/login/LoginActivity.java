@@ -2,6 +2,8 @@ package com.bignerdranch.android.sc.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,16 +24,17 @@ public class LoginActivity extends StatusBar {
     private EditText mstudent_id;
     private EditText mpassword;
     private Button mloginbutton;
+    public static String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        mstudent_id=(EditText)findViewById(R.id.username);
-        mpassword=(EditText)findViewById(R.id.password);
+        mstudent_id=findViewById(R.id.username);
+        mpassword=findViewById(R.id.password);
 
-        mloginbutton=(Button)findViewById(R.id.login_B);
+        mloginbutton=findViewById(R.id.login_B);
         mloginbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -54,21 +57,33 @@ public class LoginActivity extends StatusBar {
                 .Builder().baseUrl("http://124.71.184.107:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
-        Call<User> call = request.getCall(id,password);
+        Call<LoginResponse> call = request.getCall(new User(id,password));
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<LoginResponse>() {
 
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
-                startActivity(intent);
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()==true){
+                    Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
+                    startActivity(intent);
+                    token = response.body().getToken();
+                    Log.d("tag", "code"+response.body());
+                }else {
+                    Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable throwable) {
+            public void onFailure(Call<LoginResponse> call, Throwable throwable) {
                 Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                 startActivity(intent);
+                /*
+                Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
+                throwable.printStackTrace();
+                Log.e("tag",throwable.getMessage());*/
             }
+
         });
 
     }

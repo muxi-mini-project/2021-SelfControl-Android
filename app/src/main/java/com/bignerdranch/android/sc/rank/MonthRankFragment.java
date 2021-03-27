@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
@@ -35,7 +36,8 @@ public class MonthRankFragment extends Fragment {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("https://124.71.184.107:2333/api/v1/")
+
+                        .baseUrl("http://124.71.184.107:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
@@ -48,6 +50,8 @@ public class MonthRankFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
+
+                        init();
                     }
 
                     @Override
@@ -57,8 +61,6 @@ public class MonthRankFragment extends Fragment {
                 });
             }
         }.start();
-
-        init();
 
         return view;
     }
@@ -99,5 +101,10 @@ public class MonthRankFragment extends Fragment {
         o5 = o5.findViewById(R.id.m_first_n);
         o5.setText(mList.get(4).getNumber());
 
+    }
+
+    public void privateDialog() {
+        DialogFragment newFragment = new PrivateDialog();
+        newFragment.show(getFragmentManager(),"wrong");
     }
 }
