@@ -30,6 +30,7 @@ import com.bignerdranch.android.sc.StatusBar;
 
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.login.LoginActivity;
@@ -71,7 +72,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private ImageButton users;
 
     private ArrayList<Fragment> fragments;
-    private ViewPager mViewPager;
+    private NoScrollViewPager mViewPager;
     private FlowerFragment mSunFlowerFragment;
     private FlowerFragment mMonFlowerFragment;
     private FlowerFragment mTueFlowerFragment;
@@ -213,6 +214,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mViewPager.setCurrentItem(dateAdapter.getTodayPosition());
         //设置边距5dp
         mViewPager.setPageMargin( dip2px(5));
+
 
         //设置状态栏透明
         makeStatusBarTransparent(this);

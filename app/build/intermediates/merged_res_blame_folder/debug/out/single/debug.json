@@ -1,590 +1,614 @@
 [
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_paobu.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/paobu.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_3.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_3.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_42.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_42.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_delete.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/delete.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_sat.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_sat.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_xuexi_pressed.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_xuexi_pressed.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_coin_query.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/coin_query.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujuejiuzuo.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujuejiuzuo.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_12.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_12.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_left_out.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/anim/push_left_out.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_novice_course.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/novice_course.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoshui.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoshui.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_frame_shadow.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_frame_shadow.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_list.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/clockin_list.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_background_default.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/background_default.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_background_default.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/background_default.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_right_out.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/anim/push_right_out.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_login_studentid.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/login_studentid.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank3.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank3.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_32.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_32.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_delete.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/delete.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_frame.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_frame.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_warning.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/warning.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_fuwocheng.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/fuwocheng.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_login_password.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/login_password.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lianzi.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lianzi.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_health_pager.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/health_pager.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user_profile.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user_profile.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_left_out.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/anim/push_left_out.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_sanbu.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/sanbu.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_settings.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/settings.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yixuanbiaoqian.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yixuanbiaoqian.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_warning.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/warning.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_undone.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/undone.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujuejiuzuo.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujuejiuzuo.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_sat.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_sat.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user_background.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user_background.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user_background.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user_background.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_right_in.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/anim/push_right_in.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/xml_test_scene.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/xml/test_scene.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_4.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_4.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_rank_background.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/rank_background.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_user.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/user.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank1.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank1.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_thumbsup.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/thumbsup.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lianxiyueqi.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lianxiyueqi.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_settings.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/settings.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user_profile.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user_profile.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_yuanjiao.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_yuanjiao.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_add.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/add.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_jiankang_pressed.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_jiankang_pressed.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_beidanci.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/beidanci.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lianzi.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lianzi.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_hint.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/hint.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_add.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/add.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_month_report.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/month_report.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user_profile.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user_profile.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_login_illustration.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/login_illustration.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_wes.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_wes.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_right_in.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/anim/push_right_in.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_yundong_normal.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_yundong_normal.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_suo.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/suo.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_qiche.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/qiche.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_dialog_private.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/dialog_private.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clock_main_page.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/clock_main_page.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_dalanqiu.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/dalanqiu.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lianxiyueqi.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lianxiyueqi.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_suo.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/suo.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_31.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_31.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoqi.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoqi.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zuojinrijihua.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zuojinrijihua.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_arrow.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/arrow.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_sanbu.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/sanbu.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_yuanjiao.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_yuanjiao.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_duoheshui.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/duoheshui.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yellowbar.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yellowbar.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_coin.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/coin.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_login_password.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/login_password.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_chizaocan.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/chizaocan.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user_background.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user_background.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_left_in.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/anim/push_left_in.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_xuexixinyvyan.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/xuexixinyvyan.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_setting.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/setting.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yellowbar.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yellowbar.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank1.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank1.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_fuwocheng.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/fuwocheng.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_see_user_label.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/see_user_label.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_report.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/report.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_rank_background.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/rank_background.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_pager.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/clockin_pager.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_health_pager.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/health_pager.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_back.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/back.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_item_calendar.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/item_calendar.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_rankbar_gray.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/rankbar_gray.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_settings.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/settings.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_coin.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_coin.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_sun.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_sun.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_done.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/done.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_done.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/done.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_buqiaoerlangtui.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/buqiaoerlangtui.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_41.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_41.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_coin_function.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/coin_function.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_choose_open.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/choose_open.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank2.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank2.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_dialog_button.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/dialog_button.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_xuexi_pressed.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_xuexi_pressed.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_warning.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/warning.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_rankbar_purple.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/rankbar_purple.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_sun.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_sun.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_qiche.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/qiche.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_choose_open.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/choose_open.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank3.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank3.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_kanjilupian.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/kanjilupian.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_coin.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/coin.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_done.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/done.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoshui.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoshui.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yangwuoqizuo.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yangwuoqizuo.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_list.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/clockin_list.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_setting.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/setting.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_2.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_2.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoqikongfuheshui.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoqikongfuheshui.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_done.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/done.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_32.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_32.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clock_main_page.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/clock_main_page.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_week_rank.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/week_rank.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_coin_query.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/coin_query.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_chizaocan.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/chizaocan.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_rankbar_gray.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/rankbar_gray.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_illust.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/illust.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/xml_test_scene.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/xml/test_scene.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_4.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_4.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_login_studentid.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/login_studentid.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_rectangle.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_rectangle.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_illust.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/illust.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_see_user_label.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/see_user_label.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_corner_up.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_corner_up.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zixi.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zixi.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_yundong_normal.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_yundong_normal.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_rankbar_purple.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/rankbar_purple.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zixi.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zixi.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_22.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_22.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_jiankang_normal.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_jiankang_normal.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank3.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank3.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_rectangle.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_rectangle.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_corner_up.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_corner_up.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_paobu.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/paobu.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_userlongback.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/userlongback.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yangwuoqizuo.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yangwuoqizuo.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_5.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_5.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_report.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/report.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_frame_shadow.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_frame_shadow.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_backgroud_theme.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/backgroud_theme.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_1.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_1.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_kanjilupian.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/kanjilupian.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yueduxinwen.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yueduxinwen.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yingyuyueduxunlian.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yingyuyueduxunlian.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_week_rank.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/week_rank.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_settings.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/settings.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_31.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_31.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_tue.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_tue.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujueyinliao.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujueyinliao.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tag.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tag.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_yundong_pressed.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_yundong_pressed.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_undone.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/undone.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_beidanci.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/beidanci.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_back.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/back.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_41.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_41.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_51.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_51.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_back.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/back.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tiaosheng.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tiaosheng.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_thumbsup.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/thumbsup.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_userlongback.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/userlongback.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank1.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank1.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_beidanci.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/beidanci.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujueyinliao.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujueyinliao.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_2.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_2.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_dalanqiu.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/dalanqiu.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_tue.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_tue.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_rank_query.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/rank_query.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_pager_label.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/pager_label.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_back.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/back.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_fragment_container.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/clockin_fragment_container.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_thumbsup.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/thumbsup.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_52.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_52.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_coin_function.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/coin_function.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_item_calendar.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/item_calendar.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yueduxinwen.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yueduxinwen.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tag.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tag.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank2.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank2.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_thu.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_thu.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_xuexixinyvyan.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/xuexixinyvyan.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_sport_pager.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/sport_pager.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jianshen.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jianshen.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_fankui.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/fankui.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_thu.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_thu.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_jiankang_normal.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_jiankang_normal.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_coin.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_coin.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jianshen.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jianshen.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_pager_label.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/pager_label.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank2.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank2.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_month_rank.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/month_rank.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_22.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_22.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_delete.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/delete.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yingyuyueduxunlian.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yingyuyueduxunlian.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_3.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_3.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_sport_pager.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/sport_pager.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujueyexiao.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujueyexiao.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_fragment_clockin_list.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/fragment_clockin_list.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_fragment_clockin_list.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/fragment_clockin_list.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_fankui.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/fankui.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_undone.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/undone.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoqikongfuheshui.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoqikongfuheshui.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_popup.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/popup.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_popup.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/popup.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_guide.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/guide.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_1.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_1.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_fri.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_fri.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_fragment_container.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/clockin_fragment_container.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_login_illustration.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/login_illustration.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_coin_rank.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/coin_rank.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_12.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_12.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_unfold.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/unfold.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_chishuiguo.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/chishuiguo.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_chishuiguo.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/chishuiguo.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_jujueyexiao.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/jujueyexiao.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tiaosheng.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tiaosheng.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_duoheshui.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/duoheshui.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_mon.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/flower_mon.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_mon.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_mon.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_left_in.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/anim/push_left_in.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_yundong_pressed.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_yundong_pressed.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_study_pager.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/study_pager.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_tag.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/tag.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_yixuanbiaoqian.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/yixuanbiaoqian.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_user_background.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/user_background.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank3.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank3.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_unfold.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/unfold.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_beidanci.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/beidanci.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_42.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_42.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_rank_query.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/rank_query.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_5.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_5.jpg"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_frame.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_frame.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_login_page.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/login_page.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_user_profile.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/user_profile.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_yuanjiao_huise.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/drawable/shape_yuanjiao_huise.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_add.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/add.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tinglilianxi.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tinglilianxi.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zuojinrijihua.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zuojinrijihua.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_xuexi_normal.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_xuexi_normal.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/anim_push_right_out.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/anim/push_right_out.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_jiankang_pressed.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_jiankang_pressed.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_backgroud_theme.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/backgroud_theme.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_wes.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_wes.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_login_page.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/login_page.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_buqiaoerlangtui.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/buqiaoerlangtui.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_tag.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/tag.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_zaoqi.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/zaoqi.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_undone.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/undone.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_choose.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/choose.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_51.jpg.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_51.jpg"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_private_eye.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/private_eye.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_xuexi_normal.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/nav_xuexi_normal.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_arrow.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/arrow.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_thumbsup.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/thumbsup.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lashen.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lashen.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/drawable_shape_yuanjiao_huise.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/drawable/shape_yuanjiao_huise.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_month_rank.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/month_rank.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_tinglilianxi.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/tinglilianxi.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_warning.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/warning.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_choose.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/choose.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_add.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/add.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_private_eye.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/private_eye.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank1.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank1.png"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_lashen.png.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/lashen.png"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_flower_fri.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/flower_fri.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_month_report.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/month_report.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_dialog_select_photo.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/dialog_select_photo.xml"
     },
     {
-        "merged": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_user.xml.flat",
-        "source": "/home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/res/layout/user.xml"
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_clockin_pager.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/clockin_pager.xml"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_guide.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/guide.png"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_rank2.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/rank2.png"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_delete.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/delete.png"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_novice_course.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/novice_course.xml"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/layout_study_pager.xml.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/layout/study_pager.xml"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_theme_52.jpg.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_52.jpg"
     }
 ]
