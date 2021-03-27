@@ -81,7 +81,6 @@ com/bignerdranch/android/sc/clockin/ClockinListFragment.java
  com.bignerdranch.android.sc.clockin.ClockinListFragment
  com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinAdapter
  com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinHolder
- com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinHolder$1
 com/bignerdranch/android/sc/label/MyFragmentPagerAdapter.java
  com.bignerdranch.android.sc.label.MyFragmentPagerAdapter
 com/bignerdranch/android/sc/user/RankQueryActivity.java
@@ -106,6 +105,7 @@ com/bignerdranch/android/sc/StatusBar.java
 com/bignerdranch/android/sc/clockin/SingleFragmentActivity.java
  com.bignerdranch.android.sc.clockin.SingleFragmentActivity
  com.bignerdranch.android.sc.clockin.SingleFragmentActivity$1
+ com.bignerdranch.android.sc.clockin.SingleFragmentActivity$2
 com/bignerdranch/android/sc/login/User.java
  com.bignerdranch.android.sc.login.User
 com/bignerdranch/android/sc/BuildConfig.java

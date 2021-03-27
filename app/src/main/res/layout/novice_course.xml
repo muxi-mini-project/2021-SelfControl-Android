@@ -20,8 +20,8 @@
 
         <ImageButton
             android:id="@+id/course_back"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginTop="30dp"
             android:background="#00000000"
             android:scaleType="fitXY"
@@ -56,250 +56,150 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/l1"
+            android:id="@+id/linearLayout14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView26"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/shape_coin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"
+                android:background="@mipmap/done"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/l1"
-                app:layout_constraintVertical_bias="0.397" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="选择标签"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView26"
-                app:layout_constraintEnd_toEndOf="@+id/imageView26"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="@+id/imageView26"
-                app:layout_constraintTop_toTopOf="@+id/imageView26"
-                app:layout_constraintVertical_bias="0.118" />
-
-            <ImageView
-                android:id="@+id/imageView18"
-                android:layout_width="139dp"
-                android:layout_height="9dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView15"
-                app:layout_constraintEnd_toEndOf="@+id/textView12"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintVertical_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:srcCompat="@mipmap/yellowbar" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="每日打卡"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageButton10"
+                app:layout_constraintStart_toStartOf="@+id/imageButton10"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton10" />
 
             <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="95dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="登录进入后，用户可以自主选择“健康、运动、学习”三大类下需要打卡的小标签。"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView26"
-                app:layout_constraintEnd_toEndOf="@+id/imageView26"
-                app:layout_constraintStart_toStartOf="@+id/imageView26"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:layout_constraintVertical_bias="0.678" />
+                android:id="@+id/textView20"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text="点击木槿花进入当天的打卡界面，一天打卡内容完成才可获得金币，并且木槿花变换颜色表示打卡完成。"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButton10"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff4f4f4" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/l2"
+            android:id="@+id/linearLayout13"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView28"
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/shape_coin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"
+                android:background="@mipmap/paobu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/l2"
-                app:layout_constraintVertical_bias="0.02" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="每日打卡"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView28"
-                app:layout_constraintEnd_toEndOf="@+id/imageView28"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="@+id/imageView28"
-                app:layout_constraintTop_toTopOf="@+id/imageView28"
-                app:layout_constraintVertical_bias="0.118" />
-
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="139dp"
-                android:layout_height="9dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView14"
-                app:layout_constraintEnd_toEndOf="@+id/textView14"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintStart_toStartOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@mipmap/yellowbar" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="打卡增删"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageButton9"
+                app:layout_constraintStart_toStartOf="@+id/imageButton9"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="点击某天的木樨花进入当天的打卡界面，一天的打卡内容完成才可获得金币；并且当天的木槿花会变换颜色表示为今天已完成打卡。反之，无法获得金币及木樨花颜色变化。"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView28"
-                app:layout_constraintEnd_toEndOf="@+id/imageView28"
-                app:layout_constraintStart_toStartOf="@+id/imageView28"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
-                app:layout_constraintVertical_bias="1.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/l4">
-
-            <ImageView
-                android:id="@+id/imageView27"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/shape_coin"
+                android:layout_marginEnd="5dp"
+                android:text="点击加号增加，打卡内容右滑删除。（增删操作仅改变本日的打卡内容）"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.416"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/l4"
-                app:layout_constraintVertical_bias="0.661" />
+                app:layout_constraintStart_toEndOf="@+id/imageButton9"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="打卡增删"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView27"
-                app:layout_constraintEnd_toEndOf="@+id/imageView27"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="@+id/imageView27"
-                app:layout_constraintTop_toTopOf="@+id/imageView27"
-                app:layout_constraintVertical_bias="0.118" />
-
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="139dp"
-                android:layout_height="9dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView13"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintStart_toStartOf="@+id/textView13"
-                app:layout_constraintTop_toBottomOf="@+id/textView13"
-                app:srcCompat="@mipmap/yellowbar" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:text="每天的打卡内容可用户自主再次添加或移除（增删操作仅改变本日的打卡内容）"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView27"
-                app:layout_constraintEnd_toEndOf="@+id/imageView27"
-                app:layout_constraintStart_toStartOf="@+id/imageView27"
-                app:layout_constraintTop_toBottomOf="@+id/textView13"
-                app:layout_constraintVertical_bias="0.531" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/l3"
+        <View
+            android:id="@+id/view_line"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="2dp"
+            android:background="#fff4f4f4" />
 
-            <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="match_parent"
-                android:layout_height="172dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout12"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="63dp"
+                android:layout_height="63dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/shape_coin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.416"
+                android:layout_marginTop="30dp"
+                android:background="@mipmap/rank"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/l3"
-                app:layout_constraintVertical_bias="0.969" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="周/月排行"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView29"
-                app:layout_constraintEnd_toEndOf="@+id/imageView29"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="@+id/imageView29"
-                app:layout_constraintTop_toTopOf="@+id/imageView29"
-                app:layout_constraintVertical_bias="0.118" />
-
-            <ImageView
-                android:id="@+id/imageView30"
-                android:layout_width="139dp"
-                android:layout_height="9dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView24"
-                app:layout_constraintEnd_toEndOf="@+id/textView24"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintStart_toStartOf="@+id/textView24"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@mipmap/yellowbar" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="周/月排行榜"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageButton8"
+                app:layout_constraintStart_toStartOf="@+id/imageButton8"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
 
             <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="98dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:text="排行榜分为周、月排行榜。同时，在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView29"
-                app:layout_constraintEnd_toEndOf="@+id/imageView29"
-                app:layout_constraintStart_toStartOf="@+id/imageView29"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
-                app:layout_constraintVertical_bias="0.645" />
+                android:id="@+id/textView22"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:text="周榜看打卡次数，月榜看打卡天数 。在排行榜点击其他用户的头像可查看其他用户的打卡内容。"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageButton8"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
     </ScrollView>

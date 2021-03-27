@@ -20,8 +20,8 @@
 
         <ImageButton
             android:id="@+id/coin_back"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginTop="30dp"
             android:background="#00000000"
             android:scaleType="fitXY"
@@ -31,7 +31,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6"
-            app:srcCompat="@mipmap/back"  />
+            app:srcCompat="@mipmap/back" />
 
         <TextView
             android:id="@+id/textView9"
@@ -83,7 +83,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:text="背景样式新用户为默认。通过使用金币来兑换背景商城里自己所想要更换的背景样式，不同的背景样式会消耗不同的金币数量。"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView15"
         app:layout_constraintEnd_toEndOf="@+id/imageView15"
         app:layout_constraintHorizontal_bias="0.506"
@@ -126,7 +126,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:text="通过使用金币来兑换校内排行榜的排名上升，想要上升的位次不同，所消耗的金币数量也会不同。"
-        android:textSize="15sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView16"
         app:layout_constraintEnd_toEndOf="@+id/imageView16"
         app:layout_constraintHorizontal_bias="0.604"
