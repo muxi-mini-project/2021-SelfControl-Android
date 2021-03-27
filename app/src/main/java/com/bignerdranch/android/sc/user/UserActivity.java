@@ -46,7 +46,6 @@ import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.PUT;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class UserActivity extends StatusBar {
@@ -153,7 +152,7 @@ public class UserActivity extends StatusBar {
 
         mName = findViewById(R.id.name);
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -201,7 +200,7 @@ public class UserActivity extends StatusBar {
                     name = editText.getText().toString();
 
                     Retrofit.Builder builder = new Retrofit.Builder()
-                            .baseUrl(baseUrl)
+                            .baseUrl("http://39.102.42.156:2333/api/v1/")
                             .addConverterFactory(GsonConverterFactory.create());
 
                     Retrofit retrofit = builder.build();
@@ -235,15 +234,22 @@ public class UserActivity extends StatusBar {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
-                    case 1:
+                    case 0:
+                    Intent intent1 = new Intent(Intent.ACTION_PICK, null);
+                    intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                    startActivityForResult(intent1, 1);
+                    dialog.dismiss();
+                    break;
+                   /* case 2:
                         Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile
                                 (new File(Environment.getExternalStorageDirectory(), "head.jpg")));
                         startActivityForResult(intent2, 2);
                         dialog.dismiss();
-                        break;
-                    case 2:
+                        break;*/
+                    case 1:
                         dialog.dismiss();
+                        break;
                 }
             }
         });
