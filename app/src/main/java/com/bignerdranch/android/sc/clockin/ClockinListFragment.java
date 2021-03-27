@@ -88,9 +88,9 @@ public class ClockinListFragment extends Fragment {
 
     private void updateUI(){
         ClockinLab clockinLab = ClockinLab.get(getActivity());
-        List<Clockin> crimes = clockinLab.getClockins();
+        List<Clockin> clockins = clockinLab.getClockins();
 
-        mAdapter = new ClockinAdapter(crimes);
+        mAdapter = new ClockinAdapter(clockins);
         mClockinRecyclerView.setAdapter(mAdapter);
     }
 }

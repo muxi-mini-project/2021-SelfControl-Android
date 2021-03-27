@@ -8,9 +8,11 @@ import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.label.HealthFragment;
@@ -25,10 +28,11 @@ import com.bignerdranch.android.sc.label.SportFragment;
 import com.bignerdranch.android.sc.label.StudyFragment;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
 
-public abstract class SingleFragmentActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
+public abstract class SingleFragmentActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
     protected abstract ClockinListFragment createFragment();
 
     private ImageView mImageView;
@@ -37,10 +41,16 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
     private int mTimes = 0;
     private ImageButton mImageButton;
 
+    private boolean isDeleteShow;//删除组件是否显示
+    private ViewGroup mPointChild;//手指按下位置的item组件
+    private int mDeleteWidth;//删除组件的宽度
+    private LinearLayout.LayoutParams mItemLayoutParams;//手指按下时所在的item的布局参数
+
     //定义手势检测器实例
     GestureDetector detector;
 
     private boolean status = false;
+    private  int POS = 0;
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -77,18 +87,21 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
         return false;
     }
 
+
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         float minMove = 120;//定义最小滑动距离  
         float minVelocity = 0;//定义最小滑动速度  
         float beginX = e1.getX();
         float endX = e2.getX();
 
+
         if (beginX - endX > minMove && Math.abs(velocityX) > minVelocity) {//左滑  
             mImageButton.setBackgroundResource(R.mipmap.delete2);
             mImageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+                    POS = 1;
+                    mImageButton.setBackgroundResource(R.color.white);
                 }
             });
         }else{
@@ -105,8 +118,6 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
                         mImageButton.setEnabled(true);
                         status = false;
                     }
-
-                    mTimes++;
                 }
             });
         }
@@ -130,4 +141,5 @@ public abstract class SingleFragmentActivity extends AppCompatActivity implement
     public boolean onScroll(MotionEvent e1,MotionEvent e2,float velocityX,float velocityY){
         return false;
     }
+
 }
