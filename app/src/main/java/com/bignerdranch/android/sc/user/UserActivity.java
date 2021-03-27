@@ -13,10 +13,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -24,6 +27,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.CoinQueryActivity;
 import com.bignerdranch.android.sc.user.MonthReportActivity;
 import com.bignerdranch.android.sc.user.RankQueryActivity;
@@ -33,6 +37,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.Header;
+import retrofit2.http.PUT;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
 public class UserActivity extends StatusBar {
 
     private ConstraintLayout mJinbi, mYuebao, mPaihangbang;
@@ -41,6 +57,8 @@ public class UserActivity extends StatusBar {
     private Bitmap head;
     // private TextView tv_select_gallery,tv_select_camera;
     private static String path = "/sdcard/myHead";
+    private TextView mName;
+    private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,10 +150,85 @@ public class UserActivity extends StatusBar {
                 startActivity(intent4);
             }
         });
+
+        mName = findViewById(R.id.name);
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        UserClient client = retrofit.create(UserClient.class);
+        Call<User> call = client.mUser(token);
+
+        call.enqueue(new Callback<User>() {
+
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                if (mUser != null)
+                    mName.setText(String.valueOf(mUser.getName()));
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("Coin", "failure");
+            }
+        });
+
+        mName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showInputDialog();
+
+            }
+        });
+
+    }
+    private void showInputDialog() {
+        /*@setView 装入一个EditView
+         */
+        final EditText editText = new EditText(UserActivity.this);
+        AlertDialog.Builder inputDialog = new AlertDialog.Builder(UserActivity.this);
+        inputDialog.setTitle("更换昵称").setView(editText);
+        inputDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(editText.getText()!= null) {
+                    String name;
+                    mName.setText(editText.getText().toString());
+                    name = editText.getText().toString();
+
+                    Retrofit.Builder builder = new Retrofit.Builder()
+                            .baseUrl(baseUrl)
+                            .addConverterFactory(GsonConverterFactory.create());
+
+                    Retrofit retrofit = builder.build();
+
+                    ChangeNameAPI client = retrofit.create(ChangeNameAPI.class);
+                    Call<User> call = client.changName(token, new User(name));
+
+                    call.enqueue(new Callback<User>() {
+
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            Toast.makeText(UserActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Toast.makeText(UserActivity.this,"修改失败，请稍后再试",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        }).show();
     }
 
+
     private void showListDialog() {
-        final String[] items = {"拍照", "从相册选取", "取消"};
+        final String[] items = {"从相册选取", "取消"};
         AlertDialog.Builder listDialog = new AlertDialog.Builder(UserActivity.this);
         listDialog.setTitle("更换头像");
         listDialog.setItems(items, new DialogInterface.OnClickListener() {
@@ -143,19 +236,13 @@ public class UserActivity extends StatusBar {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 1:
-                        Intent intent1 = new Intent(Intent.ACTION_PICK, null);
-                        intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                        startActivityForResult(intent1, 1);
-                        dialog.dismiss();
-                        break;
-                    case 2:
                         Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile
                                 (new File(Environment.getExternalStorageDirectory(), "head.jpg")));
                         startActivityForResult(intent2, 2);
                         dialog.dismiss();
                         break;
-                    case 3:
+                    case 2:
                         dialog.dismiss();
                 }
             }
@@ -262,6 +349,11 @@ public class UserActivity extends StatusBar {
             }
         }
     }
+    public interface ChangeNameAPI{
+        @PUT("user/")
+        Call<User> changName(@Header("token")String token, @Body User mUser);
+
+    }
    /* private void askPermissions() {//动态申请权限！
         if (Build.VERSION.SDK_INT >= 23) {
             int REQUEST_CODE_CONTACT = 101;
@@ -277,3 +369,4 @@ public class UserActivity extends StatusBar {
         }
     }*/
 }
+

@@ -28,6 +28,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class PrivateActivity extends StatusBar {
@@ -60,7 +61,7 @@ public class PrivateActivity extends StatusBar {
             public void onClick(View v) {
 
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://124.71.184.107:2333/api/v1/")
+                        .baseUrl(baseUrl)
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
@@ -88,7 +89,7 @@ public class PrivateActivity extends StatusBar {
             public void onClick(View v) {
 
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://124.71.184.107:2333/api/v1/")
+                        .baseUrl(baseUrl)
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();

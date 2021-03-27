@@ -17,6 +17,7 @@ public class User {
     private int privacy;
     private String student_id;
     private String user_picture;
+
   
     public User(String student_id, String password) {
         this.student_id = student_id;
@@ -24,6 +25,14 @@ public class User {
     }
     public User(int privacy) {
         this.privacy = privacy;
+    }
+
+    public User(Integer gold){
+        this.gold = gold;
+    }
+
+    public User(String name){
+        this.name = name;
     }
 
     public int getGold() {
@@ -73,5 +82,6 @@ public class User {
     public void setUser_picture(String user_picture) {
         this.user_picture = user_picture;
     }
+
 
 }
