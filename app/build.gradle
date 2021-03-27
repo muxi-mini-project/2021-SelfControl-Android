@@ -26,6 +26,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //提供dataBinding的支持
+    dataBinding.enabled true
+
+    //配置当Database中exportSchema=true时，生成的数据结构文件存储位置。
+    javaCompileOptions {
+        annotationProcessorOptions {
+            arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+        }
+    }
 }
 
 dependencies {
@@ -48,6 +58,22 @@ dependencies {
     //热门强大的图片加载器
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //添加lifecycle框架的依赖
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-rc02'
+    //添加Room数据库框架的依赖
+    def room_version = "2.2.2"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
 }
 dependencies {
