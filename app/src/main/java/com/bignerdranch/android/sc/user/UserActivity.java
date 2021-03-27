@@ -46,7 +46,6 @@ import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.PUT;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class UserActivity extends StatusBar {
@@ -153,7 +152,7 @@ public class UserActivity extends StatusBar {
 
         mName = findViewById(R.id.name);
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -201,7 +200,7 @@ public class UserActivity extends StatusBar {
                     name = editText.getText().toString();
 
                     Retrofit.Builder builder = new Retrofit.Builder()
-                            .baseUrl(baseUrl)
+                            .baseUrl("http://39.102.42.156:2333/api/v1/")
                             .addConverterFactory(GsonConverterFactory.create());
 
                     Retrofit retrofit = builder.build();

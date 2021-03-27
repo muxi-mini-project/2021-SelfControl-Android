@@ -4,6 +4,8 @@ com/bignerdranch/android/sc/label/LabelPagerActivity.java
 com/bignerdranch/android/sc/settings/BackgroundActivity.java
  com.bignerdranch.android.sc.settings.BackgroundActivity
  com.bignerdranch.android.sc.settings.BackgroundActivity$1
+ com.bignerdranch.android.sc.settings.BackgroundActivity$10
+ com.bignerdranch.android.sc.settings.BackgroundActivity$11
  com.bignerdranch.android.sc.settings.BackgroundActivity$2
  com.bignerdranch.android.sc.settings.BackgroundActivity$3
  com.bignerdranch.android.sc.settings.BackgroundActivity$4
@@ -11,11 +13,18 @@ com/bignerdranch/android/sc/settings/BackgroundActivity.java
  com.bignerdranch.android.sc.settings.BackgroundActivity$6
  com.bignerdranch.android.sc.settings.BackgroundActivity$7
  com.bignerdranch.android.sc.settings.BackgroundActivity$8
+ com.bignerdranch.android.sc.settings.BackgroundActivity$9
+ com.bignerdranch.android.sc.settings.BackgroundActivity$Background
+ com.bignerdranch.android.sc.settings.BackgroundActivity$BackgroundAPI
 com/bignerdranch/android/sc/clockin/Clockin.java
  com.bignerdranch.android.sc.clockin.Clockin
 com/bignerdranch/android/sc/user/UserActivity.java
  com.bignerdranch.android.sc.user.UserActivity
  com.bignerdranch.android.sc.user.UserActivity$1
+ com.bignerdranch.android.sc.user.UserActivity$10
+ com.bignerdranch.android.sc.user.UserActivity$11
+ com.bignerdranch.android.sc.user.UserActivity$11$1
+ com.bignerdranch.android.sc.user.UserActivity$12
  com.bignerdranch.android.sc.user.UserActivity$2
  com.bignerdranch.android.sc.user.UserActivity$3
  com.bignerdranch.android.sc.user.UserActivity$4
@@ -24,6 +33,7 @@ com/bignerdranch/android/sc/user/UserActivity.java
  com.bignerdranch.android.sc.user.UserActivity$7
  com.bignerdranch.android.sc.user.UserActivity$8
  com.bignerdranch.android.sc.user.UserActivity$9
+ com.bignerdranch.android.sc.user.UserActivity$ChangeNameAPI
 com/bignerdranch/android/sc/rank/WeekRankFragment.java
  com.bignerdranch.android.sc.rank.WeekRankFragment
  com.bignerdranch.android.sc.rank.WeekRankFragment$1

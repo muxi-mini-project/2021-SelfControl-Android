@@ -4,12 +4,12 @@
         "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/theme_3.png"
     },
     {
-        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_delete.png.flat",
-        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/delete.png"
-    },
-    {
         "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_rank.png.flat",
         "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-xxxhdpi/rank.png"
+    },
+    {
+        "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_delete.png.flat",
+        "source": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/res/mipmap-hdpi/delete.png"
     },
     {
         "merged": "/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/build/intermediates/res/merged/debug/mipmap-hdpi_nav_xuexi_pressed.png.flat",

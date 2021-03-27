@@ -19,8 +19,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
-
 public class WeekRankFragment extends Fragment {
 
     private List<Rank> mList;
@@ -34,7 +32,7 @@ public class WeekRankFragment extends Fragment {
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
 
-                        .baseUrl(baseUrl)
+                        .baseUrl("http://39.102.42.156:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();

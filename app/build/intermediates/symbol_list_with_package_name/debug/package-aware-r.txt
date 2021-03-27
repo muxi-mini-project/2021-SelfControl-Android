@@ -2010,6 +2010,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id myViewPager
+id name
 id navigation_header_container
 id never
 id noScroll
@@ -2160,7 +2161,6 @@ id textView25
 id textView26
 id textView27
 id textView29
-id textView3
 id textView30
 id textView31
 id textView32

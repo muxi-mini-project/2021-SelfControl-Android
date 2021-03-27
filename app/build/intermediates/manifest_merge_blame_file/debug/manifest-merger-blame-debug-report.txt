@@ -30,7 +30,7 @@
 16-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:5:22-64
 17
 18    <application
-18-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-39:19
+18-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-42:19
 19        android:allowBackup="true"
 19-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:13:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -47,59 +47,59 @@
 26        android:supportsRtl="true"
 26-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:9-35
 27        android:theme="@style/Theme.SC"
-27-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:20:9-40
+27-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:5-36
 28        android:usesCleartextTraffic="true" >
 28-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:19:9-44
 29        <activity android:name="com.bignerdranch.android.sc.login.LoginActivity" >
-29-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:9-26:20
-29-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:19-54
+29-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:9-29:20
+29-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:19-54
 30            <intent-filter>
-30-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:13-25:29
+30-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:25:13-28:29
 31                <action android:name="android.intent.action.MAIN" />
-31-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:17-69
-31-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:25-66
+31-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:17-69
+31-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:25-66
 32
 33                <category android:name="android.intent.category.LAUNCHER" />
-33-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:17-77
-33-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:27-74
+33-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:17-77
+33-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:27-74
 34            </intent-filter>
 35        </activity>
 36        <activity android:name="com.bignerdranch.android.sc.clockpage.ClockActivity" />
-36-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:9-70
-36-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:19-58
+36-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:9-70
+36-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:19-58
 37        <activity android:name="com.bignerdranch.android.sc.label.LabelPagerActivity" />
-37-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:9-71
-37-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:19-59
+37-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:9-71
+37-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:19-59
 38        <activity android:name="com.bignerdranch.android.sc.settings.SettingPageActivity" />
-38-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:9-75
-38-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:19-63
+38-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:9-75
+38-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:19-63
 39        <activity android:name="com.bignerdranch.android.sc.settings.CourseActivity" />
-39-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:9-70
-39-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:19-58
+39-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:9-70
+39-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:19-58
 40        <activity android:name="com.bignerdranch.android.sc.settings.BackgroundActivity" />
-40-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:9-74
-40-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:19-62
+40-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:9-74
+40-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:19-62
 41        <activity android:name="com.bignerdranch.android.sc.settings.CoinFunctionActivity" />
-41-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:9-76
-41-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:19-64
+41-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:9-76
+41-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:19-64
 42        <activity android:name="com.bignerdranch.android.sc.settings.PrivateActivity" />
-42-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:9-71
-42-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:19-59
+42-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:9-71
+42-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:19-59
 43        <activity android:name="com.bignerdranch.android.sc.user.RankQueryActivity" />
-43-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:9-69
-43-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:19-57
+43-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:9-69
+43-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:19-57
 44        <activity android:name="com.bignerdranch.android.sc.user.MonthReportActivity" />
-44-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:9-71
-44-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:19-59
+44-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:9-71
+44-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:19-59
 45        <activity android:name="com.bignerdranch.android.sc.user.CoinQueryActivity" />
-45-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:9-69
-45-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:19-57
+45-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:39:9-69
+45-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:39:19-57
 46        <activity android:name="com.bignerdranch.android.sc.user.UserActivity" />
-46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:9-64
-46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:19-52
+46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:40:9-64
+46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:40:19-52
 47        <activity android:name="com.bignerdranch.android.sc.clockin.SingleFragmentActivity" />
-47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:9-77
-47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:19-65
+47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:41:9-77
+47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:41:19-65
 48    </application>
 49
 50</manifest>
