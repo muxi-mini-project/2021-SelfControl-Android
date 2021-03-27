@@ -30,7 +30,7 @@
 16-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:5:22-64
 17
 18    <application
-18-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-38:19
+18-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-39:19
 19        android:allowBackup="true"
 19-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:13:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -97,6 +97,9 @@
 46        <activity android:name="com.bignerdranch.android.sc.user.UserActivity" />
 46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:9-64
 46-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:19-52
-47    </application>
-48
-49</manifest>
+47        <activity android:name="com.bignerdranch.android.sc.clockin.SingleFragmentActivity" />
+47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:9-77
+47-->/home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:19-65
+48    </application>
+49
+50</manifest>

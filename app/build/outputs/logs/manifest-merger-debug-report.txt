@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
 MERGED from [com.google.android.material:material:1.2.1] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/2e9b4d772a4da06bdfcffbbbb4ab3c14/material-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/9570f34841c72a34d773388f89286f55/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/0cb9ff486f5edb59977e253831b932c8/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
@@ -37,22 +37,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/xiaozhu/.gradle/
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/96d0ad977091c6484e2db42674538c87/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/9a82a1a22af6402c2242c9ee80e8919f/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/adf8d4ec58c98f5b37616cb4b06b74f4/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
-INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:5-42
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
-		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
-		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-40:12
 		INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:11-69
@@ -79,7 +79,7 @@ ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/
 	android:name
 		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:9:22-81
 application
-ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-38:19
+ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-39:19
 MERGED from [com.google.android.material:material:1.2.1] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/2e9b4d772a4da06bdfcffbbbb4ab3c14/material-1.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/2e9b4d772a4da06bdfcffbbbb4ab3c14/material-1.2.1/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/xiaozhu/.gradle/caches/transforms-2/files-2.1/9570f34841c72a34d773388f89286f55/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
@@ -170,6 +170,10 @@ activity#com.bignerdranch.android.sc.user.UserActivity
 ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:9-64
 	android:name
 		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:19-52
+activity#com.bignerdranch.android.sc.clockin.SingleFragmentActivity
+ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:9-77
+	android:name
+		ADDED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:38:19-65
 uses-sdk
 INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/xiaozhu/Desktop/AndroidStudioProjects/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
