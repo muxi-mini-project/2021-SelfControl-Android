@@ -27,8 +27,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.PUT;
 
-
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class BackgroundActivity extends StatusBar {
@@ -71,15 +69,15 @@ public class BackgroundActivity extends StatusBar {
             @Override
             public void onClick(View v) {
 
-                    f1 = 1;
-                    f2 = 0;
-                    f3 = 0;
-                    f4 = 0;
-                    f5 = 0;
-                    f6 = 0;
-                    updateView();
+                f1 = 1;
+                f2 = 0;
+                f3 = 0;
+                f4 = 0;
+                f5 = 0;
+                f6 = 0;
+                updateView();
 
-                }
+            }
         });
         mTheme2 = findViewById(R.id.theme2);
         mTheme2.setOnClickListener(new View.OnClickListener() {
@@ -266,7 +264,7 @@ public class BackgroundActivity extends StatusBar {
                 .build();
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -289,7 +287,7 @@ public class BackgroundActivity extends StatusBar {
 
 
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder.build();

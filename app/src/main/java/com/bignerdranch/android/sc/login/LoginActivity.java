@@ -25,7 +25,6 @@ public class LoginActivity extends StatusBar {
     private EditText mpassword;
     private Button mloginbutton;
     public static String token;
-    public static String baseUrl = "http://39.102.42.156:2333/api/v1/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,7 @@ public class LoginActivity extends StatusBar {
 
     public void request(String id,String password){
         Retrofit retrofit = new Retrofit
-                .Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
+                .Builder().baseUrl("http://39.102.42.156:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
         Call<LoginResponse> call = request.getCall(new User(id,password));
@@ -79,10 +78,9 @@ public class LoginActivity extends StatusBar {
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
                 Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                 startActivity(intent);
-                /*
                 Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
-                Log.e("tag",throwable.getMessage());*/
+                Log.e("tag",throwable.getMessage());
             }
 
         });

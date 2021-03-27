@@ -44,6 +44,7 @@
         <activity android:name="com.bignerdranch.android.sc.user.MonthReportActivity" />
         <activity android:name="com.bignerdranch.android.sc.user.CoinQueryActivity" />
         <activity android:name="com.bignerdranch.android.sc.user.UserActivity" />
+        <activity android:name="com.bignerdranch.android.sc.clockin.SingleFragmentActivity" />
     </application>
 
 </manifest>

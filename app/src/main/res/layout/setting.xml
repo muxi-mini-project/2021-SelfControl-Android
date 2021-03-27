@@ -19,8 +19,8 @@
 
         <ImageButton
             android:id="@+id/setting_back"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginTop="30dp"
             android:background="#00000000"
             android:scaleType="fitXY"
@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6"
-            app:srcCompat="@mipmap/back"  />
+            app:srcCompat="@mipmap/back" />
 
         <TextView
             android:id="@+id/textView9"

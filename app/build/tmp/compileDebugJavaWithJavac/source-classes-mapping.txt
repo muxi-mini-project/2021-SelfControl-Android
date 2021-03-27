@@ -1,13 +1,9 @@
-com/bignerdranch/android/sc/clockpage/flower/TueFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.TueFlowerFragment
 com/bignerdranch/android/sc/label/LabelPagerActivity.java
  com.bignerdranch.android.sc.label.LabelPagerActivity
  com.bignerdranch.android.sc.label.LabelPagerActivity$MyOnPageChangeListener
 com/bignerdranch/android/sc/settings/BackgroundActivity.java
  com.bignerdranch.android.sc.settings.BackgroundActivity
  com.bignerdranch.android.sc.settings.BackgroundActivity$1
- com.bignerdranch.android.sc.settings.BackgroundActivity$10
- com.bignerdranch.android.sc.settings.BackgroundActivity$11
  com.bignerdranch.android.sc.settings.BackgroundActivity$2
  com.bignerdranch.android.sc.settings.BackgroundActivity$3
  com.bignerdranch.android.sc.settings.BackgroundActivity$4
@@ -15,13 +11,19 @@ com/bignerdranch/android/sc/settings/BackgroundActivity.java
  com.bignerdranch.android.sc.settings.BackgroundActivity$6
  com.bignerdranch.android.sc.settings.BackgroundActivity$7
  com.bignerdranch.android.sc.settings.BackgroundActivity$8
- com.bignerdranch.android.sc.settings.BackgroundActivity$9
- com.bignerdranch.android.sc.settings.BackgroundActivity$Background
- com.bignerdranch.android.sc.settings.BackgroundActivity$BackgroundAPI
 com/bignerdranch/android/sc/clockin/Clockin.java
  com.bignerdranch.android.sc.clockin.Clockin
-com/bignerdranch/android/sc/user/UserClient.java
- com.bignerdranch.android.sc.user.UserClient
+com/bignerdranch/android/sc/user/UserActivity.java
+ com.bignerdranch.android.sc.user.UserActivity
+ com.bignerdranch.android.sc.user.UserActivity$1
+ com.bignerdranch.android.sc.user.UserActivity$2
+ com.bignerdranch.android.sc.user.UserActivity$3
+ com.bignerdranch.android.sc.user.UserActivity$4
+ com.bignerdranch.android.sc.user.UserActivity$5
+ com.bignerdranch.android.sc.user.UserActivity$6
+ com.bignerdranch.android.sc.user.UserActivity$7
+ com.bignerdranch.android.sc.user.UserActivity$8
+ com.bignerdranch.android.sc.user.UserActivity$9
 com/bignerdranch/android/sc/rank/WeekRankFragment.java
  com.bignerdranch.android.sc.rank.WeekRankFragment
  com.bignerdranch.android.sc.rank.WeekRankFragment$1
@@ -42,20 +44,13 @@ com/bignerdranch/android/sc/label/HealthFragment.java
  com.bignerdranch.android.sc.label.HealthFragment$9
 com/bignerdranch/android/sc/clockpage/flower/FlowerFragmentPagerAdapter.java
  com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter
+com/bignerdranch/android/sc/settings/CourseActivity.java
+ com.bignerdranch.android.sc.settings.CourseActivity
+ com.bignerdranch.android.sc.settings.CourseActivity$1
 com/bignerdranch/android/sc/rank/MonthRankFragment.java
  com.bignerdranch.android.sc.rank.MonthRankFragment
  com.bignerdranch.android.sc.rank.MonthRankFragment$1
  com.bignerdranch.android.sc.rank.MonthRankFragment$1$1
-com/bignerdranch/android/sc/settings/CourseActivity.java
- com.bignerdranch.android.sc.settings.CourseActivity
- com.bignerdranch.android.sc.settings.CourseActivity$1
-com/bignerdranch/android/sc/clockpage/flower/ThuFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.ThuFlowerFragment
-com/bignerdranch/android/sc/rank/RankBackgroundActivity.java
- com.bignerdranch.android.sc.rank.RankBackgroundActivity
- com.bignerdranch.android.sc.rank.RankBackgroundActivity$Rank
- com.bignerdranch.android.sc.rank.RankBackgroundActivity$RankClient
- com.bignerdranch.android.sc.rank.RankBackgroundActivity$RankOnPageChangeListener
 com/bignerdranch/android/sc/settings/SettingPageActivity.java
  com.bignerdranch.android.sc.settings.SettingPageActivity
  com.bignerdranch.android.sc.settings.SettingPageActivity$1
@@ -67,8 +62,14 @@ com/bignerdranch/android/sc/settings/SettingPageActivity.java
  com.bignerdranch.android.sc.settings.SettingPageActivity$7
  com.bignerdranch.android.sc.settings.SettingPageActivity$8
  com.bignerdranch.android.sc.settings.SettingPageActivity$9
+com/bignerdranch/android/sc/rank/RankBackgroundActivity.java
+ com.bignerdranch.android.sc.rank.RankBackgroundActivity
+ com.bignerdranch.android.sc.rank.RankBackgroundActivity$Rank
+ com.bignerdranch.android.sc.rank.RankBackgroundActivity$RankClient
+ com.bignerdranch.android.sc.rank.RankBackgroundActivity$RankOnPageChangeListener
 com/bignerdranch/android/sc/clockpage/flower/FlowerFragment.java
  com.bignerdranch.android.sc.clockpage.flower.FlowerFragment
+ com.bignerdranch.android.sc.clockpage.flower.FlowerFragment$1
 com/bignerdranch/android/sc/settings/CoinFunctionActivity.java
  com.bignerdranch.android.sc.settings.CoinFunctionActivity
  com.bignerdranch.android.sc.settings.CoinFunctionActivity$1
@@ -80,7 +81,6 @@ com/bignerdranch/android/sc/clockin/ClockinListFragment.java
  com.bignerdranch.android.sc.clockin.ClockinListFragment
  com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinAdapter
  com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinHolder
- com.bignerdranch.android.sc.clockin.ClockinListFragment$ClockinHolder$1
 com/bignerdranch/android/sc/label/MyFragmentPagerAdapter.java
  com.bignerdranch.android.sc.label.MyFragmentPagerAdapter
 com/bignerdranch/android/sc/user/RankQueryActivity.java
@@ -94,15 +94,18 @@ com/bignerdranch/android/sc/settings/PrivateActivity.java
  com.bignerdranch.android.sc.settings.PrivateActivity$3
  com.bignerdranch.android.sc.settings.PrivateActivity$3$1
  com.bignerdranch.android.sc.settings.PrivateActivity$PrivateAPI
-com/bignerdranch/android/sc/rank/PrivateDialog.java
- com.bignerdranch.android.sc.rank.PrivateDialog
+com/bignerdranch/android/sc/user/CoinQueryActivity.java
+ com.bignerdranch.android.sc.user.CoinQueryActivity
+ com.bignerdranch.android.sc.user.CoinQueryActivity$1
+ com.bignerdranch.android.sc.user.CoinQueryActivity$2
+ com.bignerdranch.android.sc.user.CoinQueryActivity$3
+ com.bignerdranch.android.sc.user.CoinQueryActivity$GoldHistory
 com/bignerdranch/android/sc/StatusBar.java
  com.bignerdranch.android.sc.StatusBar
 com/bignerdranch/android/sc/clockin/SingleFragmentActivity.java
  com.bignerdranch.android.sc.clockin.SingleFragmentActivity
  com.bignerdranch.android.sc.clockin.SingleFragmentActivity$1
-com/bignerdranch/android/sc/clockpage/flower/SatFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.SatFlowerFragment
+ com.bignerdranch.android.sc.clockin.SingleFragmentActivity$2
 com/bignerdranch/android/sc/login/User.java
  com.bignerdranch.android.sc.login.User
 com/bignerdranch/android/sc/BuildConfig.java
@@ -113,12 +116,11 @@ com/bignerdranch/android/sc/clockpage/ClockActivity.java
  com.bignerdranch.android.sc.clockpage.ClockActivity$2
  com.bignerdranch.android.sc.clockpage.ClockActivity$3
  com.bignerdranch.android.sc.clockpage.ClockActivity$4
- com.bignerdranch.android.sc.clockpage.ClockActivity$5
-com/bignerdranch/android/sc/clockpage/flower/FriFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.FriFlowerFragment
 com/bignerdranch/android/sc/clockpage/weekcalendar/DateAdapter.java
  com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter
  com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter$Holder
+com/bignerdranch/android/sc/clockpage/flower/NoScrollViewPager.java
+ com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager
 com/bignerdranch/android/sc/label/StudyFragment.java
  com.bignerdranch.android.sc.label.StudyFragment
  com.bignerdranch.android.sc.label.StudyFragment$1
@@ -134,16 +136,12 @@ com/bignerdranch/android/sc/label/StudyFragment.java
  com.bignerdranch.android.sc.label.StudyFragment$9
 com/bignerdranch/android/sc/clockin/ClockinListAcitivity.java
  com.bignerdranch.android.sc.clockin.ClockinListAcitivity
-com/bignerdranch/android/sc/clockpage/flower/WesFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.WesFlowerFragment
 com/bignerdranch/android/sc/login/LoginResponse.java
  com.bignerdranch.android.sc.login.LoginResponse
 com/bignerdranch/android/sc/login/LoginActivity.java
  com.bignerdranch.android.sc.login.LoginActivity
  com.bignerdranch.android.sc.login.LoginActivity$1
  com.bignerdranch.android.sc.login.LoginActivity$2
-com/bignerdranch/android/sc/clockpage/flower/SunFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.SunFlowerFragment
 com/bignerdranch/android/sc/user/MonthReportActivity.java
  com.bignerdranch.android.sc.user.MonthReportActivity
  com.bignerdranch.android.sc.user.MonthReportActivity$1
@@ -151,8 +149,8 @@ com/bignerdranch/android/sc/user/MonthReportActivity.java
  com.bignerdranch.android.sc.user.MonthReportActivity$2
  com.bignerdranch.android.sc.user.MonthReportActivity$myPunch
  com.bignerdranch.android.sc.user.MonthReportActivity$myPunchAPI
-com/bignerdranch/android/sc/clockpage/flower/MonFlowerFragment.java
- com.bignerdranch.android.sc.clockpage.flower.MonFlowerFragment
+com/bignerdranch/android/sc/user/GoldHistoryAPI.java
+ com.bignerdranch.android.sc.user.GoldHistoryAPI
 com/bignerdranch/android/sc/label/SportFragment.java
  com.bignerdranch.android.sc.label.SportFragment
  com.bignerdranch.android.sc.label.SportFragment$1
@@ -166,27 +164,7 @@ com/bignerdranch/android/sc/label/SportFragment.java
  com.bignerdranch.android.sc.label.SportFragment$9
 com/bignerdranch/android/sc/login/LoginAPI.java
  com.bignerdranch.android.sc.login.LoginAPI
-com/bignerdranch/android/sc/user/UserActivity.java
- com.bignerdranch.android.sc.user.UserActivity
- com.bignerdranch.android.sc.user.UserActivity$1
- com.bignerdranch.android.sc.user.UserActivity$10
- com.bignerdranch.android.sc.user.UserActivity$11
- com.bignerdranch.android.sc.user.UserActivity$11$1
- com.bignerdranch.android.sc.user.UserActivity$12
- com.bignerdranch.android.sc.user.UserActivity$2
- com.bignerdranch.android.sc.user.UserActivity$3
- com.bignerdranch.android.sc.user.UserActivity$4
- com.bignerdranch.android.sc.user.UserActivity$5
- com.bignerdranch.android.sc.user.UserActivity$6
- com.bignerdranch.android.sc.user.UserActivity$7
- com.bignerdranch.android.sc.user.UserActivity$8
- com.bignerdranch.android.sc.user.UserActivity$9
- com.bignerdranch.android.sc.user.UserActivity$ChangeNameAPI
-com/bignerdranch/android/sc/user/GoldHistoryAPI.java
- com.bignerdranch.android.sc.user.GoldHistoryAPI
-com/bignerdranch/android/sc/user/CoinQueryActivity.java
- com.bignerdranch.android.sc.user.CoinQueryActivity
- com.bignerdranch.android.sc.user.CoinQueryActivity$1
- com.bignerdranch.android.sc.user.CoinQueryActivity$2
- com.bignerdranch.android.sc.user.CoinQueryActivity$3
- com.bignerdranch.android.sc.user.CoinQueryActivity$GoldHistory
+com/bignerdranch/android/sc/rank/PrivateDialog.java
+ com.bignerdranch.android.sc.rank.PrivateDialog
+com/bignerdranch/android/sc/user/UserClient.java
+ com.bignerdranch.android.sc.user.UserClient
