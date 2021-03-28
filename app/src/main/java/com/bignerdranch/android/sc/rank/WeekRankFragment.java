@@ -19,7 +19,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d73960e30223c996514c00cc349b30578898273
 public class WeekRankFragment extends Fragment {
 
     private List<Rank> mList;
