@@ -54,7 +54,6 @@ public class UserActivity extends StatusBar {
     private ImageButton mJinbiButton, mYuebaoButton, mPaihangbangButton,mBack;
     private ImageView iv_photo;
     private Bitmap head;
-    // private TextView tv_select_gallery,tv_select_camera;
     private static String path = "/sdcard/myHead";
     private TextView mName;
     private User mUser;
