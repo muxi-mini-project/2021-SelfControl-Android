@@ -19,7 +19,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 
 public class MonthReportActivity extends StatusBar {
     private ImageButton mBack;
@@ -35,7 +34,7 @@ public class MonthReportActivity extends StatusBar {
             @Override
             public void run() {
                 Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl(baseUrl)
+                        .baseUrl("http://39.102.42.156:2333/api/v1/")
                         .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();

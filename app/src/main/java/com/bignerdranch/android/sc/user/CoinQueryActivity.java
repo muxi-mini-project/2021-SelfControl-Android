@@ -14,15 +14,12 @@ import com.bignerdranch.android.sc.login.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.baseUrl;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class CoinQueryActivity extends StatusBar {
@@ -56,15 +53,9 @@ public class CoinQueryActivity extends StatusBar {
             }
         });
 
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(interceptor)
-                .build();
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -92,14 +83,9 @@ public class CoinQueryActivity extends StatusBar {
             }
         });
 
-        HttpLoggingInterceptor interceptor1 = new HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient okHttpClient1 = new OkHttpClient.Builder()
-                .addInterceptor(interceptor1)
-                .build();
 
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder.build();
@@ -110,13 +96,12 @@ public class CoinQueryActivity extends StatusBar {
         call1.enqueue(new Callback<List<GoldHistory>>() {
 
             @Override
-            public void onResponse
-                    (Call<List<GoldHistory>> call, Response<List<GoldHistory>> response) {
+            public void onResponse(Call<List<GoldHistory>> call, Response<List<GoldHistory>> response) {
                 mList = response.body();
 
                 if (mList.size() == 1) {
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(mList.get(0).getTime());
+                    czsj1.setText(String.valueOf(mList.get(0).getTime()));
 
                     bhsl1 = findViewById(R.id.bhsl1);
                     bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
