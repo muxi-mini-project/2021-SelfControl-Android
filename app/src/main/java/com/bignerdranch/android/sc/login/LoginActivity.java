@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.clockpage.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
 import retrofit2.Call;
@@ -30,6 +32,10 @@ public class LoginActivity extends StatusBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+        token = sharedPreferences.getString("Token",null);
+        IsToken(token);
 
         mstudent_id=findViewById(R.id.username);
         mpassword=findViewById(R.id.password);
@@ -68,6 +74,12 @@ public class LoginActivity extends StatusBar {
                     startActivity(intent);
                     token = response.body().getToken();
                     Log.d("tag", "code"+response.body());
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("Token",token);
+                    editor.commit();
+
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
                 }
@@ -85,6 +97,14 @@ public class LoginActivity extends StatusBar {
 
         });
 
+    }
+
+    ;public void IsToken(String token){
+        if (token != null){
+            Intent intent = new Intent(LoginActivity.this, ClockActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 }
