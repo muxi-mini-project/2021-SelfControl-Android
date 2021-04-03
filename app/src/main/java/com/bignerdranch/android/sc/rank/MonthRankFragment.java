@@ -50,6 +50,56 @@ public class MonthRankFragment extends Fragment {
                     @Override
                     public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
                         mList = response.body();
+                        if (mList.size() == 1) {
+                            n1.setText(mList.get(0).getId());
+                            o1.setText(mList.get(0).getNumber());
+                        }
+                        if (mList.size() == 2) {
+                            n1.setText(mList.get(0).getId());
+                            o1.setText(mList.get(0).getNumber());
+
+                            n2.setText(mList.get(1).getId());
+                            o2.setText(mList.get(1).getNumber());
+                        }
+                        if (mList.size() == 3) {
+                            n1.setText(mList.get(0).getId());
+                            o1.setText(mList.get(0).getNumber());
+
+                            n2.setText(mList.get(1).getId());
+                            o2.setText(mList.get(1).getNumber());
+
+                            n3.setText(mList.get(2).getId());
+                            o3.setText(mList.get(2).getNumber());
+                        }
+                        if (mList.size() == 4) {
+                            n1.setText(mList.get(0).getId());
+                            o1.setText(mList.get(0).getNumber());
+
+                            n2.setText(mList.get(1).getId());
+                            o2.setText(mList.get(1).getNumber());
+
+                            n3.setText(mList.get(2).getId());
+                            o3.setText(mList.get(2).getNumber());
+
+                            n4.setText(mList.get(3).getId());
+                            o4.setText(mList.get(3).getNumber());
+                        }
+                        if (mList.size() == 5) {
+                            n1.setText(mList.get(0).getId());
+                            o1.setText(mList.get(0).getNumber());
+
+                            n2.setText(mList.get(1).getId());
+                            o2.setText(mList.get(1).getNumber());
+
+                            n3.setText(mList.get(2).getId());
+                            o3.setText(mList.get(2).getNumber());
+
+                            n4.setText(mList.get(3).getId());
+                            o4.setText(mList.get(3).getNumber());
+
+                            n5.setText(mList.get(4).getId());
+                            o5.setText(mList.get(4).getNumber());
+                        }
 
                         init();
                     }
@@ -68,39 +118,16 @@ public class MonthRankFragment extends Fragment {
     private void init() {
 
         n1 = n1.findViewById(R.id.m_first_n);
-        n1.setText(mList.get(0).getId());
-
         n2 = n2.findViewById(R.id.m_first_n);
-        n2.setText(mList.get(1).getId());
-
         n3 = n3.findViewById(R.id.m_first_n);
-        n3.setText(mList.get(2).getId());
-
-
         n4 = n4.findViewById(R.id.m_first_n);
-        n4.setText(mList.get(3).getId());
-
         n5 = n5.findViewById(R.id.m_first_n);
-        n5.setText(mList.get(4).getId());
-
 
         o1 = o1.findViewById(R.id.m_first_n);
-        o1.setText(mList.get(0).getNumber());
-
-
         o2 = o2.findViewById(R.id.m_first_n);
-        o2.setText(mList.get(1).getNumber());
-
-
         o3 = o3.findViewById(R.id.m_first_n);
-        o3.setText(mList.get(2).getNumber());
-
         o4 = o4.findViewById(R.id.m_first_n);
-        o4.setText(mList.get(3).getNumber());
-
-
         o5 = o5.findViewById(R.id.m_first_n);
-        o5.setText(mList.get(4).getNumber());
 
     }
 
