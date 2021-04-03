@@ -15,10 +15,7 @@ import com.bignerdranch.android.sc.user.UserClient;
 
 import java.util.List;
 
-<<<<<<< HEAD
-=======
-import okhttp3.OkHttpClient;
->>>>>>> 5d73960e30223c996514c00cc349b30578898273
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -258,10 +255,7 @@ public class BackgroundActivity extends StatusBar {
         normalDialog.show();
     }
     private void request(){
-<<<<<<< HEAD
 
-=======
->>>>>>> 5d73960e30223c996514c00cc349b30578898273
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/api/v1/")

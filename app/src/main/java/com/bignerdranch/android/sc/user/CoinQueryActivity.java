@@ -13,12 +13,6 @@ import com.bignerdranch.android.sc.login.User;
 
 import java.util.ArrayList;
 import java.util.List;
-
-<<<<<<< HEAD
-=======
-
-import okhttp3.OkHttpClient;
->>>>>>> 5d73960e30223c996514c00cc349b30578898273
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
