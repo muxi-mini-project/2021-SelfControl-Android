@@ -24,7 +24,7 @@ public class ClockinListFragment extends Fragment {
     private ClockinAdapter mAdapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_clockin_list,container,false);
+        View view = inflater.inflate(R.layout.clockin_pager,container,false);
 
         mClockinRecyclerView = (RecyclerView)view.findViewById(R.id.clockin_recycler_view);
         mClockinRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

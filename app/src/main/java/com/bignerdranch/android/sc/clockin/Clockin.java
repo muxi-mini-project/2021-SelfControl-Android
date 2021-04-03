@@ -16,7 +16,6 @@ public class Clockin{
     private TextView mTextView1;
     private TextView mTextView2;
     private int mTimes;
-    private Button mButton;
 
     public Clockin(){
         mId = UUID.randomUUID();
@@ -56,13 +55,5 @@ public class Clockin{
 
     public void setmTimes(int times) {
         mTimes = times;
-    }
-
-    public Button getmButton() {
-        return mButton;
-    }
-
-    public void setmButton(Button button) {
-        mButton = button;
     }
 }

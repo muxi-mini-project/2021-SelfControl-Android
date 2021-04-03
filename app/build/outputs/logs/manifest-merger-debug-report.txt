@@ -1,15 +1,18 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
 MERGED from [com.google.android.material:material:1.2.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c63d4a666c0a1ba98c2e2f24b9638d9e/material-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/b8718484daa03109e40dacfa216193fb/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/4f9c7f78c15bb692cf0895b881aafbad/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/21d604bb614ffe39ea7d46309e58b721/jetified-glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1fa276bd61947c3e74ed195b3ad0a13b/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/bfe66e5c1e3890ed194fe4c90f780fb5/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1aafd20561bc3ee9f58c28dfa8215062/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/73bc765584a63f05974807321601aa0c/jetified-rxpermissions-0.9.4/AndroidManifest.xml:2:1-13:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/hyl/.gradle/caches/transforms-2/files-2.1/4290a45e3bcc9f795c74ab449c015e17/jetified-rxandroid-2.0.2/AndroidManifest.xml:15:1-21:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/129d7c6539a600a7346451cc911530ca/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/e9a886a277d45e4611014a26e73477d0/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/727f4567341fcf59ba6ec2fbb4290436/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -23,6 +26,8 @@ MERGED from [androidx.customview:customview:1.0.0] /home/hyl/.gradle/caches/tran
 MERGED from [androidx.loader:loader:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/3a40d00373143d317b2bee08071df362/loader-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1f30c507ad647a41e33ed33c8e0ba570/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:17:1-26:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/30ef3517b4c1a8055f249b4f267a8ebd/jetified-gifdecoder-4.11.0/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/0aba193bd00fb1b7c7cdddf1ab1f36bc/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/fa40148eab14a6d2386ba091992d3749/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/2ef7075f73d2e2de44abaa796f0222ce/lifecycle-runtime-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/ed731ef0ae48e67de128afa89bfb34a2/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
@@ -32,109 +37,139 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/hyl/.gradle/cach
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/06bc4641de51b04d4df94808d6e05292/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1b64911e987df0fea019408e241659d7/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/a77c810a56173ccf6fb339f045a6aacd/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
-INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
 	package
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:3:5-42
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:5-42
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-33:12
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:1-39:12
 		INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:5-66
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:6:5-65
+	android:name
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:6:22-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:7:5-96
+	android:name
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:7:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:8:5-97
+	android:name
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:9:5-10:47
+	tools:ignore
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:10:9-44
+	android:name
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:9:22-81
 application
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:8:5-32:19
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:5-38:19
 MERGED from [com.google.android.material:material:1.2.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c63d4a666c0a1ba98c2e2f24b9638d9e/material-1.2.1/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c63d4a666c0a1ba98c2e2f24b9638d9e/material-1.2.1/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/b8718484daa03109e40dacfa216193fb/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/b8718484daa03109e40dacfa216193fb/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/21d604bb614ffe39ea7d46309e58b721/jetified-glide-4.11.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/21d604bb614ffe39ea7d46309e58b721/jetified-glide-4.11.0/AndroidManifest.xml:10:5-20
+MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/73bc765584a63f05974807321601aa0c/jetified-rxpermissions-0.9.4/AndroidManifest.xml:11:5-20
+MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/73bc765584a63f05974807321601aa0c/jetified-rxpermissions-0.9.4/AndroidManifest.xml:11:5-20
 MERGED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:24:5-89
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/30ef3517b4c1a8055f249b4f267a8ebd/jetified-gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/30ef3517b4c1a8055f249b4f267a8ebd/jetified-gifdecoder-4.11.0/AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/fa40148eab14a6d2386ba091992d3749/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/fa40148eab14a6d2386ba091992d3749/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+	android:requestLegacyExternalStorage
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:16:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:12:9-54
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:14:9-40
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:20:9-40
+	android:usesCleartextTraffic
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:19:9-44
 activity#com.bignerdranch.android.sc.login.LoginActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:15:9-20:20
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:9-26:20
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:15:19-54
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:19-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:16:13-19:29
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:17:17-69
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:17:25-66
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:17-77
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:18:27-74
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:27-74
 activity#com.bignerdranch.android.sc.clockpage.ClockActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:9-70
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:9-70
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:21:19-58
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:19-58
 activity#com.bignerdranch.android.sc.label.LabelPagerActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:9-71
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:9-71
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:22:19-59
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:19-59
 activity#com.bignerdranch.android.sc.settings.SettingPageActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:9-75
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:9-75
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:23:19-63
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:19-63
 activity#com.bignerdranch.android.sc.settings.CourseActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:9-70
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:9-70
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:24:19-58
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:19-58
 activity#com.bignerdranch.android.sc.settings.BackgroundActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:25:9-74
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:9-74
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:25:19-62
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:19-62
 activity#com.bignerdranch.android.sc.settings.CoinFunctionActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:9-76
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:9-76
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:26:19-64
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:32:19-64
 activity#com.bignerdranch.android.sc.settings.PrivateActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:9-71
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:27:19-59
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:33:19-59
 activity#com.bignerdranch.android.sc.user.RankQueryActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:9-69
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:9-69
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:28:19-57
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:34:19-57
 activity#com.bignerdranch.android.sc.user.MonthReportActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:9-71
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:9-71
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:29:19-59
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:35:19-59
 activity#com.bignerdranch.android.sc.user.CoinQueryActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:9-69
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:9-69
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:30:19-57
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:36:19-57
 activity#com.bignerdranch.android.sc.user.UserActivity
-ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:9-64
+ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:9-64
 	android:name
-		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:31:19-52
+		ADDED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml:37:19-52
 uses-sdk
 INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/hyl/Desktop/self-control/2021-SelfControl-Android/app/src/main/AndroidManifest.xml
@@ -145,12 +180,18 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/hyl/.gradle
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/b8718484daa03109e40dacfa216193fb/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/4f9c7f78c15bb692cf0895b881aafbad/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/4f9c7f78c15bb692cf0895b881aafbad/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/21d604bb614ffe39ea7d46309e58b721/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/21d604bb614ffe39ea7d46309e58b721/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1fa276bd61947c3e74ed195b3ad0a13b/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1fa276bd61947c3e74ed195b3ad0a13b/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/bfe66e5c1e3890ed194fe4c90f780fb5/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/bfe66e5c1e3890ed194fe4c90f780fb5/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1aafd20561bc3ee9f58c28dfa8215062/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1aafd20561bc3ee9f58c28dfa8215062/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/73bc765584a63f05974807321601aa0c/jetified-rxpermissions-0.9.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.tbruyelle.rxpermissions2:rxpermissions:0.9.4] /home/hyl/.gradle/caches/transforms-2/files-2.1/73bc765584a63f05974807321601aa0c/jetified-rxpermissions-0.9.4/AndroidManifest.xml:7:5-9:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/hyl/.gradle/caches/transforms-2/files-2.1/4290a45e3bcc9f795c74ab449c015e17/jetified-rxandroid-2.0.2/AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.2] /home/hyl/.gradle/caches/transforms-2/files-2.1/4290a45e3bcc9f795c74ab449c015e17/jetified-rxandroid-2.0.2/AndroidManifest.xml:19:5-43
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/129d7c6539a600a7346451cc911530ca/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/129d7c6539a600a7346451cc911530ca/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/e9a886a277d45e4611014a26e73477d0/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
@@ -177,6 +218,10 @@ MERGED from [androidx.activity:activity:1.0.0] /home/hyl/.gradle/caches/transfor
 MERGED from [androidx.activity:activity:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/1f30c507ad647a41e33ed33c8e0ba570/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.1] /home/hyl/.gradle/caches/transforms-2/files-2.1/c560b8721f05ca12656603dd382025ab/core-1.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/30ef3517b4c1a8055f249b4f267a8ebd/jetified-gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.11.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/30ef3517b4c1a8055f249b4f267a8ebd/jetified-gifdecoder-4.11.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/0aba193bd00fb1b7c7cdddf1ab1f36bc/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/0aba193bd00fb1b7c7cdddf1ab1f36bc/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/fa40148eab14a6d2386ba091992d3749/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/fa40148eab14a6d2386ba091992d3749/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /home/hyl/.gradle/caches/transforms-2/files-2.1/2ef7075f73d2e2de44abaa796f0222ce/lifecycle-runtime-2.1.0/AndroidManifest.xml:20:5-44
