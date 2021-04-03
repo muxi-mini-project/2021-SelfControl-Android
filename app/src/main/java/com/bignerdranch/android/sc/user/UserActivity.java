@@ -345,13 +345,13 @@ public class UserActivity extends StatusBar {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-            try {
-// 关闭流
-                b.flush();
-                b.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//// 关闭流
+//               // b.flush();
+//               // b.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
     public interface ChangeNameAPI{

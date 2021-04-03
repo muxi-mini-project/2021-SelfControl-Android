@@ -303,7 +303,7 @@
             android:textColor="#000000"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView56"
+            app:layout_constraintEnd_toStartOf="@+id/wuser4"
             app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -380,23 +380,11 @@
             android:textColor="#000000"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView66"
+            app:layout_constraintEnd_toStartOf="@+id/wuser5"
             app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.555" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout13"
-        app:layout_constraintVertical_bias="0.074"
-        app:srcCompat="@mipmap/coin_rank" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

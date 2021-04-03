@@ -19,7 +19,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
-
 public class MonthReportActivity extends StatusBar {
     private ImageButton mBack;
     private TextView dk1_cs, dk2_cs, dk3_cs, dk4_cs, dk5_cs, dk1_y,

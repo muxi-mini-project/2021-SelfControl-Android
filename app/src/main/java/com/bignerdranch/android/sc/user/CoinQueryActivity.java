@@ -13,6 +13,7 @@ import com.bignerdranch.android.sc.login.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,31 +101,31 @@ public class CoinQueryActivity extends StatusBar {
 
                 if (mList.size() == 1) {
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(String.valueOf(mList.get(0).getTime()));
+                    czsj1.setText(String.valueOf(mList.get(2).getTime()));
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
+                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(0).getReason());
+                    czyy1.setText(mList.get(2).getReason());
                 }
 
                 if (mList.size() == 2) {
 
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(mList.get(0).getTime());
+                    czsj1.setText(mList.get(2).getTime());
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
+                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(0).getReason());
+                    czyy1.setText(mList.get(2).getReason());
 
                     czsj2 = findViewById(R.id.czsj2);
                     czsj2.setText(mList.get(1).getTime());
 
                     bhsl2 = findViewById(R.id.bhsl2);
-                    bhsl2.setText(String.valueOf(mList.get(1).getResidual_number()));
+                    bhsl2.setText(String.valueOf(mList.get(1).getChange_number()));
 
                     czyy2 = findViewById(R.id.czyy2);
                     czyy2.setText(mList.get(1).getReason());
@@ -133,32 +134,32 @@ public class CoinQueryActivity extends StatusBar {
                 if (mList.size() == 3) {
 
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(mList.get(0).getTime());
+                    czsj1.setText(mList.get(2).getTime());
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(0).getResidual_number()));
+                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(0).getReason());
+                    czyy1.setText(mList.get(2).getReason());
 
                     czsj2 = findViewById(R.id.czsj2);
                     czsj2.setText(mList.get(1).getTime());
 
                     bhsl2 = findViewById(R.id.bhsl2);
-                    bhsl2.setText(String.valueOf(mList.get(1).getResidual_number()));
+                    bhsl2.setText(String.valueOf(mList.get(1).getChange_number()));
 
                     czyy2 = findViewById(R.id.czyy2);
                     czyy2.setText(mList.get(1).getReason());
                     czsj3 = findViewById(R.id.czsj3);
-                    czsj3.setText(mList.get(2).getTime());
+                    czsj3.setText(mList.get(0).getTime());
 
 
                     bhsl3 = findViewById(R.id.bhsl3);
-                    bhsl3.setText(String.valueOf(mList.get(2).getResidual_number()));
+                    bhsl3.setText(String.valueOf(mList.get(0).getChange_number()));
 
 
                     czyy3 = findViewById(R.id.czyy3);
-                    czyy3.setText(mList.get(2).getReason());
+                    czyy3.setText(mList.get(0).getReason());
                 }
 
 
