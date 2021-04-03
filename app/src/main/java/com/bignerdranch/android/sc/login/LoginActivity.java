@@ -99,7 +99,7 @@ public class LoginActivity extends StatusBar {
 
     }
 
-    ;public void IsToken(String token){
+    public void IsToken(String token){
         if (token != null){
             Intent intent = new Intent(LoginActivity.this, ClockActivity.class);
             startActivity(intent);

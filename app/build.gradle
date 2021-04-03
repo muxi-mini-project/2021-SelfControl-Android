@@ -55,7 +55,10 @@ dependencies {
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Retrofit库
-    implementation'com.squareup.okhttp3:okhttp:3.1.2'
+    implementation'com.squareup.okhttp3:okhttp:3.3.1'
+    implementation('com.squareup.okhttp3:logging-interceptor:3.10.0')
+
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
     // Okhttp库
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
 }

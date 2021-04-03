@@ -74,6 +74,8 @@
             app:layout_constraintVertical_bias="0.097"
             app:srcCompat="@mipmap/yellowbar" />
 
+
+
         <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"

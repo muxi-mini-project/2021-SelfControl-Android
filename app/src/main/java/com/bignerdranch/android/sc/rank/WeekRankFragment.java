@@ -19,51 +19,45 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 5d73960e30223c996514c00cc349b30578898273
 public class WeekRankFragment extends Fragment {
 
     private List<Rank> mList;
-    private TextView n1,n2,n3,n4,n5,o1,o2,o3,o4,o5;
+    private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
 
-    public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.week_rank, container, false);
 
-        new Thread() {
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        RankBackgroundActivity.RankClient client = retrofit.create(RankBackgroundActivity.RankClient.class);
+        Call<List<Rank>> call = client.list("week");
+
+        call.enqueue(new Callback<List<Rank>>() {
+
             @Override
-            public void run() {
-                Retrofit.Builder builder = new Retrofit.Builder()
+            public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
+                mList = response.body();
 
-                        .baseUrl("http://39.102.42.156:2333/api/v1/")
-                        .addConverterFactory(GsonConverterFactory.create());
-
-                Retrofit retrofit = builder.build();
-
-                RankBackgroundActivity.RankClient client = retrofit.create(RankBackgroundActivity.RankClient.class);
-                Call<List<Rank>> call = client.list("week");
-
-                call.enqueue(new Callback<List<Rank>>() {
-
-                    @Override
-                    public void onResponse(Call<List<Rank>> call, Response<List<Rank>> response) {
-                        mList = response.body();
-
-                        init();
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<Rank>> call, Throwable t) {
-
-                    }
-                });
+                init();
             }
-        }.start();
+
+            @Override
+            public void onFailure(Call<List<Rank>> call, Throwable t) {
+
+            }
+        });
 
         return view;
-    }
-    private void init(){
+}
+
+    private void init() {
 
         n1 = n1.findViewById(R.id.w_first_n);
         n1.setText(mList.get(0).getId());
