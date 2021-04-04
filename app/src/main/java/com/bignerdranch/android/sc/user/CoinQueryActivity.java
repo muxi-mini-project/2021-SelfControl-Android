@@ -101,25 +101,25 @@ public class CoinQueryActivity extends StatusBar {
 
                 if (mList.size() == 1) {
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(String.valueOf(mList.get(2).getTime()));
+                    czsj1.setText(String.valueOf(mList.get(0).getTime()));
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
+                    bhsl1.setText(String.valueOf(mList.get(0).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(2).getReason());
+                    czyy1.setText(mList.get(0).getReason());
                 }
 
                 if (mList.size() == 2) {
 
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(mList.get(2).getTime());
+                    czsj1.setText(mList.get(0).getTime());
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
+                    bhsl1.setText(String.valueOf(mList.get(0).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(2).getReason());
+                    czyy1.setText(mList.get(0).getReason());
 
                     czsj2 = findViewById(R.id.czsj2);
                     czsj2.setText(mList.get(1).getTime());

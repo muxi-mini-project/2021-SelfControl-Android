@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class WeekRankFragment extends Fragment {
 
     private List<Rank> mList;
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
+    private ImageButton mImageButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.week_rank, container, false);
