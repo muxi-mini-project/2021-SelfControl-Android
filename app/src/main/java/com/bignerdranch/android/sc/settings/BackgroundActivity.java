@@ -17,7 +17,6 @@ import com.bignerdranch.android.sc.user.UserClient;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -412,9 +411,6 @@ public class BackgroundActivity extends StatusBar {
     public void request1() {//获取拥有的背景
 
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-                logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-                okHttpClientBuilder.addInterceptor(logging);
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
