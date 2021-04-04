@@ -54,7 +54,6 @@ public class UserActivity extends StatusBar {
     private ImageButton mJinbiButton, mYuebaoButton, mPaihangbangButton,mBack;
     private ImageView iv_photo;
     private Bitmap head;
-    // private TextView tv_select_gallery,tv_select_camera;
     private static String path = "/sdcard/myHead";
     private TextView mName;
     private User mUser;
@@ -235,11 +234,11 @@ public class UserActivity extends StatusBar {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                    Intent intent1 = new Intent(Intent.ACTION_PICK, null);
-                    intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                    startActivityForResult(intent1, 1);
-                    dialog.dismiss();
-                    break;
+                        Intent intent1 = new Intent(Intent.ACTION_PICK, null);
+                        intent1.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                        startActivityForResult(intent1, 1);
+                        dialog.dismiss();
+                        break;
                    /* case 2:
                         Intent intent2 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile
@@ -346,13 +345,13 @@ public class UserActivity extends StatusBar {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-            try {
-// 关闭流
-                b.flush();
-                b.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//// 关闭流
+//               // b.flush();
+//               // b.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
     public interface ChangeNameAPI{

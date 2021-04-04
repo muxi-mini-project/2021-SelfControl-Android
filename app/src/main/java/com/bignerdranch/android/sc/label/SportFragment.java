@@ -49,7 +49,7 @@ public class SportFragment extends Fragment {
 
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.sport_pager,container,false) ;
+        View view=inflater.inflate(R.layout.sport_pager,container,false) ;
 
             mpaobu = (ImageButton)view.findViewById(R.id.paobu_imagebutton);
             mpaobu.setOnClickListener(new View.OnClickListener() {

@@ -19,7 +19,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
-
 public class MonthReportActivity extends StatusBar {
     private ImageButton mBack;
     private TextView dk1_cs, dk2_cs, dk3_cs, dk4_cs, dk5_cs, dk1_y,
@@ -30,33 +29,29 @@ public class MonthReportActivity extends StatusBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.month_report);
-        new Thread() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        myPunchAPI client = retrofit.create(myPunchAPI.class);
+        Call<List<myPunch>> call = client.getMyPunch();
+
+        call.enqueue(new Callback<List<myPunch>>() {
+
             @Override
-            public void run() {
-                Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl("http://39.102.42.156:2333/api/v1/")
-                        .addConverterFactory(GsonConverterFactory.create());
-
-                Retrofit retrofit = builder.build();
-
-                myPunchAPI client = retrofit.create(myPunchAPI.class);
-                Call<List<myPunch>> call = client.getMyPunch();
-
-                call.enqueue(new Callback<List<myPunch>>() {
-
-                    @Override
-                    public void onResponse(Call<List<myPunch>> call, Response<List<myPunch>> response) {
-                        mList = response.body();
-                        init();
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<myPunch>> call, Throwable t) {
-
-                    }
-                });
+            public void onResponse(Call<List<myPunch>> call, Response<List<myPunch>> response) {
+                mList = response.body();
+                init();
             }
-        }.start();
+
+            @Override
+            public void onFailure(Call<List<myPunch>> call, Throwable t) {
+
+            }
+        });
+
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }

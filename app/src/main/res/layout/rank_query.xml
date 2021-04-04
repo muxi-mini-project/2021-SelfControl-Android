@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#9A9AF3">
 
@@ -21,8 +22,8 @@
 
         <ImageButton
             android:id="@+id/rank_query_back"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginTop="30dp"
             android:background="#00000000"
             android:scaleType="fitXY"
@@ -32,7 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6"
-            app:srcCompat="@mipmap/back"  />
+            app:srcCompat="@mipmap/back" />
 
         <TextView
             android:id="@+id/textView9"
@@ -46,31 +47,47 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout8"
         android:layout_width="match_parent"
-        android:layout_height="537dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="170dp"
         android:background="@drawable/shape_corner_up"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="用户昵称"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <ImageView
+            android:id="@+id/touxiang"
+            android:layout_width="112dp"
+            android:layout_height="104dp"
+            app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.125" />
+            app:srcCompat="@mipmap/user_profile" />
+
+        <TextView
+            android:id="@+id/rank_query_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="用户昵称"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/touxiang" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout15"
             android:layout_width="match_parent"
             android:layout_height="138dp"
             android:layout_marginStart="40dp"
@@ -78,10 +95,10 @@
             android:background="@drawable/shape_coin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25">
+            app:layout_constraintTop_toBottomOf="@id/rank1"
+            app:layout_constraintVertical_bias="0.344">
 
             <TextView
                 android:id="@+id/textView32"
@@ -143,20 +160,21 @@
                 app:layout_constraintVertical_bias="0.742"
                 app:srcCompat="@mipmap/arrow" />
 
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rank1"
             android:layout_width="match_parent"
             android:layout_height="138dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="52dp"
             android:layout_marginEnd="40dp"
             android:background="@drawable/shape_coin"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.746">
+            app:layout_constraintTop_toBottomOf="@+id/rank_query_name">
 
             <TextView
                 android:id="@+id/textView34"
@@ -217,18 +235,8 @@
                 app:layout_constraintVertical_bias="0.752"
                 app:srcCompat="@mipmap/arrow" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="112dp"
-        android:layout_height="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.145"
-        app:srcCompat="@mipmap/user_profile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

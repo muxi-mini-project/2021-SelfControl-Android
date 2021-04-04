@@ -114,17 +114,22 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         }
     }
 
-    public interface RankClient{
-        @GET("/list/{type}")
+    /*public interface RankClient{
+        @GET("/lists/{type}/")
         Call<List<Rank>> list(@Path("type")String type);
-    }
+    }*/
 
     public class Rank{
         private int number;
+        private String name;
         private String id;
-        public Rank(int number,String id){
+        public Rank(int number,String id,String name){
             this.number = number;
             this.id = id;
+            this.name = name;
+        }
+        public String getName(){
+            return name;
         }
         public int getNumber(){
             return number;

@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import android.widget.ViewFlipper;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -82,6 +83,8 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private FlowerFragment mSatFlowerFragment;
     FragmentManager mFragmentManager;
     FragmentPagerAdapter mFragmentPagerAdapter;
+
+    private ConstraintLayout mLayout;
 
     public ClockActivity() {
         Date date = new Date();
@@ -229,6 +232,10 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     }
 
     private void initView(){
+
+        //request1();
+        mLayout = findViewById(R.id.clock_main_page);
+
 
         mViewPager = findViewById(R.id.ViewPager);
 

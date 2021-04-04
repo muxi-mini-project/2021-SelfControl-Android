@@ -303,7 +303,7 @@
             android:textColor="#000000"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView56"
+            app:layout_constraintEnd_toStartOf="@+id/user4"
             app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -380,7 +380,7 @@
             android:textColor="#000000"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView66"
+            app:layout_constraintEnd_toStartOf="@+id/user5"
             app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -388,7 +388,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/exchange"
         android:layout_width="92dp"
         android:layout_height="119dp"
         app:layout_constraintBottom_toBottomOf="parent"
