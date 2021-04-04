@@ -35,8 +35,8 @@ public class SettingPageActivity extends StatusBar {
         mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                finish();
+                Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
+                startActivity(intent5);
             }
         });
 

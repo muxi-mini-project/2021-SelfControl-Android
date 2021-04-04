@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上升排名：    "
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <EditText
+            android:id="@+id/rank_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所需金币：   "
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/rank_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple"
+            android:text="50"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/rank_yes"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="确定"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape_yuanjiao"/>
+        <Button
+            android:id="@+id/rank_no"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:text="取消"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape_yuanjiao"/>
+
+    </LinearLayout>
+
+</LinearLayout>

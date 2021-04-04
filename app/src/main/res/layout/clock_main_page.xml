@@ -7,12 +7,13 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:background="@mipmap/background_default"
         android:paddingBottom="10dp"
         android:paddingTop="35dp"
-        android:id="@+id/linearLayout">
+        android:id="@+id/clock_main_page">
 
         <TextView
             android:id="@+id/tv_scroll"
