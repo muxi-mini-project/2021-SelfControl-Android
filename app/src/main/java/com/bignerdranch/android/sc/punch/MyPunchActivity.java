@@ -12,10 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
+import com.bignerdranch.android.sc.label.Punch;
+import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class MyPunchActivity extends StatusBar {
     private ImageButton mrank;
@@ -24,6 +34,9 @@ public class MyPunchActivity extends StatusBar {
 
     private RecyclerView mRecyclerView;
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
+    private List<Punch> mPunches;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -64,7 +77,7 @@ public class MyPunchActivity extends StatusBar {
             }
         });
 
-        initList();
+        //initList();
 
         mRecyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyPunchActivity.this);
@@ -77,16 +90,40 @@ public class MyPunchActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    private void initList(){
-        for (int i = 0;i<5;i++){
-            LabelPunch paobu = new LabelPunch(R.mipmap.paobu,"跑步","已打卡3次");
-            mLabelPunchList.add(paobu);
-            LabelPunch beidanci = new LabelPunch(R.mipmap.beidanci,"背单词","已打卡1次");
-            mLabelPunchList.add(beidanci);
-            LabelPunch yangwoqizuo = new LabelPunch(R.mipmap.yangwuoqizuo,"仰卧起坐","已打卡2次");
-            mLabelPunchList.add(yangwoqizuo);
-        }
+//    private void initList(){
+//        for (int i = 0;i<5;i++){
+//            LabelPunch paobu = new LabelPunch(R.mipmap.paobu,"跑步","已打卡3次");
+//            mLabelPunchList.add(paobu);
+//            LabelPunch beidanci = new LabelPunch(R.mipmap.beidanci,"背单词","已打卡1次");
+//            mLabelPunchList.add(beidanci);
+//            LabelPunch yangwoqizuo = new LabelPunch(R.mipmap.yangwuoqizuo,"仰卧起坐","已打卡2次");
+//            mLabelPunchList.add(yangwoqizuo);
+//        }
+//
+//    }
+    public void getMyPunch() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
 
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<List<Punch>> call = client.getMyPunch(token);
+
+        call.enqueue(new Callback<List<Punch>>() {
+
+            @Override
+            public void onResponse(Call<List<Punch>> call, Response<List<Punch>> response) {
+                mPunches = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<List<Punch>> call, Throwable t) {
+
+            }
+
+
+        });
     }
 
 }

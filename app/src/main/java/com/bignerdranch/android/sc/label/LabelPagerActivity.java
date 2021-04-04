@@ -14,9 +14,18 @@ import com.bignerdranch.android.sc.label.HealthFragment;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.label.SportFragment;
 import com.bignerdranch.android.sc.label.StudyFragment;
+import com.bignerdranch.android.sc.settings.BackgroundActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class LabelPagerActivity extends StatusBar implements View.OnClickListener {
 
@@ -51,9 +60,9 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new HealthFragment() );
-        mList.add(new SportFragment() );
-        mList.add(new StudyFragment() );
+        mList.add(new HealthFragment());
+        mList.add(new SportFragment());
+        mList.add(new StudyFragment());
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 
@@ -76,18 +85,18 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
 
         @Override
         public void onPageSelected(int position) {
-            switch (position){
-                case 0 :
+            switch (position) {
+                case 0:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_pressed);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
-                case 1 :
+                case 1:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_pressed);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_normal);
                     break;
-                case 2 :
+                case 2:
                     mjiankang.setBackgroundResource(R.mipmap.nav_jiankang_normal);
                     myundong.setBackgroundResource(R.mipmap.nav_yundong_normal);
                     mxuexi.setBackgroundResource(R.mipmap.nav_xuexi_pressed);
@@ -128,5 +137,7 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
                 break;
         }
     }
+
+
 }
 
