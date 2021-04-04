@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
@@ -45,10 +46,13 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onClick(View v) {
-                String id = mstudent_id.getText().toString();
-                String password = mpassword.getText().toString();
+                if (Utils.isFastClick()){
+                    String id = mstudent_id.getText().toString();
+                    String password = mpassword.getText().toString();
 
-                request(id,password);
+                    request(id,password);
+                }
+
             }
         });
 

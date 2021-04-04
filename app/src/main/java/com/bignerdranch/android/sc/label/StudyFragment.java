@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;
 
 public class StudyFragment extends Fragment {
@@ -188,12 +189,15 @@ public class StudyFragment extends Fragment {
                 }
             });
 
-            mButton=(Button)view.findViewById(R.id.complete);
+            mButton= view.findViewById(R.id.complete);
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(getActivity() ,ClockActivity.class);
-                    startActivity(intent);
+                    if (Utils.isFastClick()){
+                        Intent intent=new Intent(getActivity() ,ClockActivity.class);
+                        startActivity(intent);
+                    }
+
                 }
             });
 

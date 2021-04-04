@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
@@ -60,16 +61,22 @@ public class MyPunchActivity extends StatusBar {
         mrank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPunchActivity.this, RankBackgroundActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(MyPunchActivity.this, RankBackgroundActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
         madd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPunchActivity.this, LabelPagerActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(MyPunchActivity.this, LabelPagerActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
