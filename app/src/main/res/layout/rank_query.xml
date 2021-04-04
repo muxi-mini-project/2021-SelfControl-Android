@@ -8,47 +8,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#9A9AF3">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#9A9AF3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <ImageButton
+        android:id="@+id/rank_query_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageButton
-            android:id="@+id/rank_query_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="30dp"
-            android:background="#00000000"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.016"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"
-            app:srcCompat="@mipmap/back" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="个人排行榜查询"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:srcCompat="@mipmap/back" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,26 +35,16 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/touxiang"
-            android:layout_width="112dp"
-            android:layout_height="104dp"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/user_profile" />
-
         <TextView
             android:id="@+id/rank_query_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="64dp"
             android:text="用户昵称"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/touxiang" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout15"
@@ -100,17 +60,17 @@
             app:layout_constraintTop_toBottomOf="@id/rank1"
             app:layout_constraintVertical_bias="0.344">
 
-            <TextView
-                android:id="@+id/textView32"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="周排名（初始）"
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="78dp"
+                android:layout_height="33dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.153"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/zpm_hl"
+                app:layout_constraintHorizontal_bias="0.472"
+                app:layout_constraintStart_toEndOf="@+id/zpm_start"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.294" />
+                app:layout_constraintVertical_bias="0.742"
+                app:srcCompat="@mipmap/arrow" />
 
             <TextView
                 android:id="@+id/textView33"
@@ -148,17 +108,17 @@
                 app:layout_constraintStart_toStartOf="@+id/textView33"
                 app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
-            <ImageView
-                android:id="@+id/imageView23"
-                android:layout_width="78dp"
-                android:layout_height="33dp"
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周排名（初始）"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/zpm_hl"
-                app:layout_constraintHorizontal_bias="0.472"
-                app:layout_constraintStart_toEndOf="@+id/zpm_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.153"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.742"
-                app:srcCompat="@mipmap/arrow" />
+                app:layout_constraintVertical_bias="0.294" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -176,17 +136,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rank_query_name">
 
-            <TextView
-                android:id="@+id/textView34"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="月排名（初始）"
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="78dp"
+                android:layout_height="33dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.153"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ypm_hl"
+                app:layout_constraintStart_toEndOf="@+id/ypm_start"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.294" />
+                app:layout_constraintVertical_bias="0.752"
+                app:srcCompat="@mipmap/arrow" />
 
             <TextView
                 android:id="@+id/textView35"
@@ -224,19 +183,45 @@
                 app:layout_constraintStart_toStartOf="@+id/textView35"
                 app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
-            <ImageView
-                android:id="@+id/imageView25"
-                android:layout_width="78dp"
-                android:layout_height="33dp"
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月排名（初始）"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/ypm_hl"
-                app:layout_constraintStart_toEndOf="@+id/ypm_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.153"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.752"
-                app:srcCompat="@mipmap/arrow" />
+                app:layout_constraintVertical_bias="0.294" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="个人排行榜查询"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <ImageView
+        android:id="@+id/touxiang"
+        android:layout_width="97dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:srcCompat="@mipmap/user_profile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

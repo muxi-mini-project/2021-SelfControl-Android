@@ -1,8 +1,10 @@
 package com.bignerdranch.android.sc.rank;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,8 @@ import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.label.SportFragment;
 import com.bignerdranch.android.sc.label.StudyFragment;
+import com.bignerdranch.android.sc.settings.SettingPageActivity;
+import com.bignerdranch.android.sc.user.UserActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +36,10 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
     private RankOnPageChangeListener mMyOnPageChangeListener;
     private TextView mMonthRank,mWeekRank;
     private ImageView mMonthRankIv,mWeekRankIv;
+    private ImageButton mBank;
+    private ImageButton muser;
+    private ImageButton msetting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,32 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         mWeekRank.setOnClickListener(this);
         mMonthRankIv = findViewById(R.id.month_rank_iv);
         mWeekRankIv = findViewById(R.id.week_rank_iv);
+        mBank = findViewById(R.id.rank_back);
+        msetting = findViewById(R.id.ranksetting);
+        muser = findViewById(R.id.rankkuser);
+
+        mBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        msetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        muser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mViewPager = (ViewPager) findViewById(R.id.rank_viewpager);
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);

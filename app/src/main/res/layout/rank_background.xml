@@ -53,23 +53,23 @@
             app:srcCompat="@mipmap/back" />
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/ranksetting"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:background="#00000000"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintHorizontal_bias="0.841"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.733"
+            app:layout_constraintVertical_bias="0.735"
             app:srcCompat="@mipmap/settings" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/rankkuser"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:background="#00000000"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
