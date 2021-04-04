@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.login.LoginActivity;
@@ -44,8 +45,10 @@ public class FlowerFragment extends Fragment {
         unflower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MyPunchActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(getActivity(), MyPunchActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         return view;

@@ -271,13 +271,13 @@ public class BackgroundActivity extends StatusBar {
     }
 
     public interface BackgroundAPI {
-        @PUT("backdrop/")
+        @PUT("backdrop")
         Call<Background> buyBackground(@Body Background mBackground, @Header("token") String token);
     }
 
     public interface myBackgroundAPI {
 
-        @GET("backdrops/")
+        @GET("backdrops")
         Call<myBackground> getMyBackground(@Header("token") String token);
     }
 

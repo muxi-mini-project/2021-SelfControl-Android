@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.HealthFragment;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
@@ -67,16 +68,22 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         msetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
         muser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 

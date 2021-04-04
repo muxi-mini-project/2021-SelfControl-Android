@@ -23,6 +23,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.MonthReport.MonthReportActivity;
 
@@ -89,18 +90,22 @@ public class UserActivity extends StatusBar {
         mJinbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Utils.isFastClick()){
+                    Intent intent1 = new Intent(UserActivity.this, CoinQueryActivity.class);
+                    startActivity(intent1);
+                }
 
-                Intent intent1 = new Intent(UserActivity.this, CoinQueryActivity.class);
-                startActivity(intent1);
             }
         });
         mJinbiButton = findViewById(R.id.user_jinbi_button);
         mJinbiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Utils.isFastClick()){
+                    Intent intent4 = new Intent(UserActivity.this, CoinQueryActivity.class);
+                    startActivity(intent4);
+                }
 
-                Intent intent4 = new Intent(UserActivity.this, CoinQueryActivity.class);
-                startActivity(intent4);
             }
         });
 
@@ -108,18 +113,21 @@ public class UserActivity extends StatusBar {
         mYuebao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent2 = new Intent(UserActivity.this, MonthReportActivity.class);
-                startActivity(intent2);
+                if (Utils.isFastClick()){
+                    Intent intent2 = new Intent(UserActivity.this, MonthReportActivity.class);
+                    startActivity(intent2);
+                }
             }
         });
         mYuebaoButton = findViewById(R.id.user_jinbi_button);
         mYuebaoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Utils.isFastClick()){
+                    Intent intent4 = new Intent(UserActivity.this, MonthReportActivity.class);
+                    startActivity(intent4);
+                }
 
-                Intent intent4 = new Intent(UserActivity.this, MonthReportActivity.class);
-                startActivity(intent4);
             }
         });
 
@@ -127,18 +135,22 @@ public class UserActivity extends StatusBar {
         mPaihangbang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Utils.isFastClick()){
+                    Intent intent1 = new Intent(UserActivity.this, RankQueryActivity.class);
+                    startActivity(intent1);
+                }
 
-                Intent intent1 = new Intent(UserActivity.this, RankQueryActivity.class);
-                startActivity(intent1);
             }
         });
         mPaihangbangButton = findViewById(R.id.user_jinbi_button);
         mPaihangbangButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Utils.isFastClick()){
+                    Intent intent4 = new Intent(UserActivity.this, RankQueryActivity.class);
+                    startActivity(intent4);
+                }
 
-                Intent intent4 = new Intent(UserActivity.this, RankQueryActivity.class);
-                startActivity(intent4);
             }
         });
 
