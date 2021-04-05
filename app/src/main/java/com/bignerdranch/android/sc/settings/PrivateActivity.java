@@ -8,7 +8,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
@@ -36,6 +38,7 @@ public class PrivateActivity extends StatusBar {
     private Button mTrue, mFalse;
     private User mUser;
     private int mCoin;
+    private ConstraintLayout mLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,6 +50,10 @@ public class PrivateActivity extends StatusBar {
     }
 
     private void init() {
+
+        mLayout = findViewById(R.id.choose_layout);
+        request();
+
         mBack = (ImageButton) findViewById(R.id.private_back);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +73,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(1), token);
+                Call<User> call = client.getCall((1), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -94,7 +101,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(0), token);
+                Call<User> call = client.getCall((0), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -116,7 +123,42 @@ public class PrivateActivity extends StatusBar {
     public interface PrivateAPI {
 
         @PUT("user/")
-        Call<User> getCall(@Body User mUser, @Header("token") String token);
+        Call<User> getCall(@Body int privacy, @Header("token") String token);
 
+    }
+    private void request() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                request();
+                if(mUser.getCurrent_backdrop() == 0){
+                    mLayout.setBackgroundResource(R.color.purple);
+                }if(mUser.getCurrent_backdrop() == 1){
+                    mLayout.setBackgroundResource(R.color.theme2);
+                }if(mUser.getCurrent_backdrop() == 2){
+                    mLayout.setBackgroundResource(R.color.theme3);
+                }if(mUser.getCurrent_backdrop() == 3){
+                    mLayout.setBackgroundResource(R.mipmap.theme_31);
+                }if(mUser.getCurrent_backdrop() == 4){
+                    mLayout.setBackgroundResource(R.mipmap.theme_41);
+                }if(mUser.getCurrent_backdrop() == 5){
+                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

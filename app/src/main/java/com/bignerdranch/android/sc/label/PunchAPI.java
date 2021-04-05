@@ -15,7 +15,7 @@ public interface PunchAPI {
     @POST("/api/v1/punch/create")
     Call<Message> create(@Header("token") String token, @Body Punch mPunch);
 
-    @DELETE("/api/v1/punch/delete")
+    @DELETE("/api/v1/punch/")
     Call<Message> delete(@Header("token") String token, @Body Punch mPunch);
 
     @GET("/api/v1/punch")

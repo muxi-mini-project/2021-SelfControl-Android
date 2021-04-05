@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
@@ -26,8 +29,9 @@ public class CoinQueryActivity extends StatusBar {
 
     private ImageButton mBack;
     private TextView mCoin, czsj1, czsj2, czsj3, bhsl1, bhsl2, bhsl3, czyy1, czyy2, czyy3;
-    private User mUser;
+    private User mUser1,mUser2;
     private List<GoldHistory> mList;
+    private ConstraintLayout mLayout;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,8 @@ public class CoinQueryActivity extends StatusBar {
     private void init() {
         mBack = findViewById(R.id.coin_query_back);
         mCoin = findViewById(R.id.dangqianjinbi);
+        mLayout = findViewById(R.id.coin_query_layout);
+        request();
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +74,10 @@ public class CoinQueryActivity extends StatusBar {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser1 = response.body();
 //                Log.d("Coin",mUser.toString());
-                if (mUser != null)
-                    mCoin.setText(String.valueOf(mUser.getGold()));
+                if (mUser1 != null)
+                    mCoin.setText(String.valueOf(mUser1.getGold()));
                 else {
                     Log.e("user", "null");
                 }
@@ -101,25 +107,25 @@ public class CoinQueryActivity extends StatusBar {
 
                 if (mList.size() == 1) {
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(String.valueOf(mList.get(2).getTime()));
+                    czsj1.setText(String.valueOf(mList.get(0).getTime()));
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
+                    bhsl1.setText(String.valueOf(mList.get(0).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(2).getReason());
+                    czyy1.setText(mList.get(0).getReason());
                 }
 
                 if (mList.size() == 2) {
 
                     czsj1 = findViewById(R.id.czsj1);
-                    czsj1.setText(mList.get(2).getTime());
+                    czsj1.setText(mList.get(0).getTime());
 
                     bhsl1 = findViewById(R.id.bhsl1);
-                    bhsl1.setText(String.valueOf(mList.get(2).getChange_number()));
+                    bhsl1.setText(String.valueOf(mList.get(0).getChange_number()));
 
                     czyy1 = findViewById(R.id.czyy1);
-                    czyy1.setText(mList.get(2).getReason());
+                    czyy1.setText(mList.get(0).getReason());
 
                     czsj2 = findViewById(R.id.czsj2);
                     czsj2.setText(mList.get(1).getTime());
@@ -220,6 +226,40 @@ public class CoinQueryActivity extends StatusBar {
             return time;
         }
 
+    }
+    private void request() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser2 = response.body();
+                if(mUser2.getCurrent_backdrop() == 0){
+                    mLayout.setBackgroundResource(R.color.purple);
+                }if(mUser2.getCurrent_backdrop() == 1){
+                    mLayout.setBackgroundResource(R.color.theme2);
+                }if(mUser2.getCurrent_backdrop() == 2){
+                    mLayout.setBackgroundResource(R.color.theme3);
+                }if(mUser2.getCurrent_backdrop() == 3){
+                    mLayout.setBackgroundResource(R.mipmap.theme_31);
+                }if(mUser2.getCurrent_backdrop() == 4){
+                    mLayout.setBackgroundResource(R.mipmap.theme_41);
+                }if(mUser2.getCurrent_backdrop() == 5){
+                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 
 }
