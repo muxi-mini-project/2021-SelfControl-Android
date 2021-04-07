@@ -8,13 +8,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.login.User;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +42,8 @@ public class MonthReportActivity extends StatusBar {
     private RecyclerView recyclerView;
     private ReportAdapter adapter;
     private List<Report> reportList = new ArrayList<>();
+    private User mUser;
+    private ConstraintLayout mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,4 +115,3 @@ public class MonthReportActivity extends StatusBar {
         @GET("punch/month")
         Call<List<Report>> getMonthReport(@Header("token") String token);
     }
-}

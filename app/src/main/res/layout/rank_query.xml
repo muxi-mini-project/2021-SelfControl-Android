@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#9A9AF3">
+    android:background="#9A9AF3"
+    android:scaleType="fitXY"
+    android:id="@+id/rank_query_layout">
 
     <ImageButton
         android:id="@+id/rank_query_back"

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
@@ -52,6 +53,7 @@ public class UserActivity extends StatusBar {
     private static String path = "/sdcard/myHead";
     private TextView mName;
     private User mUser;
+    private ConstraintLayout mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,6 +171,7 @@ public class UserActivity extends StatusBar {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+              
                 mUser = response.body();
                 if (response.isSuccessful() == true){
                     if (mUser != null)
@@ -177,7 +180,6 @@ public class UserActivity extends StatusBar {
                     Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
-
 
             }
 
@@ -385,5 +387,7 @@ public class UserActivity extends StatusBar {
             }
         }
     }*/
+
+
 }
 

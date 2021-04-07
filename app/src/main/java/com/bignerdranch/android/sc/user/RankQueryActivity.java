@@ -8,7 +8,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
@@ -26,8 +28,9 @@ import static com.bignerdranch.android.sc.login.LoginActivity.token;
 public class RankQueryActivity extends StatusBar {
     private ImageButton mBack;
     private TextView mName, mMonthFormer, mMonthAfter, mWeekFormer, mWeekAfter;
-    private User mUser;
+    private User mUser1,mUser2;
     private Rank mRank;
+    private ConstraintLayout mLayout;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,9 @@ public class RankQueryActivity extends StatusBar {
     }
 
     private void init() {
+        mLayout = findViewById(R.id.rank_query_layout);
+        request();
+
         mBack = findViewById(R.id.rank_query_back);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +66,9 @@ public class RankQueryActivity extends StatusBar {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
-                if (mUser != null)
-                    mName.setText(String.valueOf(mUser.getName()));
+                mUser1 = response.body();
+                if (mUser1 != null)
+                    mName.setText(String.valueOf(mUser1.getName()));
 
             }
 
@@ -177,6 +183,47 @@ public class RankQueryActivity extends StatusBar {
     public interface myRankAPI {
         @GET("list/history")
         Call<Rank> getMyRank(@Header("token") String token);
+    }
+    private void request() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser2 = response.body();
+                if (mUser2 != null) {
+                    if (mUser2.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }
 

@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -40,6 +43,9 @@ public class BackgroundActivity extends StatusBar {
     private int b_1,b_2,b_3,b_4,b_5,b_6;
 
     private myBackground mMyBackground;
+    private User mUser;
+
+    private ConstraintLayout mLayout;
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -54,6 +60,11 @@ public class BackgroundActivity extends StatusBar {
 
 
     private void init() {
+
+
+        mLayout = findViewById(R.id.background_layout);
+        request();
+
 
         mBack = findViewById(R.id.background_back);
         mBack.setOnClickListener(new View.OnClickListener() {
@@ -94,10 +105,10 @@ public class BackgroundActivity extends StatusBar {
             public void onClick(View v) {
 
                 request1();
-                if(b_2 == 0){
-                    showNormalDialog(3);
+                if(b_1 == 0){
+                    showNormalDialog(1);
                     request1();
-                    if(b_2 != 0 ){
+                    if(b_1 != 0 ){
                         f1 = 0;
                         f2 = 1;
                         f3 = 0;
@@ -123,10 +134,10 @@ public class BackgroundActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 request1();
-                if(b_3 == 0){
-                    showNormalDialog(3);
+                if(b_2 == 0){
+                    showNormalDialog(2);
                     request1();
-                    if(b_3 != 0 ){
+                    if(b_2 != 0 ){
                         f1 = 0;
                         f2 = 0;
                         f3 = 1;
@@ -149,14 +160,15 @@ public class BackgroundActivity extends StatusBar {
         mTheme4 = findViewById(R.id.theme4);
         mTheme4.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 request1();
 
             if(Utils.isFastClick()){
-                if(b_4 == 0){
-                    showNormalDialog(4);
+               if(b_3 == 0){
+                    showNormalDialog(3);
                     request1();
-                    if(b_4 != 0 ){
+                    if(b_3 != 0 ){
                         f1 = 0;
                         f2 = 0;
                         f3 = 0;
@@ -181,10 +193,10 @@ public class BackgroundActivity extends StatusBar {
             @Override
             public void onClick(View v) {
 
-                if(b_5 == 0){
-                    showNormalDialog(5);
+                if(b_4 == 0){
+                    showNormalDialog(4);
                     request1();
-                    if(b_5 != 0 ){
+                    if(b_4 != 0 ){
                         f1 = 0;
                         f2 = 0;
                         f3 = 0;
@@ -207,24 +219,24 @@ public class BackgroundActivity extends StatusBar {
         mTheme6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(b_6 == 0){
-                    showNormalDialog(6);
+                if(b_5 == 0){
+                    showNormalDialog(5);
                     request1();
-                    if(b_6 != 0 ){
+                    if(b_5 != 0 ){
                         f1 = 0;
                         f2 = 0;
                         f3 = 0;
                         f4 = 0;
-                        f5 = 1;
-                        f6 = 0;
+                        f5 = 0;
+                        f6 = 1;
                     }
                 }else{
                     f1 = 0;
                     f2 = 0;
                     f3 = 0;
                     f4 = 0;
-                    f5 = 1;
-                    f6 = 0;
+                    f5 = 0;
+                    f6 = 1;
                 }
 
                 updateView();
@@ -416,12 +428,10 @@ public class BackgroundActivity extends StatusBar {
 
     public void request1() {//获取拥有的背景
 
-        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClientBuilder.build());
+               ;
 
         Retrofit retrofit = builder.build();
         myBackgroundAPI client = retrofit.create(myBackgroundAPI.class);
@@ -480,6 +490,47 @@ public class BackgroundActivity extends StatusBar {
             @Override
             public void onFailure(Call<Background> call, Throwable t) {
                 Toast.makeText(BackgroundActivity.this,"出错啦！请检查网络连接~",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void request() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
             }
         });
     }

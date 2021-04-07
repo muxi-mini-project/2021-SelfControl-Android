@@ -26,6 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -36,12 +37,24 @@ import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.login.LoginActivity;
+import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.settings.BackgroundActivity;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class ClockActivity extends StatusBar implements GestureDetector.OnGestureListener {
     private static String TAG = "ClockActivity";
@@ -86,6 +99,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     FragmentPagerAdapter mFragmentPagerAdapter;
 
     private ConstraintLayout mLayout;
+    private User mUser;
 
     public ClockActivity() {
         Date date = new Date();
@@ -181,7 +195,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         gestureDetector = new GestureDetector(this);
         flipper1 = (ViewFlipper) findViewById(R.id.flipper1);
 
-        dateAdapter = new DateAdapter(this, currentYear, currentMonth,currentWeek, currentWeek == 1 ? true : false);
+        dateAdapter = new DateAdapter(this, currentYear, currentMonth, currentWeek, currentWeek == 1 ? true : false);
         addGridView();
         dayNumbers = dateAdapter.getDayNumbers();
         gridView.setAdapter(dateAdapter);
@@ -193,11 +207,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         ticker = findViewById(R.id.tv_scroll);
         ticker.setSelected(true);
 
-        settings=(ImageButton)findViewById(R.id.settings);
+        settings = (ImageButton) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isFastClick()){
+                if (Utils.isFastClick()) {
                     Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
                     startActivity(intent);
                 }
@@ -208,11 +222,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
         initView();
 
-        users= findViewById(R.id.users);
+        users = findViewById(R.id.users);
         users.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Utils.isFastClick()){
+                if (Utils.isFastClick()) {
                     Intent intent = new Intent(ClockActivity.this, UserActivity.class);
                     startActivity(intent);
                 }
@@ -223,7 +237,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
         mViewPager.setCurrentItem(dateAdapter.getTodayPosition());
         //设置边距5dp
-        mViewPager.setPageMargin( dip2px(5));
+        mViewPager.setPageMargin(dip2px(5));
 
 
         //设置状态栏透明
@@ -235,12 +249,12 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     //dp转px的函数
     private int dip2px(int value) {
         final float scale = getResources().getDisplayMetrics().density;
-        return (int)(value * scale + 0.5f);
+        return (int) (value * scale + 0.5f);
     }
 
-    private void initView(){
+    private void initView() {
 
-        //request1();
+        request();
         mLayout = findViewById(R.id.clock_main_page);
 
 
@@ -264,7 +278,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         fragments.add(mSatFlowerFragment);
 
         mFragmentManager = getSupportFragmentManager();
-        mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager,fragments);
+        mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager, fragments);
 
         mViewPager.setAdapter(mFragmentPagerAdapter);
 
@@ -342,7 +356,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
 
 
-                int today =dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion),dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
+                int today = dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion), dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
                 mViewPager.setCurrentItem(today);
             }
         });
@@ -422,7 +436,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {//手势滑动效果
         int gvFlag = 0;
         /*getX表示得到他在整个页面的x或者y坐标
-        */
+         */
         if (e1.getX() - e2.getX() > 80) {//向左滑动
             addGridView();
             currentWeek++;
@@ -460,5 +474,61 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             return true;
         }
         return false;
+    }
+
+    private void request() {
+        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        okHttpClientBuilder.addInterceptor(logging);
+
+
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClientBuilder.build());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.mipmap.background_default);
+                        ticker.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_1);
+                        ticker.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_2);
+                        ticker.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_3);
+                        ticker.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_4);
+                        ticker.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_5);
+                        ticker.setBackgroundResource(R.mipmap.theme_51);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

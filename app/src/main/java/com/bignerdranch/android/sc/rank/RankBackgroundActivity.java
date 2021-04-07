@@ -3,15 +3,19 @@ package com.bignerdranch.android.sc.rank;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
@@ -20,6 +24,7 @@ import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.label.SportFragment;
 import com.bignerdranch.android.sc.label.StudyFragment;
+import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
@@ -27,8 +32,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class RankBackgroundActivity extends StatusBar implements View.OnClickListener {
     private List<Fragment> mList;
@@ -40,6 +51,8 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
     private ImageButton mBank;
     private ImageButton muser;
     private ImageButton msetting;
+    private User mUser;
+    private ConstraintLayout mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +111,10 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
 
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(0);
+
+        mLayout = findViewById(R.id.clockin_pager);
+        request();
+
 
         //设置状态栏透明
         makeStatusBarTransparent(this);
@@ -179,5 +196,49 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
             return id;
         }
 
+    }
+    private void request() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Log.d("token=","" + token);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }else{
+                    Toast.makeText(RankBackgroundActivity.this,"失败",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }

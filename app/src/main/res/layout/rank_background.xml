@@ -26,10 +26,11 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout14" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/rank_background"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#9A9AF3"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

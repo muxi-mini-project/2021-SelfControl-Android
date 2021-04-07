@@ -77,7 +77,7 @@ public class LoginActivity extends StatusBar {
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     token = response.body().getToken();
-                    Log.d("tag", "code"+response.body());
+                    Log.d("tag", "token "+response.body().getToken());
 
                     SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

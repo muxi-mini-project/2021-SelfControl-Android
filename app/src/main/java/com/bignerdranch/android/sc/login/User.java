@@ -2,7 +2,9 @@ package com.bignerdranch.android.sc.login;
 
 public class User {
 
+
     /**
+     * current_backdrop : 0
      * gold : 0
      * name : string
      * password : string
@@ -11,14 +13,15 @@ public class User {
      * user_picture : string
      */
 
-    private Integer gold;
+    private int current_backdrop;
+    private int gold;
     private String name;
     private String password;
     private int privacy;
     private String student_id;
     private String user_picture;
 
-  
+
     public User(String student_id, String password) {
         this.student_id = student_id;
         this.password = password;
@@ -26,13 +29,21 @@ public class User {
     public User(int privacy) {
         this.privacy = privacy;
     }
-
-    public User(Integer gold){
-        this.gold = gold;
+    public User(Integer current_backdrop){
+        this.current_backdrop = current_backdrop;
     }
+
 
     public User(String name){
         this.name = name;
+    }
+
+    public int getCurrent_backdrop() {
+        return current_backdrop;
+    }
+
+    public void setCurrent_backdrop(int current_backdrop) {
+        this.current_backdrop = current_backdrop;
     }
 
     public int getGold() {
@@ -82,6 +93,32 @@ public class User {
     public void setUser_picture(String user_picture) {
         this.user_picture = user_picture;
     }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
