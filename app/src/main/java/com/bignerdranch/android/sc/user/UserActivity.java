@@ -25,6 +25,7 @@ import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.MonthReport.MonthReportActivity;
 
@@ -51,7 +52,7 @@ public class UserActivity extends StatusBar {
     private Bitmap head;
     private static String path = "/sdcard/myHead";
     private TextView mName;
-    private User mUser1,mUser2;
+    private User mUser;
     private ConstraintLayout mLayout;
 
     @Override
@@ -170,9 +171,15 @@ public class UserActivity extends StatusBar {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser1 = response.body();
-                if (mUser1 != null)
-                    mName.setText(String.valueOf(mUser1.getName()));
+              
+                mUser = response.body();
+                if (response.isSuccessful() == true){
+                    if (mUser != null)
+                        mName.setText(String.valueOf(mUser.getName()));
+                }else {
+                    Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
 
             }
 

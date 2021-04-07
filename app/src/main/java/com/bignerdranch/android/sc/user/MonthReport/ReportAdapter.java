@@ -40,8 +40,8 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder , final int position){
-        holder.mTitle.setText(ReportList.get(position).getPunch_Title());
-        holder.mTime.setText(ReportList.get(position).getPunch_Time());
+        holder.mTitle.setText(ReportList.get(position).getTitle());
+        holder.mTime.setText(String.valueOf(ReportList.get(position).getNumber()));
     }
 
     @Override
