@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+
 import com.bignerdranch.android.sc.login.User;
 
 import retrofit2.Call;
@@ -20,6 +21,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
+import com.bignerdranch.android.sc.Utils;
 
 public class SettingPageActivity extends StatusBar {
 
@@ -51,8 +54,11 @@ public class SettingPageActivity extends StatusBar {
         mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
-                startActivity(intent5);
+                if (Utils.isFastClick()){
+                    Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
+                    startActivity(intent5);
+                }
+
             }
         });
 
@@ -60,8 +66,11 @@ public class SettingPageActivity extends StatusBar {
         mThemeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
-                startActivity(intent5);
+                if (Utils.isFastClick()){
+                    Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
+                    startActivity(intent5);
+                }
+
 
             }
         });
@@ -69,8 +78,11 @@ public class SettingPageActivity extends StatusBar {
         mCoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                startActivity(intent2);
+                if (Utils.isFastClick()){
+                    Intent intent2 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
+                    startActivity(intent2);
+                }
+
 
             }
         });
@@ -79,8 +91,10 @@ public class SettingPageActivity extends StatusBar {
         mCoinLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                startActivity(intent6);
+                if (Utils.isFastClick()){
+                    Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
+                    startActivity(intent6);
+                }
 
             }
         });
@@ -89,8 +103,11 @@ public class SettingPageActivity extends StatusBar {
         mCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                startActivity(intent3);
+                if (Utils.isFastClick()){
+                    Intent intent3 = new Intent(SettingPageActivity.this,CourseActivity.class);
+                    startActivity(intent3);
+
+                }
 
             }
         });
@@ -99,8 +116,11 @@ public class SettingPageActivity extends StatusBar {
         mCourseLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                startActivity(intent7);
+                if (Utils.isFastClick()){
+                    Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
+                    startActivity(intent7);
+                }
+
 
             }
         });
@@ -110,8 +130,11 @@ public class SettingPageActivity extends StatusBar {
         mPrivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(SettingPageActivity.this,PrivateActivity.class);
-                startActivity(intent4);
+                if (Utils.isFastClick()){
+                    Intent intent4 = new Intent(SettingPageActivity.this,PrivateActivity.class);
+                    startActivity(intent4);
+                }
+
 
             }
         });
@@ -120,8 +143,11 @@ public class SettingPageActivity extends StatusBar {
         mPrivateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent8 = new Intent(SettingPageActivity.this,PrivateActivity.class);
-                startActivity(intent8);
+                if (Utils.isFastClick()){
+                    Intent intent8 = new Intent(SettingPageActivity.this,PrivateActivity.class);
+                    startActivity(intent8);
+                }
+
 
             }
         });
@@ -142,18 +168,25 @@ public class SettingPageActivity extends StatusBar {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                if(mUser.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.color.purple);
-                }if(mUser.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.color.theme2);
-                }if(mUser.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.color.theme3);
-                }if(mUser.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_31);
-                }if(mUser.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_41);
-                }if(mUser.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
                 }
             }
 

@@ -3,10 +3,12 @@ package com.bignerdranch.android.sc.rank;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.HealthFragment;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
@@ -78,16 +81,22 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         msetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
         muser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()){
+                    Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -195,24 +204,34 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
 
         Retrofit retrofit1 = builder1.build();
         GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Log.d("token=","" + token);
         Call<User> call1 = client1.getCurrentBackdrop(token);
 
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                if(mUser.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.color.purple);
-                }if(mUser.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.color.theme2);
-                }if(mUser.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.color.theme3);
-                }if(mUser.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_31);
-                }if(mUser.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_41);
-                }if(mUser.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }else{
+                    Toast.makeText(RankBackgroundActivity.this,"失败",Toast.LENGTH_SHORT).show();
                 }
             }
 

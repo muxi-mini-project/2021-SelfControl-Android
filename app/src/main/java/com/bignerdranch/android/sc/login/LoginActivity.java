@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
@@ -45,10 +46,13 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onClick(View v) {
-                String id = mstudent_id.getText().toString();
-                String password = mpassword.getText().toString();
+                if (Utils.isFastClick()){
+                    String id = mstudent_id.getText().toString();
+                    String password = mpassword.getText().toString();
 
-                request(id,password);
+                    request(id,password);
+                }
+
             }
         });
 
@@ -73,7 +77,7 @@ public class LoginActivity extends StatusBar {
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     token = response.body().getToken();
-                    Log.d("tag", "code"+response.body());
+                    Log.d("tag", "token "+response.body().getToken());
 
                     SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

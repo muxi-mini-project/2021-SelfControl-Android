@@ -38,7 +38,8 @@ public class CourseActivity extends StatusBar {
     }
     private void init(){
 
-
+        request();
+        mLayout = findViewById(R.id.novice_course_layout);
 
         mBack = (ImageButton)findViewById(R.id.course_back);
         mBack.setOnClickListener(new View.OnClickListener() {
@@ -63,20 +64,25 @@ public class CourseActivity extends StatusBar {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                mLayout = findViewById(R.id.novice_course_layout);
-                request();
-                if(mUser.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.color.purple);
-                }if(mUser.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.color.theme2);
-                }if(mUser.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.color.theme3);
-                }if(mUser.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_31);
-                }if(mUser.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_41);
-                }if(mUser.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
                 }
             }
 

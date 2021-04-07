@@ -109,7 +109,7 @@ public class WeekRankFragment extends Fragment {
                         n4.setText(mList.get(3).getName());
                         o4.setText(String.valueOf(mList.get(3).getNumber()));
 
-                        n5.setText(mList.get(4).getName());
+                         n5.setText(mList.get(4).getName());
                         o5.setText(String.valueOf(mList.get(4).getNumber()));
                     }
                 }

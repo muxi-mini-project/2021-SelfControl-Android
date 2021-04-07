@@ -17,6 +17,8 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.UserActivity;
 import com.bignerdranch.android.sc.user.UserClient;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -66,14 +68,20 @@ public class PrivateActivity extends StatusBar {
             @Override
             public void onClick(View v) {
 
+                OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
+                HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+                logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+                okHttpClientBuilder.addInterceptor(logging);
+
                 Retrofit.Builder builder = new Retrofit.Builder()
                         .baseUrl("http://39.102.42.156:2333/api/v1/")
-                        .addConverterFactory(GsonConverterFactory.create());
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .client(okHttpClientBuilder.build());
 
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall((1), token);
+                Call<User> call = client.getCall(new User(1), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -101,7 +109,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall((0), token);
+                Call<User> call = client.getCall(new User(0), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -123,10 +131,13 @@ public class PrivateActivity extends StatusBar {
     public interface PrivateAPI {
 
         @PUT("user/")
-        Call<User> getCall(@Body int privacy, @Header("token") String token);
+        Call<User> getCall(@Body User mUser, @Header("token") String token);
 
     }
     private void request() {
+
+
+
         Retrofit.Builder builder1 = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -139,19 +150,25 @@ public class PrivateActivity extends StatusBar {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                request();
-                if(mUser.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.color.purple);
-                }if(mUser.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.color.theme2);
-                }if(mUser.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.color.theme3);
-                }if(mUser.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_31);
-                }if(mUser.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_41);
-                }if(mUser.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
                 }
             }
 

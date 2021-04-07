@@ -31,7 +31,7 @@ public class CoinQueryActivity extends StatusBar {
     private TextView mCoin, czsj1, czsj2, czsj3, bhsl1, bhsl2, bhsl3, czyy1, czyy2, czyy3;
     private User mUser1,mUser2;
     private List<GoldHistory> mList;
-    private ConstraintLayout mLayout;
+    private ConstraintLayout mLayout,mLayout1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,7 @@ public class CoinQueryActivity extends StatusBar {
         mBack = findViewById(R.id.coin_query_back);
         mCoin = findViewById(R.id.dangqianjinbi);
         mLayout = findViewById(R.id.coin_query_layout);
+        mLayout1 = findViewById(R.id.coin_query_layout1);
         request();
 
         mBack.setOnClickListener(new View.OnClickListener() {
@@ -240,18 +241,31 @@ public class CoinQueryActivity extends StatusBar {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser2 = response.body();
-                if(mUser2.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.color.purple);
-                }if(mUser2.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.color.theme2);
-                }if(mUser2.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.color.theme3);
-                }if(mUser2.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_31);
-                }if(mUser2.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_41);
-                }if(mUser2.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_51);
+                if (mUser2 != null) {
+                    if (mUser2.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                        mLayout1.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                        mLayout1.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                        mLayout1.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                        mLayout1.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                        mLayout1.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser2.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                        mLayout1.setBackgroundResource(R.mipmap.theme_51);
+                    }
                 }
             }
 

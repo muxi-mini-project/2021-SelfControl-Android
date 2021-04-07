@@ -30,6 +30,7 @@ import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
@@ -210,8 +211,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()) {
+                    Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -222,8 +226,11 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         users.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClockActivity.this, UserActivity.class);
-                startActivity(intent);
+                if (Utils.isFastClick()) {
+                    Intent intent = new Intent(ClockActivity.this, UserActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -249,7 +256,6 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
         request();
         mLayout = findViewById(R.id.clock_main_page);
-
 
 
         mViewPager = findViewById(R.id.ViewPager);
@@ -490,18 +496,25 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                if(mUser.getCurrent_backdrop() == 0){
-                    mLayout.setBackgroundResource(R.mipmap.background_default);
-                }if(mUser.getCurrent_backdrop() == 1){
-                    mLayout.setBackgroundResource(R.mipmap.theme_1);
-                }if(mUser.getCurrent_backdrop() == 2){
-                    mLayout.setBackgroundResource(R.mipmap.theme_2);
-                }if(mUser.getCurrent_backdrop() == 3){
-                    mLayout.setBackgroundResource(R.mipmap.theme_3);
-                }if(mUser.getCurrent_backdrop() == 4){
-                    mLayout.setBackgroundResource(R.mipmap.theme_4);
-                }if(mUser.getCurrent_backdrop() == 5){
-                    mLayout.setBackgroundResource(R.mipmap.theme_5);
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.mipmap.background_default);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_1);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_4);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_5);
+                    }
                 }
             }
 

@@ -28,12 +28,11 @@ public class User {
     }
     public User(int privacy) {
         this.privacy = privacy;
-        this.current_backdrop = privacy;
+    }
+    public User(Integer current_backdrop){
+        this.current_backdrop = current_backdrop;
     }
 
-    public User(Integer gold){
-        this.gold = gold;
-    }
 
     public User(String name){
         this.name = name;
