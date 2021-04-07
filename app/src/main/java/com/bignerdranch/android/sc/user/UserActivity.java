@@ -24,6 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.MonthReport.MonthReportActivity;
 
@@ -169,8 +170,14 @@ public class UserActivity extends StatusBar {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
-                if (mUser != null)
-                    mName.setText(String.valueOf(mUser.getName()));
+                if (response.isSuccessful() == true){
+                    if (mUser != null)
+                        mName.setText(String.valueOf(mUser.getName()));
+                }else {
+                    Intent intent = new Intent(UserActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+
 
             }
 

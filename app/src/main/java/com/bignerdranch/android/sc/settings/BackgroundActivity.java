@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.UserClient;
 
@@ -148,7 +149,10 @@ public class BackgroundActivity extends StatusBar {
         mTheme4 = findViewById(R.id.theme4);
         mTheme4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {request1();
+            public void onClick(View v) {
+                request1();
+
+            if(Utils.isFastClick()){
                 if(b_4 == 0){
                     showNormalDialog(4);
                     request1();
@@ -169,6 +173,7 @@ public class BackgroundActivity extends StatusBar {
                     f6 = 0;
                 }
                 updateView();
+                }
             }
         });
         mTheme5 = findViewById(R.id.theme5);
@@ -395,6 +400,7 @@ public class BackgroundActivity extends StatusBar {
             public void onClick(DialogInterface dialog, int which) {
 
                 request2(id);
+                request1();
 
             }
         });

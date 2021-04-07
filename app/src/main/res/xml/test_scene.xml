@@ -24,9 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_editor_absoluteX="-2dp"
-            app:layout_editor_absoluteY="333dp" />
+            app:layout_constraintHorizontal_bias="0.0" />
         <Constraint
             android:layout_height="104dp"
             app:layout_constraintEnd_toEndOf="parent"

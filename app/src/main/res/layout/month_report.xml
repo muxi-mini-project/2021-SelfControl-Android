@@ -19,7 +19,7 @@
         app:srcCompat="@mipmap/back" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/month_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="31dp"
@@ -38,9 +38,9 @@
         android:text="打卡月报"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
-        app:layout_constraintEnd_toEndOf="@+id/textView19"
-        app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintEnd_toEndOf="@+id/month_number"
+        app:layout_constraintStart_toStartOf="@+id/month_number"
+        app:layout_constraintTop_toBottomOf="@+id/month_number" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
