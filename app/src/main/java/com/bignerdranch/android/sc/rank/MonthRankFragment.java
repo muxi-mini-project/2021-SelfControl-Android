@@ -25,7 +25,7 @@ import com.bignerdranch.android.sc.user.UserActivity;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,15 +64,10 @@ public class MonthRankFragment extends Fragment {
         });
 
 
-        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        okHttpClientBuilder.addInterceptor(logging);
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClientBuilder.build());
+                .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
 
