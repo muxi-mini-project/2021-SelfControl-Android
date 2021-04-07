@@ -20,6 +20,6 @@ public interface PunchAPI {
     @HTTP(method = "DELETE", path = "api/v1/punch/", hasBody = true)
     Call<Message> delete(@Header("token") String token, @Body Punch mPunch);
 
-    @GET("/api/v1/punch")
-    Call<List<LabelPunch>> getMyPunch(@Header("token")String token);
+    @GET("/api/v1/punch/")
+    Call<List<LabelPunch>> getPunch(@Header("token")String token);
 }

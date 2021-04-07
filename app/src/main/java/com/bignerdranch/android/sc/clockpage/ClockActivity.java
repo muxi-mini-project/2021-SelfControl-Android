@@ -499,21 +499,28 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.mipmap.background_default);
+                        ticker.setBackgroundResource(R.color.purple);
                     }
                     if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.mipmap.theme_1);
+                        ticker.setBackgroundResource(R.color.theme2);
                     }
                     if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.mipmap.theme_2);
+                        ticker.setBackgroundResource(R.color.theme3);
                     }
                     if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_3);
+                        ticker.setBackgroundResource(R.mipmap.theme_31);
                     }
                     if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_4);
+                        ticker.setBackgroundResource(R.mipmap.theme_41);
                     }
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.theme_5);
+                        ticker.setBackgroundResource(R.mipmap.theme_51);
+
                     }
                 }
             }

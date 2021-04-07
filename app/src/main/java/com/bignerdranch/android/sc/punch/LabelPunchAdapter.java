@@ -51,8 +51,8 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
     public void onBindViewHolder(ViewHolder holder,final int position) {
 
         holder.mImage.setImageResource(labelPunchList.get(position).getImgID());
-        holder.mTitle.setText(labelPunchList.get(position).getLabel_Title());
-        holder.mTime.setText(labelPunchList.get(position).getLabel_Time());
+        holder.mTitle.setText(labelPunchList.get(position).getTitle());
+        holder.mTime.setText("我的打卡数：" + labelPunchList.get(position).getNumber());
 
         if(onItemClickListener!=null) {
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
