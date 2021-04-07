@@ -115,3 +115,4 @@ public class MonthReportActivity extends StatusBar {
         @GET("punch/month")
         Call<List<Report>> getMonthReport(@Header("token") String token);
     }
+}
