@@ -4,28 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.label.HealthFragment;
-import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
-import com.bignerdranch.android.sc.label.SportFragment;
-import com.bignerdranch.android.sc.label.StudyFragment;
-import com.bignerdranch.android.sc.settings.BackgroundActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class LabelPagerActivity extends StatusBar implements View.OnClickListener {
 

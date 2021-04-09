@@ -81,7 +81,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(1), token);
+                Call<User> call = client.getCall(new User(2), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -109,7 +109,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(0), token);
+                Call<User> call = client.getCall(new User(1), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -151,22 +151,22 @@ public class PrivateActivity extends StatusBar {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }

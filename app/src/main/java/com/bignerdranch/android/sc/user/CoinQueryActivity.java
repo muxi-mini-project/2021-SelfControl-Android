@@ -242,27 +242,27 @@ public class CoinQueryActivity extends StatusBar {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser2 = response.body();
                 if (mUser2 != null) {
-                    if (mUser2.getCurrent_backdrop() == 1) {
+                    if (mUser2.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
                         mLayout1.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser2.getCurrent_backdrop() == 2) {
+                    if (mUser2.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.theme2);
                         mLayout1.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser2.getCurrent_backdrop() == 3) {
+                    if (mUser2.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme3);
                         mLayout1.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser2.getCurrent_backdrop() == 4) {
+                    if (mUser2.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                         mLayout1.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser2.getCurrent_backdrop() == 5) {
+                    if (mUser2.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                         mLayout1.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser2.getCurrent_backdrop() == 6) {
+                    if (mUser2.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                         mLayout1.setBackgroundResource(R.mipmap.theme_51);
                     }

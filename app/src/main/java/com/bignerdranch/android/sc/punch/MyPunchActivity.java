@@ -217,6 +217,7 @@ public class MyPunchActivity extends StatusBar {
 
     private void UpUI(){
         adapter = new LabelPunchAdapter(mLabelPunchList);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, true));
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
@@ -236,22 +237,22 @@ public class MyPunchActivity extends StatusBar {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }
