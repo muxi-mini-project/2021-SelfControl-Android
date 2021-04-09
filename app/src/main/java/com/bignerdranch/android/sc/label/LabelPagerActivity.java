@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,9 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
         mfeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LabelPagerActivity.this,"这个功能还未开发完成，敬请期待哦",Toast.LENGTH_SHORT).show();
+                if (Utils.isFastClick()){
+                    Toast.makeText(LabelPagerActivity.this,"这个功能还未开发完成，敬请期待哦",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

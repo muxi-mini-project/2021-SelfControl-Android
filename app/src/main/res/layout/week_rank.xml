@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/thumb1"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -142,7 +142,7 @@
             app:layout_constraintStart_toStartOf="@+id/w_second_n" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/thumb2"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -216,7 +216,7 @@
             app:layout_constraintStart_toStartOf="@+id/w_third_n" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/thumb3"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -278,7 +278,7 @@
             app:layout_constraintStart_toStartOf="@+id/w_fourth_n" />
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/thumb4"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -300,10 +300,8 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/wuser4"
-            app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -354,7 +352,7 @@
             app:layout_constraintStart_toStartOf="@+id/w_fifth_n" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/thumb5"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -376,10 +374,8 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/wuser5"
-            app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
         android:id="@+id/exchange_week"
