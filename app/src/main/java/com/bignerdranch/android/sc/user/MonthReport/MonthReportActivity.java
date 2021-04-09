@@ -115,7 +115,7 @@ public class MonthReportActivity extends StatusBar {
 
     private void UpUI(){
         adapter = new ReportAdapter(reportList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MonthReportActivity.this, RecyclerView.HORIZONTAL, true));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MonthReportActivity.this, RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(adapter);
         //recyclerView.addItemDecoration(new DividerItemDecoration(MonthReportActivity.this,DividerItemDecoration.HORIZONTAL));
     }

@@ -27,7 +27,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/thumb7"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/thumb8"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -175,7 +175,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/thumb9"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -233,10 +233,8 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/user4"
-            app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -251,7 +249,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/thumb10"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
@@ -309,10 +307,8 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/user5"
-            app:layout_constraintHorizontal_bias="0.673"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -327,7 +323,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/thumb6"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="#00000000"
