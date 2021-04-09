@@ -18,8 +18,8 @@ import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
+
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
-import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
 
 import com.bignerdranch.android.sc.login.User;
@@ -100,7 +100,6 @@ public class MyPunchActivity extends StatusBar {
             }
         });
 
-        //initList();
         getMyPunch();
 
 
@@ -109,17 +108,6 @@ public class MyPunchActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-//        private void initList(){
-//        for (int i = 0;i<5;i++){
-//            LabelPunch paobu = new LabelPunch(R.mipmap.paobu,"跑步","已打卡3次");
-//            mLabelPunchList.add(paobu);
-//            LabelPunch beidanci = new LabelPunch(R.mipmap.beidanci,"背单词","已打卡1次");
-//            mLabelPunchList.add(beidanci);
-//            LabelPunch yangwoqizuo = new LabelPunch(R.mipmap.yangwuoqizuo,"仰卧起坐","已打卡2次");
-//            mLabelPunchList.add(yangwoqizuo);
-//        }
-//
-//    }
     public void getMyPunch() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
@@ -219,7 +207,7 @@ public class MyPunchActivity extends StatusBar {
         adapter = new LabelPunchAdapter(mLabelPunchList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, true));
         mRecyclerView.setAdapter(adapter);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        //mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
     }
 
     private void request() {

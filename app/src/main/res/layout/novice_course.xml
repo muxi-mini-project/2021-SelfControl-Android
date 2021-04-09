@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="5dp"
-                android:text="点击加号增加，打卡内容右滑删除。（增删操作仅改变本日的打卡内容）"
+                android:text="点击加号增加，打卡内容长按删除。（增删操作仅改变本日的打卡内容）"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
