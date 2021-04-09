@@ -38,6 +38,7 @@ public class User {
         this.name = name;
     }
 
+
     public int getCurrent_backdrop() {
         return current_backdrop;
     }

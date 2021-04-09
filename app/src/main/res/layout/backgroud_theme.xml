@@ -239,7 +239,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_32" />
+                app:srcCompat="@mipmap/theme_52" />
             <TextView
                 android:id="@+id/tv6"
                 android:layout_width="wrap_content"
@@ -347,7 +347,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_52" />
+                app:srcCompat="@mipmap/theme_32" />
 
             <TextView
                 android:id="@+id/tv4"

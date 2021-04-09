@@ -68,7 +68,7 @@ public class MonthReportActivity extends StatusBar {
         });
 
         mMonth_number = findViewById(R.id.month_number);
-        mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH))+"月");
+        mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH)) + "月");
 
         recyclerView = findViewById(R.id.month_recycler_view);
         initList();
@@ -96,7 +96,9 @@ public class MonthReportActivity extends StatusBar {
             @Override
             public void onResponse(Call<List<Report>> call, Response<List<Report>> response) {
                 reportList = response.body();
-                UpUI();
+                if(response.body() != null) {
+                    UpUI();
+                }
             }
 
             @Override
@@ -105,7 +107,7 @@ public class MonthReportActivity extends StatusBar {
             }
         });
     }
-
+  
     public interface MonthReportAPI {
         @GET("punch/month")
         Call<List<Report>> getMonthReport(@Header("token") String token);

@@ -15,7 +15,6 @@ import com.bignerdranch.android.sc.StatusBar;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class LabelPagerActivity extends StatusBar implements View.OnClickListener {
 
     private List<Fragment> mList;

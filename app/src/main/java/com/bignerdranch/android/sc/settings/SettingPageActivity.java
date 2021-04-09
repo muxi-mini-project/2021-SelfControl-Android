@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.GetBackdropAPI;
@@ -55,7 +54,7 @@ public class SettingPageActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
+                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
                     startActivity(intent5);
                 }
 
@@ -67,7 +66,7 @@ public class SettingPageActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this,BackgroundActivity.class);
+                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
                     startActivity(intent5);
                 }
 
@@ -169,22 +168,22 @@ public class SettingPageActivity extends StatusBar {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }
