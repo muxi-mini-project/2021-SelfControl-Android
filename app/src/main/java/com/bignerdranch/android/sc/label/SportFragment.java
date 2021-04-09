@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.punch.LabelPunch;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +43,7 @@ public class SportFragment extends Fragment {
     private int flag7 = 0;
     private int flag8 = 0;
     private int flag9 = 0;
+    private List<LabelPunch> mLabelPunchList;
 
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
@@ -207,7 +211,7 @@ public class SportFragment extends Fragment {
                     }
                 }
             });
-
+        getMyPunch();
         return view;
     }
     public void createRequest(String title) {
@@ -251,6 +255,41 @@ public class SportFragment extends Fragment {
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
 
+            }
+        });
+    }
+
+    private void getMyPunch() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<List<LabelPunch>> call = client.getPunch(token);
+
+        call.enqueue(new Callback<List<LabelPunch>>() {
+
+            @Override
+            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+                mLabelPunchList = response.body();
+                if(response.body() != null) {
+                    for (int i = 0; i < mLabelPunchList.size() ; i++ ){
+                        if(mLabelPunchList.get(i).getTitle().equals("跑步")) {mpaobu.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag1 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("俯卧撑")) {mfuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag2 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("跳绳")) {mtiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag3 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("仰卧起坐")) {myangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag4 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("散步")){ msanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag5 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("拉伸")) {mlashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag6 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("打篮球")) {mdalanqiu.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag7 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("健身")) {mjianshen.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag8 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("骑车")) {mqiche.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 1;}
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
             }
         });
     }
