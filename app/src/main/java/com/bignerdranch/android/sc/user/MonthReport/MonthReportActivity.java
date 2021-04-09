@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -192,9 +194,14 @@ public class MonthReportActivity extends StatusBar {
         List<Entry> list = new ArrayList<>();
 
 
+        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        okHttpClientBuilder.addInterceptor(logging);
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClientBuilder.build());
 
         Retrofit retrofit = builder.build();
 
@@ -202,9 +209,19 @@ public class MonthReportActivity extends StatusBar {
         Call<List<Week>> call = client.getWeekNumber(token,calendar.get(Calendar.MONTH));
 
         call.enqueue(new Callback<List<Week>>() {
+                         @Override
+                         public void onResponse(Call<List<Week>> call, Response<List<Week>> response) {
+                             weekList = response.body();
 
-            @Override
-            public void onResponse(Call<List<Week>> call, Response<List<Week>> response) {
+                         }
+
+                         @Override
+                         public void onFailure(Call<List<Week>> call, Throwable t) {
+
+                         }
+                     });
+
+
 //                Log.d("tag", "Response: " + response);
 //
 //                try {
@@ -238,14 +255,7 @@ public class MonthReportActivity extends StatusBar {
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                }
-                weekList = response.body();
-                System.out.println(weekList);
-            }
 
-            @Override
-            public void onFailure(Call<List<Week>> call, Throwable t) {
 
-            }
-        });
     }
 }

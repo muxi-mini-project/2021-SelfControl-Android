@@ -14,6 +14,9 @@ import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;
+import com.bignerdranch.android.sc.punch.LabelPunch;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +40,8 @@ public class StudyFragment extends Fragment {
     private ImageButton mlianzi;
     private ImageButton myingyuyueduxunlian;
     private Button mButton;
+    private List<LabelPunch> mLabelPunchList;
+
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
         View view=inflater .inflate(R.layout.study_pager,container,false) ;
@@ -246,7 +251,7 @@ public class StudyFragment extends Fragment {
 
                 }
             });
-
+        getMyPunch();
         return view;
     }
     public void createRequest(String title) {
@@ -293,5 +298,42 @@ public class StudyFragment extends Fragment {
             }
         });
     }
+    private void getMyPunch() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<List<LabelPunch>> call = client.getPunch(token);
+
+        call.enqueue(new Callback<List<LabelPunch>>() {
+
+            @Override
+            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+                mLabelPunchList = response.body();
+                if(response.body() != null) {
+                    for (int i = 0; i < mLabelPunchList.size() ; i++ ){
+                        if(mLabelPunchList.get(i).getTitle().equals("自习")) {mzixi.setBackgroundResource(R.mipmap.yixuanbiaoqian); f1 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("阅读新闻")) {myueduxinwen.setBackgroundResource(R.mipmap.yixuanbiaoqian); f2 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("练习乐器")) {mlianxiyueqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);f3 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("学习新语言")) {mxuexixinyuyan.setBackgroundResource(R.mipmap.yixuanbiaoqian); f4 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("背单词")){ mbeidanci.setBackgroundResource(R.mipmap.yixuanbiaoqian);f5 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("看纪录片")) {mkanjilupian.setBackgroundResource(R.mipmap.yixuanbiaoqian);f6 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("做今日计划")) {mzuojinrijihua.setBackgroundResource(R.mipmap.yixuanbiaoqian);f7 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("听力训练")) {mtinglixunlian.setBackgroundResource(R.mipmap.yixuanbiaoqian);f8 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("练字")) {mlianzi.setBackgroundResource(R.mipmap.yixuanbiaoqian);f9 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("英语阅读训练")) {myingyuyueduxunlian.setBackgroundResource(R.mipmap.yixuanbiaoqian);f10 = 1;}
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+            }
+        });
+    }
+
 }
 

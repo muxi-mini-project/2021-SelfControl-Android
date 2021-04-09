@@ -64,7 +64,7 @@ public class HealthFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.health_pager, container, false);
-        mchishuiguo = (ImageButton) view.findViewById(R.id.chishuiguo);
+        mchishuiguo = view.findViewById(R.id.chishuiguo);
         mchishuiguo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,6 +255,7 @@ public class HealthFragment extends Fragment {
         zaoqikongfuheshui = (TextView) view.findViewById(R.id.zapqikongfuheshui_textView);
 
         add = (ImageButton) view.findViewById(R.id.add);
+        getMyPunch();
 
         return view;
     }
@@ -275,7 +276,6 @@ public class HealthFragment extends Fragment {
                 String message;
                 message = response.body().getMessage();
                 if (response.code() == 200) {
-                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -300,7 +300,6 @@ public class HealthFragment extends Fragment {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
                 if (response.code() == 200) {
-                    Toast.makeText(getActivity(), "成功", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -311,7 +310,7 @@ public class HealthFragment extends Fragment {
         });
     }
 
-    public void getMyPunch() {
+    private void getMyPunch() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -333,10 +332,10 @@ public class HealthFragment extends Fragment {
                         if(mLabelPunchList.get(i).getTitle().equals("拒绝夜宵")) {mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag4 = 1;}
                         if(mLabelPunchList.get(i).getTitle().equals("拒绝饮料")){ mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag5 = 1;}
                         if(mLabelPunchList.get(i).getTitle().equals("拒绝久坐")) {mjujuejiuzuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag6 = 1;}
-                        if(mLabelPunchList.get(i).getTitle().equals("早起")) {mzaoqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag7 = 7;}
-                        if(mLabelPunchList.get(i).getTitle().equals("早睡")) {mzaoshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag8 = 8;}
-                        if(mLabelPunchList.get(i).getTitle().equals("不翘二郎腿")) {mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 9;}
-                        if(mLabelPunchList.get(i).getTitle().equals("早起空腹喝水")) { mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag10 = 10;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早起")) {mzaoqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag7 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早睡")) {mzaoshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag8 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("不翘二郎腿")) {mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早起空腹喝水")) { mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag10 = 1 ;}
 
 
                     }
