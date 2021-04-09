@@ -96,7 +96,6 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
                     Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
                     startActivity(intent);
                 }
-
             }
         });
 
@@ -112,7 +111,7 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(0);
 
-        mLayout = findViewById(R.id.clockin_pager);
+        mLayout = findViewById(R.id.rank_background);
         request();
 
 

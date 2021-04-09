@@ -325,7 +325,22 @@ public class HealthFragment extends Fragment {
             @Override
             public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
                 mLabelPunchList = response.body();
-               // for()
+                if(response.body() != null) {
+                    for (int i = 0; i < mLabelPunchList.size() ; i++ ){
+                        if(mLabelPunchList.get(i).getTitle().equals("吃水果")) {mchishuiguo.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag1 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("吃早餐")) {mchizaocan.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag2 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("多喝水")) {mduoheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag3 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("拒绝夜宵")) {mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag4 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("拒绝饮料")){ mjujueyexiao.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag5 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("拒绝久坐")) {mjujuejiuzuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag6 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早起")) {mzaoqi.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag7 = 7;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早睡")) {mzaoshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag8 = 8;}
+                        if(mLabelPunchList.get(i).getTitle().equals("不翘二郎腿")) {mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 9;}
+                        if(mLabelPunchList.get(i).getTitle().equals("早起空腹喝水")) { mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag10 = 10;}
+
+
+                    }
+                }
             }
 
             @Override
