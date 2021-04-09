@@ -40,7 +40,7 @@ public class BackgroundActivity extends StatusBar {
     private int b_1, b_2, b_3, b_4, b_5, b_6;
     private Integer number;
 
-    private BackgroundActivity2.myBackground mMyBackground;
+    private myBackground mMyBackground;
     private User mUser;
 
     private ConstraintLayout mLayout;
@@ -245,13 +245,13 @@ public class BackgroundActivity extends StatusBar {
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
-        BackgroundActivity2.myBackgroundAPI client = retrofit.create(BackgroundActivity2.myBackgroundAPI.class);
-        Call<BackgroundActivity2.myBackground> call = client.getMyBackground(token);
+        myBackgroundAPI client = retrofit.create(myBackgroundAPI.class);
+        Call<myBackground> call = client.getMyBackground(token);
 
-        call.enqueue(new Callback<BackgroundActivity2.myBackground>() {
+        call.enqueue(new Callback<myBackground>() {
 
             @Override
-            public void onResponse(Call<BackgroundActivity2.myBackground> call, Response<BackgroundActivity2.myBackground> response) {
+            public void onResponse(Call<myBackground> call, Response<myBackground> response) {
                 b_1 = response.body().getB_1();
                 b_2 = response.body().getB_2();
                 b_3 = response.body().getB_3();
@@ -263,7 +263,7 @@ public class BackgroundActivity extends StatusBar {
             }
 
             @Override
-            public void onFailure(Call<BackgroundActivity2.myBackground> call, Throwable t) {
+            public void onFailure(Call<myBackground> call, Throwable t) {
 
             }
         });
