@@ -1,35 +1,28 @@
 package com.bignerdranch.android.sc.settings;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.UserActivity;
-import com.bignerdranch.android.sc.user.UserClient;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
+
 import retrofit2.http.PUT;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
@@ -39,7 +32,6 @@ public class PrivateActivity extends StatusBar {
     private ImageButton mBack;
     private Button mTrue, mFalse;
     private User mUser;
-    private int mCoin;
     private ConstraintLayout mLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +60,9 @@ public class PrivateActivity extends StatusBar {
             @Override
             public void onClick(View v) {
 
-                OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-                HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-                logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-                okHttpClientBuilder.addInterceptor(logging);
-
                 Retrofit.Builder builder = new Retrofit.Builder()
                         .baseUrl("http://39.102.42.156:2333/api/v1/")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .client(okHttpClientBuilder.build());
+                        .addConverterFactory(GsonConverterFactory.create());
 
                 Retrofit retrofit = builder.build();
 
