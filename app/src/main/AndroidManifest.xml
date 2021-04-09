@@ -39,5 +39,6 @@
         <activity android:name=".user.UserActivity"></activity>
         <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.RankBackgroundActivity"></activity>
+        <activity android:name=".SeeUserLabelActivity"></activity>
     </application>
 </manifest>
