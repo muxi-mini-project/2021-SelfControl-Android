@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.punch;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +52,16 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
         holder.mImage.setImageResource(labelPunchList.get(position).getImgID(labelPunchList.get(position).getTitle()));
         holder.mTitle.setText(labelPunchList.get(position).getTitle());
         holder.mTime.setText("我的打卡数：" + labelPunchList.get(position).getNumber());
+        holder.mPunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.mPunch.setEnabled(false);
+                holder.mPunch.setText("已打卡");
+                holder.mPunch.setBackgroundResource(R.drawable.punch_done);
+                holder.mTime.setText("我的打卡数：1");
+                request();
+            }
+        });
 
         if(onItemClickListener!=null) {
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -60,7 +69,6 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
                 public boolean onLongClick(View v) {
 //                    holder.mPunch.setVisibility(View.INVISIBLE);
 //                    holder.mDelete.setVisibility(View.VISIBLE);
-//
 //                    holder.mDelete.setOnClickListener(new View.OnClickListener() {
 //                        @Override
 //                        public void onClick(View v) {
@@ -86,6 +94,10 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
+    }
+
+    private void request(){
+
     }
 
 }

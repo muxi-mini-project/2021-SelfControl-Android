@@ -8,6 +8,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,6 +41,8 @@ public class MonthRankFragment extends Fragment {
     private List<Rank> mList;
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
     private ImageView mExchange;
+    private ImageButton thumb6,thumb7,thumb8,thumb9,thumb10;
+    Animation shake;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
@@ -54,6 +58,49 @@ public class MonthRankFragment extends Fragment {
         o3 = view.findViewById(R.id.m_first_n);
         o4 = view.findViewById(R.id.m_first_n);
         o5 = view.findViewById(R.id.m_first_n);
+
+        shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
+
+        thumb6 = view.findViewById(R.id.thumb6);
+        thumb6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb7 = view.findViewById(R.id.thumb7);
+        thumb7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb8 = view.findViewById(R.id.thumb8);
+        thumb8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb9 = view.findViewById(R.id.thumb9);
+        thumb9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb10 = view.findViewById(R.id.thumb10);
+        thumb10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
 
         mExchange = view.findViewById(R.id.exchange);
         mExchange.setOnClickListener(new View.OnClickListener() {

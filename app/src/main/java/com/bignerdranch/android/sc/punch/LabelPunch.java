@@ -7,21 +7,12 @@ public class LabelPunch {
     private int number;
     private String title;
     private int mImgID;
-    private String mLabe_Title;
-    private int mLabel_Time;
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-    public LabelPunch(int imgID,String label_V,int label_Time){
-        this.mLabel_Time = label_Time;
-        this.mLabe_Title = label_V;
-        this.mImgID = imgID;
     }
 
     public int getImgID(String title) {

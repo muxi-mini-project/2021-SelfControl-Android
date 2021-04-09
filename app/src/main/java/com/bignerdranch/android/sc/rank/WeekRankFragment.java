@@ -1,9 +1,14 @@
 package com.bignerdranch.android.sc.rank;
 
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +31,8 @@ public class WeekRankFragment extends Fragment {
 
     private List<Rank> mList;
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
-    private ImageButton mImageButton;
+    private ImageButton thumb1,thumb2,thumb3,thumb4,thumb5;
+    Animation shake;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.week_rank, container, false);
@@ -42,6 +48,48 @@ public class WeekRankFragment extends Fragment {
         o3 = view.findViewById(R.id.w_third_o);
         o4 = view.findViewById(R.id.w_fourth_o);
         o5 = view.findViewById(R.id.w_fifth_o);
+
+        shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
+
+        thumb1 = view.findViewById(R.id.thumb1);
+        thumb1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb2 = view.findViewById(R.id.thumb2);
+        thumb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb3 = view.findViewById(R.id.thumb3);
+        thumb3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb4 = view.findViewById(R.id.thumb4);
+        thumb4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
+
+        thumb5 = view.findViewById(R.id.thumb5);
+        thumb5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(shake);
+            }
+        });
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
