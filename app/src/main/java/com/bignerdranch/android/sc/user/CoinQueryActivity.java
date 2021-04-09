@@ -47,7 +47,7 @@ public class CoinQueryActivity extends StatusBar {
         mBack = findViewById(R.id.coin_query_back);
         mCoin = findViewById(R.id.dangqianjinbi);
         mLayout = findViewById(R.id.coin_query_layout);
-        mLayout1 = findViewById(R.id.coin_query_layout1);
+        mLayout1 = findViewById(R.id.coin_query_layout12);
         request();
 
         mBack.setOnClickListener(new View.OnClickListener() {

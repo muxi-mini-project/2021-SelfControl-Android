@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -22,6 +24,7 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
     private ImageButton mxuexi;
     private MyFragmentPagerAdapter mMyFragmentPagerAdapter;
     private MyOnPageChangeListener mMyOnPageChangeListener;
+    private ImageButton mfeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,14 @@ public class LabelPagerActivity extends StatusBar implements View.OnClickListene
         mList.add(new HealthFragment());
         mList.add(new SportFragment());
         mList.add(new StudyFragment());
+
+        mfeedback = findViewById(R.id.feedback);
+        mfeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LabelPagerActivity.this,"这个功能还未开发完成，敬请期待哦",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 

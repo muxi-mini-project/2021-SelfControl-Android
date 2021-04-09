@@ -1,24 +1,32 @@
 package com.bignerdranch.android.sc.user.MonthReport;
 
 
+import android.graphics.Color;
+import android.graphics.Point;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import androidx.recyclerview.widget.DividerItemDecoration;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.login.User;
+
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,19 +39,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class MonthReportActivity extends StatusBar {
     private ImageButton mBack;
     private TextView mMonth_number;
+    private LineChart lineChart;
 
     private RecyclerView recyclerView;
     private ReportAdapter adapter;
     private List<Report> reportList = new ArrayList<>();
-    private User mUser;
-    private ConstraintLayout mLayout;
+    private List<Week> weekList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +73,8 @@ public class MonthReportActivity extends StatusBar {
         recyclerView = findViewById(R.id.month_recycler_view);
         initList();
 
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MonthReportActivity.this);
-//        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//
-//        ReportAdapter adapter = new ReportAdapter(reportList);
-//        recyclerView.setAdapter(adapter);
-
+        lineChart = (LineChart) findViewById(R.id.linechart);
+        linechart();
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -105,16 +107,145 @@ public class MonthReportActivity extends StatusBar {
             }
         });
     }
-
-    private void UpUI() {
-        adapter = new ReportAdapter(reportList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MonthReportActivity.this, RecyclerView.HORIZONTAL, true));
-        recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(MonthReportActivity.this, DividerItemDecoration.HORIZONTAL));
-    }
-
+  
     public interface MonthReportAPI {
         @GET("punch/month")
         Call<List<Report>> getMonthReport(@Header("token") String token);
+    }
+
+    private void UpUI(){
+        adapter = new ReportAdapter(reportList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MonthReportActivity.this, RecyclerView.HORIZONTAL, true));
+        recyclerView.setAdapter(adapter);
+        //recyclerView.addItemDecoration(new DividerItemDecoration(MonthReportActivity.this,DividerItemDecoration.HORIZONTAL));
+    }
+
+    private void linechart(){
+        //无数据时显示
+        lineChart.setNoDataText("没有可获取的数据哦~");
+        //lineChart.setNoDataTextColor(Color.parseColor("#00BCEF"));
+        //取消缩放
+        lineChart.setScaleEnabled(false);
+        //不显示description
+        lineChart.getDescription().setEnabled(false);
+        //不显示图例
+        lineChart.getLegend().setEnabled(false);
+        lineChart.setHighlightPerDragEnabled(true);
+        lineChart.setExtraOffsets(15f,0f,25f,25f);
+
+        //获取X轴
+        XAxis xAxis = lineChart.getXAxis();
+        //xAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"0","1","2","3","4","5"}));
+        xAxis.setDrawGridLines(false);
+        //xAxis.setDrawLabels(true);
+        xAxis.setGranularity(1);
+        xAxis.setAxisLineWidth(1.5f);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setTextSize(16f);
+        xAxis.setAxisMaximum(5);
+        xAxis.setAxisMinimum(0);   //X轴最小数值
+
+        //获取Y轴的左右坐标
+        YAxis leftYAxis = lineChart.getAxisLeft();
+        leftYAxis.setDrawGridLines(false);
+        leftYAxis.setAxisLineWidth(1.5f);
+        leftYAxis.setAxisMinimum(0);
+        leftYAxis.setTextSize(16f);
+        leftYAxis.setGranularity(1);
+        //leftYAxis.setDrawGridLines(true);//是否显示轴线
+        //leftYAxis.setValueFormatter(new IndexAxisValueFormatter(new String[]{"0","1","2","3","4","5"}));
+        //leftYAxis.setEnabled(false);
+        YAxis rightYAxis = lineChart.getAxisRight();
+        rightYAxis.setEnabled(false);
+
+        //初始化显示数据
+        GetWeekData();
+//        list.add(new Entry(1,5));
+//        list.add(new Entry(2,3));
+//        list.add(new Entry(3,4));
+//        list.add(new Entry(4,0));
+
+//        //将数据赋给数据集,一个数据集表示一条线
+//        LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
+//        LineData lineData = new LineData(lineDataSet);
+//        //线条颜色
+//        lineDataSet.setColor(Color.parseColor("#FDD682"));
+//        //线宽度
+//        lineDataSet.setLineWidth(3.0f);
+//        //显示圆点
+//        lineDataSet.setDrawCircles(true);
+//        lineDataSet.setDrawCircleHole(true);
+//        lineDataSet.setCircleHoleRadius(3);
+//        //设置圆点颜色(外圈)
+//        lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
+//        //不显示曲线点的具体数值
+//        lineData.setDrawValues(false);
+//        //lineData.setValueTextSize(15f);
+//
+//        lineChart.setData(lineData);
+
+        lineChart.animateY(3000);
+    }
+
+    private void GetWeekData(){
+        Calendar calendar = Calendar.getInstance();
+        List<Entry> list = new ArrayList<>();
+
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        GetWeekAPI client = retrofit.create(GetWeekAPI.class);
+        Call<List<Week>> call = client.getWeekNumber(token,calendar.get(Calendar.MONTH));
+
+        call.enqueue(new Callback<List<Week>>() {
+
+            @Override
+            public void onResponse(Call<List<Week>> call, Response<List<Week>> response) {
+//                Log.d("tag", "Response: " + response);
+//
+//                try {
+//                    JSONObject jsonObject = new JSONObject(String.valueOf(response));
+//                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        int value = jsonObject.getInt("week");
+//                        int time = jsonObject.getInt("number");
+//                        list.add(new Entry(value, i));
+//                    }
+//
+//                    //将数据赋给数据集,一个数据集表示一条线
+//                    LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
+//                    LineData lineData = new LineData(lineDataSet);
+//                    //线条颜色
+//                    lineDataSet.setColor(Color.parseColor("#FDD682"));
+//                    //线宽度
+//                    lineDataSet.setLineWidth(3.0f);
+//                    //显示圆点
+//                    lineDataSet.setDrawCircles(true);
+//                    lineDataSet.setDrawCircleHole(true);
+//                    lineDataSet.setCircleHoleRadius(3);
+//                    //设置圆点颜色(外圈)
+//                    lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
+//                    //不显示曲线点的具体数值
+//                    lineData.setDrawValues(false);
+//                    //lineData.setValueTextSize(15f);
+//
+//                    lineChart.setData(lineData);
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+                weekList = response.body();
+                System.out.println(weekList);
+            }
+
+            @Override
+            public void onFailure(Call<List<Week>> call, Throwable t) {
+
+            }
+        });
     }
 }

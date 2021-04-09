@@ -3,9 +3,7 @@ package com.bignerdranch.android.sc.punch;
 import com.bignerdranch.android.sc.R;
 
 public class LabelPunch {
-    private int mImgID;
-    private String mLabe_Title;
-    private int mLabel_Time;
+    private int id;
     private int number;
     private String title;
 
@@ -26,12 +24,13 @@ public class LabelPunch {
         this.mImgID = imgID;
     }
 
-    public int getImgID() {
-        return mImgID;
+    public int getId() {
+        return id;
     }
 
-    public void setImgID(String title) {
+    public void setID(String title) {
         this.title = title;
+
         if(title == "吃水果") mImgID = (R.mipmap.chishuiguo);
         if(title == "吃早餐") mImgID = Integer.parseInt(String.valueOf(R.mipmap.chizaocan));
         if(title == "多喝水") mImgID = Integer.parseInt(String.valueOf(R.mipmap.duoheshui));
@@ -63,22 +62,7 @@ public class LabelPunch {
         if(title == "英语阅读训练") mImgID = Integer.parseInt(String.valueOf(R.mipmap.yingyuyueduxunlian));
 
 
-    }
 
-    public String getLabel_Title() {
-        return mLabe_Title;
-    }
-
-    public void setLabel_Title(String label_V) {
-        mLabe_Title = label_V;
-    }
-
-    public int getLabel_Time() {
-        return mLabel_Time;
-    }
-
-    public void setLabel_Time(int number) {
-        mLabel_Time = number;
     }
 
     public int getNumber() {

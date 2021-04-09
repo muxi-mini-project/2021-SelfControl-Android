@@ -31,21 +31,6 @@ public class SportFragment extends Fragment {
     private ImageButton mjianshen;
     private ImageButton mqiche;
 
-    private ImageButton madd;
-
-    private TextView mpaobu1;
-    private TextView mfuwocheng1;
-    private TextView mtiaosheng1;
-    private TextView myangwoqizuo1;
-    private TextView msanbu1;
-    private TextView mlashen1;
-    private TextView mdalanqiu1;
-    private TextView mjianshen1;
-    private TextView mqiche1;
-
-    private TextView madd1;
-    private TextView madd2;
-
     private int flag1 = 0;
     private int flag2 = 0;
     private int flag3 = 0;
@@ -222,21 +207,6 @@ public class SportFragment extends Fragment {
                     }
                 }
             });
-
-            madd = (ImageButton)view.findViewById(R.id.add_imageButton);
-
-            mpaobu1 = (TextView)view.findViewById(R.id.paobu_textView);
-            mfuwocheng1 = (TextView)view.findViewById(R.id.fuwocheng_textView);
-            mtiaosheng1 = (TextView)view.findViewById(R.id.tiaosheng_textView);
-            myangwoqizuo1 = (TextView)view.findViewById(R.id.yangwoqizuo_textView);
-            msanbu1 = (TextView)view.findViewById(R.id.sanbu_textView);
-            mlashen1 = (TextView)view.findViewById(R.id.lashen_textView);
-            mdalanqiu1 = (TextView)view.findViewById(R.id.dalanqiu_textView);
-            mjianshen1= (TextView)view.findViewById(R.id.jianshen_textView);
-            mqiche1 = (TextView)view.findViewById(R.id.qiche_textView);
-
-            madd1 = (TextView)view.findViewById(R.id.textView4);
-            madd2 = (TextView)view.findViewById(R.id.textView5);
 
         return view;
     }
