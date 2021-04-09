@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/purple"
-            android:text="50"
+            android:text="0"
             android:textSize="20sp"/>
     </LinearLayout>
     <LinearLayout
