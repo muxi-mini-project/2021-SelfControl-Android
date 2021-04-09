@@ -70,9 +70,11 @@ public class WeekRankFragment extends Fragment {
 
         mExchange = view.findViewById(R.id.exchange_week);
         mExchange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onCreateDialog();
+                                         @Override
+                                         public void onClick(View v) {
+                                             onCreateDialog();
+                                         }
+                                     });
 
         shake = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
 
