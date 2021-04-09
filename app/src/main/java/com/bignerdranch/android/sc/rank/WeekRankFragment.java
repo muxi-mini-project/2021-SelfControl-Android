@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +47,7 @@ public class WeekRankFragment extends Fragment {
     private List<Rank> mList;
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
 
-    private ImageButton mExchange;
+    private ImageView mExchange;
 
     private ImageButton thumb1,thumb2,thumb3,thumb4,thumb5;
     Animation shake;
