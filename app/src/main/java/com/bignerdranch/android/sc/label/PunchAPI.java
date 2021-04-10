@@ -30,6 +30,6 @@ public interface PunchAPI {
     @GET("/api/v1/punch/todayall")
     Call<Data> ifpunchcomplete(@Header("token") String token);
 
-    @GET("/punch/punch/{id}")
+    @GET("/api/v1/punch/punch/{id}")
     Call<List<LabelPunch>> getUserLabel(@Path("id") String id);
 }

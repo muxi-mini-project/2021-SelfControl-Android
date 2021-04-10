@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,7 +62,7 @@ public class UserLabelActivity extends StatusBar {
 
     private  void initList(String id){
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -87,7 +88,7 @@ public class UserLabelActivity extends StatusBar {
 
     private void UpUI(){
         adapter = new LabelPunchAdapter(mLabelPunchList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
         mRecyclerView.setAdapter(adapter);
     }
 }
