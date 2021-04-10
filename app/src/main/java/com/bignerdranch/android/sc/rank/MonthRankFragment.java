@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.SeeUserLabelActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
 import com.bignerdranch.android.sc.settings.BackgroundActivity;
@@ -48,7 +50,9 @@ public class MonthRankFragment extends Fragment {
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
     private ImageView mExchange;
     private ImageButton thumb6,thumb7,thumb8,thumb9,thumb10;
+    private ImageView user1,user2,user3,user4,user5;
     Animation shake;
+    private User mUser;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
@@ -140,6 +144,15 @@ public class MonthRankFragment extends Fragment {
                     if (mList.size() == 1) {
                         n1.setText(mList.get(0).getName());
                         o1.setText("打卡天数：" + mList.get(0).getNumber());
+
+                        user1 = view.findViewById(R.id.user1);
+                        user1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(0).getId());
+                            }
+                        });
+
                     }
                     if (mList.size() == 2) {
                         n1.setText(mList.get(0).getName());
@@ -147,6 +160,22 @@ public class MonthRankFragment extends Fragment {
 
                         n2.setText(mList.get(1).getName());
                         o2.setText("打卡天数：" + mList.get(1).getNumber());
+
+                        user1 = view.findViewById(R.id.user1);
+                        user1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(0).getId());
+                            }
+                        });
+
+                        user2 = view.findViewById(R.id.user2);
+                        user2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(1).getId());
+                            }
+                        });
                     }
                     if (mList.size() == 3) {
                         n1.setText(mList.get(0).getName());
@@ -157,6 +186,29 @@ public class MonthRankFragment extends Fragment {
 
                         n3.setText(mList.get(2).getName());
                         o3.setText("打卡天数：" + mList.get(2).getNumber());
+
+                        user1 = view.findViewById(R.id.user1);
+                        user1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(0).getId());
+                            }
+                        });
+
+                        user2 = view.findViewById(R.id.user2);
+                        user2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(1).getId());
+                            }
+                        });
+                        user3 = view.findViewById(R.id.user3);
+                        user3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(2).getId());
+                            }
+                        });
                     }
                     if (mList.size() == 4) {
                         n1.setText(mList.get(0).getName());
@@ -170,6 +222,36 @@ public class MonthRankFragment extends Fragment {
 
                         n4.setText(mList.get(3).getName());
                         o4.setText("打卡天数：" + mList.get(3).getNumber());
+
+                        user1 = view.findViewById(R.id.user1);
+                        user1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(0).getId());
+                            }
+                        });
+
+                        user2 = view.findViewById(R.id.user2);
+                        user2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(1).getId());
+                            }
+                        });
+                        user3 = view.findViewById(R.id.user3);
+                        user3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(2).getId());
+                            }
+                        });
+                        user4 = view.findViewById(R.id.user4);
+                        user4.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(3).getId());
+                            }
+                        });
                     }
                     if (mList.size() == 5) {
                         n1.setText(mList.get(0).getName());
@@ -179,13 +261,50 @@ public class MonthRankFragment extends Fragment {
                         o2.setText("打卡天数：" + mList.get(1).getNumber());
 
                         n3.setText(mList.get(2).getName());
-                        o3.setText("打卡次数：" + mList.get(2).getNumber());
+                        o3.setText("打卡天数：" + mList.get(2).getNumber());
 
                         n4.setText(mList.get(3).getName());
-                        o4.setText("打卡次数：" + mList.get(3).getNumber());
+                        o4.setText("打卡天数：" + mList.get(3).getNumber());
 
                         n5.setText(mList.get(4).getName());
-                        o5.setText("打卡次数：" + mList.get(4).getNumber());
+                        o5.setText("打卡天数：" + mList.get(4).getNumber());
+
+                        user1 = view.findViewById(R.id.user1);
+                        user1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(0).getId());
+                            }
+                        });
+
+                        user2 = view.findViewById(R.id.user2);
+                        user2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(1).getId());
+                            }
+                        });
+                        user3 = view.findViewById(R.id.user3);
+                        user3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(2).getId());
+                            }
+                        });
+                        user4 = view.findViewById(R.id.user4);
+                        user4.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(3).getId());
+                            }
+                        });
+                        user5 = view.findViewById(R.id.user5);
+                        user5.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                askPrivateRequest(mList.get(4).getId());
+                            }
+                        });
                     }
                 }
 
@@ -239,10 +358,11 @@ public class MonthRankFragment extends Fragment {
                 Matcher m = p.matcher(context);
 
                 if(context != null && !context.equals("") && m.matches() && context.length() < 5){
-                    if(Integer.parseInt(context) == 0) num[0] = 0;
-                    else {
-                    num[0] =( Integer.parseInt(context) - 1) * 2 + 50;}
-                    textView.setText(String.valueOf(num[0]));
+
+                    if(Integer.parseInt(context) == 0) textView.setText(String.valueOf(0));
+                    else{num[0] = (Integer.parseInt(context) - 1) * 2 + 50;
+                        textView.setText(String.valueOf(num[0]));}
+
                 }
                 p = Pattern.compile("[a-zA-Z]");
                 m = p.matcher(context);
@@ -265,6 +385,12 @@ public class MonthRankFragment extends Fragment {
             }
         });
 
+    }
+    private void showPrivateDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog dialog = builder.create();
+        builder.setView(View.inflate(getActivity(), R.layout.dialog_private, null));
+        dialog.show();
     }
 
     public class myRank{
@@ -334,4 +460,34 @@ public class MonthRankFragment extends Fragment {
 
 
     }
+    private void askPrivateRequest(String id){
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        WeekRankFragment.AskPrivateAPI client = retrofit1.create(WeekRankFragment.AskPrivateAPI.class);
+        Call<User> call = client.askPrivacy(id);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mUser = response.body();
+                if(mUser != null){
+                    if(mUser.getPrivacy() == 1){
+                        showPrivateDialog();
+                    }else if(mUser.getPrivacy() == 2){
+//
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+
+    }
+
 }

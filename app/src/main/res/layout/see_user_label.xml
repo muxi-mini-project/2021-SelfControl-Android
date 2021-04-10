@@ -70,10 +70,10 @@
         tools:layout_editor_absoluteY="59dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=""
         tools:layout_editor_absoluteX="175dp"
         tools:layout_editor_absoluteY="185dp" />
 
