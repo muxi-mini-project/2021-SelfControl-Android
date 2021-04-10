@@ -49,10 +49,6 @@ public class LabelPunch {
         return mImgID;
     }
 
-
-
-
-
     public int getNumber() {
         return number;
     }

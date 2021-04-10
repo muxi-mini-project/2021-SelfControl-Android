@@ -29,6 +29,11 @@ public class FlowerFragment extends Fragment {
     public void FlowerFragment(String text){
         this.text=text;
     }
+
+    public void FlowerFragment(ImageButton unflower){
+        this.unflower = unflower;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
