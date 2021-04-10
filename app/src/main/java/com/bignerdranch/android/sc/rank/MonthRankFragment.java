@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.rank;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,10 +24,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.SeeUserLabelActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
-import com.bignerdranch.android.sc.settings.BackgroundActivity;
 
 import java.util.List;
 import java.util.regex.Matcher;

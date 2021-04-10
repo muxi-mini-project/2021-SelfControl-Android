@@ -127,7 +127,6 @@ public class MonthReportActivity extends StatusBar {
         adapter = new ReportAdapter(reportList);
         recyclerView.setLayoutManager(new LinearLayoutManager(MonthReportActivity.this, RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(adapter);
-        //recyclerView.addItemDecoration(new DividerItemDecoration(MonthReportActivity.this,DividerItemDecoration.HORIZONTAL));
     }
 
     private void linechart(){

@@ -47,6 +47,7 @@ public class MyPunchActivity extends StatusBar {
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
     private LabelPunchAdapter adapter;
     private User mUser;
+    private Data mData;
 
     private ConstraintLayout mLayout;
     private int date;
@@ -103,8 +104,7 @@ public class MyPunchActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()) {
-                    Intent intent = new Intent(MyPunchActivity.this, LabelPagerActivity.class);
-                    startActivity(intent);
+                    ifpunchcomplete();
                 }
 
             }
@@ -235,6 +235,37 @@ public class MyPunchActivity extends StatusBar {
 
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void ifpunchcomplete(){
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client3 = retrofit.create(PunchAPI.class);
+        Call<Data> call = client3.ifpunchcomplete(token);
+
+        call.enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(Call<Data> call, Response<Data> response) {
+
+                mData = response.body();
+                mData.getData();
+                if (mData.getData() > 0 ){
+                    madd.setEnabled(false);
+                    Toast.makeText(MyPunchActivity.this,"今日已完成全部打卡，不能再新增标签",Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(MyPunchActivity.this, LabelPagerActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Data> call, Throwable t) {
 
             }
         });
