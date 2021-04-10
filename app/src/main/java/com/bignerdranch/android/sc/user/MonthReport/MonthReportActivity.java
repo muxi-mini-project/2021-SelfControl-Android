@@ -162,29 +162,32 @@ public class MonthReportActivity extends StatusBar {
 
         //初始化显示数据
         GetWeekData();
-//        list.add(new Entry(1,5));
-//        list.add(new Entry(2,3));
-//        list.add(new Entry(3,4));
-//        list.add(new Entry(4,0));
 
-//        //将数据赋给数据集,一个数据集表示一条线
-//        LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
-//        LineData lineData = new LineData(lineDataSet);
-//        //线条颜色
-//        lineDataSet.setColor(Color.parseColor("#FDD682"));
-//        //线宽度
-//        lineDataSet.setLineWidth(3.0f);
-//        //显示圆点
-//        lineDataSet.setDrawCircles(true);
-//        lineDataSet.setDrawCircleHole(true);
-//        lineDataSet.setCircleHoleRadius(3);
-//        //设置圆点颜色(外圈)
-//        lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
-//        //不显示曲线点的具体数值
-//        lineData.setDrawValues(false);
-//        //lineData.setValueTextSize(15f);
-//
-//        lineChart.setData(lineData);
+        List<Entry> list = new ArrayList<>();
+        list.add(new Entry(1,8));
+        list.add(new Entry(2,7));
+        list.add(new Entry(3,8));
+        list.add(new Entry(4,0));
+        list.add(new Entry(5,6));
+
+        //将数据赋给数据集,一个数据集表示一条线
+        LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
+        LineData lineData = new LineData(lineDataSet);
+        //线条颜色
+        lineDataSet.setColor(Color.parseColor("#FDD682"));
+        //线宽度
+        lineDataSet.setLineWidth(3.0f);
+        //显示圆点
+        lineDataSet.setDrawCircles(true);
+        lineDataSet.setDrawCircleHole(true);
+        lineDataSet.setCircleHoleRadius(3);
+        //设置圆点颜色(外圈)
+        lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
+        //不显示曲线点的具体数值
+        lineData.setDrawValues(false);
+        //lineData.setValueTextSize(15f);
+
+        lineChart.setData(lineData);
 
         lineChart.animateY(3000);
     }

@@ -53,6 +53,7 @@ public class WeekRankFragment extends Fragment {
     private ImageView user1,user2,user3,user4,user5;
     private ImageView mExchange;
     private ImageButton thumb1, thumb2, thumb3, thumb4, thumb5;
+
     Animation shake;
     private String name;
     private String id;
@@ -370,10 +371,12 @@ public class WeekRankFragment extends Fragment {
                 String context = editText.getText().toString();
                 Pattern p = Pattern.compile("[0-9]*");
                 Matcher m = p.matcher(context);
+
                 if (context != null && !context.equals("") && m.matches() && context.length() < 5) {
                     if(Integer.parseInt(context) == 0) textView.setText(String.valueOf(0));
                     else{num[0] = (Integer.parseInt(context) - 1) * 2 + 50;
                     textView.setText(String.valueOf(num[0]));}
+
                 }
                 p = Pattern.compile("[a-zA-Z]");
                 m = p.matcher(context);
