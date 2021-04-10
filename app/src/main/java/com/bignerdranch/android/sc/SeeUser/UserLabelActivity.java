@@ -37,7 +37,7 @@ public class UserLabelActivity extends StatusBar {
     private String id;
 
     private RecyclerView mRecyclerView;
-    private LabelPunchAdapter adapter;
+    private UserLabelAdapter adapter;
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
 
     @Override
@@ -53,6 +53,7 @@ public class UserLabelActivity extends StatusBar {
         userName.setText(name);
 
         mRecyclerView = findViewById(R.id.user_rv);
+
         initList(id);
 
         makeStatusBarTransparent(this);
@@ -87,8 +88,9 @@ public class UserLabelActivity extends StatusBar {
     }
 
     private void UpUI(){
-        adapter = new LabelPunchAdapter(mLabelPunchList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+
+        adapter = new UserLabelAdapter(mLabelPunchList);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
         mRecyclerView.setAdapter(adapter);
     }
 }
