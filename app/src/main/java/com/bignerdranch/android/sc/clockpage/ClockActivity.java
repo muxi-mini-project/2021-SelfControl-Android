@@ -361,7 +361,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 dateAdapter.notifyDataSetChanged();
                 tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
 
-                int month =
+                //int month =
 
                 int today = dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion), dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
                 mViewPager.setCurrentItem(today);
