@@ -94,6 +94,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private FlowerFragment mThuFlowerFragment;
     private FlowerFragment mFriFlowerFragment;
     private FlowerFragment mSatFlowerFragment;
+
     FragmentManager mFragmentManager;
     FragmentPagerAdapter mFragmentPagerAdapter;
 

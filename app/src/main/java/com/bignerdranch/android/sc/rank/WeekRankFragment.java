@@ -1,9 +1,6 @@
 package com.bignerdranch.android.sc.rank;
 
-import android.animation.TypeEvaluator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.graphics.PointF;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,7 +25,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.SeeUserLabelActivity;
+import com.bignerdranch.android.sc.SeeUser.UserLabelActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
 
@@ -490,7 +487,7 @@ public class WeekRankFragment extends Fragment {
                     if(mUser.getPrivacy() == 1){
                         showPrivateDialog();
                     }else if(mUser.getPrivacy() == 2){
-                        Intent intent = new Intent(getActivity(),SeeUserLabelActivity.class);
+                        Intent intent = new Intent(getActivity(), UserLabelActivity.class);
                         intent.putExtra("data",id);
                         intent.putExtra("data1",name);
                         startActivity(intent);
