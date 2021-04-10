@@ -59,9 +59,10 @@ public class UserLabelActivity extends StatusBar {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
+
     private  void initList(String id){
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
