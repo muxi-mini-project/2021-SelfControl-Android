@@ -185,8 +185,6 @@ public class BackgroundActivity extends StatusBar {
                     f[4] = 1;
                     f[5] = 0;
                     changeRequest(4);
-                    Intent intent = new Intent(BackgroundActivity.this, ClockActivity.class);
-                    startActivity(intent);
                 }
                 updateView();
             }
@@ -208,8 +206,6 @@ public class BackgroundActivity extends StatusBar {
                     f[4] = 0;
                     f[5] = 1;
                     changeRequest(5);
-                    Intent intent = new Intent(BackgroundActivity.this, ClockActivity.class);
-                    startActivity(intent);
                 }
                 updateView();
             }

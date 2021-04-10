@@ -146,7 +146,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId());
+                                askPrivateRequest(mList.get(0).getStudent_id());
                             }
                         });
 
@@ -162,7 +162,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId());
+                                askPrivateRequest(mList.get(0).getStudent_id());
                             }
                         });
 
@@ -170,7 +170,7 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId());
+                                askPrivateRequest(mList.get(1).getStudent_id());
                             }
                         });
                     }
@@ -188,7 +188,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId());
+                                askPrivateRequest(mList.get(0).getStudent_id());
                             }
                         });
 
@@ -196,14 +196,14 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId());
+                                askPrivateRequest(mList.get(1).getStudent_id());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId());
+                                askPrivateRequest(mList.get(2).getStudent_id());
                             }
                         });
                     }
@@ -224,7 +224,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId());
+                                askPrivateRequest(mList.get(0).getStudent_id());
                             }
                         });
 
@@ -232,21 +232,21 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId());
+                                askPrivateRequest(mList.get(1).getStudent_id());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId());
+                                askPrivateRequest(mList.get(2).getStudent_id());
                             }
                         });
                         user4 = view.findViewById(R.id.user4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getId());
+                                askPrivateRequest(mList.get(3).getStudent_id());
                             }
                         });
                     }
@@ -270,7 +270,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId());
+                                askPrivateRequest(mList.get(0).getStudent_id());
                             }
                         });
 
@@ -278,28 +278,28 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId());
+                                askPrivateRequest(mList.get(1).getStudent_id());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId());
+                                askPrivateRequest(mList.get(2).getStudent_id());
                             }
                         });
                         user4 = view.findViewById(R.id.user4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getId());
+                                askPrivateRequest(mList.get(3).getStudent_id());
                             }
                         });
                         user5 = view.findViewById(R.id.user5);
                         user5.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(4).getId());
+                                askPrivateRequest(mList.get(4).getStudent_id());
                             }
                         });
                     }
