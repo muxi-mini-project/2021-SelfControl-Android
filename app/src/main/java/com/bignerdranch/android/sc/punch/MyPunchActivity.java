@@ -45,6 +45,7 @@ public class MyPunchActivity extends StatusBar {
 
     private RecyclerView mRecyclerView;
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
+    private List<LabelPunch> mList;
     private LabelPunchAdapter adapter;
     private User mUser;
     private Data mData;
@@ -57,6 +58,8 @@ public class MyPunchActivity extends StatusBar {
     private int currentMonth = mCalendar.get(Calendar.MONTH);
     private int currentDay = mCalendar.get(Calendar.DAY_OF_MONTH);
 
+    private int today = getEachDayOfYear(false, currentMonth, currentDay);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,11 +68,14 @@ public class MyPunchActivity extends StatusBar {
         mLayout = findViewById(R.id.clockin_pager);
         mRecyclerView = findViewById(R.id.recycler_view);
         request();
-        getMyPunch();
 
         Intent intent = getIntent();
-        date = intent.getIntExtra("data",0);
-        if(date == currentDay)
+        date = intent.getIntExtra("data", 0);
+        if (date == today) {
+            getMyPunch();
+        } else {
+
+        }
 
         mrank = findViewById(R.id.rank_ImageButton);
 
@@ -133,7 +139,7 @@ public class MyPunchActivity extends StatusBar {
         });
     }
 
-    private void UpUI(){
+    private void UpUI() {
         adapter = new LabelPunchAdapter(mLabelPunchList);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
@@ -142,7 +148,7 @@ public class MyPunchActivity extends StatusBar {
         adapter.setOnItemClickListener(new LabelPunchAdapter.OnItemClickListener() {
 
             @Override
-            public void onItemLongClick(View view,int pos) {
+            public void onItemLongClick(View view, int pos) {
                 final AlertDialog.Builder normalDialog = new AlertDialog.Builder(MyPunchActivity.this);
                 normalDialog.setTitle("删除打卡");
                 normalDialog.setMessage("确定删除该打卡内容吗?");
@@ -154,7 +160,7 @@ public class MyPunchActivity extends StatusBar {
                         adapter.notifyItemRemoved(pos);
 
                         deletePunch(mtitle);
-                        adapter.notifyItemRangeChanged(0,mLabelPunchList.size()-1);
+                        adapter.notifyItemRangeChanged(0, mLabelPunchList.size() - 1);
 
                     }
                 });
@@ -211,14 +217,14 @@ public class MyPunchActivity extends StatusBar {
         });
     }
 
-    private void deletePunch(String title){
+    private void deletePunch(String title) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
         PunchAPI client2 = retrofit.create(PunchAPI.class);
-        Call<Message> call = client2.delete(token,new Punch(title));
+        Call<Message> call = client2.delete(token, new Punch(title));
 
         call.enqueue(new Callback<Message>() {
 
@@ -234,7 +240,7 @@ public class MyPunchActivity extends StatusBar {
         });
     }
 
-    private void ifpunchcomplete(){
+    private void ifpunchcomplete() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -249,10 +255,10 @@ public class MyPunchActivity extends StatusBar {
 
                 mData = response.body();
                 mData.getData();
-                if (mData.getData() > 0 ){
+                if (mData.getData() > 0) {
                     madd.setEnabled(false);
-                    Toast.makeText(MyPunchActivity.this,"今日已完成全部打卡，不能再新增标签",Toast.LENGTH_SHORT).show();
-                }else{
+                    Toast.makeText(MyPunchActivity.this, "今日已完成全部打卡，不能再新增标签", Toast.LENGTH_SHORT).show();
+                } else {
                     Intent intent = new Intent(MyPunchActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                 }
@@ -262,6 +268,49 @@ public class MyPunchActivity extends StatusBar {
             public void onFailure(Call<Data> call, Throwable t) {
 
             }
+        });
+    }
+
+    public int getEachDayOfYear(boolean isLeapyear, int month, int day) {
+        int eachDayOfYear = 0;
+        int[] mon = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (isLeapyear) {
+            mon[1] = 29;
+        }
+        for (int i = 0; i < month; i++) {
+            eachDayOfYear += mon[i];
+        }
+        eachDayOfYear = eachDayOfYear + day;
+        return eachDayOfYear;
+    }
+
+    private void getDayPunch() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client3 = retrofit.create(PunchAPI.class);
+        Call<List<LabelPunch>> call = client3.getDayPunch(token, date);
+
+        call.enqueue(new Callback<List<LabelPunch>>() {
+            @Override
+            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+                mList = response.body();
+                if (mList != null) {
+                    adapter = new LabelPunchAdapter(mList);
+
+                    mRecyclerView.setLayoutManager(new LinearLayoutManager(MyPunchActivity.this, RecyclerView.VERTICAL, false));
+                    mRecyclerView.setAdapter(adapter);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+
+            }
+
         });
     }
 }
