@@ -8,6 +8,6 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
 public interface GoldHistoryAPI{
-    @GET("user/history")
+    @GET("user/goldhistory")
     Call<List<CoinQueryActivity.GoldHistory>> getGoldHistory(@Header("token") String token);
 }

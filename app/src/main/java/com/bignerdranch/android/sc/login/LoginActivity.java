@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.clockpage.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
 import retrofit2.Call;
@@ -31,6 +34,10 @@ public class LoginActivity extends StatusBar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+        token = sharedPreferences.getString("Token",null);
+        IsToken(token);
+
         mstudent_id=findViewById(R.id.username);
         mpassword=findViewById(R.id.password);
 
@@ -39,10 +46,13 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onClick(View v) {
-                String id = mstudent_id.getText().toString();
-                String password = mpassword.getText().toString();
+                if (Utils.isFastClick()){
+                    String id = mstudent_id.getText().toString();
+                    String password = mpassword.getText().toString();
 
-                request(id,password);
+                    request(id,password);
+                }
+
             }
         });
 
@@ -54,7 +64,7 @@ public class LoginActivity extends StatusBar {
 
     public void request(String id,String password){
         Retrofit retrofit = new Retrofit
-                .Builder().baseUrl("http://124.71.184.107:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
+                .Builder().baseUrl("http://39.102.42.156:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
         Call<LoginResponse> call = request.getCall(new User(id,password));
@@ -67,7 +77,13 @@ public class LoginActivity extends StatusBar {
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     token = response.body().getToken();
-                    Log.d("tag", "code"+response.body());
+                    Log.d("tag", "token "+response.body().getToken());
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("Token",token);
+                    editor.commit();
+
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
                 }
@@ -78,14 +94,21 @@ public class LoginActivity extends StatusBar {
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
                 Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                 startActivity(intent);
-                /*
                 Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
-                Log.e("tag",throwable.getMessage());*/
+                Log.e("tag",throwable.getMessage());
             }
 
         });
 
+    }
+
+    public void IsToken(String token){
+        if (token != null){
+            Intent intent = new Intent(LoginActivity.this, ClockActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
 }

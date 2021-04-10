@@ -7,6 +7,7 @@ public class SpecialCalendar {
     private int daysOfMonth = 0;
     private int dayOfWeek = 0;
     private int eachDayOfWeek = 0;
+    private int eachDayOfYear = 0;
 
     //判断是否是闰年
     public boolean isLeapYear(int year) {
@@ -47,6 +48,7 @@ public class SpecialCalendar {
         return daysOfMonth;
     }
 
+
     //判断选定的日期是星期几
     public int getWeekdayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
@@ -62,4 +64,15 @@ public class SpecialCalendar {
         return eachDayOfWeek;
     }
 
+    public int getEachDayOfYear(boolean isLeapyear, int month,int day) {
+        int [] mon = new int[]{31,28,31,30,31,30,31,31,30,31,30,31};
+        if (isLeapyear) {
+            mon[1] = 29;
+        }
+        for(int i = 0;i < month;i++){
+            eachDayOfYear += mon[i];
+        }
+        eachDayOfYear = eachDayOfYear + day;
+        return eachDayOfYear;
+    }
 }

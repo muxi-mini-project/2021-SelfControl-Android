@@ -9,7 +9,19 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.punch.LabelPunch;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class SportFragment extends Fragment {
     private ImageButton mpaobu;
@@ -22,21 +34,6 @@ public class SportFragment extends Fragment {
     private ImageButton mjianshen;
     private ImageButton mqiche;
 
-    private ImageButton madd;
-
-    private TextView mpaobu1;
-    private TextView mfuwocheng1;
-    private TextView mtiaosheng1;
-    private TextView myangwoqizuo1;
-    private TextView msanbu1;
-    private TextView mlashen1;
-    private TextView mdalanqiu1;
-    private TextView mjianshen1;
-    private TextView mqiche1;
-
-    private TextView madd1;
-    private TextView madd2;
-
     private int flag1 = 0;
     private int flag2 = 0;
     private int flag3 = 0;
@@ -46,10 +43,11 @@ public class SportFragment extends Fragment {
     private int flag7 = 0;
     private int flag8 = 0;
     private int flag9 = 0;
+    private List<LabelPunch> mLabelPunchList;
 
 
     public View onCreateView(LayoutInflater inflater , ViewGroup container, Bundle savedInstanceState){
-        View view=inflater .inflate(R.layout.sport_pager,container,false) ;
+        View view=inflater.inflate(R.layout.sport_pager,container,false) ;
 
             mpaobu = (ImageButton)view.findViewById(R.id.paobu_imagebutton);
             mpaobu.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +56,13 @@ public class SportFragment extends Fragment {
                     if (flag1 == 0) {
                         mpaobu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag1 = 1;
+                        createRequest("跑步");
+
                     } else {
                         mpaobu.setBackgroundResource(R.mipmap.paobu);
                         flag1 = 0;
+                        deleteRequest("跑步");
+
                     }
                 }
             });
@@ -73,9 +75,13 @@ public class SportFragment extends Fragment {
                     if (flag2 == 0) {
                         mfuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag2 = 1;
+                        createRequest("俯卧撑");
+
                     } else {
                         mfuwocheng.setBackgroundResource(R.mipmap.fuwocheng);
                         flag2 = 0;
+                        deleteRequest("俯卧撑");
+
                     }
                 }
             });
@@ -87,9 +93,13 @@ public class SportFragment extends Fragment {
                     if (flag3 == 0) {
                         mtiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag3 = 1;
+                        createRequest("跳绳");
+
                     } else {
                         mtiaosheng.setBackgroundResource(R.mipmap.tiaosheng);
                         flag3 = 0;
+                        deleteRequest("跳绳");
+
                     }
                 }
             });
@@ -101,9 +111,13 @@ public class SportFragment extends Fragment {
                     if (flag4 == 0) {
                         myangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag4 = 1;
+                        createRequest("仰卧起坐");
+
                     } else {
                         myangwoqizuo.setBackgroundResource(R.mipmap.yangwuoqizuo);
                         flag4 = 0;
+                        deleteRequest("仰卧起坐");
+
                     }
                 }
             });
@@ -115,9 +129,13 @@ public class SportFragment extends Fragment {
                     if (flag5 == 0) {
                         msanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag5 = 1;
+                        createRequest("散步");
+
                     } else {
                         msanbu.setBackgroundResource(R.mipmap.sanbu);
                         flag5 = 0;
+                        deleteRequest("散步");
+
                     }
                 }
             });
@@ -129,9 +147,13 @@ public class SportFragment extends Fragment {
                     if (flag6 == 0) {
                         mlashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag6 = 1;
+                        createRequest("拉伸");
+
                     } else {
                         mlashen.setBackgroundResource(R.mipmap.yangwuoqizuo);
                         flag6 = 0;
+                        deleteRequest("拉伸");
+
                     }
                 }
             });
@@ -143,9 +165,13 @@ public class SportFragment extends Fragment {
                     if (flag7 == 0) {
                         mdalanqiu.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag7 = 1;
+                        createRequest("打篮球");
+
                     } else {
                         mdalanqiu.setBackgroundResource(R.mipmap.yangwuoqizuo);
                         flag7 = 0;
+                        deleteRequest("打篮球");
+
                     }
                 }
             });
@@ -157,9 +183,13 @@ public class SportFragment extends Fragment {
                     if (flag8 == 0) {
                         mjianshen.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag8 = 1;
+                        createRequest("健身");
+
                     } else {
                         mjianshen.setBackgroundResource(R.mipmap.jianshen);
                         flag8 = 0;
+                        deleteRequest("健身");
+
                     }
                 }
             });
@@ -171,29 +201,97 @@ public class SportFragment extends Fragment {
                     if (flag9 == 0) {
                         mqiche.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         flag9 = 1;
+                        createRequest("骑车");
+
                     } else {
                         mqiche.setBackgroundResource(R.mipmap.qiche);
                         flag9 = 0;
+                        deleteRequest("骑车");
+
                     }
                 }
             });
-
-            madd = (ImageButton)view.findViewById(R.id.add_imageButton);
-
-            mpaobu1 = (TextView)view.findViewById(R.id.paobu_textView);
-            mfuwocheng1 = (TextView)view.findViewById(R.id.fuwocheng_textView);
-            mtiaosheng1 = (TextView)view.findViewById(R.id.tiaosheng_textView);
-            myangwoqizuo1 = (TextView)view.findViewById(R.id.yangwoqizuo_textView);
-            msanbu1 = (TextView)view.findViewById(R.id.sanbu_textView);
-            mlashen1 = (TextView)view.findViewById(R.id.lashen_textView);
-            mdalanqiu1 = (TextView)view.findViewById(R.id.dalanqiu_textView);
-            mjianshen1= (TextView)view.findViewById(R.id.jianshen_textView);
-            mqiche1 = (TextView)view.findViewById(R.id.qiche_textView);
-
-            madd1 = (TextView)view.findViewById(R.id.textView4);
-            madd2 = (TextView)view.findViewById(R.id.textView5);
-
+        getMyPunch();
         return view;
+    }
+    public void createRequest(String title) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<Message> call = client.create(token, new Punch(title));
+
+        call.enqueue(new Callback<Message>() {
+
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+
+            }
+        });
+    }
+    public void deleteRequest(String title) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<Message> call = client.delete(token, new Punch(title));
+
+        call.enqueue(new Callback<Message>() {
+
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getMyPunch() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client = retrofit.create(PunchAPI.class);
+        Call<List<LabelPunch>> call = client.getPunch(token);
+
+        call.enqueue(new Callback<List<LabelPunch>>() {
+
+            @Override
+            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+                mLabelPunchList = response.body();
+                if(response.body() != null) {
+                    for (int i = 0; i < mLabelPunchList.size() ; i++ ){
+                        if(mLabelPunchList.get(i).getTitle().equals("跑步")) {mpaobu.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag1 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("俯卧撑")) {mfuwocheng.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag2 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("跳绳")) {mtiaosheng.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag3 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("仰卧起坐")) {myangwoqizuo.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag4 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("散步")){ msanbu.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag5 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("拉伸")) {mlashen.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag6 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("打篮球")) {mdalanqiu.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag7 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("健身")) {mjianshen.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag8 = 1;}
+                        if(mLabelPunchList.get(i).getTitle().equals("骑车")) {mqiche.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 1;}
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+            }
+        });
     }
 
 }

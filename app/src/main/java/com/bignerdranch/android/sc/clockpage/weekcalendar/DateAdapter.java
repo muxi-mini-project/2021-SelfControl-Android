@@ -183,7 +183,7 @@ public class DateAdapter extends BaseAdapter {
         return position;
     }
 
-    class Holder {
+    protected class Holder {
         private LinearLayout ll_data;
         private TextView tv;
         private View view_line;
@@ -212,7 +212,7 @@ public class DateAdapter extends BaseAdapter {
             holder.ll_data.setSelected(true);
 
             holder.view_line.setVisibility(View.VISIBLE);
-        } else {
+           } else {
             holder.ll_data.setSelected(false);
 
             holder.view_line.setVisibility(View.INVISIBLE);
