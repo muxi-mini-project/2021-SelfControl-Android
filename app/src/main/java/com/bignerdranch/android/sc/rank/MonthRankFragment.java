@@ -237,8 +237,11 @@ public class MonthRankFragment extends Fragment {
                 String context = editText.getText().toString();
                 Pattern p = Pattern.compile("[0-9]*");
                 Matcher m = p.matcher(context);
+
                 if(context != null && !context.equals("") && m.matches() && context.length() < 5){
-                    num[0] = Integer.parseInt(context) * 2 + 50;
+                    if(Integer.parseInt(context) == 0) num[0] = 0;
+                    else {
+                    num[0] =( Integer.parseInt(context) - 1) * 2 + 50;}
                     textView.setText(String.valueOf(num[0]));
                 }
                 p = Pattern.compile("[a-zA-Z]");

@@ -1,13 +1,13 @@
 package com.bignerdranch.android.sc.label;
 
 import com.bignerdranch.android.sc.Message;
+import com.bignerdranch.android.sc.Data;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Header;
@@ -23,4 +23,9 @@ public interface PunchAPI {
     @GET("/api/v1/punch/")
     Call<List<LabelPunch>> getPunch(@Header("token")String token);
 
+    @POST("/api/v1/punch/")
+    Call<Message> punch(@Header("token") String token,@Body Punch mPUnch);
+
+    @GET("/api/v1/punch/todayall")
+    Call<Data> ifpunchcomplete(@Header("token") String token);
 }

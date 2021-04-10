@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.bignerdranch.android.sc.Data;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -34,6 +35,7 @@ import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
+import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
@@ -81,6 +83,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private TextView ticker;
     private ImageButton settings;
     private ImageButton users;
+    private ImageButton done;
 
     private ArrayList<Fragment> fragments;
     private NoScrollViewPager mViewPager;
@@ -96,6 +99,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
     private ConstraintLayout mLayout;
     private User mUser;
+    private Data mData;
 
     public ClockActivity() {
         Date date = new Date();
@@ -215,6 +219,9 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
             }
         });
 
+        //done = findViewById(R.id.unflower);
+        //done.setBackgroundResource(R.mipmap.done);
+        //ifpunchcomplete(done);
 
         initView();
 
@@ -523,6 +530,34 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void ifpunchcomplete(ImageButton button){
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        PunchAPI client3 = retrofit.create(PunchAPI.class);
+        Call<Data> call = client3.ifpunchcomplete(token);
+
+        call.enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(Call<Data> call, Response<Data> response) {
+
+                mData = response.body();
+                mData.getData();
+                if (mData.getData() > 0 ){
+                    mMonFlowerFragment.FlowerFragment(button);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Data> call, Throwable t) {
 
             }
         });
