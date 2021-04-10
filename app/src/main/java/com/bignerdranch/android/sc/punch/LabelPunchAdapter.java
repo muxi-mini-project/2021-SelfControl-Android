@@ -184,7 +184,16 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
                 mData = response.body();
                 mData.getData();
                 if (mData.getData() >= 0 ){
-                    Toast.makeText(context,"您已经获得"+mData.getData()+"金币",Toast.LENGTH_SHORT).show();
+                    int punchnumber = mData.getData();
+                    int money = 0;
+                    if (punchnumber <= 5){
+                        money = punchnumber*10;
+                    }else {
+                        money = 50+(punchnumber-5)*2;
+                    }
+
+                    Toast.makeText(context,"您已经获得"+ money +"金币",Toast.LENGTH_SHORT).show();
+
                 }
 
             }

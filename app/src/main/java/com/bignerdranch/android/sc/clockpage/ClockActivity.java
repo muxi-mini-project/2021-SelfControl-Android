@@ -101,6 +101,8 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     private User mUser;
     private Data mData;
 
+    private int date;
+
     public ClockActivity() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
@@ -286,13 +288,13 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mViewPager.setAdapter(mFragmentPagerAdapter);
 
 
-        mSunFlowerFragment.FlowerFragment("星期日");
-        mMonFlowerFragment.FlowerFragment("星期一");
-        mTueFlowerFragment.FlowerFragment("星期二");
-        mWesFlowerFragment.FlowerFragment("星期三");
-        mThuFlowerFragment.FlowerFragment("星期四");
-        mFriFlowerFragment.FlowerFragment("星期五");
-        mSatFlowerFragment.FlowerFragment("星期六");
+        mSunFlowerFragment.FlowerFragment("星期日",date);
+        mMonFlowerFragment.FlowerFragment("星期一",date);
+        mTueFlowerFragment.FlowerFragment("星期二",date);
+        mWesFlowerFragment.FlowerFragment("星期三",date);
+        mThuFlowerFragment.FlowerFragment("星期四",date);
+        mFriFlowerFragment.FlowerFragment("星期五",date);
+        mSatFlowerFragment.FlowerFragment("星期六",date);
 
         /*View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
         LinearLayout ll = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.ll_data);
@@ -535,31 +537,31 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         });
     }
 
-    private void ifpunchcomplete(ImageButton button){
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-        PunchAPI client3 = retrofit.create(PunchAPI.class);
-        Call<Data> call = client3.ifpunchcomplete(token);
-
-        call.enqueue(new Callback<Data>() {
-            @Override
-            public void onResponse(Call<Data> call, Response<Data> response) {
-
-                mData = response.body();
-                mData.getData();
-                if (mData.getData() > 0 ){
-                    mMonFlowerFragment.FlowerFragment(button);
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Data> call, Throwable t) {
-
-            }
-        });
-    }
+//    private void ifpunchcomplete(ImageButton button){
+//        Retrofit.Builder builder = new Retrofit.Builder()
+//                .baseUrl("http://39.102.42.156:2333/")
+//                .addConverterFactory(GsonConverterFactory.create());
+//
+//        Retrofit retrofit = builder.build();
+//        PunchAPI client3 = retrofit.create(PunchAPI.class);
+//        Call<Data> call = client3.ifpunchcomplete(token);
+//
+//        call.enqueue(new Callback<Data>() {
+//            @Override
+//            public void onResponse(Call<Data> call, Response<Data> response) {
+//
+//                mData = response.body();
+//                mData.getData();
+//                if (mData.getData() > 0 ){
+//                    mMonFlowerFragment.FlowerFragment(button);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Data> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

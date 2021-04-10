@@ -28,9 +28,5 @@ public class SeeUserLabelActivity extends StatusBar {
         userName = findViewById(R.id.user_name);
         userName.setText(name);
 
-
-
-
-
     }
 }

@@ -12,6 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface PunchAPI {
     @POST("/api/v1/punch/create")
@@ -28,4 +29,7 @@ public interface PunchAPI {
 
     @GET("/api/v1/punch/todayall")
     Call<Data> ifpunchcomplete(@Header("token") String token);
+
+    @GET("/punch/day/{day}")
+    Call<List<LabelPunch>> getDayPunch(@Header("token") String token, @Path("day") int day);
 }
