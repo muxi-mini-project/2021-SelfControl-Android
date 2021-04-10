@@ -62,8 +62,6 @@
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/w_first_n"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/w_first_n" />
 
         <TextView
@@ -75,6 +73,7 @@
 
             android:text="用户昵称"
             android:textColor="#000000"
+
             app:layout_constraintStart_toEndOf="@+id/wuser1"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,7 +121,7 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/w_second_o"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toEndOf="@+id/wuser2"
             app:layout_constraintTop_toTopOf="@+id/wuser2"
             app:layout_constraintVertical_bias="0.652" />
@@ -135,8 +134,6 @@
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/w_second_n"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/w_second_n" />
 
         <ImageButton
@@ -196,7 +193,7 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/w_third_o"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toEndOf="@+id/wuser3"
             app:layout_constraintTop_toTopOf="@+id/wuser3"
             app:layout_constraintVertical_bias="0.652" />
@@ -209,8 +206,6 @@
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/w_third_n"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/w_third_n" />
 
         <ImageButton
@@ -258,7 +253,7 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/w_fourth_o"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toEndOf="@+id/wuser4"
             app:layout_constraintTop_toTopOf="@+id/wuser4"
             app:layout_constraintVertical_bias="0.652" />
@@ -271,8 +266,6 @@
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/w_fourth_n"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/w_fourth_n" />
 
         <ImageButton
@@ -332,7 +325,7 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/w_fifth_o"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toEndOf="@+id/wuser5"
             app:layout_constraintTop_toTopOf="@+id/wuser5"
             app:layout_constraintVertical_bias="0.652" />
@@ -345,8 +338,6 @@
             android:text="打卡次数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/w_fifth_n"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/w_fifth_n" />
 
         <ImageButton

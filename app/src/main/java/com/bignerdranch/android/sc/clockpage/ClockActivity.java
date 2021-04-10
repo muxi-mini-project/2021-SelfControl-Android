@@ -289,13 +289,13 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mViewPager.setAdapter(mFragmentPagerAdapter);
 
 
-        mSunFlowerFragment.FlowerFragment("星期日",date);
-        mMonFlowerFragment.FlowerFragment("星期一",date);
-        mTueFlowerFragment.FlowerFragment("星期二",date);
-        mWesFlowerFragment.FlowerFragment("星期三",date);
-        mThuFlowerFragment.FlowerFragment("星期四",date);
-        mFriFlowerFragment.FlowerFragment("星期五",date);
-        mSatFlowerFragment.FlowerFragment("星期六",date);
+        mSunFlowerFragment.FlowerFragment("星期日");
+        mMonFlowerFragment.FlowerFragment("星期一");
+        mTueFlowerFragment.FlowerFragment("星期二");
+        mWesFlowerFragment.FlowerFragment("星期三");
+        mThuFlowerFragment.FlowerFragment("星期四");
+        mFriFlowerFragment.FlowerFragment("星期五");
+        mSatFlowerFragment.FlowerFragment("星期六");
 
         /*View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
         LinearLayout ll = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.ll_data);
@@ -361,13 +361,23 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
                 dateAdapter.notifyDataSetChanged();
                 tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
 
-                //int month =
+                int month = dateAdapter.getCurrentMonth(selectPostion);
+                int day = position;
+                int date = getEachDayOfYear(false, month, day);
 
                 int today = dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion), dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
                 mViewPager.setCurrentItem(today);
 
                 Bundle bundle = new Bundle();
-                bundle.putInt("date",date);
+                bundle.putInt("date", date);
+
+                mSatFlowerFragment.setArguments(bundle);
+                mMonFlowerFragment.setArguments(bundle);
+                mTueFlowerFragment.setArguments(bundle);
+                mWesFlowerFragment.setArguments(bundle);
+                mThuFlowerFragment.setArguments(bundle);
+                mFriFlowerFragment.setArguments(bundle);
+                mSunFlowerFragment.setArguments(bundle);
             }
         });
         gridView.setLayoutParams(params);
@@ -542,7 +552,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         });
     }
 
-//    private void ifpunchcomplete(ImageButton button){
+    //    private void ifpunchcomplete(ImageButton button){
 //        Retrofit.Builder builder = new Retrofit.Builder()
 //                .baseUrl("http://39.102.42.156:2333/")
 //                .addConverterFactory(GsonConverterFactory.create());
@@ -569,4 +579,16 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 //            }
 //        });
 //    }
+    public int getEachDayOfYear(boolean isLeapyear, int month, int day) {
+        int eachDayOfYear = 0;
+        int[] mon = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if (isLeapyear) {
+            mon[1] = 29;
+        }
+        for (int i = 0; i < month; i++) {
+            eachDayOfYear += mon[i];
+        }
+        eachDayOfYear = eachDayOfYear + day;
+        return eachDayOfYear;
+    }
 }
