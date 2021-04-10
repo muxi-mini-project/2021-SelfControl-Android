@@ -53,37 +53,37 @@ public class UserLabelActivity extends StatusBar {
         userName.setText(name);
 
         mRecyclerView = findViewById(R.id.user_rv);
-        initList(id);
+        //initList(id);
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    private  void initList(String id){
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-
-        PunchAPI client = retrofit.create(PunchAPI.class);
-        Call<List<LabelPunch>> call = client.getUserLabel(id);
-
-        call.enqueue(new Callback<List<LabelPunch>>() {
-            @Override
-            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
-                mLabelPunchList = response.body();
-                if(response.body() != null) {
-                    UpUI();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
-
-            }
-        });
-    }
+//    private  void initList(String id){
+//        Retrofit.Builder builder = new Retrofit.Builder()
+//                .baseUrl("http://39.102.42.156:2333/api/v1/")
+//                .addConverterFactory(GsonConverterFactory.create());
+//
+//        Retrofit retrofit = builder.build();
+//
+//        PunchAPI client = retrofit.create(PunchAPI.class);
+//        Call<List<LabelPunch>> call = client.getUserLabel(id);
+//
+//        call.enqueue(new Callback<List<LabelPunch>>() {
+//            @Override
+//            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+//                mLabelPunchList = response.body();
+//                if(response.body() != null) {
+//                    UpUI();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
     private void UpUI(){
         adapter = new LabelPunchAdapter(mLabelPunchList);

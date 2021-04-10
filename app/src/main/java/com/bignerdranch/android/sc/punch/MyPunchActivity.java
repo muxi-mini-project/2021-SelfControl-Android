@@ -72,13 +72,7 @@ public class MyPunchActivity extends StatusBar {
         if(date == currentDay)
 
         mrank = findViewById(R.id.rank_ImageButton);
-        mrank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MyPunchActivity.this, RankBackgroundActivity.class);
-                startActivity(intent);
-            }
-        });
+
         mBack = findViewById(R.id.back);
         madd = findViewById(R.id.add);
 

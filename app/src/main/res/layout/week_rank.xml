@@ -74,7 +74,7 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toTopOf="@+id/w_first_o"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.08"
 
             app:layout_constraintStart_toEndOf="@+id/wuser1"
             app:layout_constraintTop_toTopOf="@+id/wuser1"
