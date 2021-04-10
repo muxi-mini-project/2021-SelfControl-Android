@@ -78,7 +78,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/back"
+        android:id="@+id/background_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="#00000000"
