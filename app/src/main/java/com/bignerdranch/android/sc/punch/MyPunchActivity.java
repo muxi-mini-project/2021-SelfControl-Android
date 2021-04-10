@@ -27,6 +27,7 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,8 +50,12 @@ public class MyPunchActivity extends StatusBar {
     private Data mData;
 
     private ConstraintLayout mLayout;
-
+    private int date;
     private String mtitle;
+    private Calendar mCalendar = Calendar.getInstance();
+
+    private int currentMonth = mCalendar.get(Calendar.MONTH);
+    private int currentDay = mCalendar.get(Calendar.DAY_OF_MONTH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +67,12 @@ public class MyPunchActivity extends StatusBar {
         request();
         getMyPunch();
 
+        Intent intent = getIntent();
+        date = intent.getIntExtra("data",0);
+        if(date == currentDay)
 
         mrank = findViewById(R.id.rank_ImageButton);
-        mrank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MyPunchActivity.this, RankBackgroundActivity.class);
-                startActivity(intent);
-            }
-        });
+
         mBack = findViewById(R.id.back);
         madd = findViewById(R.id.add);
 

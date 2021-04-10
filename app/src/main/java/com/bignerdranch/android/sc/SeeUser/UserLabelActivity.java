@@ -54,11 +54,12 @@ public class UserLabelActivity extends StatusBar {
         userName.setText(name);
 
         mRecyclerView = findViewById(R.id.user_rv);
-        initList(id);
+        //initList(id);
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
+
 
     private  void initList(String id){
         Retrofit.Builder builder = new Retrofit.Builder()
