@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.SeeUser.UserLabelActivity;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
 
@@ -146,7 +148,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getStudent_id());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -162,7 +164,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getStudent_id());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -170,7 +172,7 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getStudent_id());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(0).getName());
                             }
                         });
                     }
@@ -188,7 +190,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getStudent_id());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -196,14 +198,14 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getStudent_id());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getStudent_id());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
                     }
@@ -224,7 +226,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getStudent_id());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -232,21 +234,21 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getStudent_id());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getStudent_id());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
                         user4 = view.findViewById(R.id.user4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getStudent_id());
+                                askPrivateRequest(mList.get(3).getStudent_id(),mList.get(3).getName());
                             }
                         });
                     }
@@ -270,7 +272,7 @@ public class MonthRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getStudent_id());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -278,28 +280,28 @@ public class MonthRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getStudent_id());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.user3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getStudent_id());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
                         user4 = view.findViewById(R.id.user4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getStudent_id());
+                                askPrivateRequest(mList.get(3).getStudent_id(),mList.get(3).getName());
                             }
                         });
                         user5 = view.findViewById(R.id.user5);
                         user5.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(4).getStudent_id());
+                                askPrivateRequest(mList.get(4).getStudent_id(),mList.get(4).getName());
                             }
                         });
                     }
@@ -457,7 +459,7 @@ public class MonthRankFragment extends Fragment {
 
 
     }
-    private void askPrivateRequest(String id){
+    private void askPrivateRequest(String id,String name){
         Retrofit.Builder builder1 = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
@@ -471,10 +473,13 @@ public class MonthRankFragment extends Fragment {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
                 if(mUser != null){
-                    if(mUser.getPrivacy() == 1){
+                    if(mUser.getPrivacy() == 2){
                         showPrivateDialog();
-                    }else if(mUser.getPrivacy() == 2){
-//
+                    }else if(mUser.getPrivacy() == 1){
+                        Intent intent = new Intent(getActivity(), UserLabelActivity.class);
+                        intent.putExtra("data",id);
+                        intent.putExtra("data1",name);
+                        startActivity(intent);
                     }
                 }
             }

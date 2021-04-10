@@ -67,26 +67,23 @@
             android:id="@+id/m_second_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
             android:layout_marginBottom="20dp"
             android:text="打卡天数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/m_second_n"
-            app:layout_constraintStart_toEndOf="@+id/user2" />
+            app:layout_constraintStart_toStartOf="@+id/m_second_n" />
 
         <TextView
             android:id="@+id/m_second_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/m_second_o"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toEndOf="@+id/user2"
-            app:layout_constraintTop_toTopOf="@+id/user2"
-            app:layout_constraintVertical_bias="0.652" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -364,26 +361,23 @@
             android:id="@+id/m_first_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
             android:layout_marginBottom="20dp"
             android:text="打卡天数:"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/m_first_n"
-            app:layout_constraintStart_toEndOf="@+id/user1" />
+            app:layout_constraintStart_toStartOf="@+id/m_first_n" />
 
         <TextView
             android:id="@+id/m_first_n"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:text="用户昵称"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/m_first_o"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toEndOf="@+id/user1"
-            app:layout_constraintTop_toTopOf="@+id/user1"
-            app:layout_constraintVertical_bias="0.652" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

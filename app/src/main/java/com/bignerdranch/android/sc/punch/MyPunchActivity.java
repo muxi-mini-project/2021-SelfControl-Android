@@ -40,7 +40,7 @@ import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class MyPunchActivity extends StatusBar {
     private ImageButton mrank;
-    private ImageButton mBack;
+    private ImageButton mback;
     private ImageButton madd;
 
     private RecyclerView mRecyclerView;
@@ -71,18 +71,15 @@ public class MyPunchActivity extends StatusBar {
         date = intent.getIntExtra("data",0);
         if(date == currentDay)
 
+        mback = findViewById(R.id.back);
+//        mback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+
         mrank = findViewById(R.id.rank_ImageButton);
-
-        mBack = findViewById(R.id.back);
-        madd = findViewById(R.id.add);
-
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         mrank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +91,7 @@ public class MyPunchActivity extends StatusBar {
             }
         });
 
+        madd = findViewById(R.id.add);
         madd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

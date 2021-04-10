@@ -67,7 +67,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(2), token);
+                Call<User> call = client.getCall(new User(1), token);
 
                 call.enqueue(new Callback<User>() {
 
@@ -95,7 +95,7 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(1), token);
+                Call<User> call = client.getCall(new User(2), token);
 
                 call.enqueue(new Callback<User>() {
 
