@@ -195,4 +195,11 @@ public class SettingPageActivity extends StatusBar {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setContentView(R.layout.setting);
+        init();
+    }
 }

@@ -153,7 +153,7 @@ public class WeekRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
                     }
@@ -165,25 +165,18 @@ public class WeekRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
                         n2.setText(mList.get(1).getName());
                         o2.setText("打卡次数：" + mList.get(1).getNumber());
-                        user1 = view.findViewById(R.id.wuser1);
-                        user1.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
-                            }
-                        });
 
                         user2 = view.findViewById(R.id.wuser2);
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId(),mList.get(1).getName());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                     }
@@ -200,7 +193,7 @@ public class WeekRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -208,14 +201,14 @@ public class WeekRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId(),mList.get(1).getName());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.wuser3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId(),mList.get(2).getName());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
 
@@ -236,7 +229,7 @@ public class WeekRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -244,21 +237,21 @@ public class WeekRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId(),mList.get(1).getName());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.wuser3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId(),mList.get(2).getName());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
                         user4 = view.findViewById(R.id.wuser4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getId(),mList.get(3).getName());
+                                askPrivateRequest(mList.get(3).getStudent_id(),mList.get(3).getName());
                             }
                         });
                     }
@@ -282,7 +275,7 @@ public class WeekRankFragment extends Fragment {
                         user1.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(0).getId(),mList.get(0).getName());
+                                askPrivateRequest(mList.get(0).getStudent_id(),mList.get(0).getName());
                             }
                         });
 
@@ -290,28 +283,28 @@ public class WeekRankFragment extends Fragment {
                         user2.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(1).getId(),mList.get(1).getName());
+                                askPrivateRequest(mList.get(1).getStudent_id(),mList.get(1).getName());
                             }
                         });
                         user3 = view.findViewById(R.id.wuser3);
                         user3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(2).getId(),mList.get(2).getName());
+                                askPrivateRequest(mList.get(2).getStudent_id(),mList.get(2).getName());
                             }
                         });
                         user4 = view.findViewById(R.id.wuser4);
                         user4.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(3).getId(),mList.get(3).getName());
+                                askPrivateRequest(mList.get(3).getStudent_id(),mList.get(3).getName());
                             }
                         });
                         user5 = view.findViewById(R.id.wuser5);
                         user5.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                askPrivateRequest(mList.get(4).getId(),mList.get(4).getName());
+                                askPrivateRequest(mList.get(4).getStudent_id(),mList.get(4).getName());
                             }
                         });
 
@@ -402,7 +395,15 @@ public class WeekRankFragment extends Fragment {
     private void showPrivateDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();
-        builder.setView(View.inflate(getActivity(), R.layout.dialog_private, null));
+        View v = View.inflate(getContext(), R.layout.dialog_private, null);
+        Button know = v.findViewById(R.id.know);
+        know.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setView(v);
         dialog.show();
     }
 
@@ -467,7 +468,7 @@ public class WeekRankFragment extends Fragment {
     }
 
     public interface AskPrivateAPI{
-        @GET("user/privacy/{id}")
+        @GET("api/v1/user/privacy/{id}")
         Call<User> askPrivacy(@Path("id") String id);
     }
     private void askPrivateRequest(String id,String name){

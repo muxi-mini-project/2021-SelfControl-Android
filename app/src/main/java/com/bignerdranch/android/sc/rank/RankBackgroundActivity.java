@@ -183,20 +183,33 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
     public class Rank{
         private int number;
         private String name;
-        private String id;
-        public Rank(int number,String id,String name){
+        private String student_id;
+        public Rank(int number,String student_ids,String name){
             this.number = number;
-            this.id = id;
+            this.student_id = student_ids;
             this.name = name;
         }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setStudent_id(String student_id) {
+            this.student_id = student_id;
+        }
+
         public String getName(){
             return name;
         }
         public int getNumber(){
             return number;
         }
-        public String getId(){
-            return id;
+        public String getStudent_id(){
+            return student_id;
         }
 
     }
