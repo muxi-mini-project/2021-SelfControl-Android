@@ -68,6 +68,7 @@ public class MyPunchActivity extends StatusBar {
         mLayout = findViewById(R.id.clockin_pager);
         mRecyclerView = findViewById(R.id.recycler_view);
         request();
+        getMyPunch();
 
         Intent intent = getIntent();
         date = intent.getIntExtra("data", 0);
