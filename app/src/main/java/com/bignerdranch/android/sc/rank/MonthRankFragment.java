@@ -115,7 +115,7 @@ public class MonthRankFragment extends Fragment {
         mExchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              onCreateDialog();
+                onCreateDialog();
             }
         });
 
@@ -374,6 +374,7 @@ public class MonthRankFragment extends Fragment {
         Yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 request((num[0] - 50) /2);
             }
         });
