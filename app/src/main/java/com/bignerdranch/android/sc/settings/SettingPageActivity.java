@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
 
 import retrofit2.Call;
@@ -20,8 +20,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
-import com.bignerdranch.android.sc.Utils;
 
 public class SettingPageActivity extends StatusBar {
 
@@ -42,14 +40,14 @@ public class SettingPageActivity extends StatusBar {
         mLayout = findViewById(R.id.setting_layout);
         request();
 
-        mBack = (ImageButton)findViewById(R.id.setting_back);
+        mBack = findViewById(R.id.setting_back);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        mBackground = (ImageButton)findViewById(R.id.setting_background);
+        mBackground = findViewById(R.id.setting_background);
         mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +71,7 @@ public class SettingPageActivity extends StatusBar {
 
             }
         });
-        mCoin = (ImageButton)findViewById(R.id.setting_coin);
+        mCoin = findViewById(R.id.setting_coin);
         mCoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +96,7 @@ public class SettingPageActivity extends StatusBar {
             }
         });
 
-        mCourse = (ImageButton)findViewById(R.id.setting_course);
+        mCourse = findViewById(R.id.setting_course);
         mCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +123,7 @@ public class SettingPageActivity extends StatusBar {
         });
 
 
-        mPrivate = (ImageButton)findViewById(R.id.setting_private);
+        mPrivate = findViewById(R.id.setting_private);
         mPrivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
