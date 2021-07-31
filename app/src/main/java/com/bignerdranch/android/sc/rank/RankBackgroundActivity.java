@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -19,14 +18,10 @@ import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.label.HealthFragment;
-import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
-import com.bignerdranch.android.sc.label.SportFragment;
-import com.bignerdranch.android.sc.label.StudyFragment;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.View.UserActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +32,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Path;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 

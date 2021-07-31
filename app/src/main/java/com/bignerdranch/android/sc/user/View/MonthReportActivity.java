@@ -1,11 +1,8 @@
-package com.bignerdranch.android.sc.user.MonthReport;
+package com.bignerdranch.android.sc.user.View;
 
 
 import android.graphics.Color;
-import android.graphics.Point;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -21,15 +18,17 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.Bean.Report;
+import com.bignerdranch.android.sc.user.Bean.Week;
+import com.bignerdranch.android.sc.user.Presenter.ReportAdapter;
+import com.bignerdranch.android.sc.user.model.GetWeekAPI;
+import com.bignerdranch.android.sc.user.model.UserAPI_send;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -98,7 +97,7 @@ public class MonthReportActivity extends StatusBar {
 
         Retrofit retrofit = builder.build();
 
-        MonthReportAPI client = retrofit.create(MonthReportAPI.class);
+        UserAPI_send client = retrofit.create(UserAPI_send.class);
         Call<List<Report>> call = client.getMonthReport(token);
 
         call.enqueue(new Callback<List<Report>>() {
@@ -118,10 +117,7 @@ public class MonthReportActivity extends StatusBar {
         });
     }
   
-    public interface MonthReportAPI {
-        @GET("punch/month")
-        Call<List<Report>> getMonthReport(@Header("token") String token);
-    }
+
 
     private void UpUI(){
         adapter = new ReportAdapter(reportList);

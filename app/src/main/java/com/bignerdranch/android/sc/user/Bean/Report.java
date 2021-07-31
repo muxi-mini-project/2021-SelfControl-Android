@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.MonthReport;
+package com.bignerdranch.android.sc.user.Bean;
 
 public class Report {
 

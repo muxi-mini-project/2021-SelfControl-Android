@@ -1,4 +1,6 @@
-package com.bignerdranch.android.sc.user.MonthReport;
+package com.bignerdranch.android.sc.user.model;
+
+import com.bignerdranch.android.sc.user.Bean.Week;
 
 import java.util.List;
 

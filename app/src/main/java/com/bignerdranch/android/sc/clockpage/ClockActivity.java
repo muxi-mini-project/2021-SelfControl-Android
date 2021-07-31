@@ -35,10 +35,9 @@ import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
-import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.View.UserActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

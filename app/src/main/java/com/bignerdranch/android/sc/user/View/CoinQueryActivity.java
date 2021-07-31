@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user;
+package com.bignerdranch.android.sc.user.View;
 
 
 import android.os.Bundle;
@@ -13,10 +13,11 @@ import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.model.UserClient;
+import com.bignerdranch.android.sc.user.model.GoldHistoryAPI;
 
-import java.util.ArrayList;
 import java.util.List;
-import okhttp3.OkHttpClient;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

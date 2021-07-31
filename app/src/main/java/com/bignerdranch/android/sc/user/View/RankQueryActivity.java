@@ -1,19 +1,18 @@
-package com.bignerdranch.android.sc.user;
+package com.bignerdranch.android.sc.user.View;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.model.UserClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
