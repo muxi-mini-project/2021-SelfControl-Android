@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.user.model;
 
 import com.bignerdranch.android.sc.login.User;
 

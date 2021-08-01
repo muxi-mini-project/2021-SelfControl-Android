@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -21,6 +21,7 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.Bean.Report;
 import com.bignerdranch.android.sc.user.Bean.Week;
 import com.bignerdranch.android.sc.user.Presenter.ReportAdapter;
+import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
 import com.bignerdranch.android.sc.user.model.GetWeekAPI;
 import com.bignerdranch.android.sc.user.model.UserAPI_send;
 import com.github.mikephil.charting.charts.LineChart;
@@ -41,23 +42,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class MonthReportActivity extends StatusBar {
+public class MonthReportActivity extends StatusBar implements UserViewHandler{
     private ImageButton mBack;
     private TextView mMonth_number;
     private LineChart lineChart;
-
     private RecyclerView recyclerView;
     private ReportAdapter adapter;
     private List<Report> reportList = new ArrayList<>();
     private List<Week> weekList = new ArrayList<>();
-
     private ConstraintLayout mLayout;
     private User mUser;
+
+    /*此后为qyh进行修改而添加的变量*/
+    private UserPresenter userPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,7 +164,13 @@ public class MonthReportActivity extends StatusBar {
         rightYAxis.setEnabled(false);
 
         //初始化显示数据
-        GetWeekData();
+        //GetWeekData();qyh开始修改
+        userPresenter = new UserPresenter(this);
+        Calendar calendar = Calendar.getInstance();
+        userPresenter.GetMessageWeek(token,calendar.get(Calendar.MONTH));
+
+        //qyh这一块修改结束
+
 
         List<Entry> list = new ArrayList<>();
         list.add(new Entry(1,8));
@@ -306,5 +312,12 @@ public class MonthReportActivity extends StatusBar {
 
             }
         });
+    }
+
+
+
+    @Override
+    public void showTheWeekPicture(List<Week> list) {
+        weekList = list;
     }
 }

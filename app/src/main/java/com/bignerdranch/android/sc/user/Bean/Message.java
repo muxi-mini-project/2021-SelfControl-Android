@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc;
+package com.bignerdranch.android.sc.user.Bean;
 
 public class Message {
     private String message;

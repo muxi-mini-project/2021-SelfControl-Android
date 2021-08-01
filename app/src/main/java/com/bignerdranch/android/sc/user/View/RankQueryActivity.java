@@ -8,10 +8,11 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.model.UserAPI_send;
 import com.bignerdranch.android.sc.user.model.UserClient;
 
 import retrofit2.Call;
@@ -19,8 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -47,7 +46,6 @@ public class RankQueryActivity extends StatusBar {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });
@@ -83,7 +81,7 @@ public class RankQueryActivity extends StatusBar {
 
         Retrofit retrofit1 = builder.build();
 
-        myRankAPI client1 = retrofit.create(myRankAPI.class);
+        UserAPI_send client1 = retrofit.create(UserAPI_send.class);
         Call<Rank> call1 = client1.getMyRank(token);
 
         call1.enqueue(new Callback<Rank>() {
@@ -179,10 +177,7 @@ public class RankQueryActivity extends StatusBar {
 
     }
 
-    public interface myRankAPI {
-        @GET("list/history")
-        Call<Rank> getMyRank(@Header("token") String token);
-    }
+
     private void request() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")
