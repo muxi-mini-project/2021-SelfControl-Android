@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.user.Bean.Rank;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -116,6 +117,7 @@ public class RankQueryActivity extends StatusBar {
 
     }
 
+    /*
     public class Rank {
         private int month_after;
 
@@ -177,6 +179,8 @@ public class RankQueryActivity extends StatusBar {
 
     }
 
+
+     */
 
     private void request() {
         Retrofit.Builder builder1 = new Retrofit.Builder()

@@ -1,6 +1,8 @@
 package com.bignerdranch.android.sc.user.model;
 
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.Bean.GoldHistory;
+import com.bignerdranch.android.sc.user.Bean.Rank;
 import com.bignerdranch.android.sc.user.Bean.Report;
 import com.bignerdranch.android.sc.user.Bean.Week;
 import com.bignerdranch.android.sc.user.View.CoinQueryActivity;
@@ -27,7 +29,7 @@ public interface UserAPI_send {
 
     //
     @GET("user/goldhistory")
-    Observable<List<CoinQueryActivity.GoldHistory>> getGoldHistory(@Header("token") String token);
+    Observable<List<GoldHistory>> getGoldHistory(@Header("token") String token);
 
     //
     @GET("user/")
@@ -35,16 +37,20 @@ public interface UserAPI_send {
 
     //
     @GET("punch/month")
-    Call<List<Report>> getMonthReport(@Header("token") String token);
+    Observable<List<Report>> getMonthReport(@Header("token") String token);
 
     //
     @PUT("user/")
-    Call<User> changName(@Header("token") String token, @Body User mUser);
+    Observable<User> changName(@Header("token") String token, @Body User mUser);
 
 
     //
     @GET("list/history")
-    Call<RankQueryActivity.Rank> getMyRank(@Header("token") String token);
+    Observable<Rank> getMyRank(@Header("token") String token);
+
+    //
+    @GET("api/v1/user/")
+    Observable<User> getCurrentBackdrop(@Header("token")String token);
 
 
 }

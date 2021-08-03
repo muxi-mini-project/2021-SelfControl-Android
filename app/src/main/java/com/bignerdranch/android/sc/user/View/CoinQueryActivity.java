@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.user.Bean.GoldHistory;
+import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -33,6 +35,8 @@ public class CoinQueryActivity extends StatusBar {
     private User mUser1,mUser2;
     private List<GoldHistory> mList;
     private ConstraintLayout mLayout,mLayout1;
+    //qyh修改添加的变量
+    private UserPresenter userPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +70,8 @@ public class CoinQueryActivity extends StatusBar {
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
+
+        /*qyh开始修改
         Retrofit retrofit = builder.build();
 
         UserClient client = retrofit.create(UserClient.class);
@@ -96,9 +102,11 @@ public class CoinQueryActivity extends StatusBar {
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
+         */
+
         Retrofit retrofit1 = builder.build();
 
-        GoldHistoryAPI client1 = retrofit.create(GoldHistoryAPI.class);
+        GoldHistoryAPI client1 = retrofit1.create(GoldHistoryAPI.class);
         Call<List<GoldHistory>> call1 = client1.getGoldHistory(token);
 
         call1.enqueue(new Callback<List<GoldHistory>>() {
@@ -180,6 +188,7 @@ public class CoinQueryActivity extends StatusBar {
         });
     }
 
+    /*qyh将这个内部类移至Bean中的GoldHistory
     public class GoldHistory {
 
         private int change_number;
@@ -226,9 +235,9 @@ public class CoinQueryActivity extends StatusBar {
 
         public String getTime() {
             return time;
-        }
 
     }
+    */
     private void request() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
                 .baseUrl("http://39.102.42.156:2333/")

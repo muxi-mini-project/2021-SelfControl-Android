@@ -17,6 +17,8 @@ public class UserService_send implements UserListener_send {
     private Retrofit weekApi;
     private Retrofit goldHistoryApi;
     private Retrofit userClientApi;
+    private Retrofit rankApi;
+    private Retrofit backDropApi;
 
     @Override
     public void GetWeekNumber() {
@@ -48,6 +50,24 @@ public class UserService_send implements UserListener_send {
 
     }
 
+    @Override
+    public void GetRank() {
+        rankApi = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+    }
+
+    @Override
+    public void GetBackDrop() {
+        backDropApi = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+    }
+
     public UserAPI_send getWeekApi() {
         return weekApi.create(UserAPI_send.class);
     }
@@ -60,5 +80,11 @@ public class UserService_send implements UserListener_send {
         return userClientApi .create(UserAPI_send.class);
     }
 
+    public UserAPI_send getRankApi(){
+        return rankApi .create(UserAPI_send.class);
+    }
 
+    public UserAPI_send getBackDropApi(){
+        return backDropApi.create(UserAPI_send.class);
+    }
 }

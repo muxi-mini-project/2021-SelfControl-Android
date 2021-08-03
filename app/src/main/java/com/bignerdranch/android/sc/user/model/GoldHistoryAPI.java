@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user.model;
 
+import com.bignerdranch.android.sc.user.Bean.GoldHistory;
 import com.bignerdranch.android.sc.user.View.CoinQueryActivity;
 
 import java.util.List;
@@ -10,5 +11,5 @@ import retrofit2.http.Header;
 
 public interface GoldHistoryAPI{
     @GET("user/goldhistory")
-    Call<List<CoinQueryActivity.GoldHistory>> getGoldHistory(@Header("token") String token);
+    Call<List<GoldHistory>> getGoldHistory(@Header("token") String token);
 }
