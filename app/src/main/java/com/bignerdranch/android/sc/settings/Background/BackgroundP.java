@@ -19,13 +19,23 @@ public class BackgroundP implements BackgroundAPI.VP {
     }
 
     @Override
-    public void onRequest() {
-        mModel.changeBackground();
+    public void haveRequest(int click) {
+        mModel.changeBackground(click);
     }
 
     @Override
-    public void successChange() {
+    public void successChange(int num) {
+        mView.successChange(num);
+    }
 
+    @Override
+    public void buyDialog(int click) {
+        mView.buyDialog(click);
+    }
+
+    @Override
+    public void buyRequest(int click) {
+        mModel.buyRequest(click);
     }
 
     @Override

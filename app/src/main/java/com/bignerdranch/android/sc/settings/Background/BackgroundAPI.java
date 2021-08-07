@@ -1,26 +1,31 @@
 package com.bignerdranch.android.sc.settings.Background;
 
 
-import com.bignerdranch.android.sc.settings.Background.Items.myBackground1;
-
 import io.reactivex.Observable;
+import retrofit2.Response;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PUT;
 
 public interface BackgroundAPI {
     interface M{
-        void changeBackground();
+        void changeBackground(int click);
     }
     interface VP{
-        void onRequest();
-        void successChange();
+        void haveRequest(int click);
+        void successChange(int click);
+        void buyDialog(int click);
+        void buyRequest(int click);
         void noCoin();
         void error();
 
     }
-    @GET("/backdrops")
-    Observable<myBackground1> getMyBack(@Header("token") String token);
+    @GET("/backdrops/")
+    Observable<BackgroundItem.Background> getMyBack(@Header("token") String token);
 
-    @GET("/backdrop")
-    Observable<Items.Background1> getPrice(@Header("token") String token);
+    @PUT("/backdrop/")
+    Observable<Response<BackgroundItem.Buy>> buyBack(@Header("token") String token, @Body BackgroundItem.Buy mBuy);
+
+
 }
