@@ -55,7 +55,7 @@ public class PrivateActivity extends StatusBar {
                 finish();
             }
         });
-        mTrue = (Button) findViewById(R.id.ture_button);
+        mTrue = (Button) findViewById(R.id.true_button);
         mTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,16 +12,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.BackgroundActivity;
 
 public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
 
     private ImageButton mBack;
     private ImageView mTheme1, mTheme2, mTheme3, mTheme4, mTheme5, mTheme6;
     private ImageView mChoose1, mChoose2, mChoose3, mChoose4, mChoose5, mChoose6;
-    private Integer number;
     private BackgroundP mP = new BackgroundP();
-    private BackgroundActivity.myBackground mMyBackground;
     private User mUser;
 
     private ConstraintLayout mLayout;

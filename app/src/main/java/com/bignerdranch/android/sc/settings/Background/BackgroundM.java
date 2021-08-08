@@ -41,7 +41,6 @@ public class BackgroundM implements BackgroundAPI.M {
                     @Override
                     public void onNext(@NonNull BackgroundItem.Background background) {
                         have[i] = background.get(i++);
-
                     }
 
                     @Override
