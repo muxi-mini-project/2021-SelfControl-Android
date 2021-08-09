@@ -1,35 +1,37 @@
 package com.bignerdranch.android.sc.user.View;
 
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.user.Bean.GoldHistory;
 import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.Bean.Report;
+import com.bignerdranch.android.sc.user.Bean.Week;
+import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.model.UserAPI_send;
-import com.bignerdranch.android.sc.user.model.UserClient;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.List;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class RankQueryActivity extends StatusBar {
+public class RankQueryActivity extends StatusBar implements UserViewHandler{
     private ImageButton mBack;
     private TextView mName, mMonthFormer, mMonthAfter, mWeekFormer, mWeekAfter;
-    private User mUser1,mUser2;
-    private Rank mRank;
+    private ImageView imageView;
+    private User.DataDTO mUser;
+    private Rank.DataDTO mRank;
     private ConstraintLayout mLayout;
+    private UserPresenter userPresenter = new UserPresenter(RankQueryActivity.this);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,8 @@ public class RankQueryActivity extends StatusBar {
 
     private void init() {
         mLayout = findViewById(R.id.rank_query_layout);
-        request();
+        //request();
+        imageView = findViewById(R.id.touxiang);
 
         mBack = findViewById(R.id.rank_query_back);
         mBack.setOnClickListener(new View.OnClickListener() {
@@ -51,60 +54,23 @@ public class RankQueryActivity extends StatusBar {
             }
         });
         mName = findViewById(R.id.rank_query_name);
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-
-        UserClient client = retrofit.create(UserClient.class);
-        Call<User> call = client.mUser(token);
-
-        call.enqueue(new Callback<User>() {
-
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                mUser1 = response.body();
-                if (mUser1 != null)
-                    mName.setText(String.valueOf(mUser1.getName()));
-
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Log.d("Coin", "failure");
-            }
-        });
-
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder.build();
-
-        UserAPI_send client1 = retrofit.create(UserAPI_send.class);
-        Call<Rank> call1 = client1.getMyRank(token);
-
-        call1.enqueue(new Callback<Rank>() {
-
-            @Override
-            public void onResponse(Call<Rank> call, Response<Rank> response) {
-                mRank = response.body();
-                if (mRank != null) {
-                    mMonthFormer.setText(String.valueOf(mRank.getMonth_former()));
-                    mMonthAfter.setText(String.valueOf(mRank.getMonth_after()));
-                    mWeekFormer.setText(String.valueOf(mRank.getWeek_former()));
-                    mWeekAfter.setText(String.valueOf(mRank.getWeek_after()));
+        //导入本地图片
+        SharedPreferences sharedPreferences = this.getSharedPreferences("sharedPreferences",MODE_PRIVATE);
+        String string = sharedPreferences.getString("getFilePath",null);
+        if(string!=null){
+            Bitmap bitmap = BitmapFactory.decodeFile(string);
+            imageView.setImageBitmap(bitmap);
+        }
+        userPresenter.GetMessageRank(token);
+        userPresenter.GetMessageUser(token);
+        //userPresenter.GetMessageUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
+        //userPresenter.GetMessageRank("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
 
 
-                }
-            }
 
-            @Override
-            public void onFailure(Call<Rank> call, Throwable t) {
+        //代替上面的部分
+        userPresenter.GetMessageRank("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
 
-            }
-        });
         mMonthFormer = findViewById(R.id.ypm_start);
 
 
@@ -117,111 +83,61 @@ public class RankQueryActivity extends StatusBar {
 
     }
 
-    /*
-    public class Rank {
-        private int month_after;
 
-        private int month_former;
+    @Override
+    public void showTheWeekPicture(List<Week.DataDTO> list) {
 
-        private String student_id;
+    }
 
-        private int week_after;
+    @Override
+    public void showGoldHistory(List<GoldHistory.DataDTO> goldList) {
 
-        private int week_former;
+    }
 
-        private Rank(int month_after, int month_former, int week_after, int week_former) {
+    @Override
+    public void showChangedName() {
 
-            this.month_after = month_after;
-            this.month_former = month_former;
-            this.week_former = week_former;
-            this.week_after = week_after;
+    }
+
+    @Override
+    public void getUser(User.DataDTO u) {
+        this.mUser = u;
+        if(mUser!=null){
+            mName.setText(mUser.getName());
+            int background = mUser.getCurrent_backdrop();
+            if (background == 1){
+                mLayout.setBackgroundResource(R.color.purple);
+            } else if(background ==2){
+                mLayout.setBackgroundResource(R.color.theme2);
+            }else if(background ==3){
+                mLayout.setBackgroundResource(R.color.theme3);
+            }else if(background ==4){
+                mLayout.setBackgroundResource(R.mipmap.theme_31);
+            }else if(background ==5){
+                mLayout.setBackgroundResource(R.mipmap.theme_41);
+            }else if(background ==6){
+                mLayout.setBackgroundResource(R.mipmap.theme_51);
+            }
         }
+    }
 
-        public void setMonth_after(int month_after) {
-            this.month_after = month_after;
-        }
 
-        public int getMonth_after() {
-            return this.month_after;
+    @Override
+    public void showRank(Rank.DataDTO rank) {
+        this.mRank = rank;
+        if (mRank != null) {
+            mMonthFormer.setText(String.valueOf(mRank.getMonth_former()));
+            mMonthAfter.setText(String.valueOf(mRank.getMonth_after()));
+            mWeekFormer.setText(String.valueOf(mRank.getWeek_former()));
+            mWeekAfter.setText(String.valueOf(mRank.getWeek_after()));
         }
+    }
 
-        public void setMonth_former(int month_former) {
-            this.month_former = month_former;
-        }
-
-        public int getMonth_former() {
-            return this.month_former;
-        }
-
-        public void setStudent_id(String student_id) {
-            this.student_id = student_id;
-        }
-
-        public String getStudent_id() {
-            return this.student_id;
-        }
-
-        public void setWeek_after(int week_after) {
-            this.week_after = week_after;
-        }
-
-        public int getWeek_after() {
-            return this.week_after;
-        }
-
-        public void setWeek_former(int week_former) {
-            this.week_former = week_former;
-        }
-
-        public int getWeek_former() {
-            return this.week_former;
-        }
+    @Override
+    public void showMonthReport(List<Report.DataDTO> report) {
 
     }
 
 
-     */
-
-    private void request() {
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
-
-        call1.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                mUser2 = response.body();
-                if (mUser2 != null) {
-                    if (mUser2.getCurrent_backdrop() == 6) {
-                        mLayout.setBackgroundResource(R.color.purple);
-                    }
-                    if (mUser2.getCurrent_backdrop() == 1) {
-                        mLayout.setBackgroundResource(R.color.theme2);
-                    }
-                    if (mUser2.getCurrent_backdrop() == 2) {
-                        mLayout.setBackgroundResource(R.color.theme3);
-                    }
-                    if (mUser2.getCurrent_backdrop() == 3) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_31);
-                    }
-                    if (mUser2.getCurrent_backdrop() == 4) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_41);
-                    }
-                    if (mUser2.getCurrent_backdrop() == 5) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_51);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
-            }
-        });
-    }
 }
 

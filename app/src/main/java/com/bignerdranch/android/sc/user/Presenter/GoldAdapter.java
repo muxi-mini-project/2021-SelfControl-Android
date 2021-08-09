@@ -2,11 +2,9 @@ package com.bignerdranch.android.sc.user.Presenter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
@@ -17,9 +15,9 @@ import java.util.List;
 
 public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder_gold> {
     private Context context;
-    private List<GoldHistory> list = new ArrayList<>();
+    private List<GoldHistory.DataDTO> list = new ArrayList<>();
 
-    public GoldAdapter(Context context, List<GoldHistory> list) {
+    public GoldAdapter(Context context, List<GoldHistory.DataDTO> list) {
         this.context = context;
         this.list = list;
     }
@@ -32,7 +30,7 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder_gol
 
     @Override
     public void onBindViewHolder(ViewHolder_gold viewHolder, int position) {
-        GoldHistory goldHistory = list.get(position);
+        GoldHistory.DataDTO goldHistory = list.get(position);
         viewHolder.bind(goldHistory);
     }
 
@@ -56,9 +54,9 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder_gol
             textView3 = itemView.findViewById(R.id.gold_reason);
         }
 
-        public void bind(GoldHistory goldHistory) {
-            textView1.setText(goldHistory.getChange_number());
-            textView2.setText(goldHistory.getTime());
+        public void bind(GoldHistory.DataDTO goldHistory) {
+            textView2.setText(String.valueOf(goldHistory.getChange_number()));
+            textView1.setText(goldHistory.getTime());
             textView3.setText(goldHistory.getReason());
         }
     }

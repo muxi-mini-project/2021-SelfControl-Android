@@ -31,7 +31,7 @@ public class PrivateActivity extends StatusBar {
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
-    private User mUser;
+    private User.DataDTO mUser;
     private ConstraintLayout mLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,17 +67,17 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(1), token);
+                Call<User.DataDTO> call = client.getCall(new User.DataDTO(1), token);
 
-                call.enqueue(new Callback<User>() {
+                call.enqueue(new Callback<User.DataDTO>() {
 
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<User.DataDTO> call, Response<User.DataDTO> response) {
                         Toast.makeText(PrivateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<User.DataDTO> call, Throwable t) {
                         Toast.makeText(PrivateActivity.this, "出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -95,17 +95,17 @@ public class PrivateActivity extends StatusBar {
                 Retrofit retrofit = builder.build();
 
                 PrivateAPI client = retrofit.create(PrivateAPI.class);
-                Call<User> call = client.getCall(new User(2), token);
+                Call<User.DataDTO> call = client.getCall(new User.DataDTO(2), token);
 
-                call.enqueue(new Callback<User>() {
+                call.enqueue(new Callback<User.DataDTO>() {
 
                     @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
+                    public void onResponse(Call<User.DataDTO> call, Response<User.DataDTO> response) {
                         Toast.makeText(PrivateActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
-                    public void onFailure(Call<User> call, Throwable t) {
+                    public void onFailure(Call<User.DataDTO> call, Throwable t) {
                         Toast.makeText(PrivateActivity.this, "出错啦！请稍后再试", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -117,7 +117,7 @@ public class PrivateActivity extends StatusBar {
     public interface PrivateAPI {
 
         @PUT("user/")
-        Call<User> getCall(@Body User mUser, @Header("token") String token);
+        Call<User.DataDTO> getCall(@Body User.DataDTO mUser, @Header("token") String token);
 
     }
     private void request() {
@@ -135,7 +135,7 @@ public class PrivateActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);

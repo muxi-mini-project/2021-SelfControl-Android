@@ -22,7 +22,7 @@ import static com.bignerdranch.android.sc.login.LoginActivity.token;
 public class CoinFunctionActivity extends StatusBar {
 
     private ImageButton mBack;
-    private User mUser;
+    private User.DataDTO mUser;
     private ConstraintLayout mLayout;
 
     @Override
@@ -57,7 +57,7 @@ public class CoinFunctionActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);

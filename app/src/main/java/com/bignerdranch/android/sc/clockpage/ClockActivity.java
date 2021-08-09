@@ -98,7 +98,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     FragmentPagerAdapter mFragmentPagerAdapter;
 
     private ConstraintLayout mLayout;
-    private User mUser;
+    private User.DataDTO mUser;
     private Data mData;
 
     private int date;
@@ -514,7 +514,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.background_default);

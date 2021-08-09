@@ -47,7 +47,7 @@ public class MyPunchActivity extends StatusBar {
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
     private List<LabelPunch> mList;
     private LabelPunchAdapter adapter;
-    private User mUser;
+    private User.DataDTO mUser;
     private Data mData;
 
     private ConstraintLayout mLayout;
@@ -186,7 +186,7 @@ public class MyPunchActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);

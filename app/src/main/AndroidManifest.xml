@@ -16,10 +16,9 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-
-
-    android:theme="@style/Theme.SC"
-        tools:targetApi="m">
+        android:theme="@style/Theme.SC"
+        android:networkSecurityConfig = "@xml/network"
+        tools:targetApi="n">
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +52,8 @@
     <uses-permission android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 </manifest>

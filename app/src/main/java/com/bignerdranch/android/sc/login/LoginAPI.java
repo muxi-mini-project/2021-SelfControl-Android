@@ -7,5 +7,5 @@ import retrofit2.http.POST;
 
 public interface  LoginAPI {
     @POST("user/")
-    Call<LoginResponse> getCall (@Body User user);
+    Call<LoginResponse> getCall (@Body User.DataDTO user);
 }

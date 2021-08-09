@@ -39,7 +39,7 @@ public class BackgroundActivity extends StatusBar {
     private Integer number;
 
     private myBackground mMyBackground;
-    private User mUser;
+    private User.DataDTO mUser;
 
     private ConstraintLayout mLayout;
 
@@ -331,7 +331,7 @@ public class BackgroundActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
 
                 if (mUser != null) {
                     for(int i = 0 ; i < 6 ; i++ ){
@@ -393,16 +393,16 @@ public class BackgroundActivity extends StatusBar {
 
         Retrofit retrofit1 = builder1.build();
         changeBackdropAPI client1 = retrofit1.create(changeBackdropAPI.class);
-        Call<User> call1 = client1.changeBackground(token,new User(id));
+        Call<User.DataDTO> call1 = client1.changeBackground(token,new User.DataDTO(id));
 
-        call1.enqueue(new Callback<User>() {
+        call1.enqueue(new Callback<User.DataDTO>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<User.DataDTO> call, Response<User.DataDTO> response) {
 
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<User.DataDTO> call, Throwable t) {
 
             }
         });
@@ -581,7 +581,7 @@ public class BackgroundActivity extends StatusBar {
     public interface changeBackdropAPI{
 
         @PUT("api/v1/user/")
-        Call<User> changeBackground(@Header("token") String token,@Body User mUser);
+        Call<User.DataDTO> changeBackground(@Header("token") String token,@Body User.DataDTO mUser);
     }
 
 }

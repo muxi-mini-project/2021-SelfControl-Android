@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.Bean.GoldHistory;
+import com.bignerdranch.android.sc.user.Bean.Rank;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -22,8 +24,6 @@ import com.bignerdranch.android.sc.user.Bean.Report;
 import com.bignerdranch.android.sc.user.Bean.Week;
 import com.bignerdranch.android.sc.user.Presenter.ReportAdapter;
 import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
-import com.bignerdranch.android.sc.user.model.GetWeekAPI;
-import com.bignerdranch.android.sc.user.model.UserAPI_send;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -35,14 +35,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class MonthReportActivity extends StatusBar implements UserViewHandler{
@@ -51,13 +43,14 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
     private LineChart lineChart;
     private RecyclerView recyclerView;
     private ReportAdapter adapter;
-    private List<Report> reportList = new ArrayList<>();
-    private List<Week> weekList = new ArrayList<>();
+    private List<Report.DataDTO> reportList = new ArrayList<>();
+    private List<Week.DataDTO> weekList = new ArrayList<>();
     private ConstraintLayout mLayout;
-    private User mUser;
+    private User.DataDTO mUser;
 
     /*此后为qyh进行修改而添加的变量*/
-    private UserPresenter userPresenter;
+    private UserPresenter userPresenter = new UserPresenter(MonthReportActivity.this);
+    List<Entry> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,45 +71,18 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH)) + "月");
 
         recyclerView = findViewById(R.id.month_recycler_view);
-        initList();
+        //initList();
+        userPresenter.GetMonthReport("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
 
         lineChart = findViewById(R.id.linechart);
         linechart();
 
         mLayout = findViewById(R.id.month_report_layout);
-        request();
+        userPresenter.GetMessageUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");//获取背景颜色
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    private void initList() {
-
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-
-        UserAPI_send client = retrofit.create(UserAPI_send.class);
-        Call<List<Report>> call = client.getMonthReport(token);
-
-        call.enqueue(new Callback<List<Report>>() {
-
-            @Override
-            public void onResponse(Call<List<Report>> call, Response<List<Report>> response) {
-                reportList = response.body();
-                if(response.body() != null) {
-                    UpUI();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Report>> call, Throwable t) {
-
-            }
-        });
-    }
-  
 
 
     private void UpUI(){
@@ -125,7 +91,7 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         recyclerView.setAdapter(adapter);
     }
 
-    private void linechart(){
+    private void linechart() {
         //无数据时显示
         lineChart.setNoDataText("没有可获取的数据哦~");
         //lineChart.setNoDataTextColor(Color.parseColor("#00BCEF"));
@@ -136,7 +102,7 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         //不显示图例
         lineChart.getLegend().setEnabled(false);
         lineChart.setHighlightPerDragEnabled(true);
-        lineChart.setExtraOffsets(15f,0f,25f,25f);
+        lineChart.setExtraOffsets(15f, 0f, 25f, 25f);
 
         //获取X轴
         XAxis xAxis = lineChart.getXAxis();
@@ -167,12 +133,12 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         //GetWeekData();qyh开始修改
         userPresenter = new UserPresenter(this);
         Calendar calendar = Calendar.getInstance();
-        userPresenter.GetMessageWeek(token,calendar.get(Calendar.MONTH));
-
+        //userPresenter.GetMessageWeek("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I",calendar.get(Calendar.MONTH));
+        userPresenter.GetMessageWeek(token, calendar.get(Calendar.MONTH));
         //qyh这一块修改结束
 
 
-        List<Entry> list = new ArrayList<>();
+        /*
         list.add(new Entry(1,8));
         list.add(new Entry(2,7));
         list.add(new Entry(3,8));
@@ -199,125 +165,85 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         lineChart.setData(lineData);
 
         lineChart.animateY(3000);
-    }
-
-    private void GetWeekData(){
-        Calendar calendar = Calendar.getInstance();
-        List<Entry> list = new ArrayList<>();
-
-
-        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        okHttpClientBuilder.addInterceptor(logging);
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClientBuilder.build());
-
-        Retrofit retrofit = builder.build();
-
-        GetWeekAPI client = retrofit.create(GetWeekAPI.class);
-        Call<List<Week>> call = client.getWeekNumber(token,calendar.get(Calendar.MONTH));
-
-        call.enqueue(new Callback<List<Week>>() {
-                         @Override
-                         public void onResponse(Call<List<Week>> call, Response<List<Week>> response) {
-                             weekList = response.body();
-
-                         }
-
-                         @Override
-                         public void onFailure(Call<List<Week>> call, Throwable t) {
-
-                         }
-                     });
-
-
-//                Log.d("tag", "Response: " + response);
-//
-//                try {
-//                    JSONObject jsonObject = new JSONObject(String.valueOf(response));
-//                    JSONArray jsonArray = jsonObject.getJSONArray("data");
-//                    for (int i = 0; i < jsonArray.length(); i++) {
-//                        int value = jsonObject.getInt("week");
-//                        int time = jsonObject.getInt("number");
-//                        list.add(new Entry(value, i));
-//                    }
-//
-//                    //将数据赋给数据集,一个数据集表示一条线
-//                    LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
-//                    LineData lineData = new LineData(lineDataSet);
-//                    //线条颜色
-//                    lineDataSet.setColor(Color.parseColor("#FDD682"));
-//                    //线宽度
-//                    lineDataSet.setLineWidth(3.0f);
-//                    //显示圆点
-//                    lineDataSet.setDrawCircles(true);
-//                    lineDataSet.setDrawCircleHole(true);
-//                    lineDataSet.setCircleHoleRadius(3);
-//                    //设置圆点颜色(外圈)
-//                    lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
-//                    //不显示曲线点的具体数值
-//                    lineData.setDrawValues(false);
-//                    //lineData.setValueTextSize(15f);
-//
-//                    lineChart.setData(lineData);
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-
-
-    }
-    private void request() {
-
-
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
-
-        call1.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
-                if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 6) {
-                        mLayout.setBackgroundResource(R.color.purple);
-                    }
-                    if (mUser.getCurrent_backdrop() == 1) {
-                        mLayout.setBackgroundResource(R.color.theme2);
-                    }
-                    if (mUser.getCurrent_backdrop() == 2) {
-                        mLayout.setBackgroundResource(R.color.theme3);
-                    }
-                    if (mUser.getCurrent_backdrop() == 3) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_31);
-                    }
-                    if (mUser.getCurrent_backdrop() == 4) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_41);
-                    }
-                    if (mUser.getCurrent_backdrop() == 5) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_51);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
-            }
-        });
+    }*/
     }
 
 
 
     @Override
-    public void showTheWeekPicture(List<Week> list) {
+    public void showTheWeekPicture(List<Week.DataDTO> list) {
         weekList = list;
+        if(this.weekList!=null){
+            for(Week.DataDTO week : weekList){
+                this.list.add(new Entry(week.getWeek(),week.getNumber()));
+            }
+            //将数据赋给数据集,一个数据集表示一条线
+            LineDataSet lineDataSet = new LineDataSet(this.list,"每周打卡总次数");
+            LineData lineData = new LineData(lineDataSet);
+            //线条颜色
+            lineDataSet.setColor(Color.parseColor("#FDD682"));
+            //线宽度
+            lineDataSet.setLineWidth(3.0f);
+            //显示圆点
+            lineDataSet.setDrawCircles(true);
+            lineDataSet.setDrawCircleHole(true);
+            lineDataSet.setCircleHoleRadius(3);
+            //设置圆点颜色(外圈)
+            lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
+            //不显示曲线点的具体数值
+            lineData.setDrawValues(false);
+            //lineData.setValueTextSize(15f);
+
+            lineChart.setData(lineData);
+
+            lineChart.animateY(3000);
+        } else{
+            Toast.makeText(this,"上个月没有打卡信息呢！要坚持呀！",Toast.LENGTH_SHORT);
+        }
     }
+
+    @Override
+    public void showGoldHistory(List<GoldHistory.DataDTO> goldList) {
+
+    }
+
+    @Override
+    public void showChangedName() {
+
+    }
+
+    @Override
+    public void getUser(User.DataDTO u) {
+        this.mUser = u;
+        if(mUser!=null){
+            int background = mUser.getCurrent_backdrop();
+            if (background == 1){
+                mLayout.setBackgroundResource(R.color.purple);
+            } else if(background ==2){
+                mLayout.setBackgroundResource(R.color.theme2);
+            }else if(background ==3){
+                mLayout.setBackgroundResource(R.color.theme3);
+            }else if(background ==4){
+                mLayout.setBackgroundResource(R.mipmap.theme_31);
+            }else if(background ==5){
+                mLayout.setBackgroundResource(R.mipmap.theme_41);
+            }else if(background ==6){
+                mLayout.setBackgroundResource(R.mipmap.theme_51);
+            }
+        }
+
+    }
+
+    @Override
+    public void showRank(Rank.DataDTO rank) {
+    }
+
+    @Override
+    public void showMonthReport(List<Report.DataDTO> report) {
+        this.reportList = report;
+        if(reportList!=null){
+            UpUI();;
+        }
+    }
+
 }

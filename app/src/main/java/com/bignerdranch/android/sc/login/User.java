@@ -2,97 +2,123 @@ package com.bignerdranch.android.sc.login;
 
 public class User {
 
-
     /**
-     * current_backdrop : 0
-     * gold : 0
-     * name : string
-     * password : string
-     * privacy : 0
-     * student_id : string
-     * user_picture : string
+     * code : 200
+     * msg : 获取成功
+     * data : {"student_id":"2020213790","name":"小樨","password":"q1234567@","user_picture":"www.baidu.com","gold":0,"privacy":1,"current_backdrop":6}
      */
 
-    private int current_backdrop;
-    private int gold;
-    private String name;
-    private String password;
-    private int privacy;
-    private String student_id;
-    private String user_picture;
+    private int code;
+    private String msg;
+    private DataDTO data;
 
-
-    public User(String student_id, String password) {
-        this.student_id = student_id;
-        this.password = password;
-    }
-    public User(int privacy) {
-        this.privacy = privacy;
-    }
-    public User(Integer current_backdrop){
-        this.current_backdrop = current_backdrop;
+    public int getCode() {
+        return code;
     }
 
-
-    public User(String name){
-        this.name = name;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-
-    public int getCurrent_backdrop() {
-        return current_backdrop;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setCurrent_backdrop(int current_backdrop) {
-        this.current_backdrop = current_backdrop;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public int getGold() {
-        return gold;
+    public DataDTO getData() {
+        return data;
     }
 
-    public void setGold(int gold) {
-        this.gold = gold;
+    public void setData(DataDTO data) {
+        this.data = data;
     }
 
-    public String getName() {
-        return name;
-    }
+    public static class DataDTO {
+        /**
+         * student_id : 2020213790
+         * name : 小樨
+         * password : q1234567@
+         * user_picture : www.baidu.com
+         * gold : 0
+         * privacy : 1
+         * current_backdrop : 6
+         */
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        private String student_id;
+        private String name;
+        private String password;
+        private String user_picture;
+        private int gold;
+        private int privacy;
+        private int current_backdrop;
 
-    public String getPassword() {
-        return password;
-    }
+        public DataDTO(String id, String password) {
+            this.student_id = id;
+            this.password = password;
+        }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+        public DataDTO(int id) {
+            this.current_backdrop = id;
+        }
 
-    public int getPrivacy() {
-        return privacy;
-    }
+        public String getStudent_id() {
+            return student_id;
+        }
 
-    public void setPrivacy(int privacy) {
-        this.privacy = privacy;
-    }
+        public void setStudent_id(String student_id) {
+            this.student_id = student_id;
+        }
 
-    public String getStudent_id() {
-        return student_id;
-    }
+        public String getName() {
+            return name;
+        }
 
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
-    }
+        public void setName(String name) {
+            this.name = name;
+        }
 
-    public String getUser_picture() {
-        return user_picture;
-    }
+        public String getPassword() {
+            return password;
+        }
 
-    public void setUser_picture(String user_picture) {
-        this.user_picture = user_picture;
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public String getUser_picture() {
+            return user_picture;
+        }
+
+        public void setUser_picture(String user_picture) {
+            this.user_picture = user_picture;
+        }
+
+        public int getGold() {
+            return gold;
+        }
+
+        public void setGold(int gold) {
+            this.gold = gold;
+        }
+
+        public int getPrivacy() {
+            return privacy;
+        }
+
+        public void setPrivacy(int privacy) {
+            this.privacy = privacy;
+        }
+
+        public int getCurrent_backdrop() {
+            return current_backdrop;
+        }
+
+        public void setCurrent_backdrop(int current_backdrop) {
+            this.current_backdrop = current_backdrop;
+        }
     }
 }
 

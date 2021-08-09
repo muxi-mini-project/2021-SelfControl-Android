@@ -14,9 +14,9 @@ import java.util.List;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder> {
 
-    private List<Report> ReportList;
+    private List<Report.DataDTO> ReportList;
 
-    public ReportAdapter(List<Report> ReportList){
+    public ReportAdapter(List<Report.DataDTO> ReportList){
         this.ReportList = ReportList;
     }
 

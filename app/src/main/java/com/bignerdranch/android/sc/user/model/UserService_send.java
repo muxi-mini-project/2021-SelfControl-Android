@@ -14,16 +14,13 @@ import rx.schedulers.Schedulers;
 
 public class UserService_send implements UserListener_send {
     private UserService_send userService_send;
-    private Retrofit weekApi;
-    private Retrofit goldHistoryApi;
-    private Retrofit userClientApi;
-    private Retrofit rankApi;
-    private Retrofit backDropApi;
+    private Retrofit baseApi;
+
 
     @Override
-    public void GetWeekNumber() {
-        weekApi = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
+    public void GetBaseApi() {
+        baseApi = new Retrofit.Builder()
+                .baseUrl("http://39.99.53.8:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
@@ -31,60 +28,9 @@ public class UserService_send implements UserListener_send {
 
     }
 
-    @Override
-    public void GetGoldHistory() {
-        goldHistoryApi = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
-    }
 
-    @Override
-    public void GetUserClient() {
-        userClientApi = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
 
-    }
-
-    @Override
-    public void GetRank() {
-        rankApi = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
-    }
-
-    @Override
-    public void GetBackDrop() {
-        backDropApi = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
-    }
-
-    public UserAPI_send getWeekApi() {
-        return weekApi.create(UserAPI_send.class);
-    }
-
-    public UserAPI_send getGoldHistoryApi(){
-        return goldHistoryApi.create(UserAPI_send.class);
-    }
-
-    public UserAPI_send getUserClientApi(){
-        return userClientApi .create(UserAPI_send.class);
-    }
-
-    public UserAPI_send getRankApi(){
-        return rankApi .create(UserAPI_send.class);
-    }
-
-    public UserAPI_send getBackDropApi(){
-        return backDropApi.create(UserAPI_send.class);
+    public UserAPI_send getBase() {
+        return baseApi.create(UserAPI_send.class);
     }
 }

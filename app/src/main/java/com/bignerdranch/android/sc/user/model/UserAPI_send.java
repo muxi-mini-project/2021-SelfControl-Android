@@ -25,23 +25,23 @@ import rx.Observable;
 public interface UserAPI_send {
     //GetWeekAPI部分
     @GET("punch/week/{month}")
-    Observable<List<Week>> getWeekNumber(@Header("token") String token, @Path("month") int month);
+    Observable<Week> getWeekNumber(@Header("token") String token, @Path("month") int month);
 
     //
     @GET("user/goldhistory")
-    Observable<List<GoldHistory>> getGoldHistory(@Header("token") String token);
+    Observable<GoldHistory> getGoldHistory(@Header("token") String token);
 
     //
     @GET("user/")
-    Observable<User> mUser(@Header("token") String token);
+    Observable<User.DataDTO> mUser(@Header("token") String token);
 
     //
     @GET("punch/month")
-    Observable<List<Report>> getMonthReport(@Header("token") String token);
+    Observable<Report> getMonthReport(@Header("token") String token);
 
     //
     @PUT("user/")
-    Observable<User> changName(@Header("token") String token, @Body User mUser);
+    Observable<User> changName(@Header("token") String token, @Body User.DataDTO mUser);
 
 
     //

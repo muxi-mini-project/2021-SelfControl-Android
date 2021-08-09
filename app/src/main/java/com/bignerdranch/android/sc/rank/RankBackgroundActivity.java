@@ -47,7 +47,7 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
     private ImageButton mBank;
     private ImageButton muser;
     private ImageButton msetting;
-    private User mUser;
+    private User.DataDTO mUser;
     private ConstraintLayout mLayout;
 
     @Override
@@ -218,7 +218,7 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
