@@ -99,7 +99,8 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
             Bitmap bitmap = BitmapFactory.decodeFile(string);
             iv_photo.setImageBitmap(bitmap);
         }
-        userPresenter.GetMessageUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
+        userPresenter.SendUser(token);
+        //userPresenter.SendUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
 
     }
     private void showInputDialog() {
@@ -116,7 +117,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
                             mName.setText(editText.getText().toString());
                             name = editText.getText().toString();
                             mUser.setName(name);
-                            userPresenter.ChangeName(token,mUser);
+                            userPresenter.SendChangeName(token,mUser);
                         }
                     }
                 });

@@ -23,6 +23,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 import java.util.List;
 
 public class CoinQueryActivity extends StatusBar implements UserViewHandler {
@@ -36,20 +37,16 @@ public class CoinQueryActivity extends StatusBar implements UserViewHandler {
     //qyh修改添加的变量
     private UserPresenter userPresenter = new UserPresenter(CoinQueryActivity.this);
     private GoldAdapter adapter;
-    private String token;
-/**
- * 莫名奇妙的token在这不能用了，这个bug就不归我了吧
- */
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coin_query);
         init();
+        userPresenter.SendUser(token);
+        userPresenter.SendGoldHistory(token);
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        userPresenter.GetMessageUser(token);
-        userPresenter.GetMessageGoldHistory(token);
 
     }
 

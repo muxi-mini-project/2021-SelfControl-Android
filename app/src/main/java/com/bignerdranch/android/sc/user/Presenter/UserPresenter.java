@@ -22,7 +22,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class UserPresenter {
+public class UserPresenter implements UsePresent {
 
     private UserViewHandler handler;
 
@@ -30,175 +30,65 @@ public class UserPresenter {
 
     public UserPresenter(UserViewHandler handler) {
         this.handler = handler;
-        userService_send = new UserService_send();
+        userService_send = new UserService_send(this);
     }
 
 
-    /**
-     * 目前Presenter里的方法均没有实现数据处理
-     */
-
-    public void GetMessageWeek(String token, int month) {
-        userService_send.GetBaseApi();
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.getWeekNumber(token, month)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Week>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("UserPresent", "折线图部分网络连接失败");
-                        Log.d("UserPresent",e.toString());
-                    }
-
-                    @Override
-                    public void onNext(Week weeks) {
-                        List<Week.DataDTO> list = weeks.getData();
-                        handler.showTheWeekPicture(list);
-                    }
-                });
+    @Override
+    public void transMessageWeek(List<Week.DataDTO> list) {
+        handler.showTheWeekPicture(list);
     }
 
-    public void GetMessageGoldHistory(String token) {
-        userService_send.GetBaseApi();
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.getGoldHistory(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<GoldHistory>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("UserPresent", "金币部分网络连接失败");
-                        Log.d("UserPresent",e.toString());
-                    }
-
-                    @Override
-                    public void onNext(GoldHistory goldHistories) {
-                        handler.showGoldHistory(goldHistories.getData());
-                        Log.d("UserPresent", "金币部分网络连接成功");
-                    }
-                });
+    public void SendGoldHistory(String token){
+        userService_send.GetMessageGoldHistory(token);
     }
 
-    public void GetMessageUser(String token) {
-        userService_send.GetBaseApi();
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.mUser(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<User.DataDTO>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("UserPresent", "用户信息部分网络连接失败");
-                        Log.d("UserPresent",e.toString());
-
-                    }
-
-                    @Override
-                    public void onNext(User.DataDTO user) {
-                        handler.getUser(user);
-                        Log.d("UserPresent", "用户信息部分网络连接成功");
-                    }
-                });
+    public void SendChangeName(String token,User.DataDTO user){
+        userService_send.ChangeName(token,user);
     }
 
-    public void GetMessageRank(String token) {
-        userService_send.GetBaseApi();
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.getMyRank(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Rank>() {
-                    @Override
-                    public void onCompleted() {
+    public void SendRank(String token){
+        userService_send.GetMessageRank(token);
+    }
 
-                    }
+    public void SendUser(String token){
+        userService_send.GetMessageUser(token);
+    }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        {
-                            Log.d("UserPresent", "排行榜部分网络连接失败");
-                            Log.d("UserPresent",e.toString());
-                        }
+    public void SendMonthReport(String token){
+        userService_send.GetMonthReport(token);
+    }
 
-                    }
-
-                    @Override
-                    public void onNext(Rank rank) {
-                        handler.showRank(rank.getData());
-                    }
-                });
+    public void SendLineChart(String token,int month){
+        userService_send.GetMessageWeek(token,month);
     }
 
 
-    public void ChangeName(String token, User.DataDTO user) {
-        userService_send.GetBaseApi();
-        ;
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.changName(token, user)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<User>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("UserPresent", "用户信息改变失败");
-                        Log.d("UserPresent",e.toString());
-
-                    }
-
-                    @Override
-                    public void onNext(User user) {
-                        handler.showChangedName();
-                        Log.d("UserPresent", "用户信息改变成功");
-                    }
-                });
+    @Override
+    public void transGoldHistory(List<GoldHistory.DataDTO> goldList) {
+        handler.showGoldHistory(goldList);
     }
 
-    public void GetMonthReport(String token) {
-        userService_send.GetBaseApi();
-        ;
-        UserAPI_send userAPI_send = userService_send.getBase();
-        userAPI_send.getMonthReport(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Report>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.d("UserPresent", "月报部分网络连接失败");
-                        Log.d("UserPresent",e.toString());
-
-                    }
-
-                    @Override
-                    public void onNext(Report dataDTOS) {
-                        handler.showMonthReport(dataDTOS.getData());
-                        Log.d("UserPresent", "月报部分网络连接成功");
-                    }
-                });
+    @Override
+    public void transChangedName() {
+        handler.showChangedName();
     }
+
+    @Override
+    public void transUser(User.DataDTO u) {
+        handler.getUser(u);
+
+    }
+
+    @Override
+    public void transRank(Rank.DataDTO rank) {
+        handler.showRank(rank);
+    }
+
+    @Override
+    public void transMonthReport(List<Report.DataDTO> report) {
+        handler.showMonthReport(report);
+    }
+
+
 }

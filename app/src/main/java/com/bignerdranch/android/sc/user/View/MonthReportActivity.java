@@ -71,14 +71,17 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH)) + "月");
 
         recyclerView = findViewById(R.id.month_recycler_view);
-        //initList();
-        userPresenter.GetMonthReport("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
+
+        userPresenter.SendMonthReport(token);
+        userPresenter.SendUser(token);
+        //userPresenter.SendMonthReport("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
+        //userPresenter.SendUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");//获取背景颜色
+
 
         lineChart = findViewById(R.id.linechart);
         linechart();
 
         mLayout = findViewById(R.id.month_report_layout);
-        userPresenter.GetMessageUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");//获取背景颜色
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
@@ -134,7 +137,7 @@ public class MonthReportActivity extends StatusBar implements UserViewHandler{
         userPresenter = new UserPresenter(this);
         Calendar calendar = Calendar.getInstance();
         //userPresenter.GetMessageWeek("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I",calendar.get(Calendar.MONTH));
-        userPresenter.GetMessageWeek(token, calendar.get(Calendar.MONTH));
+        userPresenter.SendLineChart(token, calendar.get(Calendar.MONTH));
         //qyh这一块修改结束
 
 
