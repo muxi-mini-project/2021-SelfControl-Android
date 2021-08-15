@@ -13,6 +13,10 @@ public class RankItem {
     private int ranking;
     private String student_id;
 
+    public RankItem(int ranking){
+        this.ranking = ranking;
+    }
+
     public int getNumber() {
         return number;
     }

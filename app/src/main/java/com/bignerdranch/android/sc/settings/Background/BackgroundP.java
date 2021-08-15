@@ -4,7 +4,7 @@ public class BackgroundP implements BackgroundAPI.VP {
     private BackgroundView mView;
     private BackgroundM mModel;
 
-    public void BackgroundP(){
+    public BackgroundP(){
         this.mModel = getModelInstance();
     }
     public void bindView(BackgroundView mView){ //绑定View

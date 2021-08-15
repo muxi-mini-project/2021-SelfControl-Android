@@ -4,7 +4,7 @@ public class PrivateP implements PrivateAPI.VP {
     private PrivateM mModel;
     private PrivateV mView;
 
-    public void PrivateP(){
+    public PrivateP(){
         this.mModel = getModelInstance();
     }
     public void bindView(PrivateV mView){ //绑定View

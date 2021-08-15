@@ -16,7 +16,7 @@ import java.util.List;
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     private List<RankItem> mList;
-    public void RankAdapter(List<RankItem> mList){
+    public RankAdapter(List<RankItem> mList){
         this.mList = mList;
     }
 
@@ -59,6 +59,6 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 }

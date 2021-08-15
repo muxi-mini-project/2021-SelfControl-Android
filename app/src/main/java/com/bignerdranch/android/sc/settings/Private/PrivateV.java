@@ -24,7 +24,7 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
     protected void onCreate(Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.choose_open);
-
+        mP.bindView(this);
         initView();
 
     }
