@@ -5,19 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.punch.LabelPunch;
-import com.bignerdranch.android.sc.punch.LabelPunchAdapter;
-import com.bignerdranch.android.sc.user.MonthReport.MonthReportActivity;
-import com.bignerdranch.android.sc.user.MonthReport.Report;
-import com.bignerdranch.android.sc.user.MonthReport.ReportAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +21,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class UserLabelActivity extends StatusBar {
 

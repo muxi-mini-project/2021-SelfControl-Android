@@ -72,5 +72,5 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.6'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
 
-
+    implementation 'com.github.duanhong169:picker-view:1.0.0'
 }
