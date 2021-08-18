@@ -9,13 +9,13 @@ import retrofit2.http.PUT;
 
 public interface PrivateAPI {
     interface VP{
-        void trueRequest();
-        void falseRequest();
+        void trueRequest(String token);
+        void falseRequest(String token);
         void success();
         void fail();
     }
     interface M{
-        void request(int type);
+        void request(int type,String token);
     }
 
     @PUT("/user")

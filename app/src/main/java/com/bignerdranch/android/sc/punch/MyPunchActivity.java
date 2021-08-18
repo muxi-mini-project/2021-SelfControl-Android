@@ -12,19 +12,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bignerdranch.android.sc.Data;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
-
-import com.bignerdranch.android.sc.Data;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
-
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.rank.RankBackgroundActivity;
+import com.bignerdranch.android.sc.rank.newRank.RankActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -90,7 +88,7 @@ public class MyPunchActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()) {
-                    Intent intent = new Intent(MyPunchActivity.this, RankBackgroundActivity.class);
+                    Intent intent = new Intent(MyPunchActivity.this, RankActivity.class);
                     startActivity(intent);
                 }
 

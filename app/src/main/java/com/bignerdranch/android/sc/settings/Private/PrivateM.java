@@ -24,7 +24,7 @@ public class PrivateM implements PrivateAPI.M {
             .build();
 
     @Override
-    public void request(int type) {
+    public void request(int type,String token) {
         PrivateAPI mApi = retrofit.create(PrivateAPI.class);
         mApi.putPrivacy(new User(type),token)
                 .subscribeOn(Schedulers.io())

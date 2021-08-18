@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.rank.newRank.Month;
+package com.bignerdranch.android.sc.rank.newRank.Week;
 
 import com.bignerdranch.android.sc.rank.newRank.RankItem;
 
@@ -9,7 +9,7 @@ import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.PUT;
 
-public interface MonthAPI {
+public interface WeekAPI {
     interface VP{
         List requestList();
         void changeRank(int rank, String token);
@@ -23,6 +23,6 @@ public interface MonthAPI {
         void exchange(int ranking, String token);
     }
 
-    @PUT("/month/")
-    Observable<RankItem> putMonth(@Header("token")String token, @Body RankItem rankItem);
+    @PUT("/week/")
+    Observable<RankItem> putWeek(@Header("token")String token, @Body RankItem rankItem);
 }

@@ -19,13 +19,13 @@ public class PrivateP implements PrivateAPI.VP {
     }
 
     @Override
-    public void trueRequest() {
-        mModel.request(1);
+    public void trueRequest(String token) {
+        mModel.request(1,token);
     }
 
     @Override
-    public void falseRequest() {
-        mModel.request(0);
+    public void falseRequest(String token) {
+        mModel.request(0,token);
     }
 
     @Override

@@ -19,8 +19,8 @@ public class BackgroundP implements BackgroundAPI.VP {
     }
 
     @Override
-    public void haveRequest(int click) {
-        mModel.changeBackground(click);
+    public void haveRequest(int click,String token) {
+        mModel.changeBackground(click,token);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class BackgroundP implements BackgroundAPI.VP {
     }
 
     @Override
-    public void buyRequest(int click) {
-        mModel.buyRequest(click);
+    public void buyRequest(int click,String token) {
+        mModel.buyRequest(click,token);
     }
 
     @Override

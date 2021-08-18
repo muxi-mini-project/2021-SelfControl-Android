@@ -10,13 +10,14 @@ import retrofit2.http.PUT;
 
 public interface BackgroundAPI {
     interface M{
-        void changeBackground(int click);
+        void changeBackground(int click,String token);
     }
     interface VP{
-        void haveRequest(int click);
+        void haveRequest(int click, String token);
         void successChange(int click);
         void buyDialog(int click);
-        void buyRequest(int click);
+        void buyRequest(int click, String token);
+
         void noCoin();
         void error();
 

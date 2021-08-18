@@ -1,5 +1,6 @@
-package com.bignerdranch.android.sc.rank.newRank.Month;
+package com.bignerdranch.android.sc.rank.newRank.Week;
 
+import com.bignerdranch.android.sc.rank.newRank.Month.MonthAPI;
 import com.bignerdranch.android.sc.rank.newRank.RankItem;
 
 import io.reactivex.Observer;
@@ -11,12 +12,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MonthM implements MonthAPI.M {
+public class WeekM implements WeekAPI.M {
+    private WeekP mP;
 
-    private MonthP mP;
-
-    public MonthM(MonthP monthP) {
-        this.mP = monthP;
+    public WeekM(WeekP weekP) {
+        this.mP = weekP;
     }
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -32,8 +32,8 @@ public class MonthM implements MonthAPI.M {
 
     @Override
     public void exchange(int ranking,String token) {
-        MonthAPI mApi = retrofit.create(MonthAPI.class);
-        mApi.putMonth(token, new RankItem(ranking))
+        WeekAPI mApi = retrofit.create(WeekAPI.class);
+        mApi.putWeek(token, new RankItem(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {

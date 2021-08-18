@@ -1,23 +1,23 @@
-package com.bignerdranch.android.sc.rank.newRank.Month;
+package com.bignerdranch.android.sc.rank.newRank.Week;
+
 import java.util.List;
 
-public class MonthP implements MonthAPI.VP {
+public class WeekP implements WeekAPI.VP {
+    private WeekM mModel;
+    private WeekFragment mView;
 
-    private MonthM mModel;
-    private MonthFragment mView;
-
-    public MonthP(){
+    public WeekP(){
         this.mModel = getModelInstance();
     }
-    public void bindView(MonthFragment mView){ //绑定View
+    public void bindView(WeekFragment mView){ //绑定View
         this.mView = mView;
     }
     public void unBindView(){
         this.mView = null;
     }
 
-    public MonthM getModelInstance() {
-        return new MonthM(this);
+    public WeekM getModelInstance() {
+        return new WeekM(this);
     }
 
 
@@ -51,5 +51,4 @@ public class MonthP implements MonthAPI.VP {
     public void changeFail() {
         mView.changeFail();
     }
-
 }

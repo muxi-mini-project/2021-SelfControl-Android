@@ -19,6 +19,7 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
     private User mUser;
     private ConstraintLayout mLayout;
     private PrivateP mP = new PrivateP();
+    String token = getSharedPreferences("Token",0).getString("Token",null);
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -42,23 +43,23 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
                 finish();
                 break;
             case R.id.true_button:
-                trueRequest();
+                trueRequest(token);
                 break;
             case R.id.false_button:
-                falseRequest();
+                falseRequest(token);
                 break;
 
         }
     }
 
     @Override
-    public void trueRequest() {
-        mP.trueRequest();
+    public void trueRequest(String token) {
+        mP.trueRequest(token);
     }
 
     @Override
-    public void falseRequest() {
-        mP.falseRequest();
+    public void falseRequest(String token) {
+        mP.falseRequest(token);
     }
 
     @Override

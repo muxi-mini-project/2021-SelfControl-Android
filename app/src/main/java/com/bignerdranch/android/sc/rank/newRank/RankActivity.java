@@ -17,8 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
-import com.bignerdranch.android.sc.rank.MonthRankFragment;
-import com.bignerdranch.android.sc.rank.WeekRankFragment;
+import com.bignerdranch.android.sc.rank.newRank.Month.MonthFragment;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
@@ -89,8 +88,8 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new WeekRankFragment() );
-        mList.add(new MonthRankFragment() );
+        mList.add(new MonthFragment() );
+        mList.add(new MonthFragment() );
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 

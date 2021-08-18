@@ -31,9 +31,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
-import retrofit2.http.Header;
-import retrofit2.http.PUT;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -100,7 +97,7 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
 
         mList = new ArrayList<>();
         mList.add(new WeekRankFragment() );
-        mList.add(new MonthRankFragment() );
+       // mList.add(new MonthRankFragment() );
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 
@@ -244,11 +241,11 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
             }
         });
     }
-    public interface BuyRank{
+   /* public interface BuyRank{
         @PUT("list/month")
         Call<MonthRankFragment.myRank> buyMonthRank(@Header("token")String token, @Body MonthRankFragment.myRank mRank);
 
         @PUT("list/week")
         Call<MonthRankFragment.myRank> buyWeekRank(@Header("token")String token, @Body WeekRankFragment.myRank mRank);
-    }
+    }*/
 }

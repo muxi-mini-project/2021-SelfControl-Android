@@ -22,6 +22,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     private User mUser;
 
     private ConstraintLayout mLayout;
+    String token = getSharedPreferences("Token",0).getString("Token",null);
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -62,19 +63,19 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 change1();
                 break;
             case R.id.theme2:
-                haveRequest(1);
+                haveRequest(1,token);
                 break;
             case R.id.theme3:
-                haveRequest(2);
+                haveRequest(2,token);
                 break;
             case R.id.theme4:
-                haveRequest(3);
+                haveRequest(3,token);
                 break;
             case R.id.theme5:
-                haveRequest(4);
+                haveRequest(4,token);
                 break;
             case R.id.theme6:
-                haveRequest(5);
+                haveRequest(5,token);
                 break;
             case R.id.back:
                 finish();
@@ -84,8 +85,8 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     }
 
     @Override
-    public void haveRequest(int click) {
-        mP.haveRequest(click);
+    public void haveRequest(int click, String token) {
+        mP.haveRequest(click,token);
     }
 
     //用于改变选择图标
@@ -200,7 +201,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         normalDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                buyRequest(click);
+                buyRequest(click,token);
             }
         });
         normalDialog.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
@@ -214,8 +215,8 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     }
 
     @Override
-    public void buyRequest(int click) {
-        mP.buyRequest(click);
+    public void buyRequest(int click,String token) {
+        mP.buyRequest(click,token);
     }
 
     @Override

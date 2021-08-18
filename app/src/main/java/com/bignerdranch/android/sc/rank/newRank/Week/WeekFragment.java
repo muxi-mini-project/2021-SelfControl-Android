@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.rank.newRank.Month;
+package com.bignerdranch.android.sc.rank.newRank.Week;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,12 +26,11 @@ import java.util.List;
 
 import top.defaults.view.PickerView;
 
-public class MonthFragment extends Fragment implements MonthAPI.VP {
-
+public class WeekFragment extends Fragment implements WeekAPI.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;
-    private MonthP mP = new MonthP();
+    private WeekP mP = new WeekP();
     SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Token",0);
     String token = mSharedPreferences.getString("Token","null");
 

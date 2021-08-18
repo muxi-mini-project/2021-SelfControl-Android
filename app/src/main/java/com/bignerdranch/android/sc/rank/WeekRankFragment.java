@@ -7,15 +7,12 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,8 +37,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class WeekRankFragment extends Fragment {
 
@@ -413,7 +408,7 @@ public class WeekRankFragment extends Fragment {
                 .baseUrl("http://39.102.42.156:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
-        Retrofit retrofit1 = builder1.build();
+       /* Retrofit retrofit1 = builder1.build();
         RankBackgroundActivity.BuyRank client1 = retrofit1.create(RankBackgroundActivity.BuyRank.class);
         Call<MonthRankFragment.myRank> call1 = client1.buyWeekRank(token, new myRank(number));
 
@@ -441,7 +436,7 @@ public class WeekRankFragment extends Fragment {
 
 
             }
-        });
+        });*/
     }
 
     public class myRank {

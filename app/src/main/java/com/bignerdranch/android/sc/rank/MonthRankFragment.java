@@ -41,7 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
+/*
 
 public class MonthRankFragment extends Fragment {
 
@@ -397,7 +397,7 @@ public class MonthRankFragment extends Fragment {
 
         /**
          * ranking : 0
-         */
+
 
         private int ranking;
 
@@ -493,3 +493,4 @@ public class MonthRankFragment extends Fragment {
     }
 
 }
+*/

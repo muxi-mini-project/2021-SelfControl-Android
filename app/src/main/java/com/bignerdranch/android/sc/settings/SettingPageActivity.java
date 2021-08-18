@@ -12,6 +12,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.settings.Private.PrivateV;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,99 +42,73 @@ public class SettingPageActivity extends StatusBar {
         request();
 
         mBack = findViewById(R.id.setting_back);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        mBack.setOnClickListener(v -> finish());
         mBackground = findViewById(R.id.setting_background);
-        mBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
-                    startActivity(intent5);
-                }
-
+        mBackground.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
+                startActivity(intent5);
             }
+
         });
 
         mThemeLayout = findViewById(R.id.theme_layout);
-        mThemeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
-                    startActivity(intent5);
-                }
-
-
+        mThemeLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
+                startActivity(intent5);
             }
+
+
         });
         mCoin = findViewById(R.id.setting_coin);
-        mCoin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent2 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                    startActivity(intent2);
-                }
-
-
+        mCoin.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent2 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
+                startActivity(intent2);
             }
+
+
         });
 
         mCoinLayout = findViewById(R.id.coin_layout);
-        mCoinLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                    startActivity(intent6);
-                }
-
+        mCoinLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
+                startActivity(intent6);
             }
+
         });
 
         mCourse = findViewById(R.id.setting_course);
-        mCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent3 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                    startActivity(intent3);
-
-                }
+        mCourse.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent3 = new Intent(SettingPageActivity.this,CourseActivity.class);
+                startActivity(intent3);
 
             }
+
         });
 
         mCourseLayout = findViewById(R.id.course_layout);
-        mCourseLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                    startActivity(intent7);
-                }
-
-
+        mCourseLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
+                startActivity(intent7);
             }
+
+
         });
 
 
         mPrivate = findViewById(R.id.setting_private);
-        mPrivate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent4 = new Intent(SettingPageActivity.this,PrivateActivity.class);
-                    startActivity(intent4);
-                }
-
-
+        mPrivate.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent4 = new Intent(SettingPageActivity.this, PrivateV.class);
+                startActivity(intent4);
             }
+
+
         });
 
         mPrivateLayout = findViewById(R.id.private_layout);

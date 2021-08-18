@@ -1,7 +1,5 @@
 package com.bignerdranch.android.sc.settings.Background;
 
-import androidx.annotation.MainThread;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -27,7 +25,7 @@ public class BackgroundM implements BackgroundAPI.M {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
-    public void haveRequest(int click){
+    public void haveRequest(int click,String token){
 
         BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mApi.getMyBack(token).subscribeOn(Schedulers.io())
@@ -55,7 +53,7 @@ public class BackgroundM implements BackgroundAPI.M {
                 });
     }
 
-    public void buyRequest(int click){
+    public void buyRequest(int click,String token){
         BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mBuy.setBackdrop_id(click);
         mApi.buyBack(token,mBuy).subscribeOn(Schedulers.io())
@@ -86,8 +84,8 @@ public class BackgroundM implements BackgroundAPI.M {
     }
 
     @Override
-    public void changeBackground(int click) {
-        haveRequest(click);
+    public void changeBackground(int click,String token) {
+        haveRequest(click,token);
         if(have[click] == 1){
             mP.successChange(click);
         }else{

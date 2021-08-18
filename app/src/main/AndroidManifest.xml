@@ -38,7 +38,7 @@
         <activity android:name=".user.CoinQueryActivity"></activity>
         <activity android:name=".user.UserActivity"></activity>
         <activity android:name=".punch.MyPunchActivity"></activity>
-        <activity android:name=".rank.RankBackgroundActivity"></activity>
+        <activity android:name=".rank.newRank.RankActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
     </application>
 </manifest>
