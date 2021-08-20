@@ -10,8 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
@@ -54,11 +63,41 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
             case 2: holder.mRank.setBackgroundResource(R.mipmap.rank3);break;
             default: holder.mRank.setText(String.valueOf(position));break;
         }
+        holder.mUser.setOnClickListener(v -> {
+            seeUserRequest();
+        });
+        holder.mThumb.setOnClickListener(v -> );
     }
 
 
     @Override
     public int getItemCount() {
         return mList.size();
+        //return 0;
+    }
+    public void seeUserRequest(String id){
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+        seeUserAPI mApi = retrofit.create(seeUserAPI.class);
+        Call<List<LabelPunch>> call = mApi.getUserLabel(id);
+        call.enqueue(new Callback<List<LabelPunch>>() {
+            @Override
+            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+
+            }
+        });
+    }
+    public interface seeUserAPI{
+        @GET("/punch/punch/{id}")
+        Call<List<LabelPunch>> getUserLabel(@Path("id") String id);
+
     }
 }

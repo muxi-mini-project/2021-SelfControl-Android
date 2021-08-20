@@ -27,6 +27,7 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
         setContentView(R.layout.choose_open);
         mP.bindView(this);
         initView();
+        System.out.println(token);
 
     }
     public void initView(){

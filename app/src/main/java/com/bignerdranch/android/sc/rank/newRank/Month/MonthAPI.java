@@ -6,23 +6,28 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.PUT;
 
 public interface MonthAPI {
     interface VP{
-        List requestList();
+        List<RankItem> requestList();
         void changeRank(int rank, String token);
         void haveList();
         void ListFail();
         void changeSuccess();
         void changeFail();
+        void ListNull();
     }
     interface M{
-        void requestRank();
+        List<RankItem> requestRank();
         void exchange(int ranking, String token);
     }
 
-    @PUT("/month/")
+    @PUT("/list/month/")
     Observable<RankItem> putMonth(@Header("token")String token, @Body RankItem rankItem);
+
+    @GET("/lists/month/")
+    Observable<RankItem> getMonth();
 }

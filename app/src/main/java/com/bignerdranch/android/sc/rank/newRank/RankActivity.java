@@ -18,6 +18,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.rank.newRank.Month.MonthFragment;
+import com.bignerdranch.android.sc.rank.newRank.Week.WeekFragment;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
@@ -56,31 +57,20 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         msetting = findViewById(R.id.ranksetting);
         muser = findViewById(R.id.rankkuser);
 
-        mBank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        mBank.setOnClickListener(v -> finish());
+
+        msetting.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent = new Intent(RankActivity.this, SettingPageActivity.class);
+                startActivity(intent);
             }
+
         });
 
-        msetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent = new Intent(RankActivity.this, SettingPageActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
-
-        muser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent = new Intent(RankActivity.this, UserActivity.class);
-                    startActivity(intent);
-                }
+        muser.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent = new Intent(RankActivity.this, UserActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -88,7 +78,7 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new MonthFragment() );
+        mList.add(new WeekFragment() );
         mList.add(new MonthFragment() );
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);

@@ -91,5 +91,8 @@ public class BackgroundM implements BackgroundAPI.M {
         }else{
             mP.buyDialog(click);
         }
+        for(int i = 0 ; i < 5 ; i++){
+            have[i] = 0;
+        }
     }
 }

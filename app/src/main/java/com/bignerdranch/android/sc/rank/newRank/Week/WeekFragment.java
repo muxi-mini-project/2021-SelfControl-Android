@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.rank.newRank.Week;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,29 +25,27 @@ import java.util.List;
 
 import top.defaults.view.PickerView;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
+
 public class WeekFragment extends Fragment implements WeekAPI.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;
     private WeekP mP = new WeekP();
-    SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Token",0);
-    String token = mSharedPreferences.getString("Token","null");
+//    SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Token",0);
+   // String token = mSharedPreferences.getString("Token","null");
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.month_rank, container, false);
+        View view = inflater.inflate(R.layout.week_rank, container, false);
 
 
         mP.bindView(this);
-        mRecyclerView = view.findViewById(R.id.month_item);
+        mRecyclerView = view.findViewById(R.id.week_item);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         mRecyclerView.setAdapter(new RankAdapter(mList));
-        mExchange = view.findViewById(R.id.exchange);
-        mExchange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWheelDialog();
-            }
-        });
+        mExchange = view.findViewById(R.id.w_exchange);
+        mExchange.setOnClickListener(v -> showWheelDialog());
         return view;
     }
 
@@ -88,25 +85,26 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
 
             @Override
             public String getText(int index) {
-                return (String) items.get(index);
+                return ""+items.get(index);
             }
         };
         pickerView.setAdapter(adapter);
-        pickerView.setOnSelectedItemChangedListener(new PickerView.OnSelectedItemChangedListener() {
-
-            public void onSelectedItemChanged(PickerView pickerView, int previousPosition, int selectedItemPosition) {
-                textView.setText(String.valueOf(selectedItemPosition*2+50));
-                yes.setOnClickListener(v -> changeRank(selectedItemPosition,token));
+        pickerView.setOnSelectedItemChangedListener((pickerView1, previousPosition, selectedItemPosition) -> {
+            if(selectedItemPosition == 0){
+                textView.setText(String.valueOf(0));
+            }else {
+                textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
             }
+            yes.setOnClickListener(v -> changeRank(selectedItemPosition,token));
         });
 
         no.setOnClickListener(v -> dialog.dismiss());
     }
 
     @Override
-    public List requestList() {
+    public List<RankItem> requestList() {
 
-        return null;
+        return mP.requestList();
     }
 
     @Override
@@ -132,5 +130,10 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
     @Override
     public void changeFail() {
         Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void ListNull() {
+        Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
     }
 }

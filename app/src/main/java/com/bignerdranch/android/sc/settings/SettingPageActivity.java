@@ -116,7 +116,7 @@ public class SettingPageActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()){
-                    Intent intent8 = new Intent(SettingPageActivity.this,PrivateActivity.class);
+                    Intent intent8 = new Intent(SettingPageActivity.this,PrivateV.class);
                     startActivity(intent8);
                 }
 

@@ -1,45 +1,9 @@
 package com.bignerdranch.android.sc.rank;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.SeeUser.UserLabelActivity;
-import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
-
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
 public class WeekRankFragment extends Fragment {
-
+/*
     private List<Rank> mList;
     private TextView n1, n2, n3, n4, n5, o1, o2, o3, o4, o5;
     private ImageView user1,user2,user3,user4,user5;
@@ -436,19 +400,16 @@ public class WeekRankFragment extends Fragment {
 
 
             }
-        });*/
+        });
     }
-
-    public class myRank {
 
 
         /**
          * ranking : 0
-         */
+
 
         private int ranking;
 
-        public myRank(int ranking) {
             this.ranking = ranking;
         }
 
@@ -497,6 +458,6 @@ public class WeekRankFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 
 }

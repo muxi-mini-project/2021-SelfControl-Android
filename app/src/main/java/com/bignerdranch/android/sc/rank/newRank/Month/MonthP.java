@@ -1,4 +1,6 @@
 package com.bignerdranch.android.sc.rank.newRank.Month;
+import com.bignerdranch.android.sc.rank.newRank.RankItem;
+
 import java.util.List;
 
 public class MonthP implements MonthAPI.VP {
@@ -23,8 +25,8 @@ public class MonthP implements MonthAPI.VP {
 
 
     @Override
-    public List requestList() {
-        return null;
+    public List<RankItem> requestList() {
+        return mModel.requestRank();
     }
 
     @Override
@@ -50,6 +52,11 @@ public class MonthP implements MonthAPI.VP {
     @Override
     public void changeFail() {
         mView.changeFail();
+    }
+
+    @Override
+    public void ListNull() {
+        mView.ListNull();
     }
 
 }

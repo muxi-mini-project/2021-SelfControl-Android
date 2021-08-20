@@ -40,5 +40,6 @@
         <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.newRank.RankActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
+        <activity android:name=".settings.Private.PrivateV"></activity>
     </application>
 </manifest>

@@ -2,6 +2,9 @@ package com.bignerdranch.android.sc.rank.newRank.Month;
 
 import com.bignerdranch.android.sc.rank.newRank.RankItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -24,15 +27,43 @@ public class MonthM implements MonthAPI.M {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
+    MonthAPI mApi = retrofit.create(MonthAPI.class);
 
     @Override
-    public void requestRank() {
+    public List<RankItem> requestRank() {
+        List<RankItem> mList = new ArrayList();
+        mApi.getMonth().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RankItem>() {
 
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull RankItem rankItem) {
+                        mList.add(rankItem);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        if(mList.size() == 0){
+            mP.ListNull();
+        }
+        return mList;
     }
 
     @Override
     public void exchange(int ranking,String token) {
-        MonthAPI mApi = retrofit.create(MonthAPI.class);
         mApi.putMonth(token, new RankItem(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

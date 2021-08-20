@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.rank.newRank.Month;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,30 +25,27 @@ import java.util.List;
 
 import top.defaults.view.PickerView;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
+
 public class MonthFragment extends Fragment implements MonthAPI.VP {
 
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;
-    private MonthP mP = new MonthP();
-    SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("Token",0);
-    String token = mSharedPreferences.getString("Token","null");
+    private final MonthP mP = new MonthP();
+   // String token = getActivity().getSharedPreferences("Token", Context.MODE_PRIVATE).getString("Token","null");
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
 
-
+        mList = requestList();
         mP.bindView(this);
         mRecyclerView = view.findViewById(R.id.month_item);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         mRecyclerView.setAdapter(new RankAdapter(mList));
         mExchange = view.findViewById(R.id.exchange);
-        mExchange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showWheelDialog();
-            }
-        });
+        mExchange.setOnClickListener(v -> showWheelDialog());
         return view;
     }
 
@@ -89,14 +85,18 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
 
             @Override
             public String getText(int index) {
-                return (String) items.get(index);
+                return "" + index;
             }
         };
         pickerView.setAdapter(adapter);
         pickerView.setOnSelectedItemChangedListener(new PickerView.OnSelectedItemChangedListener() {
 
             public void onSelectedItemChanged(PickerView pickerView, int previousPosition, int selectedItemPosition) {
-                textView.setText(String.valueOf(selectedItemPosition*2+50));
+                if(selectedItemPosition == 0){
+                    textView.setText(String.valueOf(0));
+                }else {
+                    textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
+                }
                 yes.setOnClickListener(v -> changeRank(selectedItemPosition,token));
             }
         });
@@ -105,9 +105,8 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     }
 
     @Override
-    public List requestList() {
-
-        return null;
+    public List<RankItem> requestList() {
+        return mP.requestList();
     }
 
     @Override
@@ -133,5 +132,10 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     @Override
     public void changeFail() {
         Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void ListNull() {
+        Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
     }
 }
