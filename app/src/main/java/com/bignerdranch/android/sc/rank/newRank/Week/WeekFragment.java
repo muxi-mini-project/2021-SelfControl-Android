@@ -43,7 +43,7 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
         mP.bindView(this);
         mRecyclerView = view.findViewById(R.id.week_item);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        mRecyclerView.setAdapter(new RankAdapter(mList));
+        mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
         mExchange = view.findViewById(R.id.w_exchange);
         mExchange.setOnClickListener(v -> showWheelDialog());
         return view;

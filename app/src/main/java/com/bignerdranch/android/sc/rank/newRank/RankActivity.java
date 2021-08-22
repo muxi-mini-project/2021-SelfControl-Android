@@ -21,6 +21,7 @@ import com.bignerdranch.android.sc.rank.newRank.Month.MonthFragment;
 import com.bignerdranch.android.sc.rank.newRank.Week.WeekFragment;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,16 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rank_background);
+        Fresco.initialize(this);
 
+        initView();
+        //设置状态栏透明
+        makeStatusBarTransparent(this);
+        //状态栏文字自适应
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
+
+    public void initView(){
         mMyOnPageChangeListener = new RankActivity.RankOnPageChangeListener();
 
         mMonthRank = findViewById(R.id.month_rank_tv);
@@ -87,12 +97,6 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         mViewPager.setCurrentItem(0);
 
         mLayout = findViewById(R.id.rank_background);
-
-
-        //设置状态栏透明
-        makeStatusBarTransparent(this);
-        //状态栏文字自适应
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     public class RankOnPageChangeListener implements ViewPager.OnPageChangeListener {
 

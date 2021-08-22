@@ -43,7 +43,7 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
         mP.bindView(this);
         mRecyclerView = view.findViewById(R.id.month_item);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        mRecyclerView.setAdapter(new RankAdapter(mList));
+        mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
         mExchange = view.findViewById(R.id.exchange);
         mExchange.setOnClickListener(v -> showWheelDialog());
         return view;
