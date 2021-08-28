@@ -64,8 +64,7 @@ public class LoginActivity extends StatusBar {
 
     public void request(String id,String password){
         Retrofit retrofit = new Retrofit
-                .Builder().baseUrl("http://39.99.53.8:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create()).build();
+                .Builder().baseUrl("http://39.99.53.8:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
         Call<LoginResponse> call = request.getCall(new User(id,password));

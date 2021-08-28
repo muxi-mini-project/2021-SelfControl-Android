@@ -1,46 +1,5 @@
 package com.bignerdranch.android.sc.rank;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.SeeUser.UserLabelActivity;
-import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.rank.RankBackgroundActivity.Rank;
-
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 /*
 
 public class MonthRankFragment extends Fragment {
@@ -115,7 +74,7 @@ public class MonthRankFragment extends Fragment {
         mExchange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              onCreateDialog();
+                onCreateDialog();
             }
         });
 
@@ -374,6 +333,7 @@ public class MonthRankFragment extends Fragment {
         Yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 request((num[0] - 50) /2);
             }
         });
@@ -384,12 +344,6 @@ public class MonthRankFragment extends Fragment {
             }
         });
 
-    }
-    private void showPrivateDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        AlertDialog dialog = builder.create();
-        builder.setView(View.inflate(getActivity(), R.layout.dialog_private, null));
-        dialog.show();
     }
 
     public class myRank{

@@ -79,8 +79,9 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
                 holder.mPunch.setBackgroundResource(R.drawable.punch_done);
                 holder.mTime.setText("我的打卡数：1");
 
-                ifpunchcomplete();
                 punch(labelPunchList.get(position).getTitle());
+
+                ifpunchcomplete();
             }
         });
 
@@ -183,8 +184,14 @@ public class LabelPunchAdapter extends RecyclerView.Adapter<LabelPunchAdapter.Vi
 
                 mData = response.body();
                 mData.getData();
-                if (mData.getData() >= 0 ){
-                    Toast.makeText(context,"您已经获得"+mData.getData()+"金币",Toast.LENGTH_SHORT).show();
+                int money;
+                if (mData.getData() > 0 ) {
+                    if (mData.getData() <= 5) {
+                        money = mData.getData() * 10;
+                    } else {
+                        money = 2 * (mData.getData() - 5) + 50;
+                    }
+                    Toast.makeText(context, "您已经获得" + money + "金币", Toast.LENGTH_SHORT).show();
                 }
 
             }
