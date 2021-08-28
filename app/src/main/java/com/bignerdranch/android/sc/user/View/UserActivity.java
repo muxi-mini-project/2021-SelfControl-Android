@@ -129,14 +129,12 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == TAKE_PHOTO) {
-
                 if (u.getFile() == null || !u.getFile().exists()) {
                     iv_photo.setImageBitmap(null);
                 } else {
                     Bitmap bitmap = u.getScaledBitmap(u.getFile().getPath(), UserActivity.this);
                     iv_photo.setImageBitmap(bitmap);
-                    Log.d("Demo","文件名是"+u.getFile().toString());
-                    savePhotos(u.getFile());
+                    savePhotos(u.getFile().getPath());
                 }
 
             }else if(requestCode==PICK_PHOTO){
@@ -151,7 +149,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
                 }
                 Bitmap bitmap = BitmapFactory.decodeFile(path);
                 iv_photo.setImageBitmap(bitmap);
-                savePhotos(u.getFile());
+                savePhotos(path);
 
             } else {
                 Log.d("Demo", "结果无");
@@ -245,9 +243,9 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
     }
 
     /*实现推出后再加载*/
-    public void savePhotos(File file) {
+    public void savePhotos(String filePath) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("getFilePath",file.getPath());
+        editor.putString("getFilePath",filePath);
         editor.commit();
     }
 
