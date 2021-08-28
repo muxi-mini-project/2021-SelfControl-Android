@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.weekcalendar;
+package com.bignerdranch.android.sc.ClockPage.weekcalendar;
 
 import java.util.Calendar;
 

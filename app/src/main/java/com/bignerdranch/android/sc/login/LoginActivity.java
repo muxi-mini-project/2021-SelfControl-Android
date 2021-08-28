@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.ClockActivity;
+import com.bignerdranch.android.sc.ClockPage.View.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
 import retrofit2.Call;
@@ -64,7 +64,7 @@ public class LoginActivity extends StatusBar {
 
     public void request(String id,String password){
         Retrofit retrofit = new Retrofit
-                .Builder().baseUrl("http://39.102.42.156:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
+                .Builder().baseUrl("http://39.99.53.8:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
         LoginAPI request = retrofit.create(LoginAPI.class);
 
         Call<LoginResponse> call = request.getCall(new User(id,password));

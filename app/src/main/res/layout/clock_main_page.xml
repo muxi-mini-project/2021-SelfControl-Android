@@ -147,7 +147,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
-    <com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager
+    <com.bignerdranch.android.sc.ClockPage.flower.NoScrollViewPager
         android:id="@+id/ViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -156,7 +156,7 @@
         android:paddingRight="30dp"
         android:gravity="center_horizontal">
 
-    </com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager>
+    </com.bignerdranch.android.sc.ClockPage.flower.NoScrollViewPager>
 
 
 </LinearLayout>

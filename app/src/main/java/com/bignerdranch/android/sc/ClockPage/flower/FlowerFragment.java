@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.flower;
+package com.bignerdranch.android.sc.ClockPage.flower;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,16 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.Data;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.ClockActivity;
-import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.PunchAPI;
-import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 import com.bignerdranch.android.sc.punch.MyPunchActivity;
 

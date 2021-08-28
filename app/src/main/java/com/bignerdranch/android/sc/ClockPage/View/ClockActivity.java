@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage;
+package com.bignerdranch.android.sc.ClockPage.View;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,7 +16,6 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import android.widget.ViewFlipper;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -30,12 +29,11 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
-import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
-import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
-import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
-import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
-import com.bignerdranch.android.sc.label.PunchAPI;
+import com.bignerdranch.android.sc.ClockPage.flower.FlowerFragmentPagerAdapter;
+import com.bignerdranch.android.sc.ClockPage.flower.FlowerFragment;
+import com.bignerdranch.android.sc.ClockPage.flower.NoScrollViewPager;
+import com.bignerdranch.android.sc.ClockPage.weekcalendar.DateAdapter;
+import com.bignerdranch.android.sc.ClockPage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;

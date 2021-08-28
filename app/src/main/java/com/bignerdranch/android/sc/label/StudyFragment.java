@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.ClockActivity;
+import com.bignerdranch.android.sc.ClockPage.View.ClockActivity;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;
@@ -23,7 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.POST;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 

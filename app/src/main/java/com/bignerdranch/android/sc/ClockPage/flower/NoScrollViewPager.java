@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.flower;
+package com.bignerdranch.android.sc.ClockPage.flower;
 
 import android.content.Context;
 import android.util.AttributeSet;
