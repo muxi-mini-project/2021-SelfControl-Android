@@ -51,7 +51,7 @@ public class MonthRankFragment extends Fragment {
     private ImageButton thumb6,thumb7,thumb8,thumb9,thumb10;
     private ImageView user1,user2,user3,user4,user5;
     Animation shake;
-    private User mUser;
+    private User.DataDTO mUser;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
@@ -467,11 +467,11 @@ public class MonthRankFragment extends Fragment {
 
         Retrofit retrofit1 = builder1.build();
         WeekRankFragment.AskPrivateAPI client = retrofit1.create(WeekRankFragment.AskPrivateAPI.class);
-        Call<User> call = client.askPrivacy(id);
+        Call<User.DataDTO> call = client.askPrivacy(id);
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<User.DataDTO>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<User.DataDTO> call, Response<User.DataDTO> response) {
                 mUser = response.body();
                 if(mUser != null){
                     if(mUser.getPrivacy() == 2){
@@ -486,7 +486,7 @@ public class MonthRankFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<User.DataDTO> call, Throwable t) {
 
             }
         });

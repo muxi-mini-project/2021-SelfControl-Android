@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.MonthReport;
+package com.bignerdranch.android.sc.user.Presenter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,14 +8,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.user.Bean.Report;
 
 import java.util.List;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ViewHolder> {
 
-    private List<Report> ReportList;
+    private List<Report.DataDTO> ReportList;
 
-    public ReportAdapter(List<Report> ReportList){
+    public ReportAdapter(List<Report.DataDTO> ReportList){
         this.ReportList = ReportList;
     }
 

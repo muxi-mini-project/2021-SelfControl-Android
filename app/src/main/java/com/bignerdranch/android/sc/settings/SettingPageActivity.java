@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -27,7 +27,7 @@ public class SettingPageActivity extends StatusBar {
 
     private ImageButton mBack, mBackground, mCoin, mCourse, mPrivate;
     private ConstraintLayout mThemeLayout,mCoinLayout,mCourseLayout,mPrivateLayout;
-    private User mUser;
+    private User.DataDTO mUser;
     private ConstraintLayout mLayout;
 
     @Override
@@ -166,7 +166,7 @@ public class SettingPageActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);

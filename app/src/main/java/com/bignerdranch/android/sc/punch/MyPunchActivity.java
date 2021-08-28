@@ -12,13 +12,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.GetBackdropAPI;
-import com.bignerdranch.android.sc.Message;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.Bean.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 
-import com.bignerdranch.android.sc.Data;
+import com.bignerdranch.android.sc.user.Bean.Data;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
@@ -47,7 +47,7 @@ public class MyPunchActivity extends StatusBar {
     private List<LabelPunch> mLabelPunchList = new ArrayList<>();
     private List<LabelPunch> mList;
     private LabelPunchAdapter adapter;
-    private User mUser;
+    private User.DataDTO mUser;
     private Data mData;
 
     private ConstraintLayout mLayout;
@@ -186,7 +186,7 @@ public class MyPunchActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.color.purple);
