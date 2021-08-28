@@ -24,8 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.bignerdranch.android.sc.Data;
-import com.bignerdranch.android.sc.GetBackdropAPI;
+import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
@@ -35,10 +35,9 @@ import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.flower.NoScrollViewPager;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
-import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.View.UserActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -99,7 +98,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
     FragmentPagerAdapter mFragmentPagerAdapter;
 
     private ConstraintLayout mLayout;
-    private User mUser;
+    private User.DataDTO mUser;
     private Data mData;
 
     private int date;
@@ -515,7 +514,7 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
+                mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.background_default);

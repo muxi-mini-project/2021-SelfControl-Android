@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/gold_amount"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="操作数量"/>
+    <View
+        android:id="@+id/item_goldhistory_view1"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/gold_time"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="操作时间"/>
+    <View
+        android:id="@+id/item_goldhistory_view2"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+
+        android:id="@+id/gold_reason"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="操作原因"/>
+
+
+</LinearLayout>

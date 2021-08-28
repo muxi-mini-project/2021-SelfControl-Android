@@ -16,10 +16,9 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-
-
-    android:theme="@style/Theme.SC"
-        tools:targetApi="m">
+        android:theme="@style/Theme.SC"
+        android:networkSecurityConfig = "@xml/network"
+        tools:targetApi="n">
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,13 +32,32 @@
         <activity android:name=".settings.Background.BackgroundView"></activity>
         <activity android:name=".settings.CoinFunctionActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
-        <activity android:name=".user.RankQueryActivity"></activity>
-        <activity android:name=".user.MonthReport.MonthReportActivity"></activity>
-        <activity android:name=".user.CoinQueryActivity"></activity>
-        <activity android:name=".user.UserActivity"></activity>
+        <activity android:name=".user.View.RankQueryActivity"></activity>
+        <activity android:name=".user.View.MonthReportActivity"></activity>
+        <activity android:name=".user.View.CoinQueryActivity"></activity>
+        <activity android:name=".user.View.UserActivity"></activity>
         <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.newRank.RankActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
+<<<<<<< HEAD
         <activity android:name=".settings.Private.PrivateV"></activity>
+=======
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.bignerdranch.android.sc.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+>>>>>>> origin
     </application>
+    <uses-permission android:name="android.permission.INTERNET"
+        tools:ignore="ManifestOrder" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 </manifest>

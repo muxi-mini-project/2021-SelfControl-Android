@@ -13,7 +13,7 @@ public class WeekRankFragment extends Fragment {
     Animation shake;
     private String name;
     private String id;
-    private User mUser;
+    private User.DataDTO mUser;
 
     public final static String userId = "USERID";
 
@@ -425,7 +425,7 @@ public class WeekRankFragment extends Fragment {
 
     public interface AskPrivateAPI{
         @GET("api/v1/user/privacy/{id}")
-        Call<User> askPrivacy(@Path("id") String id);
+        Call<User.DataDTO> askPrivacy(@Path("id") String id);
     }
     private void askPrivateRequest(String id,String name){
         Retrofit.Builder builder1 = new Retrofit.Builder()
@@ -434,11 +434,11 @@ public class WeekRankFragment extends Fragment {
 
         Retrofit retrofit1 = builder1.build();
         AskPrivateAPI client = retrofit1.create(AskPrivateAPI.class);
-        Call<User> call = client.askPrivacy(id);
+        Call<User.DataDTO> call = client.askPrivacy(id);
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<User.DataDTO>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<User.DataDTO> call, Response<User.DataDTO> response) {
                 mUser = response.body();
                 if(mUser != null){
                     if(mUser.getPrivacy() == 2){
@@ -453,7 +453,7 @@ public class WeekRankFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<User.DataDTO> call, Throwable t) {
 
             }
         });
