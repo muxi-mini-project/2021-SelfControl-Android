@@ -77,7 +77,7 @@ public class BackgroundItem {
         }
     }
 
-    public class Buy{
+    public static class Buy{
 
         /**
          * backdrop_id : 0

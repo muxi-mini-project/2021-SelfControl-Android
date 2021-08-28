@@ -27,6 +27,6 @@ public class SeeUserP implements SeeUserAPI.VP {
 
     @Override
     public void Fail() {
-
+        mView.Fail();
     }
 }

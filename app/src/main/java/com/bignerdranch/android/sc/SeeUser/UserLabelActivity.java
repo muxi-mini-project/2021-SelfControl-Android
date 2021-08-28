@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
@@ -81,8 +80,6 @@ public class UserLabelActivity extends StatusBar {
 
     private void UpUI(){
 
-        adapter = new UserLabelAdapter(mLabelPunchList);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        mRecyclerView.setAdapter(adapter);
+
     }
 }

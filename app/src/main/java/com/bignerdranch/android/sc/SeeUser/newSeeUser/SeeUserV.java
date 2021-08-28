@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
@@ -41,9 +42,11 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
         userName.setText(name);
         mP.bindView(this);
 
+        mLabelPunchList = getLabel(id);
         mRecyclerView = findViewById(R.id.user_rv);
-
-        //initList(id);
+        adapter = new UserLabelAdapter(mLabelPunchList);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        mRecyclerView.setAdapter(adapter);
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

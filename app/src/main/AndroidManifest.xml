@@ -30,7 +30,7 @@
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.SettingPageActivity"></activity>
         <activity android:name=".settings.CourseActivity"></activity>
-        <activity android:name=".settings.BackgroundActivity"></activity>
+        <activity android:name=".settings.Background.BackgroundView"></activity>
         <activity android:name=".settings.CoinFunctionActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
         <activity android:name=".user.RankQueryActivity"></activity>

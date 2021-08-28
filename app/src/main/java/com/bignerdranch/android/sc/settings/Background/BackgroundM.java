@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BackgroundM implements BackgroundAPI.M {
 
     private BackgroundP mP;
-    private BackgroundItem.Buy mBuy;
+    private BackgroundItem.Buy mBuy = new BackgroundItem.Buy();
     public BackgroundM(BackgroundP backgroundP) {
         this.mP = backgroundP;
     }
@@ -21,7 +21,7 @@ public class BackgroundM implements BackgroundAPI.M {
     int i = 1;
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8/api/v1/")
+            .baseUrl("http://39.99.53.8:2333/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
@@ -67,7 +67,11 @@ public class BackgroundM implements BackgroundAPI.M {
                     @Override
                     public void onNext(@NonNull Response<BackgroundItem.Buy> response) {
                         if(response.code() == 200){
-
+                            mP.successChange(click);
+                        }else if(response.code() == 203){
+                            mP.noCoin();
+                        }else{
+                            mP.error();
                         }
                     }
 

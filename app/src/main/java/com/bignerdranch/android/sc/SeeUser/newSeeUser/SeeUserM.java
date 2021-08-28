@@ -17,7 +17,7 @@ public class SeeUserM implements SeeUserAPI.M {
     private SeeUserP mP;
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8/api/v1/")
+            .baseUrl("http://39.99.53.8:2333/api/v1")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();

@@ -3,7 +3,6 @@ package com.bignerdranch.android.sc.SeeUser;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.punch.LabelPunch;
+import com.bignerdranch.android.sc.SeeUser.newSeeUser.LabelPunch;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class UserLabelAdapter extends RecyclerView.Adapter<UserLabelAdapter.View
 
     private List<LabelPunch> mLabelPunchList;
 
-    public UserLabelAdapter(List<LabelPunch> labelPunchList){
+    public UserLabelAdapter(List<LabelPunch> labelPunchList) {
         this.mLabelPunchList = labelPunchList;
     }
 

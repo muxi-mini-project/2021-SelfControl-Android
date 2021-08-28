@@ -40,11 +40,11 @@ public class BackgroundP implements BackgroundAPI.VP {
 
     @Override
     public void noCoin() {
-
+        mView.noCoin();
     }
 
     @Override
     public void error() {
-
+        mView.error();
     }
 }

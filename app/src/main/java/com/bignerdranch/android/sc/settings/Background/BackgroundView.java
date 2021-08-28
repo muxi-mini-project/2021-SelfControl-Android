@@ -1,17 +1,18 @@
 package com.bignerdranch.android.sc.settings.Background;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
 
@@ -22,7 +23,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     private User mUser;
 
     private ConstraintLayout mLayout;
-    String token = getSharedPreferences("Token",0).getString("Token",null);
+//    String token = getSharedPreferences("Token",0).getString("Token",null);
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -32,6 +33,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         mP.bindView(this);
 
         initView();
+
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
@@ -47,6 +49,8 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         mChoose6 = findViewById(R.id.choose6);
 
         mBack = findViewById(R.id.background_back);
+        mBack.setOnClickListener(this);
+
 
         mTheme1 = findViewById(R.id.theme1);
         mTheme2 = findViewById(R.id.theme2);
@@ -54,6 +58,12 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         mTheme4 = findViewById(R.id.theme4);
         mTheme5 = findViewById(R.id.theme5);
         mTheme6 = findViewById(R.id.theme6);
+        mTheme1.setOnClickListener(this);
+        mTheme2.setOnClickListener(this);
+        mTheme3.setOnClickListener(this);
+        mTheme4.setOnClickListener(this);
+        mTheme5.setOnClickListener(this);
+
     }
 
     @Override
@@ -198,17 +208,9 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         final AlertDialog.Builder normalDialog = new AlertDialog.Builder(BackgroundView.this);
         normalDialog.setTitle("兑换背景");
         normalDialog.setMessage("确定用金币兑换背景吗?");
-        normalDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                buyRequest(click,token);
-            }
-        });
-        normalDialog.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        normalDialog.setPositiveButton("确定", (dialog, which) -> buyRequest(click,token));
+        normalDialog.setNegativeButton("关闭", (dialog, which) -> {
 
-            }
         });
         // 显示
         normalDialog.show();
@@ -221,12 +223,12 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
 
     @Override
     public void noCoin() {
-
+        Toast.makeText(this,"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void error() {
-
+        Toast.makeText(this,"出现未知错误！",Toast.LENGTH_SHORT).show();
     }
 
 }

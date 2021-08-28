@@ -12,6 +12,7 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.settings.Background.BackgroundView;
 import com.bignerdranch.android.sc.settings.Private.PrivateV;
 
 import retrofit2.Call;
@@ -46,7 +47,7 @@ public class SettingPageActivity extends StatusBar {
         mBackground = findViewById(R.id.setting_background);
         mBackground.setOnClickListener(v -> {
             if (Utils.isFastClick()){
-                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
                 startActivity(intent5);
             }
 
@@ -55,7 +56,7 @@ public class SettingPageActivity extends StatusBar {
         mThemeLayout = findViewById(R.id.theme_layout);
         mThemeLayout.setOnClickListener(v -> {
             if (Utils.isFastClick()){
-                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
                 startActivity(intent5);
             }
 

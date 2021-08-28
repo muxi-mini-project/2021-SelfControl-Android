@@ -17,6 +17,10 @@ public class RankItem {
     private String student_id;
     private String user_picture;
 
+    public RankItem(int ranking) {
+        this.ranking = ranking;
+    }
+
     public String getName() {
         return name;
     }
