@@ -15,7 +15,6 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.punch.LabelPunch;
-import com.bignerdranch.android.sc.punch.MyPunchActivity;
 
 import java.util.List;
 
