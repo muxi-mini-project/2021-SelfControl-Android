@@ -65,7 +65,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         mClockInPresenter = new ClockInPresenter(this);
 
-        mRecyclerView = findViewById(R.id.clockin_recycler_view);
+        mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
         getClockInLabel();
