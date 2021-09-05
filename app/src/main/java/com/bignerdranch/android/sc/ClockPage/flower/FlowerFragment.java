@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.punch.view.ClockInActivity;
 import com.bignerdranch.android.sc.user.Bean.Data;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
@@ -60,7 +61,7 @@ public class FlowerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()) {
-                    Intent intent = new Intent(getActivity(), MyPunchActivity.class);
+                    Intent intent = new Intent(getActivity(), ClockInActivity.class);
                     intent.putExtra("data",date);
                     startActivity(intent);
                 }
