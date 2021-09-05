@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.punch.model;
 
+import android.widget.Toast;
+
 import com.bignerdranch.android.sc.punch.LabelPunch;
 import com.bignerdranch.android.sc.punch.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.Message;
@@ -25,7 +27,8 @@ public class ClockInModel {
         mClockInAPI.getLabels(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
-                clockInResponseListener.clockInRequestLabelSuccess(response.body().getData());
+                if(response.body() != null)
+                    clockInResponseListener.clockInRequestLabelSuccess(response.body().getData());
             }
 
             @Override

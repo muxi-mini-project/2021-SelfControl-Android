@@ -76,13 +76,16 @@ public class LoginActivity extends StatusBar {
                 if(response.isSuccessful()==true){
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
-                    token = response.body().getToken();
-                    Log.d("tag", "token "+response.body().getToken());
+                    token = response.body().getData();
+                    Log.d("tag", "token "+response.body().getData());
 
                     SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("Token",token);
                     editor.commit();
+                    editor.apply();
+
+                    System.out.println(token);
 
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
