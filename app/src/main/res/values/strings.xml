@@ -1,4 +1,14 @@
 <resources>
     <string name="scoller_text">唯一能够让你觉得真实和骄傲的，是你昂首挺胸用力走过的人生。</string>
     <string name="app_name" translatable="false">自控力</string>
+    <string name="saying1">做一切事情都应尽力而为，半途而废永远不行。——斯托达德</string>
+    <string name="saying2">锲而不舍，金石可镂。——荀况</string>
+    <string name="saying3">“不耻最后。”即使慢，驰而不息，纵令落后，纵令失败，但一定可以达到他所向往的目标。——鲁迅</string>
+    <string name="saying4">涓滴之水终可以磨损大石，不是由于它力量强大，而是由于昼夜不舍的滴坠。——贝多芬</string>
+    <string name="saying5">金字塔是用一块块的石头堆砌而成的。——莎士比亚</string>
+    <string name="saying6">最可怕的敌人，就是没有坚强的信念。——罗曼·罗兰</string>
+    <string name="saying7">为学须刚与恒，不刚则隋隳，不恒则退。——冯子咸</string>
+    <string name="saying8">贵有恒，何必三更起五更眠。最无益，只怕一日曝十日寒。——毛泽东</string>
+    <string name="saying9">穷且益坚，不坠青云之志。——王勃</string>
+    <string name="saying0">要从容地着手去做一件事，但一旦开始，就要坚持到底。——比阿斯</string>
 </resources>

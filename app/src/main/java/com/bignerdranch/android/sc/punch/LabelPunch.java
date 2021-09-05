@@ -3,10 +3,18 @@ package com.bignerdranch.android.sc.punch;
 import com.bignerdranch.android.sc.R;
 
 public class LabelPunch {
-    private int id;
-    private int number;
-    private String title;
-    private int mImgID;
+    public int id;
+    public int number;
+    public String title;
+    public boolean isClockInToday;
+
+    public int mImgID;
+
+    public LabelPunch(String title, int number){
+        this.title = title;
+        this.number = number;
+    }
+
     public int getId() {
         return id;
     }
@@ -15,8 +23,8 @@ public class LabelPunch {
         this.id = id;
     }
 
-    public int getImgID(String title) {
 
+    public int getImgID(String title) {
         if (title.equals("吃水果")) mImgID = R.mipmap.chishuiguo;
         if (title.equals("吃早餐")) mImgID = R.mipmap.chizaocan;
         if (title.equals("多喝水")) mImgID = R.mipmap.duoheshui;
@@ -63,6 +71,14 @@ public class LabelPunch {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isClockInToday() {
+        return isClockInToday;
+    }
+
+    public void setClockInToday(boolean clockInToday) {
+        isClockInToday = clockInToday;
     }
 }
 

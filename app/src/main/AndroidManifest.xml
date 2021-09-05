@@ -37,9 +37,9 @@
         <activity android:name=".user.View.MonthReportActivity"></activity>
         <activity android:name=".user.View.CoinQueryActivity"></activity>
         <activity android:name=".user.View.UserActivity"></activity>
-        <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.RankBackgroundActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
+        <activity android:name=".punch.view.ClockInActivity"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.bignerdranch.android.sc.fileprovider"
