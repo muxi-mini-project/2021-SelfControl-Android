@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.punch.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -169,7 +170,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         public void bind(LabelPunch clockInLabel) {
             clockIn_title.setText(clockInLabel.getTitle());
-            clockIn_times.setText(String.valueOf(clockInLabel.getNumber()));
+            clockIn_times.setText("您已打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
             if (clockInLabel.isClockInToday()) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
@@ -195,7 +196,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ClockInHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ClockInHolder holder, @SuppressLint("RecyclerView") int position) {
             LabelPunch clockInLabel = mClockInLabels.get(position);
 
             holder.bind(clockInLabel);
