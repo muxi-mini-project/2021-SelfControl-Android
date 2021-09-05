@@ -42,8 +42,6 @@ public class FlowerFragment extends Fragment {
         this.text = text;
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

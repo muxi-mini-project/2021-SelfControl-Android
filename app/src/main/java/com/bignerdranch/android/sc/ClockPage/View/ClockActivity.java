@@ -1,29 +1,26 @@
 package com.bignerdranch.android.sc.ClockPage.View;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
-import com.bignerdranch.android.sc.Data;
+import com.bignerdranch.android.sc.ClockPage.weekcalendar.CalendarAdapter;
+import com.bignerdranch.android.sc.ClockPage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -31,16 +28,12 @@ import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.ClockPage.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.ClockPage.flower.FlowerFragment;
-import com.bignerdranch.android.sc.ClockPage.flower.NoScrollViewPager;
-import com.bignerdranch.android.sc.ClockPage.weekcalendar.DateAdapter;
-import com.bignerdranch.android.sc.ClockPage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
 import com.bignerdranch.android.sc.user.UserActivity;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -50,41 +43,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.bignerdranch.android.sc.ClockPage.weekcalendar.CalendarUtils.daysInWeekArray;
+import static com.bignerdranch.android.sc.ClockPage.weekcalendar.CalendarUtils.getLocalDate;
+import static com.bignerdranch.android.sc.ClockPage.weekcalendar.CalendarUtils.monthYearFromDate;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class ClockActivity extends StatusBar implements GestureDetector.OnGestureListener {
-    private static String TAG = "ClockActivity";
-    private ViewFlipper flipper1 = null;
-    private GridView gridView = null;
-    private GestureDetector gestureDetector = null;
-    private int year_c = 0;
-    private int month_c = 0;
-    private int day_c = 0;
-    private int week_c = 0;
-    private int week_num = 0;
-    private String currentDate = "";
-    private DateAdapter dateAdapter;
-    private int daysOfMonth = 0;
-    private int dayOfWeek = 0;
-    private int weeksOfMonth = 0;
-    private SpecialCalendar sc = null;
-    private boolean isLeapyear = false;
-    private int selectPostion = 0;
-    private String dayNumbers[] = new String[7];
-    private TextView tvDate;
-    private int currentYear;
-    private int currentMonth;
-    private int currentWeek;
-    private int currentDay;
-    private int currentNum;
-
+public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener {
     private TextView ticker;
-    private ImageButton settings;
-    private ImageButton users;
-    private ImageButton done;
 
     private ArrayList<Fragment> fragments;
-    private NoScrollViewPager mViewPager;
+    private ViewPager mViewPager;
     private FlowerFragment mSunFlowerFragment;
     private FlowerFragment mMonFlowerFragment;
     private FlowerFragment mTueFlowerFragment;
@@ -98,151 +66,27 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
     private ConstraintLayout mLayout;
     private User mUser;
-    private Data mData;
 
-    private int date;
+    private RecyclerView calendarRecyclerView;
+    private DatePickerDialog datePickerDialog;
+    private Button dateButton;
 
-    public ClockActivity() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
-        currentDate = sdf.format(date);
-
-        year_c = Integer.parseInt(currentDate.split("-")[0]);
-        month_c = Integer.parseInt(currentDate.split("-")[1]);
-        day_c = Integer.parseInt(currentDate.split("-")[2]);
-
-        currentYear = year_c;
-        currentMonth = month_c;
-        currentDay = day_c;
-
-        sc = new SpecialCalendar();
-        getCalendar(year_c, month_c);
-        week_num = getWeeksOfMonth();
-        currentNum = week_num;
-        if (dayOfWeek == 7) {
-            week_c = currentDay / 7 + 1;
-        } else {
-            if (currentDay <= (7 - dayOfWeek)) {
-                week_c = 1;
-            } else {
-                if ((currentDay - (7 - dayOfWeek)) % 7 == 0) {
-                    week_c = (currentDay - (7 - dayOfWeek)) / 7 + 1;
-                } else {
-                    week_c = (currentDay - (7 - dayOfWeek)) / 7 + 2;
-                }
-            }
-        }
-        currentWeek = week_c;
-        getCurrent();
-
-    }
-
-
-    public int getWeeksOfMonth(int year, int month) {
-        int preMonthRelax = 0;
-        int dayFirst = getWhichDayOfWeek(year, month);
-        int days = sc.getDaysOfMonth(sc.isLeapYear(year), month);
-        if (dayFirst != 7) {
-            preMonthRelax = dayFirst;
-        }
-        if ((days + preMonthRelax) % 7 == 0) {
-            weeksOfMonth = (days + preMonthRelax) / 7;
-        } else {
-            weeksOfMonth = (days + preMonthRelax) / 7 + 1;
-        }
-        return weeksOfMonth;
-
-    }
-
-
-    public int getWhichDayOfWeek(int year, int month) {
-        return sc.getWeekdayOfMonth(year, month);
-
-    }
-
-
-    public int getLastDayOfWeek(int year, int month) {
-        return sc.getWeekDayOfLastMonth(year, month,
-                sc.getDaysOfMonth(isLeapyear, month));
-    }
-
-    public void getCalendar(int year, int month) {
-        isLeapyear = sc.isLeapYear(year);
-        daysOfMonth = sc.getDaysOfMonth(isLeapyear, month);
-        dayOfWeek = sc.getWeekdayOfMonth(year, month);
-    }
-
-    public int getWeeksOfMonth() {
-        // getCalendar(year, month);
-        int preMonthRelax = 0;
-        if (dayOfWeek != 7) {
-            preMonthRelax = dayOfWeek;
-        }
-        if ((daysOfMonth + preMonthRelax) % 7 == 0) {
-            weeksOfMonth = (daysOfMonth + preMonthRelax) / 7;
-        } else {
-            weeksOfMonth = (daysOfMonth + preMonthRelax) / 7 + 1;
-        }
-        return weeksOfMonth;
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clock_main_page);
 
-        tvDate = (TextView) findViewById(R.id.tv_date);
-        tvDate.setText(year_c + "年" + month_c + "月" + day_c + "日");
-        gestureDetector = new GestureDetector(this);
-        flipper1 = (ViewFlipper) findViewById(R.id.flipper1);
+        CalendarUtils.selectedDate = LocalDate.now();
 
-        dateAdapter = new DateAdapter(this, currentYear, currentMonth, currentWeek, currentWeek == 1 ? true : false);
-        addGridView();
-        dayNumbers = dateAdapter.getDayNumbers();
-        gridView.setAdapter(dateAdapter);
-        selectPostion = dateAdapter.getTodayPosition();
-        gridView.setSelection(selectPostion);
-        flipper1.addView(gridView, 0);
-
-
-        ticker = findViewById(R.id.tv_scroll);
-        ticker.setSelected(true);
-
-        settings = (ImageButton) findViewById(R.id.settings);
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()) {
-                    Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
+        initWidgets();
+        initView();
+        initDatePicker();
+        setWeekView();
 
         //done = findViewById(R.id.unflower);
         //done.setBackgroundResource(R.mipmap.done);
         //ifpunchcomplete(done);
-
-        initView();
-
-        users = findViewById(R.id.users);
-        users.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()) {
-                    Intent intent = new Intent(ClockActivity.this, UserActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
-
-
-        mViewPager.setCurrentItem(dateAdapter.getTodayPosition());
-        //设置边距5dp
-        mViewPager.setPageMargin(dip2px(5));
-
 
         //设置状态栏透明
         makeStatusBarTransparent(this);
@@ -250,19 +94,119 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void initWidgets()
+    {
+        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
+        mLayout = findViewById(R.id.clock_main_page);
+        mViewPager = findViewById(R.id.ViewPager);
+
+        dateButton = findViewById(R.id.date_picker_button);
+        dateButton.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ticker = findViewById(R.id.tv_scroll);
+        ticker.setSelected(true);
+        //设置边距5dp
+        mViewPager.setPageMargin(dip2px(5));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void initDatePicker()
+    {
+        DatePickerDialog.OnDateSetListener dateSetListener= new DatePickerDialog.OnDateSetListener()
+        {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day)
+            {
+                month = month + 1;
+                CalendarUtils.selectedDate = getLocalDate(year, month, day);
+                setWeekView();
+            }
+        };
+
+        int year = CalendarUtils.selectedDate.getYear();
+        int month = CalendarUtils.selectedDate.getMonthValue();
+        int day = CalendarUtils.selectedDate.getDayOfMonth();
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datePickerDialog= new DatePickerDialog(this,style,dateSetListener,year,month,day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void setWeekView()
+    {
+        dateButton.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
+
+        CalendarAdapter calendarAdapter = new CalendarAdapter(days,this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),7);
+        calendarRecyclerView.setLayoutManager(layoutManager);
+        calendarRecyclerView.setAdapter(calendarAdapter);
+        mViewPager.setCurrentItem(getDay(CalendarUtils.selectedDate.getDayOfWeek().getValue()));
+    }
+
+    private int getDay(int day)
+    {
+        if(day == 7){
+            return 0;
+        }
+        return day;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void previousWeekAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusWeeks(1);
+        setWeekView();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void nextWeekAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusWeeks(1);
+        setWeekView();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onItemClick(int position, LocalDate date)
+    {
+        CalendarUtils.selectedDate = date;
+        setWeekView();
+    }
+
+    public void openDatePicker(View view)
+    {
+        datePickerDialog.show();
+    }
+
+    public void openSetting(View view)
+    {
+        if (Utils.isFastClick()) {
+            Intent intent = new Intent(ClockActivity.this, SettingPageActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public void openUser(View view)
+    {
+        if (Utils.isFastClick()) {
+            Intent intent = new Intent(ClockActivity.this, UserActivity.class);
+            startActivity(intent);
+        }
+    }
     //dp转px的函数
     private int dip2px(int value) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (value * scale + 0.5f);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void initView() {
 
         request();
-        mLayout = findViewById(R.id.clock_main_page);
-
-
-        mViewPager = findViewById(R.id.ViewPager);
 
         mSunFlowerFragment = new FlowerFragment();
         mMonFlowerFragment = new FlowerFragment();
@@ -286,7 +230,6 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 
         mViewPager.setAdapter(mFragmentPagerAdapter);
 
-
         mSunFlowerFragment.FlowerFragment("星期日");
         mMonFlowerFragment.FlowerFragment("星期一");
         mTueFlowerFragment.FlowerFragment("星期二");
@@ -295,204 +238,40 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
         mFriFlowerFragment.FlowerFragment("星期五");
         mSatFlowerFragment.FlowerFragment("星期六");
 
-        /*View view_line = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.view_line);
-        LinearLayout ll = LayoutInflater.from(ClockActivity.this).inflate(R.layout.item_calendar, null).findViewById(R.id.ll_data);
-
-
-        设置viewPager页面滑动的事件
+        //设置viewPager页面滑动的事件
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            int preItem,position;
 
             //页面状态改变时调用,arg0为页面状态
             @Override
             public void onPageScrollStateChanged(int arg0) {
-                preItem = mViewPager.getCurrentItem();
             }
 
             //页面滑动过程中调用
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
 
             //页面滑动后调用
             @Override
-            public void onPageSelected(int arg0) {
-                if(mViewPager.getCurrentItem() < preItem){//从左向右
+            public void onPageSelected(int position) {
+                int currentPosition = getDay(CalendarUtils.selectedDate.getDayOfWeek().getValue());
 
-                    return;
-                }else {
-                    ll.setSelected(false);
-
-                    view_line.setVisibility(View.INVISIBLE);
+                if (position == currentPosition + 1) {
+                    //右滑
+                    CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusDays(1);
+                    setWeekView();
+                }else if (position == currentPosition - 1){
+                    //左滑
+                    CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusDays(1);
+                    setWeekView();
                 }
-
-            }
-        });*/
-    }
-
-    private void addGridView() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        gridView = new GridView(this);
-        gridView.setNumColumns(7);
-        gridView.setGravity(Gravity.CENTER_VERTICAL);
-        gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
-        gridView.setVerticalSpacing(1);
-        gridView.setHorizontalSpacing(1);
-        gridView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return ClockActivity.this.gestureDetector.onTouchEvent(event);
             }
         });
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.i(TAG, "day:" + dayNumbers[position]);
-                selectPostion = position;
-                dateAdapter.setSeclection(position);
-                dateAdapter.notifyDataSetChanged();
-                tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[position] + "日");
-
-                int month = dateAdapter.getCurrentMonth(selectPostion);
-                int day = position;
-                int date = getEachDayOfYear(false, month, day);
-
-                int today = dateAdapter.getSelectedPosition(dateAdapter.getCurrentYear(selectPostion), dateAdapter.getCurrentMonth(selectPostion), Integer.parseInt(dayNumbers[position]));
-                mViewPager.setCurrentItem(today);
-
-                Bundle bundle = new Bundle();
-                bundle.putInt("date", date);
-
-                mSatFlowerFragment.setArguments(bundle);
-                mMonFlowerFragment.setArguments(bundle);
-                mTueFlowerFragment.setArguments(bundle);
-                mWesFlowerFragment.setArguments(bundle);
-                mThuFlowerFragment.setArguments(bundle);
-                mFriFlowerFragment.setArguments(bundle);
-                mSunFlowerFragment.setArguments(bundle);
-            }
-        });
-        gridView.setLayoutParams(params);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // jumpWeek = 0;
-    }
 
-    @Override
-    public boolean onDown(MotionEvent e) {
-
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-                            float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    public void getCurrent() {
-        if (currentWeek > currentNum) {
-            if (currentMonth + 1 <= 12) {
-                currentMonth++;
-            } else {
-                currentMonth = 1;
-                currentYear++;
-            }
-            currentWeek = 1;
-            currentNum = getWeeksOfMonth(currentYear, currentMonth);
-        } else if (currentWeek == currentNum) {
-            if (getLastDayOfWeek(currentYear, currentMonth) == 6) {
-            } else {
-                if (currentMonth + 1 <= 12) {
-                    currentMonth++;
-                } else {
-                    currentMonth = 1;
-                    currentYear++;
-                }
-                currentWeek = 1;
-                currentNum = getWeeksOfMonth(currentYear, currentMonth);
-            }
-
-        } else if (currentWeek < 1) {
-            if (currentMonth - 1 >= 1) {
-                currentMonth--;
-            } else {
-                currentMonth = 12;
-                currentYear--;
-            }
-            currentNum = getWeeksOfMonth(currentYear, currentMonth);
-            currentWeek = currentNum - 1;
-        }
-    }
-
-    @Override
-
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {//手势滑动效果
-        int gvFlag = 0;
-        /*getX表示得到他在整个页面的x或者y坐标
-         */
-        if (e1.getX() - e2.getX() > 80) {//向左滑动
-            addGridView();
-            currentWeek++;
-            getCurrent();
-            dateAdapter = new DateAdapter(this, currentYear, currentMonth, currentWeek, currentWeek == 1 ? true : false);
-            dayNumbers = dateAdapter.getDayNumbers();
-            gridView.setAdapter(dateAdapter);
-            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[selectPostion] + "日");
-            gvFlag++;
-            flipper1.addView(gridView, gvFlag);
-            dateAdapter.setSeclection(selectPostion);
-            this.flipper1.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_in));
-            this.flipper1.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_left_out));
-            this.flipper1.showNext();
-            flipper1.removeViewAt(0);
-            return true;
-
-
-        } else if (e1.getX() - e2.getX() < -80) {//向右滑动
-            addGridView();
-            currentWeek--;
-            getCurrent();
-            dateAdapter = new DateAdapter(this, currentYear, currentMonth,
-                    currentWeek, currentWeek == 1 ? true : false);
-            dayNumbers = dateAdapter.getDayNumbers();
-            gridView.setAdapter(dateAdapter);
-            tvDate.setText(dateAdapter.getCurrentYear(selectPostion) + "年" + dateAdapter.getCurrentMonth(selectPostion) + "月" + dayNumbers[selectPostion] + "日");
-            gvFlag++;
-            flipper1.addView(gridView, gvFlag);
-            dateAdapter.setSeclection(selectPostion);
-            this.flipper1.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_in));
-            this.flipper1.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.push_right_out));
-            this.flipper1.showPrevious();
-            flipper1.removeViewAt(0);
-            return true;
-        }
-        return false;
-    }
 
     private void request() {
         OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
@@ -577,16 +356,4 @@ public class ClockActivity extends StatusBar implements GestureDetector.OnGestur
 //            }
 //        });
 //    }
-    public int getEachDayOfYear(boolean isLeapyear, int month, int day) {
-        int eachDayOfYear = 0;
-        int[] mon = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        if (isLeapyear) {
-            mon[1] = 29;
-        }
-        for (int i = 0; i < month; i++) {
-            eachDayOfYear += mon[i];
-        }
-        eachDayOfYear = eachDayOfYear + day;
-        return eachDayOfYear;
-    }
 }
