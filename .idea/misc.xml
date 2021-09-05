@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/clockin_item.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/clockin_pager.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/coin_function.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/coin_query.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/dialog_private.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/flower.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/item_calendar.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/month_rank.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/month_report.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/month_report_item.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/rank_background.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/rank_query.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/uesr_dialog.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/user.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/week_rank.xml" value="0.12907608695652173" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

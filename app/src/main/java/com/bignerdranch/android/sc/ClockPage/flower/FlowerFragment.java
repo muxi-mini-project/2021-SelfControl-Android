@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.flower;
+package com.bignerdranch.android.sc.ClockPage.flower;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,8 +41,6 @@ public class FlowerFragment extends Fragment {
     public void FlowerFragment(String text) {
         this.text = text;
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
