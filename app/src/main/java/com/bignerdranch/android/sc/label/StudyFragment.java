@@ -10,10 +10,12 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.user.bean.Message;
+
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.ClockActivity;
+
 import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;
@@ -244,7 +246,7 @@ public class StudyFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if (Utils.isFastClick()){
-                        Intent intent=new Intent(getActivity() ,ClockActivity.class);
+                        Intent intent=new Intent(getActivity() , ClockActivity.class);
                         startActivity(intent);
                     }
 
