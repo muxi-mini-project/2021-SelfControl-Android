@@ -25,8 +25,6 @@ import java.util.List;
 
 import top.defaults.view.PickerView;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
 
 public class MonthFragment extends Fragment implements MonthAPI.VP {
 
@@ -34,7 +32,9 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     private ImageView mExchange;
     private List<RankItem> mList;
     private final MonthP mP = new MonthP();
-   // String token = getActivity().getSharedPreferences("Token", Context.MODE_PRIVATE).getString("Token","null");
+    private String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzY2NCIsImV4cCI6MTYzMTM1OTIyOSwiaWF0IjoxNjMwNjM5MjI5fQ.FkdwiyYO-nyjODGRuxH91EVA6ub_0gr7ZxI62ordSwA";
+
+    // String token = getActivity().getSharedPreferences("Token", Context.MODE_PRIVATE).getString("Token","null");
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
@@ -111,7 +111,7 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
 
     @Override
     public void changeRank(int rank, String token) {
-
+        mP.changeRank(rank,token);
     }
 
     @Override
@@ -135,7 +135,8 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     }
 
     @Override
-    public void ListNull() {
+    public List ListNull() {
         Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
+        return null;
     }
 }

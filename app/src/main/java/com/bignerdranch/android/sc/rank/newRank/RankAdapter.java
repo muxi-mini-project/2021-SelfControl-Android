@@ -116,9 +116,9 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
             public void onResponse(Call<User> call, Response<User> response) {
                 mUser = response.body();
                 if (mUser != null) {
-                    if (mUser.getPrivacy() == 2) {
+                    if (mUser.getData().getPrivacy() == 2) {
                         showPrivateDialog();
-                    } else if (mUser.getPrivacy() == 1) {
+                    } else if (mUser.getData().getPrivacy() == 1) {
                         Intent intent = new Intent(getActivity(), SeeUserV.class);
                         intent.putExtra("data", id);
                         intent.putExtra("data1", name);

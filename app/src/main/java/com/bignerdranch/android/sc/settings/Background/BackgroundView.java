@@ -12,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
 
@@ -21,6 +20,8 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     private ImageView mChoose1, mChoose2, mChoose3, mChoose4, mChoose5, mChoose6;
     private BackgroundP mP = new BackgroundP();
     private User mUser;
+    private String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzY2NCIsImV4cCI6MTYzMTM1OTIyOSwiaWF0IjoxNjMwNjM5MjI5fQ.FkdwiyYO-nyjODGRuxH91EVA6ub_0gr7ZxI62ordSwA";
+
 
     private ConstraintLayout mLayout;
 //    String token = getSharedPreferences("Token",0).getString("Token",null);

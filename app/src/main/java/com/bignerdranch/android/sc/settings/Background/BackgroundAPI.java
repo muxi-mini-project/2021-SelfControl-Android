@@ -22,10 +22,10 @@ public interface BackgroundAPI {
         void error();
 
     }
-    @GET("/backdrops/")
+    @GET("backdrops")
     Observable<BackgroundItem.Background> getMyBack(@Header("token") String token);
 
-    @PUT("/backdrop/")
+    @PUT("backdrop")
     Observable<Response<BackgroundItem.Buy>> buyBack(@Header("token") String token, @Body BackgroundItem.Buy mBuy);
 
 

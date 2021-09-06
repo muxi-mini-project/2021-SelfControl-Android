@@ -55,7 +55,7 @@ public class MonthP implements MonthAPI.VP {
     }
 
     @Override
-    public void ListNull() {
+    public List ListNull() {
         mView.ListNull();
     }
 

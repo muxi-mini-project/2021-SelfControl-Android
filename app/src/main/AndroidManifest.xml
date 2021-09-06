@@ -39,9 +39,8 @@
         <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.newRank.RankActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
-<<<<<<< HEAD
         <activity android:name=".settings.Private.PrivateV"></activity>
-=======
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.bignerdranch.android.sc.fileprovider"
@@ -51,7 +50,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
->>>>>>> origin
     </application>
     <uses-permission android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />

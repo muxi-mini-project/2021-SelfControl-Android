@@ -18,7 +18,7 @@ public interface MonthAPI {
         void ListFail();
         void changeSuccess();
         void changeFail();
-        void ListNull();
+        List ListNull();
     }
     interface M{
         List<RankItem> requestRank();

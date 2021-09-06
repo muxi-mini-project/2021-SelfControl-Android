@@ -19,7 +19,8 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
     private User mUser;
     private ConstraintLayout mLayout;
     private PrivateP mP = new PrivateP();
-    String token = getSharedPreferences("Token",0).getString("Token",null);
+    private String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzY2NCIsImV4cCI6MTYzMTM1OTIyOSwiaWF0IjoxNjMwNjM5MjI5fQ.FkdwiyYO-nyjODGRuxH91EVA6ub_0gr7ZxI62ordSwA";
+//    String token = getSharedPreferences("Token",0).getString("Token",null);
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -33,8 +34,12 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
     public void initView(){
         mLayout = findViewById(R.id.choose_layout);
         mBack = findViewById(R.id.private_back);
+        mBack.setOnClickListener(this);
         mTrue = findViewById(R.id.true_button);
+        mTrue.setOnClickListener(this);
         mFalse = findViewById(R.id.false_button);
+        mFalse.setOnClickListener(this);
+
     }
 
     @Override

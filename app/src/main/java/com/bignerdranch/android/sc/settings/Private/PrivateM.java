@@ -13,20 +13,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PrivateM implements PrivateAPI.M {
     private PrivateP mP;
+    private User user = new User();
+
     public PrivateM(PrivateP mP){
         this.mP = mP;
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1")
+            .baseUrl("http://39.99.53.8:2333/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
     @Override
-    public void request(int type,String token) {
+    public void request(Integer type,String token) {
         PrivateAPI mApi = retrofit.create(PrivateAPI.class);
-        mApi.putPrivacy(new User(type),token)
+        user.setData(new User.DataDTO(type));
+        mApi.putPrivacy(user,token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<User>() {

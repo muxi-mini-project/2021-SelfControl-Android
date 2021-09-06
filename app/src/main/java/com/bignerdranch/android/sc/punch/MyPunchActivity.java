@@ -12,27 +12,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-<<<<<<< HEAD
-import com.bignerdranch.android.sc.Data;
-import com.bignerdranch.android.sc.GetBackdropAPI;
-import com.bignerdranch.android.sc.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
-=======
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
-import com.bignerdranch.android.sc.user.Bean.Message;
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.Utils;
-
-import com.bignerdranch.android.sc.user.Bean.Data;
->>>>>>> origin
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.rank.newRank.RankActivity;
+import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.Bean.Message;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import java.util.ArrayList;
 import java.util.Calendar;

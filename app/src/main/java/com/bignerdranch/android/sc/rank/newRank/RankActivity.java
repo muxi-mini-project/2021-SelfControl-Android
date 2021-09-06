@@ -20,7 +20,7 @@ import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.rank.newRank.Month.MonthFragment;
 import com.bignerdranch.android.sc.rank.newRank.Week.WeekFragment;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.UserActivity;
+import com.bignerdranch.android.sc.user.View.UserActivity;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
