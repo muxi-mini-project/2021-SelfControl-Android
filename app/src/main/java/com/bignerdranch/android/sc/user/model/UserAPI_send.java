@@ -28,7 +28,7 @@ public interface UserAPI_send {
 
     //
     @GET("user/")
-    Observable<User.DataDTO> mUser(@Header("token") String token);
+    Observable<User> mUser(@Header("token") String token);
 
     //
     @GET("punch/month")
