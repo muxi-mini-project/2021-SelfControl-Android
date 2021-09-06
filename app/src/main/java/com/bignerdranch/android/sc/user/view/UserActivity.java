@@ -1,8 +1,6 @@
 package com.bignerdranch.android.sc.user.view;
 
 import android.Manifest;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -122,13 +120,16 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editView.getText() != null) {
+                if (editView.getText().toString().length() == 0 ) {
+                    Toast.makeText(UserActivity.this,"名称不可以为空哦！",Toast.LENGTH_SHORT).show();
+                }else{
                     mName.setText(editView.getText().toString());
                     String name = editView.getText().toString();
                     mUser.setName(name);
                     userPresenter.SendChangeName(token,mUser);
+                    dialog.dismiss();
                 }
-                dialog.dismiss();
+
             }
 
         });

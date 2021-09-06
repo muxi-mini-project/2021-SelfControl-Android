@@ -7,6 +7,6 @@
 
     <style name="MyEditView">
         <item name="colorControlNormal">@color/gray</item>
-        <item name="colorControlActivated">@color/gray</item>
+        <item name="colorControlActivated">#9B99F3</item>
     </style>
     </resources>
