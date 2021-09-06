@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.ClockPage.View.ClockActivity;
+import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;

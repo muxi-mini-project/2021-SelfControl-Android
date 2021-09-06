@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.ClockPage.flower;
+package com.bignerdranch.android.sc.clockpage.flower;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

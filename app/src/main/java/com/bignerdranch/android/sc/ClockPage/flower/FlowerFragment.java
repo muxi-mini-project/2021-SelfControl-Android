@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.ClockPage.flower;
+package com.bignerdranch.android.sc.clockpage.flower;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.punch.view.ClockInActivity;
-import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.PunchAPI;
@@ -56,7 +56,7 @@ public class FlowerFragment extends Fragment {
         mTextView.setText(text);
         mBundle = this.getArguments();
         if(mBundle != null) {date = mBundle.getInt("date");
-        ifpunchcomplete();}
+            ifpunchcomplete();}
         unflower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

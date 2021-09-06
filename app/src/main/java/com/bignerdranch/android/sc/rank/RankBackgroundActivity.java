@@ -21,7 +21,7 @@ import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.View.UserActivity;
+import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.util.ArrayList;
 import java.util.List;

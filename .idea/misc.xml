@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="..\:/Program Files/2021-SelfControl-Android/app/src/main/res/layout/dialog_changename.xml" value="0.21739130434782608" />
+=======
         <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.16485507246376813" />
         <entry key="app/src/main/res/layout/choose_open.xml" value="0.15534420289855072" />
         <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.25" />
@@ -27,6 +30,7 @@
         <entry key="app/src/main/res/layout/uesr_dialog.xml" value="0.12907608695652173" />
         <entry key="app/src/main/res/layout/user.xml" value="0.12907608695652173" />
         <entry key="app/src/main/res/layout/week_rank.xml" value="0.12907608695652173" />
+>>>>>>> main
       </map>
     </option>
   </component>

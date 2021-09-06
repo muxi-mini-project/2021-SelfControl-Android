@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.Bean;
+package com.bignerdranch.android.sc.user.bean;
 
 import java.util.List;
 

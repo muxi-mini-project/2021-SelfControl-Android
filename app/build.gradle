@@ -60,7 +60,8 @@ dependencies {
     implementation 'io.reactivex:rxandroid:1.0.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 
-    implementation 'com.google.code.gson:gson:2.8.6'//hx:对Json数据进行解析
+    //hx:对Json数据进行解析
+    implementation 'com.google.code.gson:gson:2.8.6'
     // Okhttp库
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     // Retrofit库
@@ -68,7 +69,5 @@ dependencies {
     // 用Gson解析json的转换器
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-
-
 
 }
