@@ -95,7 +95,7 @@ public class UserService_send  {
         userAPI_send.mUser(token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<User.DataDTO>() {
+                .subscribe(new Observer<User>() {
                     @Override
                     public void onCompleted() {
 
@@ -109,8 +109,8 @@ public class UserService_send  {
                     }
 
                     @Override
-                    public void onNext(User.DataDTO user) {
-                        usePresent.transUser(user);
+                    public void onNext(User user) {
+                        usePresent.transUser(user.getData());
                         Log.d("UserPresent", "用户信息部分网络连接成功");
                     }
                 });
