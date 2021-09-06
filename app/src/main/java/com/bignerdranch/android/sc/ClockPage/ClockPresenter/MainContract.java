@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.ClockPage.ClockPresenter;
+package com.bignerdranch.android.sc.clockpage.clockpresenter;
 
 public interface MainContract {
 
