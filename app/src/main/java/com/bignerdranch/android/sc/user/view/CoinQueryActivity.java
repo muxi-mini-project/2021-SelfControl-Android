@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.View;
+package com.bignerdranch.android.sc.user.view;
 
 
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
-import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.Bean.Report;
-import com.bignerdranch.android.sc.user.Bean.Week;
-import com.bignerdranch.android.sc.user.Presenter.GoldAdapter;
-import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
+import com.bignerdranch.android.sc.user.bean.Report;
+import com.bignerdranch.android.sc.user.bean.Week;
+import com.bignerdranch.android.sc.user.presenter.GoldAdapter;
+import com.bignerdranch.android.sc.user.presenter.UserPresenter;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;

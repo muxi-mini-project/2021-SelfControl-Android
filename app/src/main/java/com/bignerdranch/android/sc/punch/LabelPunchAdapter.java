@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.user.Bean.Data;
-import com.bignerdranch.android.sc.user.Bean.Message;
+import com.bignerdranch.android.sc.user.bean.Data;
+import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;

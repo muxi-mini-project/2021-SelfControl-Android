@@ -32,10 +32,10 @@
         <activity android:name=".settings.BackgroundActivity"></activity>
         <activity android:name=".settings.CoinFunctionActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
-        <activity android:name=".user.View.RankQueryActivity"></activity>
-        <activity android:name=".user.View.MonthReportActivity"></activity>
-        <activity android:name=".user.View.CoinQueryActivity"></activity>
-        <activity android:name=".user.View.UserActivity"></activity>
+        <activity android:name=".user.view.RankQueryActivity"></activity>
+        <activity android:name=".user.view.MonthReportActivity"></activity>
+        <activity android:name=".user.view.CoinQueryActivity"></activity>
+        <activity android:name=".user.view.UserActivity"></activity>
         <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.RankBackgroundActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>

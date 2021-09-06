@@ -24,7 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -37,7 +37,7 @@ import com.bignerdranch.android.sc.clockpage.weekcalendar.DateAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.SpecialCalendar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.View.UserActivity;
+import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
-import com.bignerdranch.android.sc.user.Bean.Message;
+import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 
-import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;

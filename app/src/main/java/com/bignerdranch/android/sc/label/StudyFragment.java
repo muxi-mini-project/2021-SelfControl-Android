@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
-import com.bignerdranch.android.sc.user.Bean.Message;
+import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.ClockActivity;

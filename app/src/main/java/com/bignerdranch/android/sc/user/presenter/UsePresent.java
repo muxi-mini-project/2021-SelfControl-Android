@@ -1,10 +1,10 @@
-package com.bignerdranch.android.sc.user.Presenter;
+package com.bignerdranch.android.sc.user.presenter;
 
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
-import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.Bean.Report;
-import com.bignerdranch.android.sc.user.Bean.Week;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
+import com.bignerdranch.android.sc.user.bean.Report;
+import com.bignerdranch.android.sc.user.bean.Week;
 
 import java.util.List;
 
