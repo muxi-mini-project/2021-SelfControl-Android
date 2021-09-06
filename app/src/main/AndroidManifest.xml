@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".clockpage.ClockActivity"></activity>
+        <activity android:name=".clockpage.view.ClockActivity"></activity>
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.SettingPageActivity"></activity>
         <activity android:name=".settings.CourseActivity"></activity>
@@ -36,9 +36,9 @@
         <activity android:name=".user.view.MonthReportActivity"></activity>
         <activity android:name=".user.view.CoinQueryActivity"></activity>
         <activity android:name=".user.view.UserActivity"></activity>
-        <activity android:name=".punch.MyPunchActivity"></activity>
         <activity android:name=".rank.RankBackgroundActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
+        <activity android:name=".punch.view.ClockInActivity"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.bignerdranch.android.sc.fileprovider"

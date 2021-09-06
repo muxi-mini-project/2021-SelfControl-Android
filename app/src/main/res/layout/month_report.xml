@@ -49,13 +49,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
-        android:layout_height="592dp"
+        android:layout_height="560dp"
         android:background="@drawable/shape_corner_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/month_report_layout"
         app:layout_constraintVertical_bias="0.992">
 
         <TextView
@@ -125,7 +125,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView31"></com.github.mikephil.charting.charts.LineChart>
+            app:layout_constraintTop_toBottomOf="@+id/textView31">
+
+        </com.github.mikephil.charting.charts.LineChart>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

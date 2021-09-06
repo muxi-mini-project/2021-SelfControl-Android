@@ -3,8 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Program Files/2021-SelfControl-Android/app/src/main/res/layout/coin_query.xml" value="0.12771739130434784" />
+=======
+<<<<<<< HEAD
+>>>>>>> 07dc1113faed3f2e25b65558bd0579e39192293c
         <entry key="..\:/Program Files/2021-SelfControl-Android/app/src/main/res/layout/dialog_changename.xml" value="0.21739130434782608" />
+=======
+        <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/choose_open.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/clockin_item.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/clockin_pager.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/clockin_popupwindow.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/coin_function.xml" value="0.16847826086956522" />
+        <entry key="app/src/main/res/layout/coin_query.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/dialog_private.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/flower.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/fragment_clockin_list.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/layout/item_calendar.xml" value="0.16485507246376813" />
+        <entry key="app/src/main/res/layout/month_rank.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/month_report.xml" value="0.10751887298568287" />
+        <entry key="app/src/main/res/layout/month_report_item.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/novice_course.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/pager_label.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/rank_background.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/rank_query.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/see_user_label.xml" value="0.11203703703703703" />
+        <entry key="app/src/main/res/layout/see_user_label_item.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/uesr_dialog.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/user.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/week_rank.xml" value="0.12907608695652173" />
+>>>>>>> main
       </map>
     </option>
   </component>
