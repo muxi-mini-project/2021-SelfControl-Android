@@ -1,26 +1,15 @@
-package com.bignerdranch.android.sc.user.Presenter;
-
-import android.util.Log;
-import android.widget.Toast;
+package com.bignerdranch.android.sc.user.presenter;
 
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
-import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.Bean.Report;
-import com.bignerdranch.android.sc.user.Bean.Week;
-import com.bignerdranch.android.sc.user.View.CoinQueryActivity;
-import com.bignerdranch.android.sc.user.View.UserViewHandler;
-import com.bignerdranch.android.sc.user.model.UserAPI_send;
-import com.bignerdranch.android.sc.user.model.UserListener_send;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
+import com.bignerdranch.android.sc.user.bean.Report;
+import com.bignerdranch.android.sc.user.bean.Week;
+import com.bignerdranch.android.sc.user.view.UserViewHandler;
 import com.bignerdranch.android.sc.user.model.UserService_send;
 
 
 import java.util.List;
-
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class UserPresenter implements UsePresent {
 

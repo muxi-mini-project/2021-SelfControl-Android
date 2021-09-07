@@ -1,6 +1,7 @@
-package com.bignerdranch.android.sc.user.View;
+package com.bignerdranch.android.sc.user.view;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,14 +30,13 @@ import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.LoginActivity;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
-import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.Bean.Report;
-import com.bignerdranch.android.sc.user.Bean.Week;
-import com.bignerdranch.android.sc.user.Presenter.UserImageChange;
-import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
+import com.bignerdranch.android.sc.user.bean.Report;
+import com.bignerdranch.android.sc.user.bean.Week;
+import com.bignerdranch.android.sc.user.presenter.UserImageChange;
+import com.bignerdranch.android.sc.user.presenter.UserPresenter;
 
-import java.io.File;
 import java.util.List;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
@@ -106,21 +107,37 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
     private void showInputDialog() {
         /*@setView 装入一个EditView
          */
-        final EditText editText = new EditText(UserActivity.this);
         AlertDialog.Builder inputDialog = new AlertDialog.Builder(UserActivity.this);
-        inputDialog.setTitle("更换昵称").setView(editText);
-        inputDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (editText.getText() != null) {
-                            String name;
-                            mName.setText(editText.getText().toString());
-                            name = editText.getText().toString();
-                            mUser.setName(name);
-                            userPresenter.SendChangeName(token,mUser);
-                        }
-                    }
-                });
+        AlertDialog dialog = inputDialog.create();
+        View v = View.inflate(this,R.layout.dialog_changename,null);
+        TextView textView = (TextView)v.findViewById(R.id.changename_text);
+        EditText editView = (EditText)v.findViewById(R.id.changename_edit);
+        Button button1 = (Button)v.findViewById(R.id.changeName_button1);
+        Button button2 = (Button)v.findViewById(R.id.changeName_button2);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editView.getText() != null) {
+                    String name;
+                    mName.setText(editView.getText().toString());
+                    name = editView.getText().toString();
+                    mUser.setName(name);
+                    userPresenter.SendChangeName(token,mUser);
+                }
+                dialog.dismiss();
+            }
+
+        });
+        dialog.setView(v);
+        dialog.show();
+
     }
 
 
@@ -129,14 +146,12 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == TAKE_PHOTO) {
-
                 if (u.getFile() == null || !u.getFile().exists()) {
                     iv_photo.setImageBitmap(null);
                 } else {
                     Bitmap bitmap = u.getScaledBitmap(u.getFile().getPath(), UserActivity.this);
                     iv_photo.setImageBitmap(bitmap);
-                    Log.d("Demo","文件名是"+u.getFile().toString());
-                    savePhotos(u.getFile());
+                    savePhotos(u.getFile().getPath());
                 }
 
             }else if(requestCode==PICK_PHOTO){
@@ -151,7 +166,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
                 }
                 Bitmap bitmap = BitmapFactory.decodeFile(path);
                 iv_photo.setImageBitmap(bitmap);
-                savePhotos(u.getFile());
+                savePhotos(path);
 
             } else {
                 Log.d("Demo", "结果无");
@@ -245,9 +260,9 @@ public class UserActivity extends StatusBar implements View.OnClickListener,User
     }
 
     /*实现推出后再加载*/
-    public void savePhotos(File file) {
+    public void savePhotos(String filePath) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("getFilePath",file.getPath());
+        editor.putString("getFilePath",filePath);
         editor.commit();
     }
 

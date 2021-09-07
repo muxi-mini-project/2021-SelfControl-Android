@@ -1,7 +1,7 @@
 package com.bignerdranch.android.sc.label;
 
-import com.bignerdranch.android.sc.user.Bean.Message;
-import com.bignerdranch.android.sc.user.Bean.Data;
+import com.bignerdranch.android.sc.user.bean.Message;
+import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;

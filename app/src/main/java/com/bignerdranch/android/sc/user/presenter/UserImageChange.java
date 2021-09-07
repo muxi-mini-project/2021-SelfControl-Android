@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.Presenter;
+package com.bignerdranch.android.sc.user.presenter;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.Presenter;
+package com.bignerdranch.android.sc.user.presenter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
 
 import java.util.ArrayList;
 import java.util.List;

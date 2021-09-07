@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.user.View;
+package com.bignerdranch.android.sc.user.view;
 
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -11,11 +11,11 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.user.Bean.GoldHistory;
-import com.bignerdranch.android.sc.user.Bean.Rank;
-import com.bignerdranch.android.sc.user.Bean.Report;
-import com.bignerdranch.android.sc.user.Bean.Week;
-import com.bignerdranch.android.sc.user.Presenter.UserPresenter;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
+import com.bignerdranch.android.sc.user.bean.Report;
+import com.bignerdranch.android.sc.user.bean.Week;
+import com.bignerdranch.android.sc.user.presenter.UserPresenter;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
