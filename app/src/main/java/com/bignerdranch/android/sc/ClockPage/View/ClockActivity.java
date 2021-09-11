@@ -31,7 +31,7 @@ import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.SettingPageActivity;
+import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
 import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.time.LocalDate;

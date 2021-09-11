@@ -27,10 +27,10 @@
         </activity>
         <activity android:name=".clockpage.view.ClockActivity"></activity>
         <activity android:name=".label.LabelPagerActivity"></activity>
-        <activity android:name=".settings.SettingPageActivity"></activity>
-        <activity android:name=".settings.CourseActivity"></activity>
-        <activity android:name=".settings.Background.BackgroundView"></activity>
-        <activity android:name=".settings.CoinFunctionActivity"></activity>
+        <activity android:name=".settings.view.SettingPageActivity"></activity>
+        <activity android:name=".settings.view.CourseActivity"></activity>
+        <activity android:name=".settings.view.BackgroundView"></activity>
+        <activity android:name=".settings.view.CoinFunctionActivity"></activity>
         <activity android:name=".settings.PrivateActivity"></activity>
 <<<<<<< HEAD
         <activity android:name=".user.View.RankQueryActivity"></activity>
@@ -39,9 +39,9 @@
         <activity android:name=".user.View.UserActivity"></activity>
 <<<<<<< HEAD
         <activity android:name=".punch.MyPunchActivity"></activity>
-        <activity android:name=".rank.newRank.RankActivity"></activity>
+        <activity android:name=".rank.newRank.view.RankActivity"></activity>
         <activity android:name=".SeeUser.UserLabelActivity"></activity>
-        <activity android:name=".settings.Private.PrivateV"></activity>
+        <activity android:name=".settings.view.PrivateV"></activity>
 
 =======
 =======
