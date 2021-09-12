@@ -118,16 +118,32 @@
             app:layout_constraintTop_toBottomOf="@+id/textView31"
             app:srcCompat="@mipmap/yellowbar" />
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/linechart"
+        <LinearLayout
+            android:id="@+id/LinreaLayoutx"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31">
 
-        </com.github.mikephil.charting.charts.LineChart>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/linechart"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:layout_weight="15">
+
+            </com.github.mikephil.charting.charts.LineChart>
+            <TextView
+                android:id="@+id/report_week"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
