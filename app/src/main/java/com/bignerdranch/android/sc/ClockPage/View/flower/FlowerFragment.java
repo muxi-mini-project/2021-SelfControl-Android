@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.flower;
+package com.bignerdranch.android.sc.clockpage.view.flower;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,10 +36,17 @@ public class FlowerFragment extends Fragment {
     private int date;
     private Data mData;
     private Bundle mBundle;
-    private List<LabelPunch> mList;
 
     public void FlowerFragment(String text) {
         this.text = text;
+    }
+
+    public void SmileFlower(){
+        unflower.setBackgroundResource(R.mipmap.done);
+    }
+
+    public void UnFlower(){
+        unflower.setBackgroundResource(R.mipmap.undone);
     }
 
     @Override
@@ -49,14 +56,10 @@ public class FlowerFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.flower, container, false);
-
-        mTextView = view.findViewById(R.id.today);
-        mView = view.findViewById(R.id.line);
-        unflower = view.findViewById(R.id.unflower);
+        initwidgets(view);
         mTextView.setText(text);
         mBundle = this.getArguments();
-        if(mBundle != null) {date = mBundle.getInt("date");
-            ifpunchcomplete();}
+        if(mBundle != null) {date = mBundle.getInt("date");}
         unflower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,40 +73,10 @@ public class FlowerFragment extends Fragment {
         return view;
     }
 
-    private void ifpunchcomplete() {
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-        PunchAPI client3 = retrofit.create(PunchAPI.class);
-        Call<List<LabelPunch>> call = client3.getDayPunch(token,date);
-
-        call.enqueue(new Callback<List<LabelPunch>>() {
-            @Override
-            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
-                mList = response.body();
-                if( mList != null ){
-                    int flag = 1;
-
-                    for( int i = 0 ; i < mList.size() ; i++ ) {
-                        int j = mList.get(i).getNumber();
-                        if (j == 0) {
-                            flag = 0;
-                            break;
-                        }
-                    }
-                    if(flag == 1)
-                        unflower.setBackgroundResource(R.mipmap.done);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
-
-            }
-
-        });
+    private void initwidgets(View view)
+    {
+        mTextView = view.findViewById(R.id.today);
+        mView = view.findViewById(R.id.line);
+        unflower = view.findViewById(R.id.unflower);
     }
-
 }
