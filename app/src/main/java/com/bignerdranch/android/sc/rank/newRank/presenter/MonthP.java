@@ -61,4 +61,14 @@ public class MonthP implements MonthAPI.VP {
         mView.ListNull();
     }
 
+    @Override
+    public void noCoin() {
+        mView.noCoin();
+    }
+
+    @Override
+    public void noRank() {
+        mView.noRank();
+    }
+
 }

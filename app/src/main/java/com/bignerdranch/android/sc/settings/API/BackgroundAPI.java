@@ -2,6 +2,7 @@ package com.bignerdranch.android.sc.settings.API;
 
 
 import com.bignerdranch.android.sc.settings.bean.BackgroundItem;
+import com.bignerdranch.android.sc.settings.bean.MyBackdrops;
 
 import io.reactivex.Observable;
 import retrofit2.Response;
@@ -25,7 +26,7 @@ public interface BackgroundAPI {
 
     }
     @GET("backdrops")
-    Observable<BackgroundItem.Background> getMyBack(@Header("token") String token);
+    Observable<MyBackdrops> getMyBack(@Header("token") String token);
 
     @PUT("backdrop")
     Observable<Response<BackgroundItem.Buy>> buyBack(@Header("token") String token, @Body BackgroundItem.Buy mBuy);

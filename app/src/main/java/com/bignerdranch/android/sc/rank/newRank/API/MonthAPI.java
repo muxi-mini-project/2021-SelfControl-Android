@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank.newRank.API;
 
+import com.bignerdranch.android.sc.rank.newRank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
 
 import java.util.List;
@@ -19,14 +20,16 @@ public interface MonthAPI {
         void changeSuccess();
         void changeFail();
         void ListNull();
+        void noCoin();
+        void noRank();
     }
     interface M{
         void requestRank();
         void exchange(int ranking, String token);
     }
 
-    @PUT("list/month/")
-    Observable<RankItem> putMonth(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
+    @PUT("list/month")
+    Observable<ChangeRank> putMonth(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
 
     @GET("lists/month/")
     Observable<RankItem> getMonth();

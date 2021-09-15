@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank.newRank.API;
 
+import com.bignerdranch.android.sc.rank.newRank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
 
 import java.util.List;
@@ -19,6 +20,8 @@ public interface WeekAPI {
         void changeSuccess();
         void changeFail();
         void ListNull();
+        void noCoin();
+        void noRank();
     }
     interface M{
         void requestRank();
@@ -26,7 +29,7 @@ public interface WeekAPI {
     }
 
     @PUT("list/week/")
-    Observable<RankItem> putWeek(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
+    Observable<ChangeRank> putWeek(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
 
     @GET("lists/week/")
     Observable<RankItem> getWeek();

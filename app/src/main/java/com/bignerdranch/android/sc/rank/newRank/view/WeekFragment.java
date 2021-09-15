@@ -133,4 +133,14 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
     public void ListNull() {
         Toast.makeText(getContext(), "当前排行榜还没有数据哦！", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void noCoin() {
+        Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void noRank() {
+        Toast.makeText(getContext(),"兑换的排名前没有该排名哦~请减小兑换的排名！",Toast.LENGTH_SHORT).show();
+    }
 }

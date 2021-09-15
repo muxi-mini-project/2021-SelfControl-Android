@@ -60,4 +60,14 @@ public class WeekP implements WeekAPI.VP {
     public void ListNull() {
          mView.ListNull();
     }
+
+    @Override
+    public void noCoin() {
+        mView.noCoin();
+    }
+
+    @Override
+    public void noRank() {
+        mView.noRank();
+    }
 }

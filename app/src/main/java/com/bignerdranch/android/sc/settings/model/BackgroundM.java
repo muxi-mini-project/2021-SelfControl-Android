@@ -2,6 +2,7 @@ package com.bignerdranch.android.sc.settings.model;
 
 import com.bignerdranch.android.sc.settings.API.BackgroundAPI;
 import com.bignerdranch.android.sc.settings.bean.BackgroundItem;
+import com.bignerdranch.android.sc.settings.bean.MyBackdrops;
 import com.bignerdranch.android.sc.settings.presenter.BackgroundP;
 
 import io.reactivex.Observer;
@@ -34,7 +35,7 @@ public class  BackgroundM implements BackgroundAPI.M {
         BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mApi.getMyBack(token).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BackgroundItem.Background>() {
+                .subscribe(new Observer<MyBackdrops>() {
 
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
@@ -42,9 +43,13 @@ public class  BackgroundM implements BackgroundAPI.M {
                     }
 
                     @Override
-                    public void onNext(@NonNull BackgroundItem.Background background) {
+                    public void onNext(@NonNull MyBackdrops myBackdrops) {
                         have[0] = 1;
-                        have[i] = background.get(i++);
+                        have[1] = myBackdrops.getData().getB_1();
+                        have[2] = myBackdrops.getData().getB_2();
+                        have[3] = myBackdrops.getData().getB_3();
+                        have[4] = myBackdrops.getData().getB_4();
+                        have[5] = myBackdrops.getData().getB_5();
                     }
 
                     @Override
@@ -54,7 +59,15 @@ public class  BackgroundM implements BackgroundAPI.M {
 
                     @Override
                     public void onComplete() {
+                        if(have[click] == 1){
+                            mP.successChange(click);
+                        }else{
+                            mP.buyDialog(click);
+                        }
 
+                        for(int i = 1 ; i < 6 ; i++){
+                            have[i] = 0;
+                        }
                     }
                 });
     }
@@ -96,14 +109,6 @@ public class  BackgroundM implements BackgroundAPI.M {
     @Override
     public void changeBackground(int click,String token) {
         haveRequest(click,token);
-        if(have[click] == 1){
-            mP.successChange(click);
-        }else{
-            mP.buyDialog(click);
-        }
-        
-        for(int i = 1 ; i < 6 ; i++){
-            have[i] = 0;
-        }
+
     }
 }

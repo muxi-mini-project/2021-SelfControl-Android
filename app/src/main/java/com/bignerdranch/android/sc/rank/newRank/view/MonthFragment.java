@@ -132,11 +132,21 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
 
     @Override
     public void changeFail() {
-        Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"出错啦！请稍后再试！",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void ListNull() {
         Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void noCoin() {
+        Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void noRank() {
+        Toast.makeText(getContext(),"兑换的排名前没有该排名哦~请减小兑换的排名！",Toast.LENGTH_SHORT).show();
     }
 }

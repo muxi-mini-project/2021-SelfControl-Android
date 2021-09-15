@@ -24,7 +24,7 @@ public class BackgroundP implements BackgroundAPI.VP {
 
     @Override
     public void haveRequest(int click,String token) {
-        mModel.changeBackground(click,token);
+        mModel.haveRequest(click,token);
     }
 
     @Override

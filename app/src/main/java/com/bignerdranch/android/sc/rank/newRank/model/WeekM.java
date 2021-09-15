@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.rank.newRank.model;
 
 import com.bignerdranch.android.sc.rank.newRank.API.WeekAPI;
+import com.bignerdranch.android.sc.rank.newRank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
 import com.bignerdranch.android.sc.rank.newRank.presenter.WeekP;
 
@@ -68,15 +69,22 @@ public class WeekM implements WeekAPI.M {
         mApi.putWeek(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<RankItem>() {
+                .subscribe(new Observer<ChangeRank>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull RankItem rankItem) {
-
+                    public void onNext(@NonNull ChangeRank response) {
+                        if(response.getCode()==203){
+                            mP.noCoin();
+                        }else if(response.getCode() == 200){
+                            mP.changeSuccess();
+                            requestRank();
+                        }else if(response.getCode() == 201){
+                            mP.noRank();
+                        }
                     }
 
                     @Override
@@ -86,7 +94,7 @@ public class WeekM implements WeekAPI.M {
 
                     @Override
                     public void onComplete() {
-                        mP.changeSuccess();
+
                     }
                 });
     }
