@@ -12,22 +12,22 @@ import retrofit2.http.PUT;
 
 public interface WeekAPI {
     interface VP{
-        List<RankItem> requestList();
+        void requestList();
         void changeRank(int rank, String token);
-        void haveList();
+        void haveList(List mList);
         void ListFail();
         void changeSuccess();
         void changeFail();
-        List ListNull();
+        void ListNull();
     }
     interface M{
-        List<RankItem> requestRank();
+        void requestRank();
         void exchange(int ranking, String token);
     }
 
-    @PUT("/list/week/")
-    Observable<RankItem> putWeek(@Header("token")String token, @Body RankItem rankItem);
+    @PUT("list/week/")
+    Observable<RankItem> putWeek(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
 
-    @GET("/lists/week/")
+    @GET("lists/week/")
     Observable<RankItem> getWeek();
 }

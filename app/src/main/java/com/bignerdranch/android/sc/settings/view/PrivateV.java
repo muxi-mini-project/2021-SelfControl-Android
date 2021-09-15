@@ -14,7 +14,7 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.API.PrivateAPI;
 import com.bignerdranch.android.sc.settings.presenter.PrivateP;
 
-import static com.bignerdranch.android.sc.user.view.UserActivity.sharedPreferences;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickListener{
 
@@ -23,7 +23,6 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
     private User mUser;
     private ConstraintLayout mLayout;
     private PrivateP mP = new PrivateP();
-    String token = sharedPreferences.getString("Token",null);
 
 
     @Override

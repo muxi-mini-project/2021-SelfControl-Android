@@ -25,15 +25,15 @@ public class MonthM implements MonthAPI.M {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8/api/v1/")
+            .baseUrl("http://39.99.53.8:2333/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
     MonthAPI mApi = retrofit.create(MonthAPI.class);
 
     @Override
-    public List<RankItem> requestRank() {
-        List<RankItem> mList = new ArrayList();
+    public void requestRank() {
+        List<RankItem.RankDataBean> mList = new ArrayList();
         mApi.getMonth().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
@@ -45,28 +45,28 @@ public class MonthM implements MonthAPI.M {
 
                     @Override
                     public void onNext(@NonNull RankItem rankItem) {
-                        mList.add(rankItem);
+                        mList.addAll(rankItem.getData());
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-
+                        mP.ListFail();
                     }
 
                     @Override
                     public void onComplete() {
-
+                        if(mList.size() == 0){
+                            mP.ListNull();
+                        }else{
+                            mP.haveList(mList);
+                        }
                     }
                 });
-        if(mList.size() == 0){
-            mP.ListNull();
-        }
-        return mList;
     }
 
     @Override
     public void exchange(int ranking,String token) {
-        mApi.putMonth(token, new RankItem(ranking))
+        mApi.putMonth(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {

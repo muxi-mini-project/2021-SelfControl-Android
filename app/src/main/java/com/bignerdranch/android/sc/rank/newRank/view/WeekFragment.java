@@ -27,23 +27,20 @@ import java.util.List;
 
 import top.defaults.view.PickerView;
 
-import static com.bignerdranch.android.sc.user.view.UserActivity.sharedPreferences;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class WeekFragment extends Fragment implements WeekAPI.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;
     private WeekP mP = new WeekP();
-    String token = sharedPreferences.getString("Token",null);
+    //String token = sharedPreferences.getString("Token",null);
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.week_rank, container, false);
-
-
         mP.bindView(this);
+        requestList();
         mRecyclerView = view.findViewById(R.id.week_item);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
         mExchange = view.findViewById(R.id.w_exchange);
         mExchange.setOnClickListener(v -> showWheelDialog());
         return view;
@@ -52,7 +49,7 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
     public void showWheelDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();
-        builder.setView(View.inflate(getActivity(),R.layout.rank_rolldialog,null));
+        builder.setView(View.inflate(getActivity(), R.layout.rank_rolldialog, null));
         dialog.show();
         dialog.getWindow().clearFlags(
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
@@ -85,56 +82,55 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
 
             @Override
             public String getText(int index) {
-                return ""+items.get(index);
+                return "" + items.get(index);
             }
         };
         pickerView.setAdapter(adapter);
         pickerView.setOnSelectedItemChangedListener((pickerView1, previousPosition, selectedItemPosition) -> {
-            if(selectedItemPosition == 0){
+            if (selectedItemPosition == 0) {
                 textView.setText(String.valueOf(0));
-            }else {
+            } else {
                 textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
             }
-            yes.setOnClickListener(v -> changeRank(selectedItemPosition,token));
+            yes.setOnClickListener(v -> changeRank(selectedItemPosition, token));
         });
 
         no.setOnClickListener(v -> dialog.dismiss());
     }
 
     @Override
-    public List<RankItem> requestList() {
-
-        return mP.requestList();
+    public void requestList() {
+        mP.requestList();
     }
 
     @Override
     public void changeRank(int rank, String token) {
-
+        mP.changeRank(rank,token);
     }
 
     @Override
-    public void haveList() {
-
+    public void haveList(List mList) {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        mRecyclerView.setAdapter(new RankAdapter(mList, getActivity()));
     }
 
     @Override
     public void ListFail() {
-
+        Toast.makeText(getContext(), "出错啦！请稍后再试！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void changeSuccess() {
-        Toast.makeText(getContext(),"兑换成功！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "兑换成功！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void changeFail() {
-        Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "金币不足！快去打卡赚金币吧！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public List ListNull() {
-        Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
-        return null;
+    public void ListNull() {
+        Toast.makeText(getContext(), "当前排行榜还没有数据哦！", Toast.LENGTH_SHORT).show();
     }
 }

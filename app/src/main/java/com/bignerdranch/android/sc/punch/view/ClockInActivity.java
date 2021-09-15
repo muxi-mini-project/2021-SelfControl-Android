@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 import com.bignerdranch.android.sc.punch.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.presenter.ClockInPresenter;
+import com.bignerdranch.android.sc.rank.newRank.view.RankActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     String token;
     boolean isClockIn = false;
     ImageView back,addLabel;
+    ImageButton rank;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -63,7 +66,12 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         back = findViewById(R.id.back);
         addLabel = findViewById(R.id.add);
+        rank = findViewById(R.id.rank_ImageButton);
+        rank.setOnClickListener(v -> {
+            Intent intent = new Intent(ClockInActivity.this, RankActivity.class);
+            startActivity(intent);
 
+        });
         mClockInPresenter = new ClockInPresenter(this);
 
         mRecyclerView = findViewById(R.id.recycler_view);

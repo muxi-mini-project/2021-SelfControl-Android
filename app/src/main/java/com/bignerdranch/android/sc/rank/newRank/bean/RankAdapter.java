@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.SeeUser.newSeeUser.SeeUserV;
-import com.bignerdranch.android.sc.login.User;
 
 import java.util.List;
 
@@ -31,12 +30,11 @@ import retrofit2.http.Path;
 
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
-    private List<RankItem> mList;
-    private User mUser;
+    private List<RankItem.RankDataBean> mList;
+    private Privacy mPrivacy;
     private Activity mActivity;
-    Animation shake;
-
-    public RankAdapter(List<RankItem> mList, Activity mActivity) {
+    Animation shake ;
+    public RankAdapter(List<RankItem.RankDataBean> mList, Activity mActivity) {
         this.mList = mList;
         this.mActivity = mActivity;
     }
@@ -71,10 +69,24 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Uri url = Uri.parse(mList.get(position).getUser_picture());
+//        Uri url = Uri.parse(mList.get(position).getUser_picture());
+        shake = AnimationUtils.loadAnimation(mActivity, R.anim.shake);
         holder.mRate.setText("打卡天数: " + mList.get(position).getNumber() + " 天");
         holder.mName.setText("用户昵称: " + mList.get(position).getName());
-        holder.mUser.setImageURI(url);
+        holder.mUser.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName());
+                                            }
+                                        });
+                holder.mThumb.setOnClickListener(new View.OnClickListener() {
+                                                     @Override
+                                                     public void onClick(View v) {
+                                                         v.startAnimation(shake);
+                                                     }
+                                                 }
+                );
+        //    holder.mUser.setImageURI(url);
         switch (position) {
             case 0:
                 holder.mRank.setBackgroundResource(R.mipmap.rank1);
@@ -89,36 +101,36 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                 holder.mRank.setText(String.valueOf(position));
                 break;
         }
-        holder.mUser.setOnClickListener(v ->
-            seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName()));
-        holder.mThumb.setOnClickListener(v -> v.startAnimation(shake)
-        );
+
     }
 
 
     @Override
     public int getItemCount() {
+        if (mList == null) {
+            return 0;
+        }
         return mList.size();
         //return 0;
     }
 
     public void seeUserRequest(String id, String name) {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/api/v1/")
+                .baseUrl("http://39.99.53.8:2333/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
         seeUserAPI mApi = retrofit.create(seeUserAPI.class);
-        Call<User> call = mApi.askPrivacy(id);
+        Call<Privacy> call = mApi.askPrivacy(id);
 
-        call.enqueue(new Callback<User>() {
+        call.enqueue(new Callback<Privacy>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body();
-                if (mUser != null) {
-                    if (mUser.getData().getPrivacy() == 2) {
+            public void onResponse(Call<Privacy> call, Response<Privacy> response) {
+                mPrivacy = response.body();
+                if (mPrivacy != null) {
+                    if (mPrivacy.getData() == 2) {
                         showPrivateDialog();
-                    } else if (mUser.getData().getPrivacy() == 1) {
+                    } else if (mPrivacy.getData() == 1) {
                         Intent intent = new Intent(getActivity(), SeeUserV.class);
                         intent.putExtra("data", id);
                         intent.putExtra("data1", name);
@@ -128,15 +140,15 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Privacy> call, Throwable t) {
 
             }
         });
     }
 
     public interface seeUserAPI {
-        @GET("/punch/punch/{id}")
-        Call<User> askPrivacy(@Path("id") String id);
+        @GET("user/privacy/{id}")
+        Call<Privacy> askPrivacy(@Path("id") String id);
 
     }
 

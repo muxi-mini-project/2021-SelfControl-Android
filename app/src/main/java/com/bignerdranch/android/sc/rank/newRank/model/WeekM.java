@@ -24,15 +24,15 @@ public class WeekM implements WeekAPI.M {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8/api/v1/")
+            .baseUrl("http://39.99.53.8:2333/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
     WeekAPI mApi = retrofit.create(WeekAPI.class);
 
     @Override
-    public List<RankItem> requestRank() {
-        List<RankItem> mList = new ArrayList();
+    public void requestRank() {
+        List<RankItem.RankDataBean> mList = new ArrayList();
         mApi.getWeek().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
@@ -44,28 +44,28 @@ public class WeekM implements WeekAPI.M {
 
                     @Override
                     public void onNext(@NonNull RankItem rankItem) {
-                        mList.add(rankItem);
+                        mList.addAll(rankItem.getData());
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-
+                        mP.ListFail();
                     }
 
                     @Override
                     public void onComplete() {
                         if(mList.size() == 0){
                             mP.ListNull();
+                        }else{
+                            mP.haveList(mList);
                         }
                     }
                 });
-        return mList;
-
     }
 
     @Override
     public void exchange(int ranking,String token) {
-        mApi.putWeek(token, new RankItem(ranking))
+        mApi.putWeek(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {

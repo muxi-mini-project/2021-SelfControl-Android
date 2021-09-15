@@ -12,22 +12,22 @@ import retrofit2.http.PUT;
 
 public interface MonthAPI {
     interface VP{
-        List<RankItem> requestList();
+        void requestList();
         void changeRank(int rank, String token);
-        void haveList();
+        void haveList(List mList);
         void ListFail();
         void changeSuccess();
         void changeFail();
-        List ListNull();
+        void ListNull();
     }
     interface M{
-        List<RankItem> requestRank();
+        void requestRank();
         void exchange(int ranking, String token);
     }
 
-    @PUT("/list/month/")
-    Observable<RankItem> putMonth(@Header("token")String token, @Body RankItem rankItem);
+    @PUT("list/month/")
+    Observable<RankItem> putMonth(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
 
-    @GET("/lists/month/")
+    @GET("lists/month/")
     Observable<RankItem> getMonth();
 }

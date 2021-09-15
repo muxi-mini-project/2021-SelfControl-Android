@@ -18,6 +18,6 @@ public interface SeeUserAPI {
 
     }
 
-    @GET("/punch/punch/{id}")
+    @GET("punch/punch/{id}")
     Observable<LabelPunch> requestList(@Path("id")String id);
 }

@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.rank.newRank.presenter;
 import com.bignerdranch.android.sc.rank.newRank.API.MonthAPI;
-import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
 import com.bignerdranch.android.sc.rank.newRank.model.MonthM;
 import com.bignerdranch.android.sc.rank.newRank.view.MonthFragment;
 
@@ -28,8 +27,8 @@ public class MonthP implements MonthAPI.VP {
 
 
     @Override
-    public List<RankItem> requestList() {
-        return mModel.requestRank();
+    public void requestList() {
+        mModel.requestRank();
     }
 
     @Override
@@ -38,13 +37,13 @@ public class MonthP implements MonthAPI.VP {
     }
 
     @Override
-    public void haveList() {
-
+    public void haveList(List mList) {
+        mView.haveList(mList);
     }
 
     @Override
     public void ListFail() {
-
+        mView.ListNull();
     }
 
     @Override
@@ -58,8 +57,8 @@ public class MonthP implements MonthAPI.VP {
     }
 
     @Override
-    public List ListNull() {
-        return mView.ListNull();
+    public void ListNull() {
+        mView.ListNull();
     }
 
 }

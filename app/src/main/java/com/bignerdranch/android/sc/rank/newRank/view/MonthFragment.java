@@ -18,36 +18,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.rank.newRank.API.MonthAPI;
-import com.bignerdranch.android.sc.rank.newRank.presenter.MonthP;
 import com.bignerdranch.android.sc.rank.newRank.bean.RankAdapter;
-import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
+import com.bignerdranch.android.sc.rank.newRank.presenter.MonthP;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import top.defaults.view.PickerView;
 
-import static com.bignerdranch.android.sc.user.view.UserActivity.sharedPreferences;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 
 public class MonthFragment extends Fragment implements MonthAPI.VP {
 
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
-    private List<RankItem> mList;
+    //private List<RankItem> mList;
     private final MonthP mP = new MonthP();
-    String token = sharedPreferences.getString("Token",null);
+   // String token = sharedPreferences.getString("Token",null);
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
 
-        mList = requestList();
+        requestList();
         mP.bindView(this);
         mRecyclerView = view.findViewById(R.id.month_item);
-        if (mList != null) {
-            mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-            mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
-        }
+
         mExchange = view.findViewById(R.id.exchange);
         mExchange.setOnClickListener(v -> showWheelDialog());
         return view;
@@ -109,8 +105,8 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     }
 
     @Override
-    public List<RankItem> requestList() {
-        return mP.requestList();
+    public void requestList() {
+        mP.requestList();
     }
 
     @Override
@@ -119,8 +115,9 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     }
 
     @Override
-    public void haveList() {
-
+    public void haveList(List mList) {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
+        mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
     }
 
     @Override
@@ -139,8 +136,7 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     }
 
     @Override
-    public List ListNull() {
+    public void ListNull() {
         Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
-        return null;
     }
 }

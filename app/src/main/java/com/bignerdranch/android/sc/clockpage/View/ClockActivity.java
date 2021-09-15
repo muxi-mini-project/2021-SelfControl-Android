@@ -1,7 +1,4 @@
-package com.bignerdranch.android.sc.clockpage.view;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.monthYearFromDate;
+package com.bignerdranch.android.sc.clockpage.View;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -24,10 +21,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
+import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.login.User;
@@ -36,6 +32,10 @@ import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.monthYearFromDate;
 
 public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener {
     private TextView ticker;

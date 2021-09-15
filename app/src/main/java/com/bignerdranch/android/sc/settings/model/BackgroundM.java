@@ -14,14 +14,14 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BackgroundM implements BackgroundAPI.M {
+public class  BackgroundM implements BackgroundAPI.M {
 
     private BackgroundP mP;
     private BackgroundItem.Buy mBuy = new BackgroundItem.Buy();
     public BackgroundM(BackgroundP backgroundP) {
         this.mP = backgroundP;
     }
-    int[] have = new int[]{0,0,0,0,0};
+    int[] have = new int[]{0,0,0,0,0,0};
     int i = 1;
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -29,12 +29,13 @@ public class BackgroundM implements BackgroundAPI.M {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
-    public void haveRequest(int click,String token){
-
+    public synchronized void haveRequest(int click,String token){
+        i=1;
         BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mApi.getMyBack(token).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BackgroundItem.Background>() {
+
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
@@ -42,6 +43,7 @@ public class BackgroundM implements BackgroundAPI.M {
 
                     @Override
                     public void onNext(@NonNull BackgroundItem.Background background) {
+                        have[0] = 1;
                         have[i] = background.get(i++);
                     }
 
@@ -99,7 +101,8 @@ public class BackgroundM implements BackgroundAPI.M {
         }else{
             mP.buyDialog(click);
         }
-        for(int i = 0 ; i < 5 ; i++){
+        
+        for(int i = 1 ; i < 6 ; i++){
             have[i] = 0;
         }
     }

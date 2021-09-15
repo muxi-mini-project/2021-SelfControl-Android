@@ -1,7 +1,6 @@
 package com.bignerdranch.android.sc.rank.newRank.presenter;
 
 import com.bignerdranch.android.sc.rank.newRank.API.WeekAPI;
-import com.bignerdranch.android.sc.rank.newRank.bean.RankItem;
 import com.bignerdranch.android.sc.rank.newRank.model.WeekM;
 import com.bignerdranch.android.sc.rank.newRank.view.WeekFragment;
 
@@ -28,8 +27,8 @@ public class WeekP implements WeekAPI.VP {
 
 
     @Override
-    public List<RankItem> requestList() {
-        return mModel.requestRank();
+    public void requestList() {
+        mModel.requestRank();
     }
 
     @Override
@@ -38,13 +37,13 @@ public class WeekP implements WeekAPI.VP {
     }
 
     @Override
-    public void haveList() {
-
+    public void haveList(List mList) {
+        mView.haveList(mList);
     }
 
     @Override
     public void ListFail() {
-
+        mView.ListFail();
     }
 
     @Override
@@ -58,7 +57,7 @@ public class WeekP implements WeekAPI.VP {
     }
 
     @Override
-    public List ListNull() {
-        return mView.ListNull();
+    public void ListNull() {
+         mView.ListNull();
     }
 }

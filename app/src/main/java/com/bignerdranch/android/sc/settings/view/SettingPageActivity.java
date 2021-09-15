@@ -7,11 +7,11 @@ import android.widget.ImageButton;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +19,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.bignerdranch.android.sc.user.view.UserActivity.sharedPreferences;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class SettingPageActivity extends StatusBar {
 
@@ -27,7 +27,6 @@ public class SettingPageActivity extends StatusBar {
     private ConstraintLayout mThemeLayout,mCoinLayout,mCourseLayout,mPrivateLayout;
     private User.DataDTO mUser;
     private ConstraintLayout mLayout;
-    String token = sharedPreferences.getString("Token",null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

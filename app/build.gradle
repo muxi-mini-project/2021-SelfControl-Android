@@ -70,7 +70,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
 
-<<<<<<< HEAD
+
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Retrofit库
@@ -83,6 +83,4 @@ dependencies {
     implementation 'com.github.duanhong169:picker-view:1.0.0'
     implementation 'com.facebook.fresco:fresco:1.5.0'
 
-=======
->>>>>>> origin
 }

@@ -15,7 +15,7 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.API.BackgroundAPI;
 import com.bignerdranch.android.sc.settings.presenter.BackgroundP;
 
-import static com.bignerdranch.android.sc.user.view.UserActivity.sharedPreferences;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
 
@@ -25,7 +25,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     private BackgroundP mP = new BackgroundP();
     private User mUser;
     private ConstraintLayout mLayout;
-    String token = sharedPreferences.getString("Token",null);
+
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
@@ -46,9 +46,9 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         mChoose1 = findViewById(R.id.choose1);
         mChoose2 = findViewById(R.id.choose2);
         mChoose3 = findViewById(R.id.choose3);
-        mChoose4 = findViewById(R.id.choose4);
+        mChoose4 = findViewById(R.id.choose6);
         mChoose5 = findViewById(R.id.choose5);
-        mChoose6 = findViewById(R.id.choose6);
+        mChoose6 = findViewById(R.id.choose4);
 
         mBack = findViewById(R.id.background_back);
         mBack.setOnClickListener(this);
@@ -65,7 +65,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
         mTheme3.setOnClickListener(this);
         mTheme4.setOnClickListener(this);
         mTheme5.setOnClickListener(this);
-
+        mTheme6.setOnClickListener(this);
     }
 
     @Override

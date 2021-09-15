@@ -11,20 +11,20 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.StatusBar;
+import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.bean.GoldHistory;
 import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.user.presenter.UserPresenter;
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.login.User;
 
 import java.util.List;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class RankQueryActivity extends StatusBar implements UserViewHandler{
+public class RankQueryActivity extends StatusBar implements com.bignerdranch.android.sc.user.view.UserViewHandler {
     private ImageButton mBack;
     private TextView mName, mMonthFormer, mMonthAfter, mWeekFormer, mWeekAfter;
     private ImageView imageView;

@@ -43,10 +43,11 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
 
         mLabelPunchList = getLabel(id);
         mRecyclerView = findViewById(R.id.user_rv);
-        adapter = new UserLabelAdapter(mLabelPunchList);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        mRecyclerView.setAdapter(adapter);
-
+        if(mLabelPunchList!=null){
+            adapter = new UserLabelAdapter(mLabelPunchList);
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            mRecyclerView.setAdapter(adapter);
+        }
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
