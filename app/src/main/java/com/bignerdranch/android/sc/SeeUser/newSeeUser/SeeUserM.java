@@ -27,20 +27,20 @@ public class SeeUserM implements SeeUserAPI.M {
     }
 
     @Override
-    public List<LabelPunch> getList(String id) {
-        List<LabelPunch> mList = new ArrayList<>();
+    public void getList(String id) {
+        List<UserPunch.DataBean> mList = new ArrayList<>();
         SeeUserAPI mApi = retrofit.create(SeeUserAPI.class);
         mApi.requestList(id).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<LabelPunch>() {
+                .subscribe(new Observer<UserPunch>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull LabelPunch labelPunch) {
-                        mList.add(labelPunch);
+                    public void onNext(@NonNull UserPunch body) {
+                        mList.addAll(body.getData());
                     }
 
                     @Override
@@ -50,10 +50,12 @@ public class SeeUserM implements SeeUserAPI.M {
 
                     @Override
                     public void onComplete() {
-
+                        if(mList != null ){
+                            mP.haveList();
+                        }else {
+                            mP.listNull();
+                        }
                     }
                 });
-
-        return mList;
     }
 }

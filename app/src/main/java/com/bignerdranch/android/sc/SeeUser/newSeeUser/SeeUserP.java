@@ -1,7 +1,5 @@
 package com.bignerdranch.android.sc.SeeUser.newSeeUser;
 
-import java.util.List;
-
 public class SeeUserP implements SeeUserAPI.VP {
 
     private SeeUserM mModel;
@@ -19,14 +17,23 @@ public class SeeUserP implements SeeUserAPI.VP {
         return new SeeUserM(this);
     }
 
-
     @Override
-    public List<LabelPunch> getLabel(String id) {
-        return mModel.getList(id);
+    public void getLabel(String id) {
+        mModel.getList(id);
     }
 
     @Override
     public void Fail() {
         mView.Fail();
+    }
+
+    @Override
+    public void haveList() {
+        mView.haveList();
+    }
+
+    @Override
+    public void listNull() {
+        mView.listNull();
     }
 }

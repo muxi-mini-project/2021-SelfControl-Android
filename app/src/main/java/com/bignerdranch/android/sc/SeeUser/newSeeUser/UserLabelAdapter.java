@@ -15,9 +15,9 @@ import java.util.List;
 
 public class UserLabelAdapter extends RecyclerView.Adapter<UserLabelAdapter.ViewHolder> {
 
-    private List<LabelPunch> mLabelPunchList;
+    private List<UserPunch.DataBean> mLabelPunchList;
 
-    public UserLabelAdapter(List<LabelPunch> labelPunchList) {
+    public UserLabelAdapter(List<UserPunch.DataBean> labelPunchList) {
         this.mLabelPunchList = labelPunchList;
     }
 

@@ -25,7 +25,7 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
 
     private RecyclerView mRecyclerView;
     private UserLabelAdapter adapter;
-    private List<LabelPunch> mLabelPunchList = new ArrayList<>();
+    private List<UserPunch.DataBean> mLabelPunchList = new ArrayList<>();
     private SeeUserP mP = new SeeUserP();
 
     @Override
@@ -41,24 +41,34 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
         userName.setText(name);
         mP.bindView(this);
 
-        mLabelPunchList = getLabel(id);
+        getLabel(id);
         mRecyclerView = findViewById(R.id.user_rv);
-        if(mLabelPunchList!=null){
-            adapter = new UserLabelAdapter(mLabelPunchList);
-            mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
-            mRecyclerView.setAdapter(adapter);
-        }
+
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @Override
-    public List<LabelPunch> getLabel(String id) {
-        return mP.getLabel(id);
+    public void getLabel(String id) {
+        mP.getLabel(id);
     }
 
     @Override
     public void Fail() {
         Toast.makeText(this,"出错啦！请稍后再试！",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void haveList() {
+        if(mLabelPunchList!=null){
+            adapter = new UserLabelAdapter(mLabelPunchList);
+            mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            mRecyclerView.setAdapter(adapter);
+        }
+    }
+
+    @Override
+    public void listNull() {
+        Toast.makeText(SeeUserV.this,"该用户还没有设置标签！",Toast.LENGTH_SHORT).show();
     }
 }
