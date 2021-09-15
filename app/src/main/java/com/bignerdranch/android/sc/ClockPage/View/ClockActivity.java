@@ -6,11 +6,13 @@ import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.m
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -26,8 +28,11 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.flower.FlowerFragmentPagerAdapter;
-import com.bignerdranch.android.sc.clockpage.flower.FlowerFragment;
+import com.bignerdranch.android.sc.clockpage.clockpresenter.FlowerPresenter;
+import com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract;
+import com.bignerdranch.android.sc.clockpage.model.RemoteDataSource;
+import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragmentPagerAdapter;
+import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragment;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.login.User;
@@ -37,10 +42,10 @@ import com.bignerdranch.android.sc.user.view.UserActivity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener {
+public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener, MainContract.View {
     private TextView ticker;
 
-    private ArrayList<Fragment> fragments;
+    private ArrayList<FlowerFragment> fragments;
     private ViewPager mViewPager;
     private FlowerFragment mSunFlowerFragment;
     private FlowerFragment mMonFlowerFragment;
@@ -55,7 +60,10 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 
     private ConstraintLayout mLayout;
     private User mUser;
+    private ImageButton flower;
+    String token;
 
+    private MainContract.Presenter mPresenter;
     private RecyclerView calendarRecyclerView;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
@@ -68,14 +76,12 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 
         CalendarUtils.selectedDate = LocalDate.now();
 
+        mPresenter = new FlowerPresenter(this, RemoteDataSource.getINSTANCE());
+
         initWidgets();
         initView();
         initDatePicker();
         setWeekView();
-
-        //done = findViewById(R.id.unflower);
-        //done.setBackgroundResource(R.mipmap.done);
-        //ifpunchcomplete(done);
 
         //设置状态栏透明
         makeStatusBarTransparent(this);
@@ -86,6 +92,8 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void initWidgets()
     {
+        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+        token = sharedPreferences.getString("Token",null);
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         mLayout = findViewById(R.id.clock_main_page);
         mViewPager = findViewById(R.id.ViewPager);
@@ -120,7 +128,7 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         int style = AlertDialog.THEME_HOLO_LIGHT;
 
         datePickerDialog= new DatePickerDialog(this,style,dateSetListener,year,month,day);
-        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+//        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());//设置最大日期
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -194,9 +202,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void initView() {
-
-//        request();
-
         mSunFlowerFragment = new FlowerFragment();
         mMonFlowerFragment = new FlowerFragment();
         mTueFlowerFragment = new FlowerFragment();
@@ -258,8 +263,27 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
                 }
             }
         });
+
+        mPresenter.loadFlower(token,CalendarUtils.selectedDate.getDayOfYear());
     }
 
+    @Override
+    public void showWhiteFlower() {
+        FlowerFragment fragment = fragments.get(mViewPager.getCurrentItem());
+        fragment.UnFlower();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void showSmileFlower() {
+        FlowerFragment fragment = fragments.get(mViewPager.getCurrentItem());
+        fragment.SmileFlower();
+    }
+
+    @Override
+    public void serPresenter(MainContract.Presenter presenter) {
+        mPresenter = presenter;
+    }
 
 
 //    private void request() {
@@ -313,34 +337,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 //
 //            @Override
 //            public void onFailure(Call<User> call, Throwable t) {
-//
-//            }
-//        });
-//    }
-
-    //    private void ifpunchcomplete(ImageButton button){
-//        Retrofit.Builder builder = new Retrofit.Builder()
-//                .baseUrl("http://39.102.42.156:2333/")
-//                .addConverterFactory(GsonConverterFactory.create());
-//
-//        Retrofit retrofit = builder.build();
-//        PunchAPI client3 = retrofit.create(PunchAPI.class);
-//        Call<Data> call = client3.ifpunchcomplete(token);
-//
-//        call.enqueue(new Callback<Data>() {
-//            @Override
-//            public void onResponse(Call<Data> call, Response<Data> response) {
-//
-//                mData = response.body();
-//                mData.getData();
-//                if (mData.getData() > 0 ){
-//                    mMonFlowerFragment.FlowerFragment(button);
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Data> call, Throwable t) {
 //
 //            }
 //        });

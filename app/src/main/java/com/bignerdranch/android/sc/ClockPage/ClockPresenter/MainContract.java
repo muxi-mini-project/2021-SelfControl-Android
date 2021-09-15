@@ -5,11 +5,13 @@ public interface MainContract {
     interface View{
         void showWhiteFlower();
 
-        void showRedFlower();
+        void showSmileFlower();
+
+        void serPresenter(MainContract.Presenter presenter);
     }
 
     interface Presenter{
-        void loadFlower();
+        void loadFlower(String token,int day);
     }
 
 }
