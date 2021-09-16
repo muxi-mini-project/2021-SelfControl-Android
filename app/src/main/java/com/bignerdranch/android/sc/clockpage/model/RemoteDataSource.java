@@ -33,6 +33,8 @@ public class RemoteDataSource implements FlowerDataSource {
             public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
                 if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
                     callback.onSmileFlowerLoaded();
+                }else{
+                    callback.onWhiteFlowerLoaded();
                 }
             }
 
