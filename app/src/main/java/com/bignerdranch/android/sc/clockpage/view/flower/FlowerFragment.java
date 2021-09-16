@@ -14,19 +14,6 @@ import com.bignerdranch.android.sc.punch.view.ClockInActivity;
 import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.label.PunchAPI;
-import com.bignerdranch.android.sc.punch.LabelPunch;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
 
 public class FlowerFragment extends Fragment {
     private TextView mTextView;

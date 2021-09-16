@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -142,6 +141,7 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
         mViewPager.setCurrentItem(getDay(CalendarUtils.selectedDate.getDayOfWeek().getValue()));
+        mPresenter.loadFlower(token,CalendarUtils.selectedDate.getDayOfYear());
     }
 
     private int getDay(int day)
@@ -263,8 +263,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
                 }
             }
         });
-
-        mPresenter.loadFlower(token,CalendarUtils.selectedDate.getDayOfYear());
     }
 
     @Override
@@ -273,7 +271,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         fragment.UnFlower();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void showSmileFlower() {
         FlowerFragment fragment = fragments.get(mViewPager.getCurrentItem());
@@ -285,60 +282,4 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         mPresenter = presenter;
     }
 
-
-//    private void request() {
-//        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-//        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-//        okHttpClientBuilder.addInterceptor(logging);
-//
-//
-//        Retrofit.Builder builder1 = new Retrofit.Builder()
-//                .baseUrl("http://39.102.42.156:2333/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .client(okHttpClientBuilder.build());
-//
-//        Retrofit retrofit1 = builder1.build();
-//        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-//        Call<User> call1 = client1.getCurrentBackdrop(token);
-//
-//        call1.enqueue(new Callback<User>() {
-//            @Override
-//            public void onResponse(Call<User> call, Response<User> response) {
-//                mUser = response.body();
-//                if (mUser != null) {
-//                    if (mUser.getCurrent_backdrop() == 6) {
-//                        mLayout.setBackgroundResource(R.mipmap.background_default);
-//                        ticker.setBackgroundResource(R.color.purple);
-//                    }
-//                    if (mUser.getCurrent_backdrop() == 1) {
-//                        mLayout.setBackgroundResource(R.mipmap.theme_1);
-//                        ticker.setBackgroundResource(R.color.theme2);
-//                    }
-//                    if (mUser.getCurrent_backdrop() == 2) {
-//                        mLayout.setBackgroundResource(R.mipmap.theme_2);
-//                        ticker.setBackgroundResource(R.color.theme3);
-//                    }
-//                    if (mUser.getCurrent_backdrop() == 3) {
-//                        mLayout.setBackgroundResource(R.mipmap.theme_3);
-//                        ticker.setBackgroundResource(R.mipmap.theme_31);
-//                    }
-//                    if (mUser.getCurrent_backdrop() == 4) {
-//                        mLayout.setBackgroundResource(R.mipmap.theme_4);
-//                        ticker.setBackgroundResource(R.mipmap.theme_41);
-//                    }
-//                    if (mUser.getCurrent_backdrop() == 5) {
-//                        mLayout.setBackgroundResource(R.mipmap.theme_5);
-//                        ticker.setBackgroundResource(R.mipmap.theme_51);
-//
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<User> call, Throwable t) {
-//
-//            }
-//        });
-//    }
 }
