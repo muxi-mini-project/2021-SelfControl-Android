@@ -29,7 +29,7 @@ import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 import com.bignerdranch.android.sc.punch.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.presenter.ClockInPresenter;
-import com.bignerdranch.android.sc.rank.newRank.view.RankActivity;
+import com.bignerdranch.android.sc.rank.newrank.view.RankActivity;
 
 import java.util.ArrayList;
 import java.util.List;

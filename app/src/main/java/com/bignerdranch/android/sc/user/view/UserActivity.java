@@ -134,6 +134,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
 
         });
         dialog.setView(v);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.show();
 
     }
