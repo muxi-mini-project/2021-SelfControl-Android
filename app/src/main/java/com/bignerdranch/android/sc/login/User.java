@@ -64,6 +64,10 @@ public class User {
             this.current_backdrop = current_backdrop;
         }
 
+        public DataDTO() {
+
+        }
+
         public String getStudent_id() {
             return student_id;
         }

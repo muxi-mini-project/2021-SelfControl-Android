@@ -33,7 +33,7 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
     private TextView mCoin;
     private User.DataDTO mUser;
     private List<GoldHistory.DataDTO> mList;
-    private ConstraintLayout mLayout;
+    private ConstraintLayout mLayout,mLayout1;
     private RecyclerView recyclerView;
     //qyh修改添加的变量
     private UserPresenter userPresenter = new UserPresenter(CoinQueryActivity.this);
@@ -55,6 +55,7 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
         mBack = findViewById(R.id.coin_query_back);
         mCoin = findViewById(R.id.dangqianjinbi);
         mLayout = findViewById(R.id.coin_query_layout);
+        mLayout1 = findViewById(R.id.coin_query_layout12);
         //request();
         recyclerView = findViewById(R.id.coin_query_recyclerView);
 
@@ -104,16 +105,28 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
             int background = mUser.getCurrent_backdrop();
             if (background == 1){
                 mLayout.setBackgroundResource(R.color.purple);
+                mLayout1.setBackgroundResource(R.color.purple);
+
             } else if(background ==2){
                 mLayout.setBackgroundResource(R.color.theme2);
+                mLayout1.setBackgroundResource(R.color.theme2);
+
             }else if(background ==3){
                 mLayout.setBackgroundResource(R.color.theme3);
+                mLayout1.setBackgroundResource(R.color.theme3);
+
             }else if(background ==4){
                 mLayout.setBackgroundResource(R.mipmap.theme_31);
+                mLayout1.setBackgroundResource(R.mipmap.theme_31);
+
             }else if(background ==5){
                 mLayout.setBackgroundResource(R.mipmap.theme_41);
+                mLayout1.setBackgroundResource(R.mipmap.theme_41);
+
             }else if(background ==6){
                 mLayout.setBackgroundResource(R.mipmap.theme_51);
+                mLayout1.setBackgroundResource(R.mipmap.theme_51);
+
             }
         }else{
             Toast.makeText(this,"用户信息返回失败",Toast.LENGTH_SHORT);

@@ -37,7 +37,7 @@ public class CourseActivity extends StatusBar {
     }
     private void init(){
 
-        request();
+        requestBg();
         mLayout = findViewById(R.id.novice_course_layout);
 
         mBack = (ImageButton)findViewById(R.id.course_back);
@@ -50,9 +50,9 @@ public class CourseActivity extends StatusBar {
         });
 
     }
-    private void request() {
+    public void requestBg() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder1.build();

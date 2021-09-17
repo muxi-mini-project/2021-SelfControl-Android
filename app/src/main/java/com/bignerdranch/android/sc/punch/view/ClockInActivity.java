@@ -50,7 +50,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clockin_pager);
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         initView();

@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.settings.model;
 
+import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.rank.newrank.bean.Message;
 import com.bignerdranch.android.sc.settings.API.BackgroundAPI;
 import com.bignerdranch.android.sc.settings.bean.BackgroundItem;
 import com.bignerdranch.android.sc.settings.bean.MyBackdrops;
@@ -14,6 +16,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class  BackgroundM implements BackgroundAPI.M {
 
@@ -30,7 +33,9 @@ public class  BackgroundM implements BackgroundAPI.M {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
-    public synchronized void haveRequest(int click,String token){
+    BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
+
+    public void haveRequest(int click,String token){
         i=1;
         BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mApi.getMyBack(token).subscribeOn(Schedulers.io())
@@ -61,6 +66,7 @@ public class  BackgroundM implements BackgroundAPI.M {
                     public void onComplete() {
                         if(have[click] == 1){
                             mP.successChange(click);
+                            changeMyBack(click);
                         }else{
                             mP.buyDialog(click);
                         }
@@ -72,8 +78,36 @@ public class  BackgroundM implements BackgroundAPI.M {
                 });
     }
 
+    public void changeMyBack(int click){
+        User.DataDTO u = new User.DataDTO(click);
+        mApi.putMyBack(u,token).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Message>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull Message msg) {
+
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        mP.error();
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
+
     public void buyRequest(int click,String token){
-        BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
         mBuy.setBackdrop_id(click);
         mApi.buyBack(token,mBuy).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -87,6 +121,7 @@ public class  BackgroundM implements BackgroundAPI.M {
                     public void onNext(@NonNull Response<BackgroundItem.Buy> response) {
                         if(response.code() == 200){
                             mP.successChange(click);
+                            changeMyBack(click);
                         }else if(response.code() == 203){
                             mP.noCoin();
                         }else{
@@ -109,6 +144,5 @@ public class  BackgroundM implements BackgroundAPI.M {
     @Override
     public void changeBackground(int click,String token) {
         haveRequest(click,token);
-
     }
 }

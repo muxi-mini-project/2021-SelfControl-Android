@@ -17,13 +17,22 @@ import androidx.viewpager.widget.ViewPager;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
+import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class RankActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,6 +61,7 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void initView(){
+        requestBg();
         mMyOnPageChangeListener = new RankActivity.RankOnPageChangeListener();
 
         mMonthRank = findViewById(R.id.month_rank_tv);
@@ -146,4 +156,52 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void requestBg() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.99.53.8:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
+                mUser = response.body().getData();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        requestBg();
+    }
 }

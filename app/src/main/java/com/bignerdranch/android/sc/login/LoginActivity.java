@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 
 import retrofit2.Call;

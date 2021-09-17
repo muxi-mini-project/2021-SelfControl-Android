@@ -1,9 +1,10 @@
 package com.bignerdranch.android.sc.clockpage.clockpresenter;
 
+import com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract.Presenter;
 import com.bignerdranch.android.sc.clockpage.model.FlowerDataSource;
 import com.bignerdranch.android.sc.clockpage.model.RemoteDataSource;
 
-public class FlowerPresenter implements com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract.Presenter{
+public class FlowerPresenter implements Presenter{
 
     private final com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract.View mView;
 

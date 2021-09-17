@@ -31,7 +31,7 @@ import retrofit2.http.Path;
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     private List<RankItem.RankDataBean> mList;
-    private Privacy mPrivacy;
+    private Message mPrivacy;
     private Activity mActivity;
     Animation shake ;
     public RankAdapter(List<RankItem.RankDataBean> mList, Activity mActivity) {
@@ -121,11 +121,11 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
         Retrofit retrofit = builder.build();
         seeUserAPI mApi = retrofit.create(seeUserAPI.class);
-        Call<Privacy> call = mApi.askPrivacy(id);
+        Call<Message> call = mApi.askPrivacy(id);
 
-        call.enqueue(new Callback<Privacy>() {
+        call.enqueue(new Callback<Message>() {
             @Override
-            public void onResponse(Call<Privacy> call, Response<Privacy> response) {
+            public void onResponse(Call<Message> call, Response<Message> response) {
                 mPrivacy = response.body();
                 if (mPrivacy != null) {
                     if (mPrivacy.getData() == 2) {
@@ -140,7 +140,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
             }
 
             @Override
-            public void onFailure(Call<Privacy> call, Throwable t) {
+            public void onFailure(Call<Message> call, Throwable t) {
 
             }
         });
@@ -148,7 +148,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     public interface seeUserAPI {
         @GET("user/privacy/{id}")
-        Call<Privacy> askPrivacy(@Path("id") String id);
+        Call<Message> askPrivacy(@Path("id") String id);
 
     }
 

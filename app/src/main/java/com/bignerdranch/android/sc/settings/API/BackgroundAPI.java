@@ -1,6 +1,8 @@
 package com.bignerdranch.android.sc.settings.API;
 
 
+import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.rank.newrank.bean.Message;
 import com.bignerdranch.android.sc.settings.bean.BackgroundItem;
 import com.bignerdranch.android.sc.settings.bean.MyBackdrops;
 
@@ -31,5 +33,6 @@ public interface BackgroundAPI {
     @PUT("backdrop")
     Observable<Response<BackgroundItem.Buy>> buyBack(@Header("token") String token, @Body BackgroundItem.Buy mBuy);
 
-
+    @PUT("user/")
+    Observable<Message> putMyBack(@Body User.DataDTO mUser,@Header("token") String token);
 }

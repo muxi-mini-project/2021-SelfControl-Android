@@ -25,19 +25,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".clockpage.View.ClockActivity"></activity>
+        <activity android:name=".clockpage.view.ClockActivity"></activity>
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.view.SettingPageActivity"></activity>
         <activity android:name=".settings.view.CourseActivity"></activity>
         <activity android:name=".settings.view.BackgroundView"></activity>
         <activity android:name=".settings.view.CoinFunctionActivity"></activity>
-        <activity android:name=".rank.newRank.view.RankActivity"></activity>
+        <activity android:name=".rank.newrank.view.RankActivity"></activity>
         <activity android:name=".user.view.MonthReportActivity"></activity>
         <activity android:name=".user.view.CoinQueryActivity"></activity>
         <activity android:name=".user.view.UserActivity"></activity>
         <activity android:name=".punch.view.ClockInActivity"></activity>
         <activity android:name=".user.view.RankQueryActivity"></activity>
-        <activity android:name=".SeeUser.newSeeUser.SeeUserV"></activity>
+        <activity android:name=".seeuser.SeeUserV"></activity>
         <activity android:name=".settings.view.PrivateV"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"

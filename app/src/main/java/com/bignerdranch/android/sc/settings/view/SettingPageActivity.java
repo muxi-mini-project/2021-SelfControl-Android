@@ -38,7 +38,7 @@ public class SettingPageActivity extends StatusBar {
     private void init(){
 
         mLayout = findViewById(R.id.setting_layout);
-        request();
+        requestBg();
 
         mBack = findViewById(R.id.setting_back);
         mBack.setOnClickListener(v -> finish());
@@ -126,9 +126,9 @@ public class SettingPageActivity extends StatusBar {
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
-    private void request() {
+    public void requestBg() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder1.build();
@@ -138,6 +138,7 @@ public class SettingPageActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
                 mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
@@ -168,10 +169,10 @@ public class SettingPageActivity extends StatusBar {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.setting);
-        init();
+        requestBg();
     }
 }
