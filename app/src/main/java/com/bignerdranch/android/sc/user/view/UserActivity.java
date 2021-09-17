@@ -99,8 +99,6 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
             iv_photo.setImageBitmap(bitmap);
         }
         userPresenter.SendUser(token);
-        //userPresenter.SendUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
-
     }
     private void showInputDialog() {
         /*@setView 装入一个EditView
@@ -122,14 +120,16 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editView.getText() != null) {
-                    String name;
+                if (editView.getText().toString().length() == 0 ) {
+                    Toast.makeText(UserActivity.this,"名称不可以为空哦！",Toast.LENGTH_SHORT).show();
+                }else{
                     mName.setText(editView.getText().toString());
-                    name = editView.getText().toString();
+                    String name = editView.getText().toString();
                     mUser.setName(name);
                     userPresenter.SendChangeName(token,mUser);
+                    dialog.dismiss();
                 }
-                dialog.dismiss();
+
             }
 
         });

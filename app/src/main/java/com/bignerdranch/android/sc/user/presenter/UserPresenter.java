@@ -66,7 +66,6 @@ public class UserPresenter implements UsePresent {
     @Override
     public void transUser(User.DataDTO u) {
         handler.getUser(u);
-
     }
 
     @Override
