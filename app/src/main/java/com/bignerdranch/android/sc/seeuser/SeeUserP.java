@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.seeuser;
 
+import java.util.List;
+
 public class SeeUserP implements SeeUserAPI.VP {
 
     private SeeUserM mModel;
@@ -28,8 +30,8 @@ public class SeeUserP implements SeeUserAPI.VP {
     }
 
     @Override
-    public void haveList() {
-        mView.haveList();
+    public void haveList(List mList) {
+        mView.haveList(mList);
     }
 
     @Override

@@ -20,8 +20,9 @@ public interface BackgroundAPI {
     interface VP{
         void haveRequest(int click, String token);
         void successChange(int click);
-        void buyDialog(int click);
-        void buyRequest(int click, String token);
+        void buyDialog(int click,int[] have);
+        void buyRequest(int click, String token,int[] have);
+        void changeImage(int[] have);
 
         void noCoin();
         void error();

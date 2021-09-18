@@ -51,7 +51,7 @@ public class SeeUserM implements SeeUserAPI.M {
                     @Override
                     public void onComplete() {
                         if(mList != null ){
-                            mP.haveList();
+                            mP.haveList(mList);
                         }else {
                             mP.listNull();
                         }

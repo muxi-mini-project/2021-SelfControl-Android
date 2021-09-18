@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
@@ -25,7 +24,6 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
 
     private RecyclerView mRecyclerView;
     private UserLabelAdapter adapter;
-    private List<UserPunch.DataBean> mLabelPunchList = new ArrayList<>();
     private SeeUserP mP = new SeeUserP();
 
     @Override
@@ -59,9 +57,9 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
     }
 
     @Override
-    public void haveList() {
-        if(mLabelPunchList!=null){
-            adapter = new UserLabelAdapter(mLabelPunchList);
+    public void haveList(List mList) {
+        if(mList!=null){
+            adapter = new UserLabelAdapter(mList);
             mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
             mRecyclerView.setAdapter(adapter);
         }

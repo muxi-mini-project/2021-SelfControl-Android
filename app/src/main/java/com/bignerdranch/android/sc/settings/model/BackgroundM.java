@@ -27,7 +27,7 @@ public class  BackgroundM implements BackgroundAPI.M {
     public BackgroundM(BackgroundP backgroundP) {
         this.mP = backgroundP;
     }
-    int[] have = new int[]{0,0,0,0,0,0};
+    int[] have = new int[]{0,0,0,0,0,0,0};
     int i = 1;
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -51,12 +51,12 @@ public class  BackgroundM implements BackgroundAPI.M {
 
                     @Override
                     public void onNext(@NonNull MyBackdrops myBackdrops) {
-                        have[0] = 1;
-                        have[1] = myBackdrops.getData().getB_1();
-                        have[2] = myBackdrops.getData().getB_2();
-                        have[3] = myBackdrops.getData().getB_3();
-                        have[4] = myBackdrops.getData().getB_4();
-                        have[5] = myBackdrops.getData().getB_5();
+                        have[1] = 1;
+                        have[2] = myBackdrops.getData().getB_1();
+                        have[3] = myBackdrops.getData().getB_2();
+                        have[4] = myBackdrops.getData().getB_3();
+                        have[5] = myBackdrops.getData().getB_4();
+                        have[6] = myBackdrops.getData().getB_5();
                     }
 
                     @Override
@@ -69,8 +69,9 @@ public class  BackgroundM implements BackgroundAPI.M {
                         if(have[click] == 1){
                             mP.successChange(click);
                             changeMyBack(click);
+                            mP.changeImage(have);
                         }else{
-                            mP.buyDialog(click);
+                            mP.buyDialog(click,have);
                         }
 
                         for(int i = 1 ; i < 6 ; i++){
@@ -109,7 +110,7 @@ public class  BackgroundM implements BackgroundAPI.M {
 
     }
 
-    public void buyRequest(int click,String token){
+    public void buyRequest(int click,String token,int[] have){
         mBuy.setBackdrop_id(click);
         mApi.buyBack(token,mBuy).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -122,8 +123,10 @@ public class  BackgroundM implements BackgroundAPI.M {
                     @Override
                     public void onNext(@NonNull Response<BackgroundItem.Buy> response) {
                         if(response.code() == 200){
+                            have[click] = 1;
                             mP.successChange(click);
                             changeMyBack(click);
+                            mP.changeImage(have);
                         }else if(response.code() == 203){
                             mP.noCoin();
                         }else{
