@@ -52,7 +52,7 @@ public class User {
         private String password;
         private String user_picture;
         private int gold;
-        private int privacy;
+        private Integer privacy;
         private int current_backdrop;
 
         public DataDTO(String id, String password) {
@@ -60,13 +60,19 @@ public class User {
             this.password = password;
         }
 
-        public DataDTO(int id) {
-            this.current_backdrop = id;
+        public DataDTO(int current_backdrop) {
+            this.current_backdrop = current_backdrop;
+        }
+
+        public DataDTO() {
+
         }
 
         public String getStudent_id() {
             return student_id;
         }
+
+        public DataDTO(Integer privacy){this.privacy = privacy;}
 
         public void setStudent_id(String student_id) {
             this.student_id = student_id;

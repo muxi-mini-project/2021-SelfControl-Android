@@ -39,7 +39,7 @@ import java.util.List;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class UserActivity extends StatusBar implements View.OnClickListener,UserViewHandler  {
+public class UserActivity extends StatusBar implements View.OnClickListener, com.bignerdranch.android.sc.user.view.UserViewHandler {
 
     private ConstraintLayout mJinbi, mYuebao, mPaihangbang;
     private ImageButton mJinbiButton, mYuebaoButton, mPaihangbangButton,mBack;

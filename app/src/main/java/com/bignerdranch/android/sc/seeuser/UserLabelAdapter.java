@@ -1,9 +1,8 @@
-package com.bignerdranch.android.sc.SeeUser;
+package com.bignerdranch.android.sc.seeuser;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,15 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.punch.LabelPunch;
 
 import java.util.List;
 
 public class UserLabelAdapter extends RecyclerView.Adapter<UserLabelAdapter.ViewHolder> {
 
-    private List<LabelPunch> mLabelPunchList;
+    private List<UserPunch.DataBean> mLabelPunchList;
 
-    public UserLabelAdapter(List<LabelPunch> labelPunchList){
+    public UserLabelAdapter(List<UserPunch.DataBean> labelPunchList) {
         this.mLabelPunchList = labelPunchList;
     }
 

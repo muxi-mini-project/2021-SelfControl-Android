@@ -84,14 +84,14 @@
         android:textSize="20sp"
         android:background="@drawable/shape_yuanjiao"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ture_button"
+        app:layout_constraintEnd_toStartOf="@+id/true_button"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_bias="0.171" />
 
     <Button
-        android:id="@+id/ture_button"
+        android:id="@+id/true_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="72dp"

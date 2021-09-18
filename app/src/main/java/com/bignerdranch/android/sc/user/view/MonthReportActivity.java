@@ -5,21 +5,18 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bignerdranch.android.sc.user.bean.GoldHistory;
-import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.bean.GoldHistory;
+import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.user.presenter.ReportAdapter;
@@ -37,7 +34,7 @@ import java.util.List;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class MonthReportActivity extends StatusBar implements UserViewHandler{
+public class MonthReportActivity extends StatusBar implements com.bignerdranch.android.sc.user.view.UserViewHandler {
     private ImageButton mBack;
     private TextView mMonth_number;
     private LineChart lineChart;

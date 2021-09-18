@@ -1,27 +1,26 @@
-package com.bignerdranch.android.sc.rank;
+package com.bignerdranch.android.sc.rank.newrank.view;
+
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.SettingPageActivity;
-import com.bignerdranch.android.sc.user.view.UserActivity;
+import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,31 +30,39 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
-import retrofit2.http.Header;
-import retrofit2.http.PUT;
 
+import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class RankBackgroundActivity extends StatusBar implements View.OnClickListener {
+public class RankActivity extends AppCompatActivity implements View.OnClickListener {
+
     private List<Fragment> mList;
     private ViewPager mViewPager;
     private MyFragmentPagerAdapter mMyFragmentPagerAdapter;
-    private RankOnPageChangeListener mMyOnPageChangeListener;
+    private RankActivity.RankOnPageChangeListener mMyOnPageChangeListener;
     private TextView mMonthRank,mWeekRank;
     private ImageView mMonthRankIv,mWeekRankIv;
     private ImageButton mBank;
     private ImageButton muser;
     private ImageButton msetting;
-    private User.DataDTO mUser;
     private ConstraintLayout mLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rank_background);
+        Fresco.initialize(this);
 
-        mMyOnPageChangeListener = new RankOnPageChangeListener();
+        initView();
+        //设置状态栏透明
+        makeStatusBarTransparent(this);
+        //状态栏文字自适应
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
+
+    public void initView(){
+        requestBg();
+        mMyOnPageChangeListener = new RankActivity.RankOnPageChangeListener();
 
         mMonthRank = findViewById(R.id.month_rank_tv);
         mMonthRank.setOnClickListener(this);
@@ -67,40 +74,29 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         msetting = findViewById(R.id.ranksetting);
         muser = findViewById(R.id.rankkuser);
 
-        mBank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        mBank.setOnClickListener(v -> finish());
+
+        msetting.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent = new Intent(RankActivity.this, SettingPageActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+        muser.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent = new Intent(RankActivity.this, com.bignerdranch.android.sc.user.view.UserActivity.class);
+                startActivity(intent);
             }
         });
 
-        msetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent = new Intent(RankBackgroundActivity.this, SettingPageActivity.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
-
-        muser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent = new Intent(RankBackgroundActivity.this, UserActivity.class);
-                    startActivity(intent);
-                }
-            }
-        });
-
-        mViewPager = (ViewPager) findViewById(R.id.rank_viewpager);
+        mViewPager = findViewById(R.id.rank_viewpager);
         mViewPager.addOnPageChangeListener(mMyOnPageChangeListener);
 
         mList = new ArrayList<>();
-        mList.add(new WeekRankFragment() );
-        mList.add(new MonthRankFragment() );
+        mList.add(new WeekFragment() );
+        mList.add(new MonthFragment() );
 
         mMyFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mList);
 
@@ -108,13 +104,6 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         mViewPager.setCurrentItem(0);
 
         mLayout = findViewById(R.id.rank_background);
-        request();
-
-
-        //设置状态栏透明
-        makeStatusBarTransparent(this);
-        //状态栏文字自适应
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     public class RankOnPageChangeListener implements ViewPager.OnPageChangeListener {
 
@@ -167,57 +156,19 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
         }
     }
 
-    /*public interface RankClient{
-        @GET("/lists/{type}/")
-        Call<List<Rank>> list(@Path("type")String type);
-    }*/
-
-    public class Rank{
-        private int number;
-        private String name;
-        private String student_id;
-        public Rank(int number,String student_ids,String name){
-            this.number = number;
-            this.student_id = student_ids;
-            this.name = name;
-        }
-
-        public void setNumber(int number) {
-            this.number = number;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setStudent_id(String student_id) {
-            this.student_id = student_id;
-        }
-
-        public String getName(){
-            return name;
-        }
-        public int getNumber(){
-            return number;
-        }
-        public String getStudent_id(){
-            return student_id;
-        }
-
-    }
-    private void request() {
+    public void requestBg() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder1.build();
         GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Log.d("token=","" + token);
         Call<User> call1 = client1.getCurrentBackdrop(token);
 
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
                 mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
@@ -238,8 +189,6 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
                     if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
-                }else{
-                    Toast.makeText(RankBackgroundActivity.this,"失败",Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -249,11 +198,10 @@ public class RankBackgroundActivity extends StatusBar implements View.OnClickLis
             }
         });
     }
-    public interface BuyRank{
-        @PUT("list/month")
-        Call<MonthRankFragment.myRank> buyMonthRank(@Header("token")String token, @Body MonthRankFragment.myRank mRank);
 
-        @PUT("list/week")
-        Call<MonthRankFragment.myRank> buyWeekRank(@Header("token")String token, @Body WeekRankFragment.myRank mRank);
+    @Override
+    public void onResume(){
+        super.onResume();
+        requestBg();
     }
 }

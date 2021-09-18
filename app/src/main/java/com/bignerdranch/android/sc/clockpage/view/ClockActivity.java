@@ -1,7 +1,4 @@
 package com.bignerdranch.android.sc.clockpage.view;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;
-import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.monthYearFromDate;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -25,21 +22,31 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.clockpresenter.FlowerPresenter;
 import com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract;
 import com.bignerdranch.android.sc.clockpage.model.RemoteDataSource;
-import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragment;
+import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragmentPagerAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.SettingPageActivity;
+import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;
+import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.monthYearFromDate;
 
 public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener, MainContract.View {
     private TextView ticker;
@@ -280,6 +287,64 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     @Override
     public void serPresenter(MainContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    public void requestBg() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.99.53.8:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
+                mUser = response.body().getData();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.background_default);
+                        ticker.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_1);
+                        ticker.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_2);
+                        ticker.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_3);
+                        ticker.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_4);
+                        ticker.setBackgroundResource(R.mipmap.theme_41);
+
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_5);
+                        ticker.setBackgroundResource(R.mipmap.theme_51);
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        requestBg();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.settings;
+package com.bignerdranch.android.sc.settings.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,11 @@ import android.widget.ImageButton;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
-
+import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,8 +20,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
-import com.bignerdranch.android.sc.Utils;
 
 public class SettingPageActivity extends StatusBar {
 
@@ -40,102 +38,76 @@ public class SettingPageActivity extends StatusBar {
     private void init(){
 
         mLayout = findViewById(R.id.setting_layout);
-        request();
+        requestBg();
 
-        mBack = (ImageButton)findViewById(R.id.setting_back);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        mBack = findViewById(R.id.setting_back);
+        mBack.setOnClickListener(v -> finish());
+        mBackground = findViewById(R.id.setting_background);
+        mBackground.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
+                startActivity(intent5);
             }
-        });
-        mBackground = (ImageButton)findViewById(R.id.setting_background);
-        mBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
-                    startActivity(intent5);
-                }
 
-            }
         });
 
         mThemeLayout = findViewById(R.id.theme_layout);
-        mThemeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
-                    startActivity(intent5);
-                }
-
-
+        mThemeLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
+                startActivity(intent5);
             }
+
+
         });
-        mCoin = (ImageButton)findViewById(R.id.setting_coin);
-        mCoin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent2 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                    startActivity(intent2);
-                }
-
-
+        mCoin = findViewById(R.id.setting_coin);
+        mCoin.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent2 = new Intent(SettingPageActivity.this, CoinFunctionActivity.class);
+                startActivity(intent2);
             }
+
+
         });
 
         mCoinLayout = findViewById(R.id.coin_layout);
-        mCoinLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
-                    startActivity(intent6);
-                }
-
+        mCoinLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent6 = new Intent(SettingPageActivity.this,CoinFunctionActivity.class);
+                startActivity(intent6);
             }
+
         });
 
-        mCourse = (ImageButton)findViewById(R.id.setting_course);
-        mCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent3 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                    startActivity(intent3);
-
-                }
+        mCourse = findViewById(R.id.setting_course);
+        mCourse.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent3 = new Intent(SettingPageActivity.this, CourseActivity.class);
+                startActivity(intent3);
 
             }
+
         });
 
         mCourseLayout = findViewById(R.id.course_layout);
-        mCourseLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
-                    startActivity(intent7);
-                }
-
-
+        mCourseLayout.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent7 = new Intent(SettingPageActivity.this,CourseActivity.class);
+                startActivity(intent7);
             }
+
+
         });
 
 
-        mPrivate = (ImageButton)findViewById(R.id.setting_private);
-        mPrivate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isFastClick()){
-                    Intent intent4 = new Intent(SettingPageActivity.this,PrivateActivity.class);
-                    startActivity(intent4);
-                }
-
-
+        mPrivate = findViewById(R.id.setting_private);
+        mPrivate.setOnClickListener(v -> {
+            if (Utils.isFastClick()){
+                Intent intent4 = new Intent(SettingPageActivity.this, PrivateV.class);
+                startActivity(intent4);
             }
+
+
         });
 
         mPrivateLayout = findViewById(R.id.private_layout);
@@ -143,7 +115,7 @@ public class SettingPageActivity extends StatusBar {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()){
-                    Intent intent8 = new Intent(SettingPageActivity.this,PrivateActivity.class);
+                    Intent intent8 = new Intent(SettingPageActivity.this,PrivateV.class);
                     startActivity(intent8);
                 }
 
@@ -154,9 +126,9 @@ public class SettingPageActivity extends StatusBar {
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
-    private void request() {
+    public void requestBg() {
         Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit1 = builder1.build();
@@ -166,6 +138,7 @@ public class SettingPageActivity extends StatusBar {
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
                 mUser = response.body().getData();
                 if (mUser != null) {
                     if (mUser.getCurrent_backdrop() == 6) {
@@ -196,10 +169,10 @@ public class SettingPageActivity extends StatusBar {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        setContentView(R.layout.setting);
-        init();
+        requestBg();
     }
 }
