@@ -7,6 +7,7 @@ import com.bignerdranch.android.sc.punch.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.Message;
 import com.bignerdranch.android.sc.punch.ResponseData;
 
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -65,11 +66,11 @@ public class ClockInModel {
         });
     }
 
-    public void isClockInToday(String token, String url, ClockInResponseListener clockInResponseListener){
+    public void CheckLabelStatus(String token, String url, ClockInResponseListener clockInResponseListener){
         mClockInAPI.isClockInToday(token,url).enqueue(new Callback<ResponseData<Boolean>>() {
             @Override
             public void onResponse(Call<ResponseData<Boolean>> call, Response<ResponseData<Boolean>> response) {
-                clockInResponseListener.isClockInToday(response.body().getData());
+                clockInResponseListener.CheckLabelStatus(response.body().getData());
             }
 
             @Override

@@ -9,7 +9,7 @@ public interface ClockInResponseListener {
 
     default void removeLabelSuccess(String message){}
 
-    default void isClockInToday(boolean isClockIn){}
+    default void CheckLabelStatus(boolean status){}
 
     void clockInRequestFail(String message);
 }

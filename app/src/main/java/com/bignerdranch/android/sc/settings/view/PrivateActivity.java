@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickListener{
+public class PrivateActivity extends StatusBar implements PrivateAPI.VP,View.OnClickListener{
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
@@ -83,22 +83,22 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
                 User.DataDTO mUser = new User.DataDTO();
                 mUser = response.body().getData();
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }
@@ -123,11 +123,11 @@ public class PrivateV extends StatusBar implements PrivateAPI.VP,View.OnClickLis
 
     @Override
     public void success() {
-        Toast.makeText(PrivateV.this,"修改成功！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(PrivateActivity.this,"修改成功！",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void fail() {
-        Toast.makeText(PrivateV.this,"出错啦！请检查网络设置！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(PrivateActivity.this,"出错啦！请检查网络设置！",Toast.LENGTH_SHORT).show();
     }
 }

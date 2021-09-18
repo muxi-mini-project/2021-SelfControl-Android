@@ -20,7 +20,6 @@ import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
-import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +50,6 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rank_background);
-        Fresco.initialize(this);
 
         initView();
         //设置状态栏透明
@@ -171,22 +169,22 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
                 User.DataDTO mUser = new User.DataDTO();
                 mUser = response.body().getData();
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }

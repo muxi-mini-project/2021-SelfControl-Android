@@ -38,7 +38,7 @@
         <activity android:name=".punch.view.ClockInActivity"></activity>
         <activity android:name=".user.view.RankQueryActivity"></activity>
         <activity android:name=".seeuser.SeeUserV"></activity>
-        <activity android:name=".settings.view.PrivateV"></activity>
+        <activity android:name=".settings.view.PrivateActivity"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.bignerdranch.android.sc.fileprovider"

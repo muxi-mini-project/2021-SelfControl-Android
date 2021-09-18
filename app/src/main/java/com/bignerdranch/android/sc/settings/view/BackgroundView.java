@@ -79,22 +79,22 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.theme1:
-                successChange(6);
+                successChange(1);
                 break;
             case R.id.theme2:
-                haveRequest(1,token);
-                break;
-            case R.id.theme3:
                 haveRequest(2,token);
                 break;
-            case R.id.theme4:
+            case R.id.theme3:
                 haveRequest(3,token);
                 break;
-            case R.id.theme5:
+            case R.id.theme4:
                 haveRequest(4,token);
                 break;
-            case R.id.theme6:
+            case R.id.theme5:
                 haveRequest(5,token);
+                break;
+            case R.id.theme6:
+                haveRequest(6,token);
                 break;
             case R.id.background_back:
                 finish();
@@ -111,7 +111,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     @Override
     public void successChange(int num) {
         switch (num) {
-            case 1: {
+            case 2: {
                 mChoose2.setBackgroundResource(R.mipmap.choose);
                 mChoose2.setAlpha(1f);
                 mLayout.setBackgroundResource(R.color.theme2);
@@ -127,7 +127,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(0f);
             };break;
-            case 2:{
+            case 3:{
                 mChoose3.setBackgroundResource(R.mipmap.choose);
                 mChoose3.setAlpha(1f);
                 mLayout.setBackgroundResource(R.color.theme3);
@@ -143,7 +143,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(0f);
             };break;
-            case 3:{
+            case 4:{
                 mChoose4.setBackgroundResource(R.mipmap.choose);
                 mChoose4.setAlpha(1f);
                 mLayout.setBackgroundResource(R.mipmap.theme_31);
@@ -159,7 +159,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(0f);
             };break;
-            case 4:{
+            case 5:{
                 mChoose5.setBackgroundResource(R.mipmap.choose);
                 mChoose5.setAlpha(1f);
                 mLayout.setBackgroundResource(R.mipmap.theme_41);
@@ -175,7 +175,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(0f);
             };break;
-            case 5:{
+            case 6:{
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(1f);
                 mLayout.setBackgroundResource(R.mipmap.theme_51);
@@ -191,7 +191,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mChoose2.setBackgroundResource(R.mipmap.choose);
                 mChoose2.setAlpha(0f);
             };break;
-            case 6:{
+            case 1:{
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(1f);
                 mLayout.setBackgroundResource(R.color.purple);
@@ -261,22 +261,22 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 mUser = response.body().getData();
                 successChange(mUser.getCurrent_backdrop());
                 if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 6) {
+                    if (mUser.getCurrent_backdrop() == 1) {
                         mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 1) {
+                    if (mUser.getCurrent_backdrop() == 2) {
                         mLayout.setBackgroundResource(R.color.theme2);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
+                    if (mUser.getCurrent_backdrop() == 3) {
                         mLayout.setBackgroundResource(R.color.theme3);
                     }
-                    if (mUser.getCurrent_backdrop() == 3) {
+                    if (mUser.getCurrent_backdrop() == 4) {
                         mLayout.setBackgroundResource(R.mipmap.theme_31);
                     }
-                    if (mUser.getCurrent_backdrop() == 4) {
+                    if (mUser.getCurrent_backdrop() == 5) {
                         mLayout.setBackgroundResource(R.mipmap.theme_41);
                     }
-                    if (mUser.getCurrent_backdrop() == 5) {
+                    if (mUser.getCurrent_backdrop() == 6) {
                         mLayout.setBackgroundResource(R.mipmap.theme_51);
                     }
                 }

@@ -2,16 +2,16 @@ package com.bignerdranch.android.sc.settings.presenter;
 
 import com.bignerdranch.android.sc.settings.API.PrivateAPI;
 import com.bignerdranch.android.sc.settings.model.PrivateM;
-import com.bignerdranch.android.sc.settings.view.PrivateV;
+import com.bignerdranch.android.sc.settings.view.PrivateActivity;
 
 public class PrivateP implements PrivateAPI.VP {
     private PrivateM mModel;
-    private PrivateV mView;
+    private PrivateActivity mView;
 
     public PrivateP(){
         this.mModel = getModelInstance();
     }
-    public void bindView(PrivateV mView){ //绑定View
+    public void bindView(PrivateActivity mView){ //绑定View
         this.mView = mView;
     }
     public void unBindView(){

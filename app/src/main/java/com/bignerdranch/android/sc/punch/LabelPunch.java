@@ -6,7 +6,7 @@ public class LabelPunch {
     public int id;
     public int number;
     public String title;
-    public boolean isClockInToday;
+    public boolean LabelStatus; //该日是否打卡
 
     public int mImgID;
 
@@ -73,12 +73,12 @@ public class LabelPunch {
         this.title = title;
     }
 
-    public boolean isClockInToday() {
-        return isClockInToday;
+    public boolean getLabelStatus() {
+        return LabelStatus;
     }
 
-    public void setClockInToday(boolean clockInToday) {
-        isClockInToday = clockInToday;
+    public void setLabelStatus(boolean clockInStatus) {
+        LabelStatus = clockInStatus;
     }
 }
 

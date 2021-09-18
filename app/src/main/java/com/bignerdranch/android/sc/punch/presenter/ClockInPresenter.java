@@ -51,11 +51,11 @@ public class ClockInPresenter {
         });
     }
 
-    public void isClockInToday(String token, String url, LabelPunch clockInLabel){
-        mClockInModel.isClockInToday(token, url, new ClockInResponseListener() {
+    public void CheckLabelStatus(String token, String url, LabelPunch clockInLabel){
+        mClockInModel.CheckLabelStatus(token, url, new ClockInResponseListener() {
             @Override
-            public void isClockInToday(boolean isClockIn) {
-                clockInLabel.setClockInToday(isClockIn);
+            public void CheckLabelStatus(boolean status) {
+                clockInLabel.setLabelStatus(status);
             }
 
             @Override

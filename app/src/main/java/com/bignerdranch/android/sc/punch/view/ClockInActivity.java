@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.punch.view;
 
+import static com.bignerdranch.android.sc.login.LoginActivity.token;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,32 +27,48 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
+import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.punch.LabelPunch;
 import com.bignerdranch.android.sc.punch.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.presenter.ClockInPresenter;
 import com.bignerdranch.android.sc.rank.newrank.view.RankActivity;
+import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class ClockInActivity extends AppCompatActivity implements ClockInView {
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
+    Calendar mCalendar = Calendar.getInstance();
+    int yearDay = 0;    //指的是今天
+    int viewDay = 0;    //指的是从主页面点进来查看的一天
     RecyclerView mRecyclerView;
     ClockInAdapter mClockInAdapter;
     ClockInPresenter mClockInPresenter;
     String token;
-    boolean isClockIn = false;
-    ImageView back,addLabel;
+    ImageView back, addLabel;
     ImageButton rank;
+    ConstraintLayout mLayout;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clockin_pager);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        viewDay = CalendarUtils.selectedDate.getDayOfYear();
 
         initView();
         Listener();
@@ -60,22 +78,21 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
      * 绑定与监听
      */
     public void initView() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
-        token = sharedPreferences.getString("Token",null);
+        yearDay = mCalendar.get(Calendar.DAY_OF_YEAR);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
+        token = sharedPreferences.getString("Token", null);
 
         back = findViewById(R.id.back);
         addLabel = findViewById(R.id.add);
-        rank = findViewById(R.id.rank_ImageButton);
-        rank.setOnClickListener(v -> {
-            Intent intent = new Intent(ClockInActivity.this, RankActivity.class);
-            startActivity(intent);
 
-        });
         mClockInPresenter = new ClockInPresenter(this);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
+        mLayout = findViewById(R.id.clockin_pager);
+        requestBg();
         getClockInLabel();
         updateRVUI();
     }
@@ -107,11 +124,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     @Override
     public void showLabelInfo(List<LabelPunch> clockInLabels) {
         mClockInLabelList = new ArrayList<>();
-        for(LabelPunch clockInLabel : clockInLabels){
-            String url = "http://39.99.53.8:2333/api/v1/punch/today/" + String.valueOf(clockInLabel.getId());
-            isClockInToady(url, clockInLabel);
+        for (LabelPunch clockInLabel : clockInLabels) {
+            String url = "http://39.99.53.8:2333/api/v1/punch/oneday/" + String.valueOf(clockInLabel.getId()) + "/" + String.valueOf(viewDay);
+            CheckLabelStatus(url, clockInLabel);
             try {
-                Thread.sleep(90);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -147,8 +164,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         mClockInPresenter.getLabels(token);
     }
 
-    public void isClockInToady(String url, LabelPunch clockInLabel) {
-        mClockInPresenter.isClockInToday(token, url, clockInLabel);
+    public void CheckLabelStatus(String url, LabelPunch clockInLabel) {
+        mClockInPresenter.CheckLabelStatus(token, url, clockInLabel);
     }
 
     /**
@@ -157,6 +174,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     public void updateRVUI() {
         mClockInAdapter = new ClockInAdapter(mClockInLabelList);
         mRecyclerView.setAdapter(mClockInAdapter);
+    }
+
+    public void openRank(View view) {
+        Intent intent = new Intent(ClockInActivity.this, RankActivity.class);
+        startActivity(intent);
     }
 
     private class ClockInHolder extends RecyclerView.ViewHolder {
@@ -179,11 +201,18 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             clockIn_title.setText(clockInLabel.getTitle());
             clockIn_times.setText("您已打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
-            if (clockInLabel.isClockInToday()) {
+            if (clockInLabel.getLabelStatus()) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
                 clockIn_button.setEnabled(false);
                 clockIn_button.setText("已打卡");
+            } else {
+                if(viewDay != yearDay){
+                    clockIn_button.setBackgroundResource(R.drawable.punch_done);
+                    clockIn_button.setEnabled(false);
+                    clockIn_button.setText("未打卡");
+                }
             }
+
         }
     }
 
@@ -322,5 +351,48 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                 sayingText.setText(R.string.saying0);
                 break;
         }
+    }
+
+    public void requestBg() {
+        Retrofit.Builder builder1 = new Retrofit.Builder()
+                .baseUrl("http://39.99.53.8:2333/")
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit1 = builder1.build();
+        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
+        Call<User> call1 = client1.getCurrentBackdrop(token);
+
+        call1.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User.DataDTO mUser = new User.DataDTO();
+                mUser = response.body().getData();
+                if (mUser != null) {
+                    if (mUser.getCurrent_backdrop() == 1) {
+                        mLayout.setBackgroundResource(R.color.purple);
+                    }
+                    if (mUser.getCurrent_backdrop() == 2) {
+                        mLayout.setBackgroundResource(R.color.theme2);
+                    }
+                    if (mUser.getCurrent_backdrop() == 3) {
+                        mLayout.setBackgroundResource(R.color.theme3);
+                    }
+                    if (mUser.getCurrent_backdrop() == 4) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_31);
+                    }
+                    if (mUser.getCurrent_backdrop() == 5) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_41);
+                    }
+                    if (mUser.getCurrent_backdrop() == 6) {
+                        mLayout.setBackgroundResource(R.mipmap.theme_51);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
     }
 }
