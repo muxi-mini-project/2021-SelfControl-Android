@@ -1,8 +1,6 @@
 package com.bignerdranch.android.sc.user.view;
 
 import android.Manifest;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -21,9 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
@@ -43,7 +38,7 @@ import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class UserActivity extends StatusBar implements View.OnClickListener,UserViewHandler  {
 
-    private ConstraintLayout mJinbi, mYuebao, mPaihangbang;
+    private ConstrainLayout mJinbi, mYuebao, mPaihangbang;
     private ImageButton mJinbiButton, mYuebaoButton, mPaihangbangButton,mBack;
     private ImageView iv_photo;
     private Bitmap head;

@@ -45,7 +45,7 @@ public class CoinQueryActivity extends StatusBar implements UserViewHandler {
         init();
         userPresenter.SendUser(token);
         userPresenter.SendGoldHistory(token);
-        makeStatusBarTransparent(this);
+        makeStatusBarTransparent(CoinQueryActivity.this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
     }

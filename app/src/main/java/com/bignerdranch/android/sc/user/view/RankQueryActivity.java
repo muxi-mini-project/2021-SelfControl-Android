@@ -9,8 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.bignerdranch.android.sc.user.bean.GoldHistory;
 import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.user.bean.Report;

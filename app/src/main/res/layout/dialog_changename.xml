@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@drawable/changename"
+    android:orientation="vertical"
+    android:layout_marginRight="50dp"
+    android:layout_marginLeft="50dp">
     <TextView
         android:id="@+id/changename_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="更换名称"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/purple"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
@@ -17,7 +20,7 @@
     <EditText
         android:id="@+id/changename_edit"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:theme="@style/MyEditView"
@@ -32,25 +35,25 @@
         <Button
             android:id="@+id/changeName_button1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:textColor="@color/white"
             android:text="取消"
             android:textSize="18sp"
-            android:background="@color/purple"/>
+            android:background="@drawable/button_style"/>
         <Button
             android:id="@+id/changeName_button2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
             android:textColor="@color/white"
             android:text="确定"
             android:textSize="18sp"
-            android:background="@color/purple"/>
+            android:background="@drawable/button_style"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
