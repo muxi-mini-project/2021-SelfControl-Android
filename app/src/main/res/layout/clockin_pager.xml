@@ -6,9 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clockin_pager"
         android:layout_width="match_parent"
@@ -37,7 +34,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
-            android:background="@mipmap/add"
+            android:background="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

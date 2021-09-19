@@ -10,11 +10,16 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,9 +108,20 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
     private void showInputDialog() {
         /*@setView 装入一个EditView
          */
-        AlertDialog.Builder inputDialog = new AlertDialog.Builder(UserActivity.this);
-        AlertDialog dialog = inputDialog.create();
-        View v = View.inflate(this,R.layout.dialog_changename,null);
+        View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_changename, null, false);
+        final PopupWindow popupWindow = new PopupWindow(v, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //参数为1.View 2.宽度 3.高度
+        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+        popupWindow.setFocusable(true);
+        backgroundAlpha(0.5f);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1.0f);
+            }
+        });
+
+
         TextView textView = (TextView)v.findViewById(R.id.changename_text);
         EditText editView = (EditText)v.findViewById(R.id.changename_edit);
         Button button1 = (Button)v.findViewById(R.id.changeName_button1);
@@ -113,7 +129,8 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                backgroundAlpha(1.0f);
+                popupWindow.dismiss();
             }
         });
 
@@ -127,18 +144,23 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                     String name = editView.getText().toString();
                     mUser.setName(name);
                     userPresenter.SendChangeName(token,mUser);
-                    dialog.dismiss();
+                    backgroundAlpha(1.0f);
+                    popupWindow.dismiss();
                 }
 
             }
 
         });
-        dialog.setView(v);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        dialog.show();
+
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
 
     }
 
+    public void backgroundAlpha(float v) {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = v; //0.0-1.0
+        getWindow().setAttributes(lp);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -199,7 +199,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         public void bind(LabelPunch clockInLabel) {
             clockIn_title.setText(clockInLabel.getTitle());
-            clockIn_times.setText("您已打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
+            clockIn_times.setText("累计打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
             if (clockInLabel.getLabelStatus()) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
@@ -275,6 +275,13 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     //参数为1.View 2.宽度 3.高度
                     popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
                     popupWindow.setFocusable(true);
+                    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                        @Override
+                        public void onDismiss() {
+                            backgroundAlpha(1.0f);
+                        }
+                    });
+
 
                     ok = view.findViewById(R.id.delete_yes);
                     no = view.findViewById(R.id.delete_no);
