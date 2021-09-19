@@ -199,7 +199,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         public void bind(LabelPunch clockInLabel) {
             clockIn_title.setText(clockInLabel.getTitle());
-            clockIn_times.setText("您已打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
+            clockIn_times.setText("累计打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
             if (clockInLabel.getLabelStatus()) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
