@@ -1,10 +1,9 @@
 package com.bignerdranch.android.sc.punch.view;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -60,6 +59,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     ImageButton rank;
     ConstraintLayout mLayout;
 
+    @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-        viewDay = CalendarUtils.selectedDate.getDayOfYear();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            viewDay = CalendarUtils.selectedDate.getDayOfYear();
+        }
 
         initView();
         Listener();
@@ -82,6 +84,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
         token = sharedPreferences.getString("Token", null);
+        mLayout = findViewById(R.id.clockin_pager);
+        requestBg();
 
         back = findViewById(R.id.back);
         addLabel = findViewById(R.id.add);
@@ -91,8 +95,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
-        mLayout = findViewById(R.id.clockin_pager);
-        requestBg();
         getClockInLabel();
         updateRVUI();
     }
@@ -128,7 +130,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             String url = "http://39.99.53.8:2333/api/v1/punch/oneday/" + String.valueOf(clockInLabel.getId()) + "/" + String.valueOf(viewDay);
             CheckLabelStatus(url, clockInLabel);
             try {
-                Thread.sleep(100);
+                Thread.sleep(120);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -157,7 +159,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
     public void toClockIn(LabelPunchTitle clockInLabelTitle) {
         mClockInPresenter.toClockIn(token, clockInLabelTitle);
-        getClockInLabel();
     }
 
     public void getClockInLabel() {
@@ -172,6 +173,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
      * 列表相关
      */
     public void updateRVUI() {
+        if (mRecyclerView.getChildCount() > 0 ) {
+            mRecyclerView.setAdapter(null);
+        }
         mClockInAdapter = new ClockInAdapter(mClockInLabelList);
         mRecyclerView.setAdapter(mClockInAdapter);
     }
@@ -203,13 +207,18 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
             if (clockInLabel.getLabelStatus()) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
+                clockIn_button.setTextColor(Color.parseColor("#01F1D8"));
                 clockIn_button.setEnabled(false);
                 clockIn_button.setText("已打卡");
             } else {
-                if(viewDay != yearDay){
-                    clockIn_button.setBackgroundResource(R.drawable.punch_done);
+                if(viewDay < yearDay){
+                    clockIn_button.setBackgroundResource(R.drawable.punch_missed);
                     clockIn_button.setEnabled(false);
                     clockIn_button.setText("未打卡");
+                } else if(viewDay > yearDay){
+                    clockIn_button.setBackgroundResource(R.drawable.punch_missed);
+                    clockIn_button.setEnabled(false);
+                    clockIn_button.setText("未到打卡日");
                 }
             }
 
@@ -241,6 +250,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                 @Override
                 public void onClick(View v) {
                     toClockIn(new LabelPunchTitle(clockInLabel.getTitle()));
+                    clockInLabel.setLabelStatus(true);
+                    int temp = clockInLabel.getNumber() + 1;
+                    clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
                 }
             });
