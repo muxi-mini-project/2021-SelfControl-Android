@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.seeuser;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -9,7 +11,7 @@ public interface SeeUserAPI {
     interface VP{
         void getLabel(String id);
         void Fail();
-        void haveList();
+        void haveList(List mList);
         void listNull();
     }
 

@@ -73,7 +73,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 //        Uri url = Uri.parse(mList.get(position).getUser_picture());
         shake = AnimationUtils.loadAnimation(mActivity, R.anim.shake);
         holder.mRate.setText("打卡天数: " + mList.get(position).getNumber() + " 天");
-        holder.mName.setText("用户昵称: " + mList.get(position).getName());
+        holder.mName.setText("" + mList.get(position).getName());
         holder.mUser.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {

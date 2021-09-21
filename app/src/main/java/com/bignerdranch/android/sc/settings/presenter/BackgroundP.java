@@ -33,13 +33,18 @@ public class BackgroundP implements BackgroundAPI.VP {
     }
 
     @Override
-    public void buyDialog(int click) {
-        mView.buyDialog(click);
+    public void buyDialog(int click,int[] have) {
+        mView.buyDialog(click,have);
     }
 
     @Override
-    public void buyRequest(int click,String token) {
-        mModel.buyRequest(click,token);
+    public void buyRequest(int click,String token,int[] have) {
+        mModel.buyRequest(click,token,have);
+    }
+
+    @Override
+    public void changeImage(int[] have) {
+        mView.changeImage(have);
     }
 
     @Override
