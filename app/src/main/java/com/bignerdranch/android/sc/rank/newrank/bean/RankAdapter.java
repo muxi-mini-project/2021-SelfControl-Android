@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank.newrank.bean;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -68,7 +69,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 //        Uri url = Uri.parse(mList.get(position).getUser_picture());
         shake = AnimationUtils.loadAnimation(mActivity, R.anim.shake);
         holder.mRate.setText("打卡天数: " + mList.get(position).getNumber() + " 天");

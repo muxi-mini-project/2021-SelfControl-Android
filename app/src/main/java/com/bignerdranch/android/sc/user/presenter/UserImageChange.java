@@ -49,7 +49,6 @@ public class UserImageChange {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         AlertDialog dialog = builder.create();
         View v = View.inflate(activity,R.layout.uesr_dialog, null);
-        TextView textView1 = (TextView) v.findViewById(R.id.user_dialog_title);
         TextView textView2 = (TextView) v.findViewById(R.id.user_dialog_camera);
         TextView textView3 = (TextView) v.findViewById(R.id.user_dialog_album);
         TextView textView4 = (TextView) v.findViewById(R.id.user_dialog_cancel);
