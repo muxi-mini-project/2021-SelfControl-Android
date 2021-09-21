@@ -22,18 +22,17 @@
 
         <ImageButton
             android:id="@+id/coin_query_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="30dp"
-            android:background="#00000000"
+            android:background="@drawable/ic_baseline_chevron_left_24"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.016"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6"
-            app:srcCompat="@mipmap/back" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView9"
@@ -53,25 +52,29 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="275dp"
+        android:layout_marginStart="20dp"
         android:text="当前金币"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/dangqianjinbi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coin_query_layout12" />
 
     <TextView
         android:id="@+id/dangqianjinbi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="275dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:text="50"
         android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
 
 

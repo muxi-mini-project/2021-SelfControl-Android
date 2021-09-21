@@ -41,6 +41,8 @@ public class PrivateActivity extends StatusBar implements PrivateAPI.VP,View.OnC
         requestBg();
         System.out.println(token);
 
+        makeStatusBarTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
     public void initView(){
         mLayout = findViewById(R.id.choose_layout);

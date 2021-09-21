@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/shape_rectangle">
+    android:background="@drawable/changename">
 
     <TextView
         android:id="@+id/changename_text"
@@ -14,7 +14,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="更换名称"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textColor="@color/purple"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp" />
@@ -22,8 +22,7 @@
     <EditText
         android:id="@+id/changename_edit"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -42,10 +41,10 @@
         <Button
             android:id="@+id/changeName_button1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:textColor="@color/white"
             android:text="取消"
             android:textSize="18sp"
@@ -54,10 +53,10 @@
         <Button
             android:id="@+id/changeName_button2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
             android:textColor="@color/white"
             android:text="确定"
             android:textSize="18sp"

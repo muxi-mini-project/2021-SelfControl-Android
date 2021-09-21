@@ -8,36 +8,36 @@
     <TextView
         android:id="@+id/user_dialog_title"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="wrap_content"
         android:text="更换头像"
-        android:textColor="#CB000000"
-        android:textSize="42sp"
+        android:textColor="@color/purple"
+        android:textSize="30sp"
         android:gravity="center"/>
     <TextView
         android:id="@+id/user_dialog_camera"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textColor="#CB000000"
+        android:layout_height="40dp"
+        android:textColor="#959A9AF3"
         android:text="拍照选择"
-        android:textSize="25sp"
+        android:textSize="24sp"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/user_dialog_album"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textColor="#CB000000"
+        android:layout_height="40dp"
+        android:textColor="#959A9AF3"
         android:text="从相册选择"
-        android:textSize="25sp"
+        android:textSize="24sp"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/user_dialog_cancel"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:text="取消"
-        android:textColor="#CB000000"
-        android:textSize="25sp"
+        android:textColor="#959A9AF3"
+        android:textSize="24sp"
         android:gravity="center"/>
 
 
