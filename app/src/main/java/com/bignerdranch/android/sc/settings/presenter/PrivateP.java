@@ -29,7 +29,7 @@ public class PrivateP implements PrivateAPI.VP {
 
     @Override
     public void falseRequest(String token) {
-        mModel.request(0,token);
+        mModel.request(2,token);
     }
 
     @Override
