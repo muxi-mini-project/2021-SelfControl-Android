@@ -29,18 +29,18 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.see_user_label);
+        setContentView(R.layout.see_user_nomotion);
 
         Intent intent = getIntent();
         name = intent.getStringExtra("data1");
         id = intent.getStringExtra("data");
 
-        userName = findViewById(R.id.user_name);
+        userName = findViewById(R.id.see_user_name);
         userName.setText(name);
         mP.bindView(this);
 
         getLabel(id);
-        mRecyclerView = findViewById(R.id.user_rv);
+        mRecyclerView = findViewById(R.id.see_user_rv);
 
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
