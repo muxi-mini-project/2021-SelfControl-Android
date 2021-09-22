@@ -20,6 +20,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:backgroundTint="#9B99F3"
+        android:onClick="loginAction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

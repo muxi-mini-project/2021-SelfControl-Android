@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.label;
+package com.bignerdranch.android.sc.label.labelfragment;
 
 
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.label.Punch;
+import com.bignerdranch.android.sc.label.PunchAPI;
+import com.bignerdranch.android.sc.punch.ResponseData;
 import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.punch.LabelPunch;
@@ -37,7 +40,6 @@ public class HealthFragment extends Fragment {
     private ImageButton mbuqiaoerlangtui;
     private ImageButton mzaoqikongfuheshui;
 
-    private ImageButton add;
     private int flag1 = 0;
     private int flag2 = 0;
     private int flag3 = 0;
@@ -253,7 +255,6 @@ public class HealthFragment extends Fragment {
         buqiaoerlangtui = (TextView) view.findViewById(R.id.buqiaoerlangtui_textView);
         zaoqikongfuheshui = (TextView) view.findViewById(R.id.zapqikongfuheshui_textView);
 
-        add = (ImageButton) view.findViewById(R.id.add);
         getMyPunch();
 
         return view;
@@ -261,7 +262,7 @@ public class HealthFragment extends Fragment {
 
     public void createRequest(String title) {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -287,7 +288,7 @@ public class HealthFragment extends Fragment {
 
     public void deleteRequest(String title) {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http:/39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -311,18 +312,18 @@ public class HealthFragment extends Fragment {
 
     private void getMyPunch() {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.102.42.156:2333/")
+                .baseUrl("http://39.99.53.8:2333/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
         PunchAPI client = retrofit.create(PunchAPI.class);
-        Call<List<LabelPunch>> call = client.getPunch(token);
+        Call<ResponseData<List<LabelPunch>>> call = client.getPunch(token);
 
-        call.enqueue(new Callback<List<LabelPunch>>() {
+        call.enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
 
             @Override
-            public void onResponse(Call<List<LabelPunch>> call, Response<List<LabelPunch>> response) {
-                mLabelPunchList = response.body();
+            public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
+                mLabelPunchList = response.body().getData();
                 if(response.body() != null) {
                     for (int i = 0; i < mLabelPunchList.size() ; i++ ){
                         if(mLabelPunchList.get(i).getTitle().equals("吃水果")) {mchishuiguo.setBackgroundResource(R.mipmap.yixuanbiaoqian); flag1 = 1;}
@@ -336,13 +337,12 @@ public class HealthFragment extends Fragment {
                         if(mLabelPunchList.get(i).getTitle().equals("不翘二郎腿")) {mbuqiaoerlangtui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag9 = 1;}
                         if(mLabelPunchList.get(i).getTitle().equals("早起空腹喝水")) { mzaoqikongfuheshui.setBackgroundResource(R.mipmap.yixuanbiaoqian);flag10 = 1 ;}
 
-
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<LabelPunch>> call, Throwable t) {
+            public void onFailure(Call<ResponseData<List<LabelPunch>>> call, Throwable t) {
             }
         });
     }

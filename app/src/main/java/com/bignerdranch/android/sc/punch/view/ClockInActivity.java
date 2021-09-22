@@ -46,6 +46,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+import static com.bignerdranch.android.sc.clockpage.model.RemoteDataSource.STATUS;
+import static com.bignerdranch.android.sc.login.LoginActivity.key;
+
 public class ClockInActivity extends AppCompatActivity implements ClockInView {
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
@@ -110,9 +114,14 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         addLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClockInActivity.this, LabelPagerActivity.class);
-                startActivity(intent);
-                finish();
+                if (STATUS == true) {
+                    addLabel.setEnabled(false);
+                    Toast.makeText(ClockInActivity.this,"今日已完成全部打卡，不能再新增标签",Toast.LENGTH_SHORT).show();
+                }else {
+                    key = 1;
+                    Intent intent = new Intent(ClockInActivity.this, LabelPagerActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -413,5 +422,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mClockInPresenter.getLabels(token);
     }
 }

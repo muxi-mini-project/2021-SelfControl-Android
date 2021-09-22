@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.label;
 
+import com.bignerdranch.android.sc.punch.ResponseData;
 import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.punch.LabelPunch;
@@ -22,19 +23,8 @@ public interface PunchAPI {
     Call<Message> delete(@Header("token") String token, @Body Punch mPunch);
 
     @GET("/api/v1/punch/")
-    Call<List<LabelPunch>> getPunch(@Header("token")String token);
+    Call<ResponseData<List<LabelPunch>>> getPunch(@Header("token")String token);
 
     @POST("/api/v1/punch/")
     Call<Message> punch(@Header("token") String token,@Body Punch mPUnch);
-
-    @GET("/api/v1/punch/todayall")
-    Call<Data> ifpunchcomplete(@Header("token") String token);
-
-    @GET("/api/v1/punch/punch/{id}")
-    Call<List<LabelPunch>> getUserLabel(@Path("id") String id);
-
-    @GET("/api/v1/punch/day/{day}")
-    Call<List<LabelPunch>> getDayPunch(@Header("token") String token,@Path("day")int day);
-
-
 }

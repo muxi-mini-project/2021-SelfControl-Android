@@ -2,7 +2,6 @@ package com.bignerdranch.android.sc.login;
 
 public class LoginResponse {
 
-
     /**
      * code : 200
      * msg : 将student_id作为token保留

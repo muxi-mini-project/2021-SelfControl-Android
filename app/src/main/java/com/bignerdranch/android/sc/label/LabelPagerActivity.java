@@ -12,6 +12,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.label.labelfragment.HealthFragment;
+import com.bignerdranch.android.sc.label.labelfragment.SportFragment;
+import com.bignerdranch.android.sc.label.labelfragment.StudyFragment;
 
 import java.util.ArrayList;
 import java.util.List;

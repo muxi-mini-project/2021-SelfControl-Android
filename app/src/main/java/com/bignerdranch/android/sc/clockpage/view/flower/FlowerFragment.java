@@ -20,9 +20,6 @@ public class FlowerFragment extends Fragment {
     private ImageButton unflower;
     private View mView;
     private String text = "";
-    private int date;
-    private Data mData;
-    private Bundle mBundle;
 
     public void FlowerFragment(String text) {
         this.text = text;
@@ -45,14 +42,11 @@ public class FlowerFragment extends Fragment {
         View view = inflater.inflate(R.layout.flower, container, false);
         initwidgets(view);
         mTextView.setText(text);
-        mBundle = this.getArguments();
-        if(mBundle != null) {date = mBundle.getInt("date");}
         unflower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Utils.isFastClick()) {
                     Intent intent = new Intent(getActivity(), ClockInActivity.class);
-                    intent.putExtra("data",date);
                     startActivity(intent);
                 }
             }

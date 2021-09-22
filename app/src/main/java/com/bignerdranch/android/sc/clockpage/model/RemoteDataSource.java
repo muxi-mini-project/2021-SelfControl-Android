@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RemoteDataSource implements FlowerDataSource {
 
     private static RemoteDataSource INSTANCE;
+    public static Boolean STATUS = false;
 
     public static RemoteDataSource getINSTANCE(){
         if (INSTANCE == null){
@@ -33,6 +34,7 @@ public class RemoteDataSource implements FlowerDataSource {
             public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
                 if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
                     callback.onSmileFlowerLoaded();
+                    STATUS = true;
                 }else{
                     callback.onWhiteFlowerLoaded();
                 }
