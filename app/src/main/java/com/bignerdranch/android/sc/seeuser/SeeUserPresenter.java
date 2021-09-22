@@ -2,21 +2,21 @@ package com.bignerdranch.android.sc.seeuser;
 
 import java.util.List;
 
-public class SeeUserP implements SeeUserAPI.VP {
+public class SeeUserPresenter implements SeeUserAPI.VP {
 
-    private SeeUserM mModel;
-    private SeeUserV mView;
+    private SeeUserModel mModel;
+    private SeeUserActivity mView;
 
-    public void bindView(SeeUserV mView){
+    public void bindView(SeeUserActivity mView){
         this.mView = mView;
     }
 
-    public SeeUserP(){
+    public SeeUserPresenter(){
         mModel = getModelInstance();
     }
 
-    private SeeUserM getModelInstance() {
-        return new SeeUserM(this);
+    private SeeUserModel getModelInstance() {
+        return new SeeUserModel(this);
     }
 
     @Override

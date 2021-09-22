@@ -12,9 +12,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.API.BackgroundAPI;
-import com.bignerdranch.android.sc.settings.model.BackgroundM;
-import com.bignerdranch.android.sc.settings.presenter.BackgroundP;
+import com.bignerdranch.android.sc.settings.api.BackgroundAPI;
+import com.bignerdranch.android.sc.settings.model.BackgroundModel;
+import com.bignerdranch.android.sc.settings.presenter.BackgroundPresenter;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import retrofit2.Call;
@@ -25,12 +25,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
+public class BackgroundActivity extends StatusBar implements BackgroundAPI.VP, View.OnClickListener {
 
     private ImageButton mBack;
     private ImageView mTheme1, mTheme2, mTheme3, mTheme4, mTheme5, mTheme6;
     private ImageView mChoose1, mChoose2, mChoose3, mChoose4, mChoose5, mChoose6;
-    private BackgroundP mP = new BackgroundP();
+    private BackgroundPresenter mP = new BackgroundPresenter();
     private ConstraintLayout mLayout;
 
 
@@ -44,6 +44,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
 
         initView();
         requestBg();
+        haveRq(token);
         makeStatusBarTransparent(this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
@@ -80,7 +81,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.theme1:
-                BackgroundM m = new BackgroundM(mP);
+                BackgroundModel m = new BackgroundModel(mP);
                 m.changeMyBack(1);
                 successChange(1);
                 break;
@@ -104,6 +105,11 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
                 break;
 
         }
+    }
+
+    @Override
+    public void haveRq(String token) {
+        mP.haveRq(token);
     }
 
     @Override
@@ -217,7 +223,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     //显示对话框
     @Override
     public void buyDialog(int click,int[] have) {
-        final AlertDialog.Builder normalDialog = new AlertDialog.Builder(BackgroundView.this);
+        final AlertDialog.Builder normalDialog = new AlertDialog.Builder(BackgroundActivity.this);
         normalDialog.setTitle("兑换背景");
         normalDialog.setMessage("确定用金币兑换背景吗?");
         normalDialog.setPositiveButton("确定", (dialog, which) -> buyRequest(click,token,have));
@@ -236,7 +242,7 @@ public class BackgroundView extends StatusBar implements BackgroundAPI.VP, View.
     @Override
     public void changeImage(int[] have) {
         if(have[2] == 1){
-            mTheme3.setBackgroundResource(R.color.theme2);
+            mTheme2.setBackgroundResource(R.color.theme2);
         }if(have[3] == 1){
             mTheme3.setBackgroundResource(R.color.theme3);
         }if(have[4] == 1){

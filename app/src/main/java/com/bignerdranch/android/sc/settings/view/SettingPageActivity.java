@@ -45,7 +45,7 @@ public class SettingPageActivity extends StatusBar {
         mBackground = findViewById(R.id.setting_background);
         mBackground.setOnClickListener(v -> {
             if (Utils.isFastClick()){
-                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
                 startActivity(intent5);
             }
 
@@ -54,7 +54,7 @@ public class SettingPageActivity extends StatusBar {
         mThemeLayout = findViewById(R.id.theme_layout);
         mThemeLayout.setOnClickListener(v -> {
             if (Utils.isFastClick()){
-                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundView.class);
+                Intent intent5 = new Intent(SettingPageActivity.this, BackgroundActivity.class);
                 startActivity(intent5);
             }
 

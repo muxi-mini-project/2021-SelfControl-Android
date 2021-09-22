@@ -63,10 +63,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/theme1"
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="45dp"
@@ -105,7 +104,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
@@ -116,9 +115,7 @@
             <ImageView
                 android:id="@+id/theme2"
                 android:layout_width="match_parent"
-
                 android:layout_height="match_parent"
-
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
@@ -130,7 +127,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_12" />
+                android:background="@mipmap/theme_12" />
 
             <TextView
                 android:id="@+id/tv2"
@@ -165,7 +162,7 @@
         android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
@@ -181,14 +178,13 @@
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="45dp"
-                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_22" />
+                android:background="@mipmap/theme_22" />
 
             <TextView
                 android:id="@+id/tv3"
@@ -215,7 +211,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -238,7 +234,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_32" />
+                android:background="@mipmap/theme_32" />
             <TextView
                 android:id="@+id/tv6"
                 android:layout_width="wrap_content"
@@ -272,7 +268,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -295,7 +291,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_42" />
+                android:background="@mipmap/theme_42" />
 
             <TextView
                 android:id="@+id/tv5"
@@ -323,7 +319,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="166dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
@@ -346,7 +342,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.506"
-                app:srcCompat="@mipmap/theme_52" />
+                android:background="@mipmap/theme_52" />
 
             <TextView
                 android:id="@+id/tv4"

@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.API.PrivateAPI;
-import com.bignerdranch.android.sc.settings.presenter.PrivateP;
+import com.bignerdranch.android.sc.settings.api.PrivateAPI;
+import com.bignerdranch.android.sc.settings.presenter.PrivatePresenter;
 import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
 import retrofit2.Call;
@@ -29,7 +29,7 @@ public class PrivateActivity extends StatusBar implements PrivateAPI.VP,View.OnC
     private Button mTrue, mFalse;
     private User mUser;
     private ConstraintLayout mLayout;
-    private PrivateP mP = new PrivateP();
+    private PrivatePresenter mP = new PrivatePresenter();
 
 
     @Override

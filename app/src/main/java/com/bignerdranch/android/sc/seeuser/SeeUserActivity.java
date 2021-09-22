@@ -16,7 +16,7 @@ import java.util.List;
 
 import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
 
-public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
+public class SeeUserActivity extends AppCompatActivity implements SeeUserAPI.VP {
 
     private TextView userName;
     private String name;
@@ -24,7 +24,7 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
 
     private RecyclerView mRecyclerView;
     private UserLabelAdapter adapter;
-    private SeeUserP mP = new SeeUserP();
+    private SeeUserPresenter mP = new SeeUserPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +67,6 @@ public class SeeUserV extends AppCompatActivity implements SeeUserAPI.VP {
 
     @Override
     public void listNull() {
-        Toast.makeText(SeeUserV.this,"该用户还没有设置标签！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(SeeUserActivity.this,"该用户还没有设置标签！",Toast.LENGTH_SHORT).show();
     }
 }
