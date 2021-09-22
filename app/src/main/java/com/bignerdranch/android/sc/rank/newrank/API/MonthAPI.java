@@ -28,9 +28,4 @@ public interface MonthAPI {
         void exchange(int ranking, String token);
     }
 
-    @PUT("list/month")
-    Observable<ChangeRank> putMonth(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
-
-    @GET("lists/month/")
-    Observable<RankItem> getMonth();
 }

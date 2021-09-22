@@ -14,12 +14,11 @@ import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
+import com.bignerdranch.android.sc.net.NetUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends StatusBar {
 
@@ -71,14 +70,8 @@ public class LoginActivity extends StatusBar {
     }
 
     public void request(String id,String password){
-        Retrofit retrofit = new Retrofit
-                .Builder().baseUrl("http://39.99.53.8:2333/api/v1/").addConverterFactory(GsonConverterFactory.create()).build();
-        LoginAPI request = retrofit.create(LoginAPI.class);
 
-        Call<LoginResponse> call = request.getCall(new User.DataDTO(id,password));
-
-        call.enqueue(new Callback<LoginResponse>() {
-
+        NetUtil.getInstance().getApi().getCall(new User.DataDTO(id,password)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()==true){
@@ -93,8 +86,6 @@ public class LoginActivity extends StatusBar {
                     editor.commit();
                     editor.apply();
 
-                    System.out.println(token);
-
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
                 }
@@ -103,8 +94,6 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
-                Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
-                startActivity(intent);
                 Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
                 Log.e("tag",throwable.getMessage());

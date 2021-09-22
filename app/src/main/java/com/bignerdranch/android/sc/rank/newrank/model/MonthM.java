@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.rank.newrank.API.MonthAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.presenter.MonthP;
@@ -25,17 +26,10 @@ public class MonthM implements MonthAPI.M {
         this.mP = monthP;
     }
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
-    MonthAPI mApi = retrofit.create(MonthAPI.class);
-
     @Override
     public void requestRank() {
         List<RankItem.RankDataBean> mList = new ArrayList();
-        mApi.getMonth().subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().getMonth().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
 
@@ -67,7 +61,7 @@ public class MonthM implements MonthAPI.M {
 
     @Override
     public void exchange(int ranking,String token) {
-        mApi.putMonth(token, new RankItem.RankDataBean(ranking))
+        NetUtil.getInstance().getApi().putMonth(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ChangeRank>() {
