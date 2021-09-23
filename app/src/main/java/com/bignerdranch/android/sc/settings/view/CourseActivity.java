@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.bignerdranch.android.sc.net.NetUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,14 +51,7 @@ public class CourseActivity extends StatusBar {
 
     }
     public void requestBg() {
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
-
+        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

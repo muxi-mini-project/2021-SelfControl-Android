@@ -1,15 +1,6 @@
-package com.bignerdranch.android.sc.rank.newrank.API;
-
-import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
-import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
+package com.bignerdranch.android.sc.rank.newrank.api;
 
 import java.util.List;
-
-import io.reactivex.Observable;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.PUT;
 
 public interface MonthAPI {
     interface VP{

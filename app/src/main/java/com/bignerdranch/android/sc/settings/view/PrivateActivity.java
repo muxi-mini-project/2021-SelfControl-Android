@@ -11,9 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
-import com.bignerdranch.android.sc.settings.API.PrivateAPI;
-import com.bignerdranch.android.sc.settings.presenter.PrivateP;
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
+import com.bignerdranch.android.sc.net.NetUtil;
+import com.bignerdranch.android.sc.settings.contract.PrivateContract;
+import com.bignerdranch.android.sc.settings.presenter.PrivatePresenter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,13 +23,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class PrivateActivity extends StatusBar implements PrivateAPI.VP,View.OnClickListener{
+public class PrivateActivity extends StatusBar implements PrivateContract.VP,View.OnClickListener{
 
     private ImageButton mBack;
     private Button mTrue, mFalse;
     private User mUser;
     private ConstraintLayout mLayout;
-    private PrivateP mP = new PrivateP();
+    private PrivatePresenter mP = new PrivatePresenter();
 
 
     @Override
@@ -71,13 +71,7 @@ public class PrivateActivity extends StatusBar implements PrivateAPI.VP,View.OnC
         }
     }
     public void requestBg() {
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
+        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
 
         call1.enqueue(new Callback<User>() {
             @Override

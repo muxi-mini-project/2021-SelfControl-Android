@@ -1,10 +1,10 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
 import com.bignerdranch.android.sc.net.NetUtil;
-import com.bignerdranch.android.sc.rank.newrank.API.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
-import com.bignerdranch.android.sc.rank.newrank.presenter.WeekP;
+import com.bignerdranch.android.sc.rank.newrank.presenter.WeekPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,10 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WeekM implements WeekAPI.M {
-    private WeekP mP;
+public class WeekModel implements WeekAPI.M {
+    private WeekPresenter mP;
 
-    public WeekM(WeekP weekP) {
+    public WeekModel(WeekPresenter weekP) {
         this.mP = weekP;
     }
 

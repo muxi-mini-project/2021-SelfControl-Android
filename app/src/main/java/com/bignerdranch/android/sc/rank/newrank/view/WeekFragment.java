@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.rank.newrank.API.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankAdapter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
-import com.bignerdranch.android.sc.rank.newrank.presenter.WeekP;
+import com.bignerdranch.android.sc.rank.newrank.presenter.WeekPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;
-    private WeekP mP = new WeekP();
+    private WeekPresenter mP = new WeekPresenter();
     //String token = sharedPreferences.getString("Token",null);
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -122,6 +122,7 @@ public class WeekFragment extends Fragment implements WeekAPI.VP {
     @Override
     public void changeSuccess() {
         Toast.makeText(getContext(), "兑换成功！", Toast.LENGTH_SHORT).show();
+        requestList();
     }
 
     @Override

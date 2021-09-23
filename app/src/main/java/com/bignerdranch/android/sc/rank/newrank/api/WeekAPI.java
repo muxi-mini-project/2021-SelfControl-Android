@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.rank.newrank.API;
+package com.bignerdranch.android.sc.rank.newrank.api;
 
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;

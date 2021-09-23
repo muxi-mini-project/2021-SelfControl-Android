@@ -1,27 +1,27 @@
 package com.bignerdranch.android.sc.rank.newrank.presenter;
-import com.bignerdranch.android.sc.rank.newrank.API.MonthAPI;
-import com.bignerdranch.android.sc.rank.newrank.model.MonthM;
-import com.bignerdranch.android.sc.rank.newrank.view.MonthFragment;
+
+import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.model.WeekModel;
+import com.bignerdranch.android.sc.rank.newrank.view.WeekFragment;
 
 import java.util.List;
 
-public class MonthP implements MonthAPI.VP {
+public class WeekPresenter implements WeekAPI.VP {
+    private WeekModel mModel;
+    private WeekFragment mView;
 
-    private MonthM mModel;
-    private MonthFragment mView;
-
-    public MonthP(){
+    public WeekPresenter(){
         this.mModel = getModelInstance();
     }
-    public void bindView(MonthFragment mView){ //绑定View
+    public void bindView(WeekFragment mView){ //绑定View
         this.mView = mView;
     }
     public void unBindView(){
         this.mView = null;
     }
 
-    public MonthM getModelInstance() {
-        return new MonthM(this);
+    public WeekModel getModelInstance() {
+        return new WeekModel(this);
     }
 
 
@@ -43,7 +43,7 @@ public class MonthP implements MonthAPI.VP {
 
     @Override
     public void ListFail() {
-        mView.ListNull();
+        mView.ListFail();
     }
 
     @Override
@@ -58,7 +58,7 @@ public class MonthP implements MonthAPI.VP {
 
     @Override
     public void ListNull() {
-        mView.ListNull();
+         mView.ListNull();
     }
 
     @Override
@@ -70,5 +70,4 @@ public class MonthP implements MonthAPI.VP {
     public void noRank() {
         mView.noRank();
     }
-
 }

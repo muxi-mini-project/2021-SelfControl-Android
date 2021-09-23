@@ -12,9 +12,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SeeUserM implements SeeUserAPI.M {
+public class SeeUserModel implements SeeUserAPI.M {
 
-    private SeeUserP mP;
+    private SeeUserPresenter mP;
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://39.99.53.8:2333/api/v1/")
@@ -22,7 +22,7 @@ public class SeeUserM implements SeeUserAPI.M {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
-    public SeeUserM(SeeUserP p) {
+    public SeeUserModel(SeeUserPresenter p) {
         this.mP = p;
     }
 

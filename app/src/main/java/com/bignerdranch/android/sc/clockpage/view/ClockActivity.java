@@ -31,8 +31,8 @@ import com.bignerdranch.android.sc.clockpage.view.flower.FlowerFragmentPagerAdap
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarAdapter;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 import com.bignerdranch.android.sc.user.view.UserActivity;
 
 import java.time.LocalDate;
@@ -41,8 +41,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
 import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;
@@ -290,13 +288,8 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     }
 
     public void requestBg() {
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
 
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
+        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
 
         call1.enqueue(new Callback<User>() {
             @Override

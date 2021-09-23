@@ -1,29 +1,35 @@
 package com.bignerdranch.android.sc.settings.presenter;
 
-import com.bignerdranch.android.sc.settings.API.BackgroundAPI;
-import com.bignerdranch.android.sc.settings.model.BackgroundM;
-import com.bignerdranch.android.sc.settings.view.BackgroundView;
+import com.bignerdranch.android.sc.settings.contract.BackgroundContract;
+import com.bignerdranch.android.sc.settings.model.BackgroundModel;
+import com.bignerdranch.android.sc.settings.view.BackgroundActivity;
 
-public class BackgroundP implements BackgroundAPI.VP {
-    private BackgroundView mView;
-    private BackgroundM mModel;
+public class BackgroundPresenter implements BackgroundContract.VP {
+    private BackgroundActivity mView;
+    private BackgroundModel mModel;
 
-    public BackgroundP(){
+    public BackgroundPresenter(){
         this.mModel = getModelInstance();
     }
-    public void bindView(BackgroundView mView){ //绑定View
+    public void bindView(BackgroundActivity mView){ //绑定View
         this.mView = mView;
     }
     public void unBindView(){
         this.mView = null;
     }
 
-    public BackgroundM getModelInstance() {
-        return new BackgroundM(this);
+    public BackgroundModel getModelInstance() {
+        return new BackgroundModel(this);
+    }
+
+    @Override
+    public void haveRq(String token) {
+        mModel.haveRq(token);
     }
 
     @Override
     public void haveRequest(int click,String token) {
+
         mModel.haveRequest(click,token);
     }
 

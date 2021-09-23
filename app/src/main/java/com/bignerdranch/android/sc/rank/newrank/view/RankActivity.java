@@ -18,10 +18,12 @@ import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
-import com.bignerdranch.android.sc.user.model.GetBackdropAPI;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -39,12 +41,13 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager mViewPager;
     private MyFragmentPagerAdapter mMyFragmentPagerAdapter;
     private RankActivity.RankOnPageChangeListener mMyOnPageChangeListener;
-    private TextView mMonthRank,mWeekRank;
+    private TextView mMonthRank,mWeekRank,mDate;
     private ImageView mMonthRankIv,mWeekRankIv;
     private ImageButton mBank;
     private ImageButton muser;
     private ImageButton msetting;
     private ConstraintLayout mLayout;
+    SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +61,14 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
+    public void initTime(){
+        Date date = new Date(System.currentTimeMillis());
+        mDate.setText("排行榜更新时间："+mSimpleDateFormat.format(date));
+    }
+
     public void initView(){
         requestBg();
+
         mMyOnPageChangeListener = new RankActivity.RankOnPageChangeListener();
 
         mMonthRank = findViewById(R.id.month_rank_tv);
@@ -71,6 +80,8 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         mBank = findViewById(R.id.rank_back);
         msetting = findViewById(R.id.ranksetting);
         muser = findViewById(R.id.rankkuser);
+        mDate = findViewById(R.id.time_bg);
+        initTime();
 
         mBank.setOnClickListener(v -> finish());
 
@@ -155,14 +166,7 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void requestBg() {
-        Retrofit.Builder builder1 = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit1 = builder1.build();
-        GetBackdropAPI client1 = retrofit1.create(GetBackdropAPI.class);
-        Call<User> call1 = client1.getCurrentBackdrop(token);
-
+        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
         call1.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

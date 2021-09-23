@@ -1,10 +1,11 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
 import com.bignerdranch.android.sc.net.NetUtil;
-import com.bignerdranch.android.sc.rank.newrank.API.MonthAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
-import com.bignerdranch.android.sc.rank.newrank.presenter.MonthP;
+import com.bignerdranch.android.sc.rank.newrank.presenter.MonthPresenter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
+
+import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +15,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MonthM implements MonthAPI.M {
+public class MonthModel implements MonthAPI.M {
 
-    private MonthP mP;
+    private MonthPresenter mP;
 
-    public MonthM(MonthP monthP) {
+    public MonthModel(MonthPresenter monthP) {
         this.mP = monthP;
     }
 
@@ -32,9 +30,8 @@ public class MonthM implements MonthAPI.M {
         NetUtil.getInstance().getApi().getMonth().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
-
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@androidx.annotation.NonNull Disposable d) {
 
                     }
 
@@ -66,7 +63,7 @@ public class MonthM implements MonthAPI.M {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ChangeRank>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@androidx.annotation.NonNull Disposable d) {
 
                     }
 
@@ -86,6 +83,7 @@ public class MonthM implements MonthAPI.M {
                     public void onError(@NonNull Throwable e) {
                         mP.changeFail();
                     }
+
 
                     @Override
                     public void onComplete() {
