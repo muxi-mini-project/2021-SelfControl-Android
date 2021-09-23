@@ -1,9 +1,9 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
-import com.bignerdranch.android.sc.rank.newrank.API.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
+import com.bignerdranch.android.sc.rank.newrank.presenter.MonthPresenter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
-import com.bignerdranch.android.sc.rank.newrank.presenter.WeekP;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WeekM implements WeekAPI.M {
-    private WeekP mP;
+public class MonthModel implements MonthAPI.M {
 
-    public WeekM(WeekP weekP) {
-        this.mP = weekP;
+    private MonthPresenter mP;
+
+    public MonthModel(MonthPresenter monthP) {
+        this.mP = monthP;
     }
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -29,12 +30,12 @@ public class WeekM implements WeekAPI.M {
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
-    WeekAPI mApi = retrofit.create(WeekAPI.class);
+    MonthAPI mApi = retrofit.create(MonthAPI.class);
 
     @Override
     public void requestRank() {
         List<RankItem.RankDataBean> mList = new ArrayList();
-        mApi.getWeek().subscribeOn(Schedulers.io())
+        mApi.getMonth().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
 
@@ -66,7 +67,7 @@ public class WeekM implements WeekAPI.M {
 
     @Override
     public void exchange(int ranking,String token) {
-        mApi.putWeek(token, new RankItem.RankDataBean(ranking))
+        mApi.putMonth(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ChangeRank>() {

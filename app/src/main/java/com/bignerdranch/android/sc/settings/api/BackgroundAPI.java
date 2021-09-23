@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.settings.API;
+package com.bignerdranch.android.sc.settings.api;
 
 
 import com.bignerdranch.android.sc.login.User;
@@ -15,9 +15,12 @@ import retrofit2.http.PUT;
 
 public interface BackgroundAPI {
     interface M{
-        void changeBackground(int click,String token);
+        void haveRequest(int click,String token);
+        void buyRequest(int click,String token,int[] have);
+        void haveRq(String token);
     }
     interface VP{
+        void haveRq(String token);
         void haveRequest(int click, String token);
         void successChange(int click);
         void buyDialog(int click,int[] have);

@@ -29,7 +29,7 @@
         <activity android:name=".label.LabelPagerActivity"></activity>
         <activity android:name=".settings.view.SettingPageActivity"></activity>
         <activity android:name=".settings.view.CourseActivity"></activity>
-        <activity android:name=".settings.view.BackgroundView"></activity>
+        <activity android:name=".settings.view.BackgroundActivity"></activity>
         <activity android:name=".settings.view.CoinFunctionActivity"></activity>
         <activity android:name=".rank.newrank.view.RankActivity"></activity>
         <activity android:name=".user.view.MonthReportActivity"></activity>
@@ -37,7 +37,7 @@
         <activity android:name=".user.view.UserActivity"></activity>
         <activity android:name=".punch.view.ClockInActivity"></activity>
         <activity android:name=".user.view.RankQueryActivity"></activity>
-        <activity android:name=".seeuser.SeeUserV"></activity>
+        <activity android:name=".seeuser.SeeUserActivity"></activity>
         <activity android:name=".settings.view.PrivateActivity"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"

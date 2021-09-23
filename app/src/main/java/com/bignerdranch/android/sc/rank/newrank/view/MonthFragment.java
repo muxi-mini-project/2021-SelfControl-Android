@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.rank.newrank.API.MonthAPI;
+import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankAdapter;
-import com.bignerdranch.android.sc.rank.newrank.presenter.MonthP;
+import com.bignerdranch.android.sc.rank.newrank.presenter.MonthPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     //private List<RankItem> mList;
-    private final MonthP mP = new MonthP();
+    private final MonthPresenter mP = new MonthPresenter();
    // String token = sharedPreferences.getString("Token",null);
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -128,6 +128,7 @@ public class MonthFragment extends Fragment implements MonthAPI.VP {
     @Override
     public void changeSuccess() {
         Toast.makeText(getContext(),"兑换成功！",Toast.LENGTH_SHORT).show();
+        requestList();
     }
 
     @Override

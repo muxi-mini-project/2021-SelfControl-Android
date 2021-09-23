@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.seeuser.SeeUserV;
+import com.bignerdranch.android.sc.seeuser.SeeUserActivity;
 
 import java.util.List;
 
@@ -99,7 +99,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                 holder.mRank.setBackgroundResource(R.mipmap.rank3);
                 break;
             default:
-                holder.mRank.setText(String.valueOf(position));
+                holder.mRank.setText(String.valueOf(position+1));
                 break;
         }
 
@@ -132,7 +132,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                     if (mPrivacy.getData() == 2) {
                         showPrivateDialog();
                     } else if (mPrivacy.getData() == 1) {
-                        Intent intent = new Intent(getActivity(), SeeUserV.class);
+                        Intent intent = new Intent(getActivity(), SeeUserActivity.class);
                         intent.putExtra("data", id);
                         intent.putExtra("data1", name);
                         mActivity.startActivity(intent);
