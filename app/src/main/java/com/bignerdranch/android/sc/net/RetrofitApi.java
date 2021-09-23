@@ -83,4 +83,8 @@ public interface RetrofitApi {
 
     @GET("lists/week/")
     io.reactivex.Observable<RankItem> getWeek();
+
+
+    @PUT("user/")
+    io.reactivex.Observable<User> putPrivacy(@Body User mUser, @Header("token") String token);
 }

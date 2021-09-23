@@ -18,6 +18,4 @@ public interface PrivateAPI {
         void request(Integer type,String token);
     }
 
-    @PUT("user/")
-    Observable<User> putPrivacy(@Body User mUser, @Header("token") String token);
 }

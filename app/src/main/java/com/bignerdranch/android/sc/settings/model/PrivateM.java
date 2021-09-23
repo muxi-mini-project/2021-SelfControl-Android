@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.settings.model;
 
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.settings.API.PrivateAPI;
 import com.bignerdranch.android.sc.settings.presenter.PrivateP;
 
@@ -21,17 +22,10 @@ public class PrivateM implements PrivateAPI.M {
         this.mP = mP;
     }
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
-
     @Override
     public void request(Integer type,String token) {
-        PrivateAPI mApi = retrofit.create(PrivateAPI.class);
         user.setData(new User.DataDTO(type));
-        mApi.putPrivacy(user,token)
+        NetUtil.getInstance().getApi().putPrivacy(user,token)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<User>() {
