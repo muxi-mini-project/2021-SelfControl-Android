@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.label.Punch;
 import com.bignerdranch.android.sc.label.PunchAPI;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.ResponseData;
 import com.bignerdranch.android.sc.user.bean.Message;
 import com.bignerdranch.android.sc.R;
@@ -261,15 +262,7 @@ public class HealthFragment extends Fragment {
     }
 
     public void createRequest(String title) {
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-        PunchAPI client = retrofit.create(PunchAPI.class);
-        Call<Message> call = client.create(token, new Punch(title));
-
-        call.enqueue(new Callback<Message>() {
+        NetUtil.getInstance().getApi().create(token, new Punch(title)).enqueue(new Callback<Message>() {
 
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
@@ -287,15 +280,7 @@ public class HealthFragment extends Fragment {
     }
 
     public void deleteRequest(String title) {
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http:/39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-        PunchAPI client = retrofit.create(PunchAPI.class);
-        Call<Message> call = client.delete(token, new Punch(title));
-
-        call.enqueue(new Callback<Message>() {
+        NetUtil.getInstance().getApi().delete(token, new Punch(title)).enqueue(new Callback<Message>() {
 
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
@@ -311,15 +296,8 @@ public class HealthFragment extends Fragment {
     }
 
     private void getMyPunch() {
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/")
-                .addConverterFactory(GsonConverterFactory.create());
 
-        Retrofit retrofit = builder.build();
-        PunchAPI client = retrofit.create(PunchAPI.class);
-        Call<ResponseData<List<LabelPunch>>> call = client.getPunch(token);
-
-        call.enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
+        NetUtil.getInstance().getApi().getPunch(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
 
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {

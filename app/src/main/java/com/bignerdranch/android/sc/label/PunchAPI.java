@@ -16,15 +16,5 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface PunchAPI {
-    @POST("/api/v1/punch/create")
-    Call<Message> create(@Header("token") String token, @Body Punch mPunch);
 
-    @HTTP(method = "DELETE", path = "api/v1/punch/", hasBody = true)
-    Call<Message> delete(@Header("token") String token, @Body Punch mPunch);
-
-    @GET("/api/v1/punch/")
-    Call<ResponseData<List<LabelPunch>>> getPunch(@Header("token")String token);
-
-    @POST("/api/v1/punch/")
-    Call<Message> punch(@Header("token") String token,@Body Punch mPUnch);
 }

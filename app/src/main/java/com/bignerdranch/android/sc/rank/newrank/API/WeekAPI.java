@@ -28,9 +28,4 @@ public interface WeekAPI {
         void exchange(int ranking, String token);
     }
 
-    @PUT("list/week")
-    Observable<ChangeRank> putWeek(@Header("token")String token, @Body RankItem.RankDataBean rankItem);
-
-    @GET("lists/week/")
-    Observable<RankItem> getWeek();
 }
