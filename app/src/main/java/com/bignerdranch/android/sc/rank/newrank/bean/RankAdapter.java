@@ -2,18 +2,21 @@ package com.bignerdranch.android.sc.rank.newrank.bean;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
@@ -154,9 +157,19 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
     }
 
     private void showPrivateDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();
         builder.setView(View.inflate(getActivity(), R.layout.dialog_private, null));
         dialog.show();
+        dialog.getWindow().clearFlags(
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        dialog.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Window window = dialog.getWindow();
+        window.setContentView(R.layout.dialog_private);
+
+        Button yes = window.findViewById(R.id.know);
+        yes.setOnClickListener(v -> dialog.dismiss());
     }
 }
