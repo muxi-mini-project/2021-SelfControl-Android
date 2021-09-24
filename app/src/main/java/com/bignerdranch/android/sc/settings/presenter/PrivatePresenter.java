@@ -1,10 +1,10 @@
 package com.bignerdranch.android.sc.settings.presenter;
 
-import com.bignerdranch.android.sc.settings.api.PrivateAPI;
+import com.bignerdranch.android.sc.settings.contract.PrivateContract;
 import com.bignerdranch.android.sc.settings.model.PrivateModel;
 import com.bignerdranch.android.sc.settings.view.PrivateActivity;
 
-public class PrivatePresenter implements PrivateAPI.VP {
+public class PrivatePresenter implements PrivateContract.VP {
     private PrivateModel mModel;
     private PrivateActivity mView;
 

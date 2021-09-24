@@ -1,8 +1,9 @@
 package com.bignerdranch.android.sc.settings.model;
 
 import com.bignerdranch.android.sc.login.User;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.rank.newrank.bean.Message;
-import com.bignerdranch.android.sc.settings.api.BackgroundAPI;
+import com.bignerdranch.android.sc.settings.contract.BackgroundContract;
 import com.bignerdranch.android.sc.settings.bean.BackgroundItem;
 import com.bignerdranch.android.sc.settings.bean.MyBackdrops;
 import com.bignerdranch.android.sc.settings.presenter.BackgroundPresenter;
@@ -14,13 +15,10 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class BackgroundModel implements BackgroundAPI.M {
+public class BackgroundModel implements BackgroundContract.M {
 
     private BackgroundPresenter mP;
     private BackgroundItem.Buy mBuy = new BackgroundItem.Buy();
@@ -32,17 +30,10 @@ public class BackgroundModel implements BackgroundAPI.M {
     int[] have = new int[]{0, 0, 0, 0, 0, 0, 0};
     int i = 1;
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
-    BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
-
     public void haveRequest(int click, String token) {
         i = 1;
-        BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
-        mApi.getMyBack(token).subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().getMyBack(token)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MyBackdrops>() {
 
@@ -85,7 +76,7 @@ public class BackgroundModel implements BackgroundAPI.M {
 
     public void changeMyBack(int click) {
         User.DataDTO u = new User.DataDTO(click);
-        mApi.putMyBack(u, token).subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().putMyBack(u, token).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Message>() {
                     @Override
@@ -114,7 +105,7 @@ public class BackgroundModel implements BackgroundAPI.M {
 
     public void buyRequest(int click, String token, int[] have) {
         mBuy.setBackdrop_id(click);
-        mApi.buyBack(token, mBuy).subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().buyBack(token, mBuy).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<BackgroundItem.Buy>>() {
                     @Override
@@ -151,8 +142,7 @@ public class BackgroundModel implements BackgroundAPI.M {
     @Override
     public void haveRq(String token) {
         i = 1;
-        BackgroundAPI mApi = retrofit.create(BackgroundAPI.class);
-        mApi.getMyBack(token).subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().getMyBack(token).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MyBackdrops>() {
 

@@ -1,9 +1,11 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
-import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
+import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.presenter.MonthPresenter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
+
+import com.bignerdranch.android.sc.rank.newrank.contract.MonthContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +15,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MonthModel implements MonthAPI.M {
+public class MonthModel implements MonthContract.M {
 
     private MonthPresenter mP;
 
@@ -25,22 +24,14 @@ public class MonthModel implements MonthAPI.M {
         this.mP = monthP;
     }
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
-    MonthAPI mApi = retrofit.create(MonthAPI.class);
-
     @Override
     public void requestRank() {
         List<RankItem.RankDataBean> mList = new ArrayList();
-        mApi.getMonth().subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().getMonth().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<RankItem>() {
-
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@androidx.annotation.NonNull Disposable d) {
 
                     }
 
@@ -67,12 +58,12 @@ public class MonthModel implements MonthAPI.M {
 
     @Override
     public void exchange(int ranking,String token) {
-        mApi.putMonth(token, new RankItem.RankDataBean(ranking))
+        NetUtil.getInstance().getApi().putMonth(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ChangeRank>() {
                     @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+                    public void onSubscribe(@androidx.annotation.NonNull Disposable d) {
 
                     }
 
@@ -92,6 +83,7 @@ public class MonthModel implements MonthAPI.M {
                     public void onError(@NonNull Throwable e) {
                         mP.changeFail();
                     }
+
 
                     @Override
                     public void onComplete() {

@@ -6,7 +6,7 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface SeeUserAPI {
+public interface SeeUserContract {
 
     interface VP{
         void getLabel(String id);
@@ -17,9 +17,5 @@ public interface SeeUserAPI {
 
     interface M{
         void getList(String id);
-
     }
-
-    @GET("punch/punch/{id}")
-    Observable<UserPunch> requestList(@Path("id")String id);
 }

@@ -16,7 +16,7 @@ import java.util.List;
 
 import static com.bignerdranch.android.sc.StatusBar.makeStatusBarTransparent;
 
-public class SeeUserActivity extends AppCompatActivity implements SeeUserAPI.VP {
+public class SeeUserActivity extends AppCompatActivity implements SeeUserContract.VP {
 
     private TextView userName;
     private String name;

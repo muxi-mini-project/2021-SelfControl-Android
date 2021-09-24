@@ -1,10 +1,10 @@
 package com.bignerdranch.android.sc.settings.presenter;
 
-import com.bignerdranch.android.sc.settings.api.BackgroundAPI;
+import com.bignerdranch.android.sc.settings.contract.BackgroundContract;
 import com.bignerdranch.android.sc.settings.model.BackgroundModel;
 import com.bignerdranch.android.sc.settings.view.BackgroundActivity;
 
-public class BackgroundPresenter implements BackgroundAPI.VP {
+public class BackgroundPresenter implements BackgroundContract.VP {
     private BackgroundActivity mView;
     private BackgroundModel mModel;
 

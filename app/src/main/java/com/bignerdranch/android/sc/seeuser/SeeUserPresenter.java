@@ -2,7 +2,7 @@ package com.bignerdranch.android.sc.seeuser;
 
 import java.util.List;
 
-public class SeeUserPresenter implements SeeUserAPI.VP {
+public class SeeUserPresenter implements SeeUserContract.VP {
 
     private SeeUserModel mModel;
     private SeeUserActivity mView;

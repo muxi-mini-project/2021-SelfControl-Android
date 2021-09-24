@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.seeuser;
+package com.bignerdranch.android.sc.seeuser.bean;
 
 import com.bignerdranch.android.sc.R;
 

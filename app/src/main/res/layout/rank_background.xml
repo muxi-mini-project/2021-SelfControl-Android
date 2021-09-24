@@ -7,8 +7,9 @@
 
     <ImageView
         android:id="@+id/imageView37"
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/shape_yuanjiao_gray"
         app:layout_constraintBottom_toTopOf="@+id/rank_viewpager"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,11 +19,11 @@
         android:id="@+id/time_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:text="排行榜更新时间："
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/rank_viewpager"
         app:layout_constraintEnd_toEndOf="@+id/imageView37"
+        app:layout_constraintStart_toStartOf="@+id/imageView37"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout14" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

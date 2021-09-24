@@ -1,6 +1,6 @@
 package com.bignerdranch.android.sc.punch.view;
 
-import com.bignerdranch.android.sc.punch.LabelPunch;
+import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 
 import java.util.List;
 
