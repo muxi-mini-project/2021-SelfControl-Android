@@ -1,17 +1,8 @@
-package com.bignerdranch.android.sc.rank.newrank.api;
-
-import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
-import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
+package com.bignerdranch.android.sc.rank.newrank.contract;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.PUT;
-
-public interface WeekAPI {
+public interface MonthContract {
     interface VP{
         void requestList();
         void changeRank(int rank, String token);

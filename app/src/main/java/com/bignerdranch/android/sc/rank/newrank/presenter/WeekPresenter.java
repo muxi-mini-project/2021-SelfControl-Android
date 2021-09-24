@@ -1,12 +1,12 @@
 package com.bignerdranch.android.sc.rank.newrank.presenter;
 
-import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.contract.WeekContract;
 import com.bignerdranch.android.sc.rank.newrank.model.WeekModel;
 import com.bignerdranch.android.sc.rank.newrank.view.WeekFragment;
 
 import java.util.List;
 
-public class WeekPresenter implements WeekAPI.VP {
+public class WeekPresenter implements WeekContract.VP {
     private WeekModel mModel;
     private WeekFragment mView;
 

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.punch;
+package com.bignerdranch.android.sc.punch.bean;
 
 import com.bignerdranch.android.sc.R;
 
@@ -7,7 +7,6 @@ public class LabelPunch {
     public int number;
     public String title;
     public boolean LabelStatus; //该日是否打卡
-
     public int mImgID;
 
     public LabelPunch(String title, int number){

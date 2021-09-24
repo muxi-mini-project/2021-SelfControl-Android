@@ -1,7 +1,7 @@
 package com.bignerdranch.android.sc.punch.presenter;
 
-import com.bignerdranch.android.sc.punch.LabelPunch;
-import com.bignerdranch.android.sc.punch.LabelPunchTitle;
+import com.bignerdranch.android.sc.punch.bean.LabelPunch;
+import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.model.ClockInModel;
 import com.bignerdranch.android.sc.punch.model.ClockInResponseListener;
 import com.bignerdranch.android.sc.punch.view.ClockInView;

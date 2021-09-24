@@ -1,5 +1,8 @@
 package com.bignerdranch.android.sc.seeuser;
 
+import com.bignerdranch.android.sc.net.NetUtil;
+import com.bignerdranch.android.sc.seeuser.bean.UserPunch;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,19 +11,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SeeUserModel implements SeeUserAPI.M {
+public class SeeUserModel implements SeeUserContract.M {
 
     private SeeUserPresenter mP;
-
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://39.99.53.8:2333/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build();
 
     public SeeUserModel(SeeUserPresenter p) {
         this.mP = p;
@@ -29,8 +23,7 @@ public class SeeUserModel implements SeeUserAPI.M {
     @Override
     public void getList(String id) {
         List<UserPunch.DataBean> mList = new ArrayList<>();
-        SeeUserAPI mApi = retrofit.create(SeeUserAPI.class);
-        mApi.requestList(id).subscribeOn(Schedulers.io())
+        NetUtil.getInstance().getApi().requestList(id).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<UserPunch>() {
                     @Override

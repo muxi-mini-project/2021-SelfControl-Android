@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
@@ -11,11 +12,13 @@ import com.bignerdranch.android.sc.StatusBar;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.net.NetUtil;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -50,39 +53,51 @@ public class CourseActivity extends StatusBar {
         });
 
     }
+
     public void requestBg() {
-        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
-        call1.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                mUser = response.body().getData();
-                if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
-                        mLayout.setBackgroundResource(R.color.purple);
-                    }
-                    if (mUser.getCurrent_backdrop() == 2) {
-                        mLayout.setBackgroundResource(R.color.theme2);
-                    }
-                    if (mUser.getCurrent_backdrop() == 3) {
-                        mLayout.setBackgroundResource(R.color.theme3);
-                    }
-                    if (mUser.getCurrent_backdrop() == 4) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_31);
-                    }
-                    if (mUser.getCurrent_backdrop() == 5) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_41);
-                    }
-                    if (mUser.getCurrent_backdrop() == 6) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_51);
-                    }
-                }
-            }
+        NetUtil.getInstance().getApi().userInfo(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
 
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
+                    }
 
-            }
-        });
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        if (user != null) {
+                            if (user.getData().getCurrent_backdrop() == 1) {
+                                mLayout.setBackgroundResource(R.mipmap.background_default);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 2) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_1);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 3) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_2);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 4) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_3);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 5) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_4);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 6) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_5);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 }

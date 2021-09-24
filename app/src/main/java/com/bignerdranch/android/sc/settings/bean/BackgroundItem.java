@@ -1,9 +1,7 @@
 package com.bignerdranch.android.sc.settings.bean;
 public class BackgroundItem {
 
-
     public class Background {
-
 
         /**
          * b_1 : 0

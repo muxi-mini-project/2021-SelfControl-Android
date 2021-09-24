@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.punch;
+package com.bignerdranch.android.sc.punch.bean;
 
 public class LabelPunchTitle {
     String title;

@@ -1,22 +1,28 @@
-package com.bignerdranch.android.sc.rank.newrank.bean;
+package com.bignerdranch.android.sc.rank.newrank.presenter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.net.NetUtil;
+import com.bignerdranch.android.sc.rank.newrank.bean.Message;
+import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
 import com.bignerdranch.android.sc.seeuser.SeeUserActivity;
 
 import java.util.List;
@@ -24,10 +30,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
@@ -75,18 +77,18 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         holder.mRate.setText("打卡天数: " + mList.get(position).getNumber() + " 天");
         holder.mName.setText("" + mList.get(position).getName());
         holder.mUser.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName());
-                                            }
-                                        });
-                holder.mThumb.setOnClickListener(new View.OnClickListener() {
-                                                     @Override
-                                                     public void onClick(View v) {
-                                                         v.startAnimation(shake);
-                                                     }
-                                                 }
-                );
+            @Override
+            public void onClick(View v) {
+                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName());
+            }
+        });
+        holder.mThumb.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View v) {
+                                                 v.startAnimation(shake);
+                                             }
+                                         }
+        );
         //    holder.mUser.setImageURI(url);
         switch (position) {
             case 0:
@@ -116,15 +118,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
     }
 
     public void seeUserRequest(String id, String name) {
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://39.99.53.8:2333/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
-        seeUserAPI mApi = retrofit.create(seeUserAPI.class);
-        Call<Message> call = mApi.askPrivacy(id);
-
-        call.enqueue(new Callback<Message>() {
+        NetUtil.getInstance().getApi().askPrivacy(id).enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
                 mPrivacy = response.body();
@@ -147,16 +141,20 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         });
     }
 
-    public interface seeUserAPI {
-        @GET("user/privacy/{id}")
-        Call<Message> askPrivacy(@Path("id") String id);
-
-    }
-
     private void showPrivateDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();
         builder.setView(View.inflate(getActivity(), R.layout.dialog_private, null));
         dialog.show();
+        dialog.getWindow().clearFlags(
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                        | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        dialog.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        Window window = dialog.getWindow();
+        window.setContentView(R.layout.dialog_private);
+
+        Button yes = window.findViewById(R.id.know);
+        yes.setOnClickListener(v -> dialog.dismiss());
     }
 }

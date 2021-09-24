@@ -8,21 +8,18 @@ import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
-import com.bignerdranch.android.sc.label.Punch;
-import com.bignerdranch.android.sc.label.PunchAPI;
 import com.bignerdranch.android.sc.net.NetUtil;
-import com.bignerdranch.android.sc.punch.ResponseData;
-import com.bignerdranch.android.sc.user.bean.Message;
+import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
+import com.bignerdranch.android.sc.punch.bean.ResponseData;
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.punch.LabelPunch;
+import com.bignerdranch.android.sc.punch.bean.LabelPunch;
+import com.bignerdranch.android.sc.punch.bean.SingleMessage;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -218,36 +215,36 @@ public class SportFragment extends Fragment {
         return view;
     }
     public void createRequest(String title) {
-        NetUtil.getInstance().getApi().create(token,new Punch(title)).enqueue(new Callback<Message>() {
+        NetUtil.getInstance().getApi().create(token,new LabelPunchTitle(title)).enqueue(new Callback<SingleMessage>() {
 
             @Override
-            public void onResponse(Call<Message> call, Response<Message> response) {
+            public void onResponse(Call<SingleMessage> call, Response<SingleMessage> response) {
 
             }
 
             @Override
-            public void onFailure(Call<Message> call, Throwable t) {
+            public void onFailure(Call<SingleMessage> call, Throwable t) {
 
             }
         });
     }
     public void deleteRequest(String title) {
-        NetUtil.getInstance().getApi().delete(token, new Punch(title)).enqueue(new Callback<Message>() {
+        NetUtil.getInstance().getApi().removeLabel(token, new LabelPunchTitle(title)).enqueue(new Callback<SingleMessage>() {
 
             @Override
-            public void onResponse(Call<Message> call, Response<Message> response) {
+            public void onResponse(Call<SingleMessage> call, Response<SingleMessage> response) {
 
             }
 
             @Override
-            public void onFailure(Call<Message> call, Throwable t) {
+            public void onFailure(Call<SingleMessage> call, Throwable t) {
 
             }
         });
     }
 
     private void getMyPunch() {
-        NetUtil.getInstance().getApi().getPunch(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
+        NetUtil.getInstance().getApi().getLabels(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
 
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {

@@ -5,7 +5,7 @@ import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.presenter.MonthPresenter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
 
-import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
+import com.bignerdranch.android.sc.rank.newrank.contract.MonthContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MonthModel implements MonthAPI.M {
+public class MonthModel implements MonthContract.M {
 
     private MonthPresenter mP;
 

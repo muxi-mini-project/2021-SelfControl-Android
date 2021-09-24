@@ -1,8 +1,8 @@
-package com.bignerdranch.android.sc.rank.newrank.api;
+package com.bignerdranch.android.sc.rank.newrank.contract;
 
 import java.util.List;
 
-public interface MonthAPI {
+public interface WeekContract {
     interface VP{
         void requestList();
         void changeRank(int rank, String token);

@@ -1,7 +1,7 @@
-package com.bignerdranch.android.sc.punch;
+package com.bignerdranch.android.sc.punch.bean;
 
-public class Message {
-    String message;
+public class SingleMessage {
+    public String message;
 
     public String getMessage() {
         return message;

@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
-import com.bignerdranch.android.sc.rank.newrank.bean.RankAdapter;
+import com.bignerdranch.android.sc.rank.newrank.contract.WeekContract;
+import com.bignerdranch.android.sc.rank.newrank.presenter.RankAdapter;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
 import com.bignerdranch.android.sc.rank.newrank.presenter.WeekPresenter;
 
@@ -29,7 +29,7 @@ import top.defaults.view.PickerView;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
-public class WeekFragment extends Fragment implements WeekAPI.VP {
+public class WeekFragment extends Fragment implements WeekContract.VP {
     private RecyclerView mRecyclerView;
     private ImageView mExchange;
     private List<RankItem> mList;

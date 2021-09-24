@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
@@ -15,11 +16,13 @@ import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.settings.contract.PrivateContract;
 import com.bignerdranch.android.sc.settings.presenter.PrivatePresenter;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -70,42 +73,6 @@ public class PrivateActivity extends StatusBar implements PrivateContract.VP,Vie
 
         }
     }
-    public void requestBg() {
-        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
-
-        call1.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                User.DataDTO mUser = new User.DataDTO();
-                mUser = response.body().getData();
-                if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
-                        mLayout.setBackgroundResource(R.color.purple);
-                    }
-                    if (mUser.getCurrent_backdrop() == 2) {
-                        mLayout.setBackgroundResource(R.color.theme2);
-                    }
-                    if (mUser.getCurrent_backdrop() == 3) {
-                        mLayout.setBackgroundResource(R.color.theme3);
-                    }
-                    if (mUser.getCurrent_backdrop() == 4) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_31);
-                    }
-                    if (mUser.getCurrent_backdrop() == 5) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_41);
-                    }
-                    if (mUser.getCurrent_backdrop() == 6) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_51);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-
-            }
-        });
-    }
 
     @Override
     public void trueRequest(String token) {
@@ -125,5 +92,51 @@ public class PrivateActivity extends StatusBar implements PrivateContract.VP,Vie
     @Override
     public void fail() {
         Toast.makeText(PrivateActivity.this,"出错啦！请检查网络设置！",Toast.LENGTH_SHORT).show();
+    }
+
+    public void requestBg() {
+        NetUtil.getInstance().getApi().userInfo(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        if (user != null) {
+                            if (user.getData().getCurrent_backdrop() == 1) {
+                                mLayout.setBackgroundResource(R.mipmap.background_default);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 2) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_1);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 3) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_2);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 4) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_3);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 5) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_4);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 6) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_5);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

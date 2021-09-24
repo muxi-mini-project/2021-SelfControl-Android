@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
@@ -17,11 +18,13 @@ import com.bignerdranch.android.sc.settings.contract.BackgroundContract;
 import com.bignerdranch.android.sc.settings.model.BackgroundModel;
 import com.bignerdranch.android.sc.settings.presenter.BackgroundPresenter;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
@@ -123,7 +126,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 2: {
                 mChoose2.setBackgroundResource(R.mipmap.choose);
                 mChoose2.setAlpha(1f);
-                mLayout.setBackgroundResource(R.color.theme2);
+                mLayout.setBackgroundResource(R.mipmap.theme_1);
 
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(0f);
@@ -139,7 +142,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 3:{
                 mChoose3.setBackgroundResource(R.mipmap.choose);
                 mChoose3.setAlpha(1f);
-                mLayout.setBackgroundResource(R.color.theme3);
+                mLayout.setBackgroundResource(R.mipmap.theme_2);
 
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(0f);
@@ -155,7 +158,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 4:{
                 mChoose4.setBackgroundResource(R.mipmap.choose);
                 mChoose4.setAlpha(1f);
-                mLayout.setBackgroundResource(R.mipmap.theme_31);
+                mLayout.setBackgroundResource(R.mipmap.theme_3);
 
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(0f);
@@ -171,7 +174,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 5:{
                 mChoose5.setBackgroundResource(R.mipmap.choose);
                 mChoose5.setAlpha(1f);
-                mLayout.setBackgroundResource(R.mipmap.theme_41);
+                mLayout.setBackgroundResource(R.mipmap.theme_4);
 
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(0f);
@@ -187,7 +190,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 6:{
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(1f);
-                mLayout.setBackgroundResource(R.mipmap.theme_51);
+                mLayout.setBackgroundResource(R.mipmap.theme_5);
 
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(0f);
@@ -203,7 +206,7 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
             case 1:{
                 mChoose1.setBackgroundResource(R.mipmap.choose);
                 mChoose1.setAlpha(1f);
-                mLayout.setBackgroundResource(R.color.purple);
+                mLayout.setBackgroundResource(R.mipmap.background_default);
 
                 mChoose6.setBackgroundResource(R.mipmap.choose);
                 mChoose6.setAlpha(0f);
@@ -270,41 +273,49 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
 
     }
     public void requestBg() {
-        Call<User> call1 = NetUtil.getInstance().getApi().getCurrentBackdrop(token);
+        NetUtil.getInstance().getApi().userInfo(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
 
-        call1.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                User.DataDTO mUser = new User.DataDTO();
-                mUser = response.body().getData();
-                successChange(mUser.getCurrent_backdrop());
-                if (mUser != null) {
-                    if (mUser.getCurrent_backdrop() == 1) {
-                        mLayout.setBackgroundResource(R.color.purple);
                     }
-                    if (mUser.getCurrent_backdrop() == 2) {
-                        mLayout.setBackgroundResource(R.color.theme2);
-                    }
-                    if (mUser.getCurrent_backdrop() == 3) {
-                        mLayout.setBackgroundResource(R.color.theme3);
-                    }
-                    if (mUser.getCurrent_backdrop() == 4) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_31);
-                    }
-                    if (mUser.getCurrent_backdrop() == 5) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_41);
-                    }
-                    if (mUser.getCurrent_backdrop() == 6) {
-                        mLayout.setBackgroundResource(R.mipmap.theme_51);
-                    }
-                }
-            }
 
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        if (user != null) {
+                            if (user.getData().getCurrent_backdrop() == 1) {
+                                mLayout.setBackgroundResource(R.mipmap.background_default);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 2) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_1);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 3) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_2);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 4) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_3);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 5) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_4);
+                            }
+                            if (user.getData().getCurrent_backdrop() == 6) {
+                                mLayout.setBackgroundResource(R.mipmap.theme_5);
+                            }
+                        }
+                    }
 
-            }
-        });
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 }

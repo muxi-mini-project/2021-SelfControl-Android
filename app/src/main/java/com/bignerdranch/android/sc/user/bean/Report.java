@@ -73,10 +73,4 @@ public class Report {
         }
     }
 
-    /**
-     * number : 0
-     * title : string
-     */
-
-
 }

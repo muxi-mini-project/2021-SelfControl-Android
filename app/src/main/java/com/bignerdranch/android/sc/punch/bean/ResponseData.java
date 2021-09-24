@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.punch;
+package com.bignerdranch.android.sc.punch.bean;
 
 public class ResponseData<T> {
     /**
@@ -9,12 +9,6 @@ public class ResponseData<T> {
 
     private int code;
     private String msg;
-    /**
-     * title : 跑步
-     * number : 0
-     * id : 1500026
-     */
-
     private T data;
 
     public int getCode() {

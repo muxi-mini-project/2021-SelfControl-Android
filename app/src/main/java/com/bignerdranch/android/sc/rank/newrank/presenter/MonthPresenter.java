@@ -1,11 +1,11 @@
 package com.bignerdranch.android.sc.rank.newrank.presenter;
-import com.bignerdranch.android.sc.rank.newrank.api.MonthAPI;
+import com.bignerdranch.android.sc.rank.newrank.contract.MonthContract;
 import com.bignerdranch.android.sc.rank.newrank.model.MonthModel;
 import com.bignerdranch.android.sc.rank.newrank.view.MonthFragment;
 
 import java.util.List;
 
-public class MonthPresenter implements MonthAPI.VP {
+public class MonthPresenter implements MonthContract.VP {
 
     private MonthModel mModel;
     private MonthFragment mView;

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.seeuser.bean.UserPunch;
 
 import java.util.List;
 

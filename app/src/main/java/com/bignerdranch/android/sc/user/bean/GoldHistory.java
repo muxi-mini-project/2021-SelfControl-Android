@@ -46,7 +46,7 @@ public class GoldHistory {
          * time : 2021-08-06 19:05:05
          * change_number : 200
          * residual_number : 600
-         * reason : 加二百 个
+         * reason : 加二百个
          */
 
         private String student_id;

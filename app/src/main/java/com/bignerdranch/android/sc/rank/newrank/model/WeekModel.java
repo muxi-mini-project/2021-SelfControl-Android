@@ -1,7 +1,7 @@
 package com.bignerdranch.android.sc.rank.newrank.model;
 
 import com.bignerdranch.android.sc.net.NetUtil;
-import com.bignerdranch.android.sc.rank.newrank.api.WeekAPI;
+import com.bignerdranch.android.sc.rank.newrank.contract.WeekContract;
 import com.bignerdranch.android.sc.rank.newrank.bean.ChangeRank;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
 import com.bignerdranch.android.sc.rank.newrank.presenter.WeekPresenter;
@@ -15,7 +15,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class WeekModel implements WeekAPI.M {
+public class WeekModel implements WeekContract.M {
     private WeekPresenter mP;
 
     public WeekModel(WeekPresenter weekP) {

@@ -3,10 +3,10 @@ package com.bignerdranch.android.sc.settings.model;
 import androidx.annotation.NonNull;
 
 import com.bignerdranch.android.sc.net.NetUtil;
+import com.bignerdranch.android.sc.rank.newrank.bean.Message;
 import com.bignerdranch.android.sc.settings.contract.PrivateContract;
 import com.bignerdranch.android.sc.settings.bean.Privacy;
 import com.bignerdranch.android.sc.settings.presenter.PrivatePresenter;
-import com.bignerdranch.android.sc.user.bean.Message;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
