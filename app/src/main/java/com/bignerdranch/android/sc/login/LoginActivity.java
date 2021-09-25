@@ -9,98 +9,85 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.StatusBar;
-import com.bignerdranch.android.sc.Utils;
-import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
-import com.bignerdranch.android.sc.label.LabelPagerActivity;
-import com.bignerdranch.android.sc.net.NetUtil;
+import androidx.appcompat.app.AppCompatActivity;
 
-import retrofit2.Call;
-import retrofit2.Callback;
+import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.label.LabelPagerView;
+
 import retrofit2.Response;
 
-public class LoginActivity extends StatusBar {
+public class LoginActivity extends AppCompatActivity implements LoginAPI.VP {
 
-    private EditText mStudent_Id;
+    private final LoginPresenter mPresenter = new LoginPresenter();
+    private EditText mStudent_id;
     private EditText mPassword;
     private Button mLoginButton;
+    private LoginPresenter mLoginPresenter = new LoginPresenter();
     public static String token;
 
     public static int key = 2;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle saveInstanceState) {
+        super.onCreate(saveInstanceState);
         setContentView(R.layout.login_page);
 
-        initWidgets();
-
-        //设置状态栏透明
-        makeStatusBarTransparent(this);
-        //状态栏文字自适应
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        mPresenter.bindView(this);
+        initView();
     }
 
-    private void initWidgets() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
-        token = sharedPreferences.getString("Token",null);
-        IsToken(token);
-
-        mStudent_Id =findViewById(R.id.username);
-        mPassword =findViewById(R.id.password);
-        mLoginButton =findViewById(R.id.login_B);
+    public void initView() {
+        mStudent_id = findViewById(R.id.username);
+        mPassword = findViewById(R.id.password);
+        mLoginButton = findViewById(R.id.login_B);
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Utils.isFastClick()) {
+                    String id = mStudent_id.getText().toString();
+                    String password = mPassword.getText().toString();
+                    mPresenter.login(id, password);
+                }
+            }
+        });
     }
 
-    public void loginAction(View view) {
-        if (Utils.isFastClick()){
-            key = 0;
-            String id = mStudent_Id.getText().toString();
-            String password = mPassword.getText().toString();
-            request(id,password);
-        }
-    }
-
+    @Override
     public void IsToken(String token){
-        if (token != null){
-            Intent intent = new Intent(LoginActivity.this, ClockActivity.class);
+        if (token != null) {
+            Intent intent = new Intent(LoginActivity.this, com.bignerdranch.android.sc.clockpage.view.ClockActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
-    public void request(String id,String password){
 
-        NetUtil.getInstance().getApi().getCall(new User.DataDTO(id,password)).enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()==true){
-                    Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
-                    startActivity(intent);
-                    token = response.body().getData();
-                    Log.d("tag", "token "+response.body().getData());
+    @Override
+    public void onSuccess(Response<LoginResponse> response){
+        Intent intent=new Intent(LoginActivity.this, LabelPagerView.class);
+        startActivity(intent);
+        token = response.body().getData();
+        Log.d("tag", "token "+response.body().getData());
 
-                    SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("Token",token);
-                    editor.commit();
-                    editor.apply();
+        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Token",token);
+        editor.commit();
+        editor.apply();
+        Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+    }
 
-                }else {
-                    Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
-                }
+    @Override
+    public void fail() {
+        Toast.makeText(LoginActivity.this, "账号或密码错误", Toast.LENGTH_SHORT).show();
+    }
 
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable throwable) {
-                Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
-                throwable.printStackTrace();
-                Log.e("tag",throwable.getMessage());
-            }
-
-        });
-
+    @Override
+    public void error(Throwable throwable) {
+        Toast.makeText(LoginActivity.this, "网络连接失败", Toast.LENGTH_SHORT).show();
+        throwable.printStackTrace();
+        Log.e("tag",throwable.getMessage());
     }
 
 }

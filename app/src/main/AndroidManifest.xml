@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".clockpage.view.ClockActivity"></activity>
-        <activity android:name=".label.LabelPagerActivity"></activity>
+        <activity android:name=".label.LabelPagerView"></activity>
         <activity android:name=".settings.view.SettingPageActivity"></activity>
         <activity android:name=".settings.view.CourseActivity"></activity>
         <activity android:name=".settings.view.BackgroundActivity"></activity>

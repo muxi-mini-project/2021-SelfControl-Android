@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.label.labelfragment;
+package com.bignerdranch.android.sc.label.LabelFragment;
 
 
 import android.os.Bundle;
@@ -6,25 +6,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.net.NetUtil;
+import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.bean.ResponseData;
-import com.bignerdranch.android.sc.R;
-import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.SingleMessage;
+
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
-
 
 public class HealthFragment extends Fragment {
     private ImageButton mchishuiguo;
@@ -48,17 +49,6 @@ public class HealthFragment extends Fragment {
     private int flag8 = 0;
     private int flag9 = 0;
     private int flag10 = 0;
-
-    private TextView chishuiguo;
-    private TextView chizaocan;
-    private TextView duoheshui;
-    private TextView jujueyexiao;
-    private TextView jujueyinliao;
-    private TextView jujuejiuzuo;
-    private TextView zaoqi;
-    private TextView zaoshui;
-    private TextView buqiaoerlangtui;
-    private TextView zaoqikongfuheshui;
     private List<LabelPunch> mLabelPunchList;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -241,18 +231,6 @@ public class HealthFragment extends Fragment {
                 }
             }
         });
-
-        chishuiguo = (TextView) view.findViewById(R.id.chishuiguo_textView);
-        chizaocan = (TextView) view.findViewById(R.id.chizaocan_textView);
-        duoheshui = (TextView) view.findViewById(R.id.duoheshui_textView);
-        jujueyexiao = (TextView) view.findViewById(R.id.jujueyexiao_textView);
-        jujueyinliao = (TextView) view.findViewById(R.id.jujueyinliao_textView);
-        jujuejiuzuo = (TextView) view.findViewById(R.id.jujuejiuzuo_textView);
-        zaoqi = (TextView) view.findViewById(R.id.zaoqi_textView);
-        zaoshui = (TextView) view.findViewById(R.id.zaoshui_textView);
-        buqiaoerlangtui = (TextView) view.findViewById(R.id.buqiaoerlangtui_textView);
-        zaoqikongfuheshui = (TextView) view.findViewById(R.id.zapqikongfuheshui_textView);
-
         getMyPunch();
 
         return view;
@@ -321,6 +299,7 @@ public class HealthFragment extends Fragment {
             }
         });
     }
+
 
 
 }

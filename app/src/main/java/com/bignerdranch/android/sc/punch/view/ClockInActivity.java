@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
-import com.bignerdranch.android.sc.label.LabelPagerActivity;
+import com.bignerdranch.android.sc.label.LabelPagerView;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.bean.LabelPunch;
@@ -118,7 +118,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     Toast.makeText(ClockInActivity.this,"今日已完成全部打卡，不能再新增标签",Toast.LENGTH_SHORT).show();
                 }else {
                     key = 1;
-                    Intent intent = new Intent(ClockInActivity.this, LabelPagerActivity.class);
+                    Intent intent = new Intent(ClockInActivity.this, LabelPagerView.class);
                     startActivity(intent);
                 }
             }

@@ -1,4 +1,4 @@
-package com.bignerdranch.android.sc.label.labelfragment;
+package com.bignerdranch.android.sc.label.LabelFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
-import com.bignerdranch.android.sc.punch.bean.SingleMessage;
 import com.bignerdranch.android.sc.punch.bean.ResponseData;
+import com.bignerdranch.android.sc.punch.bean.SingleMessage;
 
 import java.util.List;
 
@@ -25,7 +25,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.bignerdranch.android.sc.login.LoginActivity.key;
 import static com.bignerdranch.android.sc.login.LoginActivity.token;
 
 public class StudyFragment extends Fragment {
@@ -174,12 +173,10 @@ public class StudyFragment extends Fragment {
                         mzuojinrijihua.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         f7 = 1;
                         createRequest("做今日计划");
-
                     } else {
                         mzuojinrijihua.setBackgroundResource(R.mipmap.zuojinrijihua);
                         f7 = 0;
                         deleteRequest("做今日计划");
-
                     }
                 }
             });
@@ -193,12 +190,10 @@ public class StudyFragment extends Fragment {
                         mtinglixunlian.setBackgroundResource(R.mipmap.yixuanbiaoqian);
                         f8 = 1;
                         createRequest("听力训练");
-
                     } else {
                         mtinglixunlian.setBackgroundResource(R.mipmap.tinglilianxi);
                         f8 = 0;
                         deleteRequest("听力训练");
-
                     }
                 }
             });
@@ -247,11 +242,7 @@ public class StudyFragment extends Fragment {
                 public void onClick(View v) {
                     if (Utils.isFastClick()){
                         Intent intent=new Intent(getActivity() , ClockActivity.class);
-                        if(key == 0){
-                            startActivity(intent);
-                        }else if(key == 1){
-                            getActivity().finish();
-                        }
+                        startActivity(intent);
                     }
 
                 }
@@ -315,6 +306,5 @@ public class StudyFragment extends Fragment {
             }
         });
     }
-
 }
 

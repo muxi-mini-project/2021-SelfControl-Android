@@ -72,7 +72,9 @@ public class User {
             return student_id;
         }
 
-        public DataDTO(Integer privacy){this.privacy = privacy;}
+        public DataDTO(Integer privacy) {
+            this.privacy = privacy;
+        }
 
         public void setStudent_id(String student_id) {
             this.student_id = student_id;
@@ -127,31 +129,3 @@ public class User {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
