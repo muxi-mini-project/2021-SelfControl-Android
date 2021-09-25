@@ -10,7 +10,6 @@ public interface LoginAPI {
 
     interface M{
         void request(String id, String password);
-        void IsToken(String token);
     }
 
     interface VP{
@@ -18,7 +17,6 @@ public interface LoginAPI {
         void onSuccess(Response<LoginResponse> response);
         void error(Throwable throwable);
         void fail();
-        void IsToken(String token);
     }
 
 }

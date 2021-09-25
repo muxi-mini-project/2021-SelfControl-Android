@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity implements LoginAPI.VP {
 
         mPresenter.bindView(this);
         initView();
+        initWidgets();
     }
 
     public void initView() {
@@ -53,9 +54,14 @@ public class LoginActivity extends AppCompatActivity implements LoginAPI.VP {
         });
     }
 
-    @Override
+    public void initWidgets(){
+        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+        token = sharedPreferences.getString("Token",null);
+        IsToken(token);
+    }
+
     public void IsToken(String token){
-        if (token != null) {
+        if(token != null) {
             Intent intent = new Intent(LoginActivity.this, com.bignerdranch.android.sc.clockpage.view.ClockActivity.class);
             startActivity(intent);
             finish();

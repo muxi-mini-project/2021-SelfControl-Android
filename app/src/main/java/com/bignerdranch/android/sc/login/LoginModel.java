@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.login;
 
+import android.content.Intent;
+
 import com.bignerdranch.android.sc.net.NetUtil;
 
 import retrofit2.Call;
@@ -11,6 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginModel implements LoginAPI.M{
 
     private LoginPresenter mPresenter;
+
+
 
     public LoginModel(LoginPresenter mPresenter){
         this.mPresenter = mPresenter;
@@ -37,10 +41,5 @@ public class LoginModel implements LoginAPI.M{
 
         });
 
-    }
-
-    @Override
-    public void IsToken(String token){
-        mPresenter.IsToken(token);
     }
 }

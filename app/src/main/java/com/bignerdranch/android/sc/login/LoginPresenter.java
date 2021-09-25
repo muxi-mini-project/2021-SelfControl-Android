@@ -45,9 +45,5 @@ public class LoginPresenter implements LoginAPI.VP{
         mView.onSuccess(response);
     }
 
-    @Override
-    public void IsToken(String token){
-        mView.IsToken(token);
-    }
 
 }
