@@ -69,7 +69,7 @@ public class ClockInPresenter {
         mClockInModel.getFlowerStatus(token, day, new ClockInResponseListener(){
             @Override
             public void ifDayAllPunch(boolean isAll) {
-                ifDayAllPunch(isAll);
+                mClockInView.ifDayAllPunch(isAll);
             }
 
             @Override

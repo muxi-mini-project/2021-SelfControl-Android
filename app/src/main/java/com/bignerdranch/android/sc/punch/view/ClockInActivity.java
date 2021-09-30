@@ -158,7 +158,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             CheckLabelStatus(url, clockInLabel);
             mClockInLabelList.add(clockInLabel);
         }
-        try{
+        try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -202,7 +202,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         mClockInPresenter.CheckLabelStatus(token, url, clockInLabel);
     }
 
-    public void ifDayAllPunch(){
+    public void ifDayAllPunch() {
         mClockInPresenter.ifDayAllPunch(token, viewDay);
     }
 
@@ -285,6 +285,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             holder.bind(clockInLabel);
 
             holder.clockIn_button.setOnClickListener(new View.OnClickListener() {
+                ImageView  mImageView;
+
                 @Override
                 public void onClick(View v) {
                     toClockIn(new LabelPunchTitle(clockInLabel.getTitle()));
@@ -294,25 +296,19 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     notifyDataSetChanged();
                     ifDayAllPunch();
                     if (ifIsAll) {
-                        Dialog dia;
-                        Context context = ClockInActivity.this;
-                        dia = new Dialog(context);
-                        dia.setContentView(R.layout.clockin_all);
-                        ImageView imageView = (ImageView) dia.findViewById(R.id.image);
-                        imageView.setBackgroundResource(R.mipmap.popup_foreground);
-                        //选择true的话点击其他地方可以使dialog消失，为false的话不会消失
-                        dia.setCanceledOnTouchOutside(true); // Sets whether this dialog is
-                        Window w = dia.getWindow();
-                        WindowManager.LayoutParams lp = w.getAttributes();
-                        lp.x = 0;
-                        lp.y = 40;
-                        dia.onWindowAttributesChanged(lp);
-                        imageView.setOnClickListener(new View.OnClickListener() {
+                        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
+                        final PopupWindow popupWindow = new PopupWindow(view, 900, 1600);
+                        //参数为1.View 2.宽度 3.高度
+                        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+                        popupWindow.setFocusable(true);
+                        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                             @Override
-                            public void onClick(View view) {
-                                dia.dismiss();
+                            public void onDismiss() {
+                                backgroundAlpha(1.0f);
                             }
                         });
+                        backgroundAlpha(0.5f);
+                        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
                     }
                 }
             });
@@ -342,7 +338,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                 public void onClick(View v) {
                     View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_popupwindow, null, false);
                     final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    //参数为1.View 2.宽度 3.高度
                     popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
                     popupWindow.setFocusable(true);
                     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -500,6 +495,10 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     @Override
     protected void onResume() {
         super.onResume();
+        if (mRecyclerView.getChildCount() > 0) {
+            mRecyclerView.setAdapter(null);
+        }
+        loading.setVisibility(View.VISIBLE);
         loading.setImageResource(R.mipmap.loading_foreground);
         connection();
     }
