@@ -16,19 +16,17 @@ import retrofit2.Response;
 
 public class ClockInModel {
     public void getFlowerStatus(String token, int day, ClockInResponseListener clockInResponseListener) {
-        NetUtil.getInstance().getApi().ifDayAllPunch(token,day).enqueue(new Callback<FlowerResponse>() {
+        NetUtil.getInstance().getApi().getDatAllPunch(token,day).enqueue(new Callback<ResponseData<Integer>>() {
+
             @Override
-            public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
-                if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
-                    clockInResponseListener.ifDayAllPunch(true);
-                }
+            public void onResponse(Call<ResponseData<Integer>> call, Response<ResponseData<Integer>> response) {
+                clockInResponseListener.ifDayAllPunch(response.body().getData());
             }
 
             @Override
-            public void onFailure(Call<FlowerResponse> call, Throwable t) {
-                clockInResponseListener.clockInRequestFail(t.getMessage());
-            }
+            public void onFailure(Call<ResponseData<Integer>> call, Throwable t) {
 
+            }
         });
     }
 

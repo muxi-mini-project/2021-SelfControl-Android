@@ -84,6 +84,8 @@ public interface RetrofitApi {
     //获取用户某天的打卡
 
 
+    @GET("punch/all/{day}")//判断某天是否全部打卡
+    Call<ResponseData<Integer>> getDatAllPunch(@Header("token") String token, @Path("day")int day);
 
     @GET("punch/month")//获取某用户月报
     Observable<Report> getMonthReport(@Header("token") String token);

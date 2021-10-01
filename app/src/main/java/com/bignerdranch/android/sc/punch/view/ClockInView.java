@@ -8,5 +8,5 @@ public interface ClockInView {
     void showLabelInfo(List<LabelPunch> list);
     void showError(String message);
     void showRemoveSuccess(String message);
-    void ifDayAllPunch(boolean all);
+    void ifDayAllPunch(int number);
 }

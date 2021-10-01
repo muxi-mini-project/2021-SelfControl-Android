@@ -61,7 +61,7 @@ import static com.bignerdranch.android.sc.login.LoginActivity.key;
 public class ClockInActivity extends AppCompatActivity implements ClockInView {
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
-    boolean ifIsAll;
+    int punchNumber = 0;
     int yearDay = 0;    //指的是今天
     int viewDay = 0;    //指的是从主页面点进来查看的一天
     RecyclerView mRecyclerView;
@@ -179,8 +179,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     }
 
     @Override
-    public void ifDayAllPunch(boolean isAll) {
-        ifIsAll = isAll;
+    public void ifDayAllPunch(int number) {
+        punchNumber = number;
     }
 
     /**
@@ -257,6 +257,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockIn_button.setEnabled(false);
                     clockIn_button.setText("未到打卡日");
                 }
+
+
             }
 
         }
@@ -295,9 +297,10 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
                     ifDayAllPunch();
-                    if (ifIsAll) {
+                    Toast.makeText(ClockInActivity.this, String.valueOf(punchNumber), Toast.LENGTH_SHORT).show();
+                    if (punchNumber == mClockInLabelList.size()) {
                         View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
-                        final PopupWindow popupWindow = new PopupWindow(view, 900, 1600);
+                        final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
                         //参数为1.View 2.宽度 3.高度
                         popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
                         popupWindow.setFocusable(true);

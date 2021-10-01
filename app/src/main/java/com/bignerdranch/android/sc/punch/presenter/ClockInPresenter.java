@@ -68,8 +68,8 @@ public class ClockInPresenter {
     public void ifDayAllPunch(String token, int day){
         mClockInModel.getFlowerStatus(token, day, new ClockInResponseListener(){
             @Override
-            public void ifDayAllPunch(boolean isAll) {
-                mClockInView.ifDayAllPunch(isAll);
+            public void ifDayAllPunch(int number) {
+                mClockInView.ifDayAllPunch(number);
             }
 
             @Override
