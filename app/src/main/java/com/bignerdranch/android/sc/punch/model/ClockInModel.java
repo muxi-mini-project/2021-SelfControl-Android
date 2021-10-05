@@ -20,7 +20,12 @@ public class ClockInModel {
 
             @Override
             public void onResponse(Call<ResponseData<Integer>> call, Response<ResponseData<Integer>> response) {
-                clockInResponseListener.ifDayAllPunch(response.body().getData());
+                assert response.body() != null;
+
+                if(response.body().getData()>0) {
+                    clockInResponseListener.ifDayAllPunch();
+                }
+
             }
 
             @Override

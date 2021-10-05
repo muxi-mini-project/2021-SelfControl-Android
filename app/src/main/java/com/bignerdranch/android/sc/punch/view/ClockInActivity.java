@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
     int punchNumber = 0;
+    int countPunch = 0;
     int yearDay = 0;    //指的是今天
     int viewDay = 0;    //指的是从主页面点进来查看的一天
     RecyclerView mRecyclerView;
@@ -156,12 +158,12 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         for (LabelPunch clockInLabel : clockInLabels) {
             String url = "http://39.99.53.8:2333/api/v1/punch/oneday/" + String.valueOf(clockInLabel.getId()) + "/" + String.valueOf(viewDay);
             CheckLabelStatus(url, clockInLabel);
+            try{
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             mClockInLabelList.add(clockInLabel);
-        }
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
         loading.setVisibility(View.GONE);
         updateRVUI();
@@ -179,8 +181,20 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     }
 
     @Override
-    public void ifDayAllPunch(int number) {
-        punchNumber = number;
+    public void ifDayAllPunchTodo() {
+        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
+        final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
+        //参数为1.View 2.宽度 3.高度
+        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+        popupWindow.setFocusable(true);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                backgroundAlpha(1.0f);
+            }
+        });
+        backgroundAlpha(0.5f);
+        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
     }
 
     /**
@@ -257,8 +271,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockIn_button.setEnabled(false);
                     clockIn_button.setText("未到打卡日");
                 }
-
-
             }
 
         }
@@ -287,8 +299,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             holder.bind(clockInLabel);
 
             holder.clockIn_button.setOnClickListener(new View.OnClickListener() {
-                ImageView  mImageView;
-
                 @Override
                 public void onClick(View v) {
                     toClockIn(new LabelPunchTitle(clockInLabel.getTitle()));
@@ -296,23 +306,14 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     int temp = clockInLabel.getNumber() + 1;
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
-                    ifDayAllPunch();
-                    Toast.makeText(ClockInActivity.this, String.valueOf(punchNumber), Toast.LENGTH_SHORT).show();
-                    if (punchNumber == mClockInLabelList.size()) {
-                        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
-                        final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
-                        //参数为1.View 2.宽度 3.高度
-                        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
-                        popupWindow.setFocusable(true);
-                        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                            @Override
-                            public void onDismiss() {
-                                backgroundAlpha(1.0f);
-                            }
-                        });
-                        backgroundAlpha(0.5f);
-                        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+
+                    ifDayAllPunch();
                 }
             });
 
