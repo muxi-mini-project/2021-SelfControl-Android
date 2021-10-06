@@ -33,6 +33,11 @@ public class FlowerPresenter implements Presenter{
             public void onDataNotAvaliable() {
                 mView.showWhiteFlower();
             }
+
+            @Override
+            public void getText() {
+                mView.showText();
+            }
         });
     }
 }

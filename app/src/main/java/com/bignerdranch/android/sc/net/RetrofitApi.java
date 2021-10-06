@@ -81,9 +81,6 @@ public interface RetrofitApi {
     @POST("punch/create")//增加标签
     Call<SingleMessage> create(@Header("token") String token, @Body LabelPunchTitle clockInLabelTitle);
 
-    //获取用户某天的打卡
-
-
     @GET("punch/all/{day}")//判断某天是否全部打卡
     Call<ResponseData<Integer>> getDatAllPunch(@Header("token") String token, @Path("day")int day);
 

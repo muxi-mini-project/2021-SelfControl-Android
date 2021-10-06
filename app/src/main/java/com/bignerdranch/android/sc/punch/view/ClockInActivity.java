@@ -307,12 +307,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
 
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
                     ifDayAllPunch();
                 }
             });

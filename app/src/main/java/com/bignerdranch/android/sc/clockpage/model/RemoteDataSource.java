@@ -1,8 +1,5 @@
 package com.bignerdranch.android.sc.clockpage.model;
 
-import android.widget.Toast;
-
-import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.net.NetUtil;
 
 import retrofit2.Call;
@@ -13,7 +10,6 @@ public class RemoteDataSource implements FlowerDataSource {
 
     private static RemoteDataSource INSTANCE;
     public static Boolean STATUS = false;
-    private ClockActivity mActivity;
 
     public static RemoteDataSource getINSTANCE(){
         if (INSTANCE == null){
@@ -28,7 +24,7 @@ public class RemoteDataSource implements FlowerDataSource {
         NetUtil.getInstance().getApi().ifDayAllPunch(token,day).enqueue(new Callback<FlowerResponse>() {
             @Override
             public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
-                if(response == null){
+                if(response.body() != null){
                     if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
                         callback.onSmileFlowerLoaded();
                         STATUS = true;
@@ -36,7 +32,7 @@ public class RemoteDataSource implements FlowerDataSource {
                         callback.onWhiteFlowerLoaded();
                     }
                 }else{
-                    Toast.makeText(mActivity,"网络出问题拉！",Toast.LENGTH_SHORT).show();
+                    callback.getText();
                 }
             }
 
