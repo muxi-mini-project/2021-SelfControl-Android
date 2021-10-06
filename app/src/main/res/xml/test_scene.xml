@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="0dp" />
         <Constraint
             android:layout_height="90dp"
             app:layout_constraintEnd_toEndOf="parent"
