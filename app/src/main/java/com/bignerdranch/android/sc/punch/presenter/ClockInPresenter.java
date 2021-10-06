@@ -64,4 +64,18 @@ public class ClockInPresenter {
             }
         });
     }
+
+    public void ifDayAllPunch(String token, int day){
+        mClockInModel.getFlowerStatus(token, day, new ClockInResponseListener(){
+            @Override
+            public void ifDayAllPunch() {
+                mClockInView.ifDayAllPunchTodo();
+            }
+
+            @Override
+            public void clockInRequestFail(String message) {
+                mClockInView.showError(message);
+            }
+        });
+    }
 }

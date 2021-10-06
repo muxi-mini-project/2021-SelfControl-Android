@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.punch.model;
 
+import com.bignerdranch.android.sc.clockpage.model.FlowerDataSource;
+import com.bignerdranch.android.sc.clockpage.model.FlowerResponse;
 import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
@@ -13,6 +15,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ClockInModel {
+    public void getFlowerStatus(String token, int day, ClockInResponseListener clockInResponseListener) {
+        NetUtil.getInstance().getApi().getDatAllPunch(token,day).enqueue(new Callback<ResponseData<Integer>>() {
+
+            @Override
+            public void onResponse(Call<ResponseData<Integer>> call, Response<ResponseData<Integer>> response) {
+                assert response.body() != null;
+
+                if(response.body().getData()>0) {
+                    clockInResponseListener.ifDayAllPunch();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseData<Integer>> call, Throwable t) {
+
+            }
+        });
+    }
 
     public void getClockInLabels(String token,ClockInResponseListener clockInResponseListener){
         NetUtil.getInstance().getApi().getLabels(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {

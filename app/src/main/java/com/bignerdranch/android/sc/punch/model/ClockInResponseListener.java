@@ -11,5 +11,7 @@ public interface ClockInResponseListener {
 
     default void CheckLabelStatus(boolean status){}
 
+    default void ifDayAllPunch(){}
+
     void clockInRequestFail(String message);
 }
