@@ -9,6 +9,8 @@ public interface FlowerDataSource {
         void onSmileFlowerLoaded();
 
         void onDataNotAvaliable();
+
+        void getText();
     }
 
     void getFlowerStatus(String token, int day, LoadFlowerCallback callback);

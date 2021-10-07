@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -288,6 +289,11 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     @Override
     public void serPresenter(MainContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @Override
+    public void showText() {
+        Toast.makeText(this,"网络出问题拉！",Toast.LENGTH_SHORT).show();
     }
 
     public void requestBg() {

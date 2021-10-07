@@ -23,12 +23,12 @@
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="match_parent"
-        android:layout_height="221.5dp"
-        app:srcCompat="@mipmap/user_background"
+        android:layout_height="wrap_content"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/userlongback" />
 
     <ImageView
         android:id="@+id/see_user_iv"
@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text=""
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/see_user_iv"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="@+id/see_user_iv"

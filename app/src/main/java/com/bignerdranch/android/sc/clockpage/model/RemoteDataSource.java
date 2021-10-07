@@ -24,11 +24,15 @@ public class RemoteDataSource implements FlowerDataSource {
         NetUtil.getInstance().getApi().ifDayAllPunch(token,day).enqueue(new Callback<FlowerResponse>() {
             @Override
             public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
-                if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
-                    callback.onSmileFlowerLoaded();
-                    STATUS = true;
+                if(response.body() != null){
+                    if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
+                        callback.onSmileFlowerLoaded();
+                        STATUS = true;
+                    }else{
+                        callback.onWhiteFlowerLoaded();
+                    }
                 }else{
-                    callback.onWhiteFlowerLoaded();
+                    callback.getText();
                 }
             }
 

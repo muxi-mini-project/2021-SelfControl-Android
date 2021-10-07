@@ -8,6 +8,8 @@ public interface MainContract {
         void showSmileFlower();
 
         void serPresenter(MainContract.Presenter presenter);
+
+        void showText();
     }
 
     interface Presenter {

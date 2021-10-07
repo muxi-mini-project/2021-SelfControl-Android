@@ -345,11 +345,13 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     int temp = clockInLabel.getNumber() + 1;
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
+
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
                     ifDayAllPunch();
                 }
             });
