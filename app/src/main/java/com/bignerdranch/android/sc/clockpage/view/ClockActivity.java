@@ -68,8 +68,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     FragmentPagerAdapter mFragmentPagerAdapter;
 
     private ConstraintLayout mLayout;
-    private User mUser;
-    private ImageButton flower;
     String token;
 
     private MainContract.Presenter mPresenter;

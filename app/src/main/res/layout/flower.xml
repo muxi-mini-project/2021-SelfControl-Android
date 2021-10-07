@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
 
-    <ImageButton
+    <ImageView
         android:id="@+id/unflower"
         android:layout_width="200dp"
         android:layout_height="200dp"

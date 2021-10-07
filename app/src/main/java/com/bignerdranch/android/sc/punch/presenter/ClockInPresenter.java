@@ -50,12 +50,12 @@ public class ClockInPresenter {
             }
         });
     }
-
+/*
     public void CheckLabelStatus(String token, String url, LabelPunch clockInLabel){
         mClockInModel.CheckLabelStatus(token, url, new ClockInResponseListener() {
             @Override
             public void CheckLabelStatus(boolean status) {
-                clockInLabel.setLabelStatus(status);
+                mClockInView.checkStatusSuccess(clockInLabel, status);
             }
 
             @Override
@@ -64,7 +64,7 @@ public class ClockInPresenter {
             }
         });
     }
-
+*/
     public void ifDayAllPunch(String token, int day){
         mClockInModel.getFlowerStatus(token, day, new ClockInResponseListener(){
             @Override

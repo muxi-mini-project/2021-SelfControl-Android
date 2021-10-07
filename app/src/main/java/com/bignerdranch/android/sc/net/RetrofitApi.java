@@ -91,7 +91,10 @@ public interface RetrofitApi {
     Observable<Report> getMonthReport(@Header("token") String token);
 
     @GET("")//判断某天某卡是否已被打卡
-    Call<ResponseData<Boolean>> isClockInToday(@Header("token") String token, @Url String url);
+    Observable<ResponseData<Boolean>> isClockInToday(@Header("token") String token, @Url String url);
+
+    @GET("")
+    Call<ResponseData<List<LabelPunch>>> getClockDayList(@Header("token") String token, @Url String url);
 
     @GET("punch/punch/{id}")//获取某用户标签
     Observable<UserPunch> requestList(@Path("id")String id);

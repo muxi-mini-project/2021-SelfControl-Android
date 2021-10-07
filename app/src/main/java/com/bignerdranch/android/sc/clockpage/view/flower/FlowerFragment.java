@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,7 @@ import com.bignerdranch.android.sc.Utils;
 
 public class FlowerFragment extends Fragment {
     private TextView mTextView;
-    private ImageButton unflower;
+    private ImageView unflower;
     private View mView;
     private String text = "";
 
@@ -27,6 +28,13 @@ public class FlowerFragment extends Fragment {
 
     public void SmileFlower(){
         unflower.setBackgroundResource(R.mipmap.done);
+    }
+
+    private void initwidgets(View view)
+    {
+        mTextView = view.findViewById(R.id.today);
+        mView = view.findViewById(R.id.line);
+        unflower = view.findViewById(R.id.unflower);
     }
 
     public void UnFlower(){
@@ -52,12 +60,5 @@ public class FlowerFragment extends Fragment {
             }
         });
         return view;
-    }
-
-    private void initwidgets(View view)
-    {
-        mTextView = view.findViewById(R.id.today);
-        mView = view.findViewById(R.id.line);
-        unflower = view.findViewById(R.id.unflower);
     }
 }

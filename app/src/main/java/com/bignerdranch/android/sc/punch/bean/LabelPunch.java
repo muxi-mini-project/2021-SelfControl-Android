@@ -1,13 +1,34 @@
 package com.bignerdranch.android.sc.punch.bean;
 
+import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.bignerdranch.android.sc.R;
 
+@Entity
 public class LabelPunch {
+    @PrimaryKey(autoGenerate = true)
+    public int iid;
+    @ColumnInfo(name = "id")
     public int id;
+    @ColumnInfo(name = "number")
     public int number;
+    @ColumnInfo(name = "title")
     public String title;
+    @ColumnInfo(name = "LabelStatus")
     public boolean LabelStatus; //该日是否打卡
+    @ColumnInfo(name = "ImgId")
     public int mImgID;
+
+    public LabelPunch(int id, int number, String title, boolean labelStatus, int imgID) {
+        this.id = id;
+        this.number = number;
+        this.title = title;
+        LabelStatus = labelStatus;
+        mImgID = imgID;
+    }
 
     public LabelPunch(String title, int number){
         this.title = title;

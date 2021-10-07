@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -38,8 +39,10 @@ import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
+import com.bignerdranch.android.sc.punch.bean.ResponseData;
 import com.bignerdranch.android.sc.punch.presenter.ClockInPresenter;
 import com.bignerdranch.android.sc.rank.newrank.view.RankActivity;
+import com.bignerdranch.android.sc.user.bean.Week;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,6 +56,9 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 import static com.bignerdranch.android.sc.R.drawable.popup_background;
@@ -62,8 +68,6 @@ import static com.bignerdranch.android.sc.login.LoginActivity.key;
 public class ClockInActivity extends AppCompatActivity implements ClockInView {
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
-    int punchNumber = 0;
-    int countPunch = 0;
     int yearDay = 0;    //指的是今天
     int viewDay = 0;    //指的是从主页面点进来查看的一天
     RecyclerView mRecyclerView;
@@ -154,19 +158,31 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
     @Override
     public void showLabelInfo(List<LabelPunch> clockInLabels) {
-        mClockInLabelList = new ArrayList<>();
-        for (LabelPunch clockInLabel : clockInLabels) {
-            String url = "http://39.99.53.8:2333/api/v1/punch/oneday/" + String.valueOf(clockInLabel.getId()) + "/" + String.valueOf(viewDay);
-            CheckLabelStatus(url, clockInLabel);
-            try{
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        mClockInLabelList = clockInLabels;
+        String url = "http://39.99.53.8:2333/api/v1/punch/day/" + String.valueOf(viewDay);
+        NetUtil.getInstance().getApi().getClockDayList(token, url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
+            @Override
+            public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
+                if (response.body().getData() != null)
+                    for (LabelPunch labelPunch : response.body().getData()) {
+                        for (LabelPunch label : mClockInLabelList) {
+                            if (labelPunch.getId() == label.getId()) {
+                                labelPunch.setLabelStatus(true);
+                                mClockInLabelList.remove(label);
+                                mClockInLabelList.add(labelPunch);
+                                break;
+                            }
+                        }
+                    }
+                updateRVUI();
             }
-            mClockInLabelList.add(clockInLabel);
-        }
+
+            @Override
+            public void onFailure(Call<ResponseData<List<LabelPunch>>> call, Throwable t) {
+
+            }
+        });
         loading.setVisibility(View.GONE);
-        updateRVUI();
     }
 
     @Override
@@ -197,6 +213,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
     }
 
+    @Override
+    public void checkStatusSuccess(LabelPunch labelPunch, boolean status) {
+        labelPunch.setLabelStatus(status);
+    }
+
     /**
      * 网络请求: 删除、打卡、获取标签、检查打卡
      */
@@ -212,9 +233,28 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         mClockInPresenter.getLabels(token);
     }
 
+    /*
     public void CheckLabelStatus(String url, LabelPunch clockInLabel) {
+        NetUtil.getInstance().getApi().isClockInToday(token, url).enqueue(new Callback<ResponseData<Boolean>>() {
+            @Override
+            public void onResponse(Call<ResponseData<Boolean>> call, Response<ResponseData<Boolean>> response) {
+                    mLabelPunchDao.InsertLabelPunch(new LabelPunch(clockInLabel.id
+                            , clockInLabel.number
+                            , clockInLabel.getTitle()
+                            , response.body().getData()
+                            , clockInLabel.getImgID(clockInLabel.getTitle())));
+            }
+
+            @Override
+            public void onFailure(Call<ResponseData<Boolean>> call, Throwable t) {
+            }
+        });
+
         mClockInPresenter.CheckLabelStatus(token, url, clockInLabel);
+
     }
+
+     */
 
     public void ifDayAllPunch() {
         mClockInPresenter.ifDayAllPunch(token, viewDay);
@@ -272,7 +312,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockIn_button.setText("未到打卡日");
                 }
             }
-
         }
     }
 
@@ -306,13 +345,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     int temp = clockInLabel.getNumber() + 1;
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
-
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
                     ifDayAllPunch();
                 }
             });

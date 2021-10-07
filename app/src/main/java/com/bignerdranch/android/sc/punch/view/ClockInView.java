@@ -9,4 +9,5 @@ public interface ClockInView {
     void showError(String message);
     void showRemoveSuccess(String message);
     void ifDayAllPunchTodo();
+    void checkStatusSuccess(LabelPunch labelPunch, boolean status);
 }

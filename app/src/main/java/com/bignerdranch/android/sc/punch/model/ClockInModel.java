@@ -77,6 +77,7 @@ public class ClockInModel {
         });
     }
 
+    /*
     public void CheckLabelStatus(String token, String url, ClockInResponseListener clockInResponseListener){
         NetUtil.getInstance().getApi().isClockInToday(token,url).enqueue(new Callback<ResponseData<Boolean>>() {
             @Override
@@ -90,4 +91,6 @@ public class ClockInModel {
             }
         });
     }
+
+     */
 }
