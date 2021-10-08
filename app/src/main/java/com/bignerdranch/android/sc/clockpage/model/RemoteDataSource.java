@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.clockpage.model;
 
+import static com.bignerdranch.android.sc.net.NetUtil.NetRequest;
+
 import com.bignerdranch.android.sc.net.NetUtil;
 
 import retrofit2.Call;
@@ -21,26 +23,29 @@ public class RemoteDataSource implements FlowerDataSource {
     @Override
     public void getFlowerStatus(String token,int day,LoadFlowerCallback callback) {
 
-        NetUtil.getInstance().getApi().ifDayAllPunch(token,day).enqueue(new Callback<FlowerResponse>() {
-            @Override
-            public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
-                if(response.body() != null){
-                    if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
-                        callback.onSmileFlowerLoaded();
-                        STATUS = true;
+        if (NetRequest == true) {
+            NetUtil.getInstance().getApi().ifDayAllPunch(token,day).enqueue(new Callback<FlowerResponse>() {
+                @Override
+                public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
+                    if(response.body() != null){
+                        if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
+                            callback.onSmileFlowerLoaded();
+                            STATUS = true;
+                        }else{
+                            callback.onWhiteFlowerLoaded();
+                        }
                     }else{
-                        callback.onWhiteFlowerLoaded();
+                        callback.getText();
                     }
-                }else{
-                    callback.getText();
                 }
-            }
 
-            @Override
-            public void onFailure(Call<FlowerResponse> call, Throwable t) {
-                callback.onDataNotAvaliable();
-            }
+                @Override
+                public void onFailure(Call<FlowerResponse> call, Throwable t) {
+                    callback.onDataNotAvaliable();
+                }
 
-        });
+            });
+        }
+
     }
 }

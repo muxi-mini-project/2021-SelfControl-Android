@@ -3,10 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/connection_failed_background.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/dialog_button.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/ic_baseline_chevron_left_24.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/loading_background.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/popup_background.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/punch_done.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/punch_missed.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/rankbar_gray.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/rankbar_purple.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/shape_coin.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/shape_corner_up.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/shape_frame.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/shape_frame_shadow.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/shape_rectangle.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.41202677576176444" />
+        <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/clockin_pager.xml" value="0.11778115501519756" />
         <entry key="app/src/main/res/layout/coin_function.xml" value="0.1453804347826087" />
         <entry key="app/src/main/res/layout/coin_query.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/dialog_changename.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/dialog_private.xml" value="0.1453804347826087" />
+        <entry key="app/src/main/res/layout/flower.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/item_calendar.xml" value="0.13541666666666666" />
+        <entry key="app/src/main/res/layout/item_goldhistory.xml" value="0.13541666666666666" />
+        <entry key="app/src/main/res/layout/login_page.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/pager_label.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/rank_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/rank_dialog.xml" value="0.1453804347826087" />
         <entry key="app/src/main/res/layout/rank_query.xml" value="0.12537993920972645" />
