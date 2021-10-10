@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,9 +43,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.daysInWeekArray;
 import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.getLocalDate;

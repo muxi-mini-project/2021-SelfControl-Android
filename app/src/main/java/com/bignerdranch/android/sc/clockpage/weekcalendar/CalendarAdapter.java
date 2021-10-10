@@ -54,6 +54,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
             if (date.equals(CalendarUtils.selectedDate)) {
                 holder.parentView.setBackgroundResource(R.drawable.shape_frame_shadow);
+                holder.cicle.setVisibility(View.VISIBLE);
             }
 
         }

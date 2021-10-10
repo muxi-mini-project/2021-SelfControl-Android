@@ -30,15 +30,15 @@ public class FlowerFragment extends Fragment {
         unflower.setBackgroundResource(R.mipmap.done);
     }
 
+    public void UnFlower(){
+        unflower.setBackgroundResource(R.mipmap.undone);
+    }
+
     private void initwidgets(View view)
     {
         mTextView = view.findViewById(R.id.today);
         mView = view.findViewById(R.id.line);
         unflower = view.findViewById(R.id.unflower);
-    }
-
-    public void UnFlower(){
-        unflower.setBackgroundResource(R.mipmap.undone);
     }
 
     @Override
