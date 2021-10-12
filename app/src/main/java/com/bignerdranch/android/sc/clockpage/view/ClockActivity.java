@@ -207,13 +207,13 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void initView() {
-        mSunFlowerFragment = new FlowerFragment();
-        mMonFlowerFragment = new FlowerFragment();
-        mTueFlowerFragment = new FlowerFragment();
-        mWesFlowerFragment = new FlowerFragment();
-        mThuFlowerFragment = new FlowerFragment();
-        mFriFlowerFragment = new FlowerFragment();
-        mSatFlowerFragment = new FlowerFragment();
+        mSunFlowerFragment = new FlowerFragment("星期日");
+        mMonFlowerFragment = new FlowerFragment("星期一");
+        mTueFlowerFragment = new FlowerFragment("星期二");
+        mWesFlowerFragment = new FlowerFragment("星期三");
+        mThuFlowerFragment = new FlowerFragment("星期四");
+        mFriFlowerFragment = new FlowerFragment("星期五");
+        mSatFlowerFragment = new FlowerFragment("星期六");
 
         fragments = new ArrayList<>();
         fragments.add(mSunFlowerFragment);
@@ -228,14 +228,6 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         mFragmentPagerAdapter = new FlowerFragmentPagerAdapter(mFragmentManager, fragments);
 
         mViewPager.setAdapter(mFragmentPagerAdapter);
-
-        mSunFlowerFragment.FlowerFragment("星期日");
-        mMonFlowerFragment.FlowerFragment("星期一");
-        mTueFlowerFragment.FlowerFragment("星期二");
-        mWesFlowerFragment.FlowerFragment("星期三");
-        mThuFlowerFragment.FlowerFragment("星期四");
-        mFriFlowerFragment.FlowerFragment("星期五");
-        mSatFlowerFragment.FlowerFragment("星期六");
 
         //设置viewPager页面滑动的事件
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -273,13 +265,13 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
     @Override
     public void showWhiteFlower() {
         FlowerFragment fragment = fragments.get(mViewPager.getCurrentItem());
-        fragment.UnFlower();
+        fragment.setWhiteFlower();
     }
 
     @Override
     public void showSmileFlower() {
         FlowerFragment fragment = fragments.get(mViewPager.getCurrentItem());
-        fragment.SmileFlower();
+        fragment.setSmileFlower();
     }
 
     @Override

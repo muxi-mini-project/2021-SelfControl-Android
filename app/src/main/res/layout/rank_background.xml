@@ -5,25 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView37"
-        android:layout_width="150dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/shape_yuanjiao_gray"
-        app:layout_constraintBottom_toTopOf="@+id/rank_viewpager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout14" />
-
     <TextView
         android:id="@+id/time_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/shape_yuanjiao_gray"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:text="排行榜更新时间："
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/rank_viewpager"
-        app:layout_constraintEnd_toEndOf="@+id/imageView37"
-        app:layout_constraintStart_toStartOf="@+id/imageView37"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout14" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.016"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/ranksetting"
@@ -163,12 +158,14 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/rank_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="0dp"
         android:layout_weight="0.25"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout14">
+        app:layout_constraintTop_toBottomOf="@+id/time_bg"
+        app:layout_constraintVertical_bias="0.583">
 
         <FrameLayout
             android:id="@+id/rank_pager"

@@ -1,6 +1,5 @@
 package com.bignerdranch.android.sc.clockpage.weekcalendar;
 
-import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;

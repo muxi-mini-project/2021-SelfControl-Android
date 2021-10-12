@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.bignerdranch.android.sc.punch.view.ClockInActivity;
-import com.bignerdranch.android.sc.user.bean.Data;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 
@@ -22,19 +21,19 @@ public class FlowerFragment extends Fragment {
     private View mView;
     private String text = "";
 
-    public void FlowerFragment(String text) {
+    public FlowerFragment(String text) {
         this.text = text;
     }
 
-    public void SmileFlower(){
+    public void setSmileFlower(){
         unflower.setBackgroundResource(R.mipmap.done);
     }
 
-    public void UnFlower(){
+    public void setWhiteFlower(){
         unflower.setBackgroundResource(R.mipmap.undone);
     }
 
-    private void initwidgets(View view)
+    private void initWidgets(View view)
     {
         mTextView = view.findViewById(R.id.today);
         mView = view.findViewById(R.id.line);
@@ -46,9 +45,9 @@ public class FlowerFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.flower, container, false);
-        initwidgets(view);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.flower,container,false);
+        initWidgets(view);
         mTextView.setText(text);
         unflower.setOnClickListener(new View.OnClickListener() {
             @Override

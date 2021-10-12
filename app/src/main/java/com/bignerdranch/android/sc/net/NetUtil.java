@@ -6,7 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetUtil {
     private RetrofitApi api;
-    public static Boolean NetRequest = true;
 
     private NetUtil() {
         api = new Retrofit.Builder()
@@ -14,9 +13,6 @@ public class NetUtil {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build().create(RetrofitApi.class);
-        if(api == null) {
-            NetRequest = false;
-        }
     }
 
     private static class NetUtilHolder {

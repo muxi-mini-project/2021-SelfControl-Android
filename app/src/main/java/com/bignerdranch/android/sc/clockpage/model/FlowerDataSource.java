@@ -8,7 +8,7 @@ public interface FlowerDataSource {
 
         void onSmileFlowerLoaded();
 
-        void onDataNotAvaliable();
+        void onDataNotAvailable();
 
         void getText();
     }

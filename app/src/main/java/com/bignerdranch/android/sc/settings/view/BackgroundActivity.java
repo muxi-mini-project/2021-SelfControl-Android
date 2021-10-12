@@ -284,21 +284,27 @@ public class BackgroundActivity extends StatusBar implements BackgroundContract.
                         if (user != null) {
                             if (user.getData().getCurrent_backdrop() == 1) {
                                 mLayout.setBackgroundResource(R.mipmap.background_default);
+                                successChange(1);
                             }
                             if (user.getData().getCurrent_backdrop() == 2) {
                                 mLayout.setBackgroundResource(R.mipmap.theme_1);
+                                successChange(2);
                             }
                             if (user.getData().getCurrent_backdrop() == 3) {
                                 mLayout.setBackgroundResource(R.mipmap.theme_2);
+                                successChange(3);
                             }
                             if (user.getData().getCurrent_backdrop() == 4) {
                                 mLayout.setBackgroundResource(R.mipmap.theme_3);
+                                successChange(4);
                             }
                             if (user.getData().getCurrent_backdrop() == 5) {
                                 mLayout.setBackgroundResource(R.mipmap.theme_4);
+                                successChange(5);
                             }
                             if (user.getData().getCurrent_backdrop() == 6) {
                                 mLayout.setBackgroundResource(R.mipmap.theme_5);
+                                successChange(6);
                             }
                         }
                     }
