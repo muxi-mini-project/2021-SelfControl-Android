@@ -26,7 +26,6 @@ public class RemoteDataSource implements FlowerDataSource {
                 if(response.body() != null){
                     if(response.body().getMsg().equals("已全部完成且数量为返回的值")){
                         callback.onSmileFlowerLoaded();
-                        STATUS = true;
                     }else{
                         callback.onWhiteFlowerLoaded();
                         }

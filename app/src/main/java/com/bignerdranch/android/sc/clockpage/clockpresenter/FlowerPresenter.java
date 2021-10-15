@@ -6,11 +6,11 @@ import com.bignerdranch.android.sc.clockpage.model.RemoteDataSource;
 
 public class FlowerPresenter implements Presenter{
 
-    private final com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract.View mView;
+    private final MainContract.View mView;
 
     private final RemoteDataSource mData;
 
-    public FlowerPresenter(com.bignerdranch.android.sc.clockpage.clockpresenter.MainContract.View mView, RemoteDataSource mData) {
+    public FlowerPresenter(MainContract.View mView, RemoteDataSource mData) {
         this.mView = mView;
         this.mData = mData;
         mView.serPresenter(this);
