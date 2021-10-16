@@ -31,7 +31,6 @@ public class FlowerPresenter implements Presenter{
 
             @Override
             public void onDataNotAvailable() {
-                mView.showWhiteFlower();
             }
 
             @Override

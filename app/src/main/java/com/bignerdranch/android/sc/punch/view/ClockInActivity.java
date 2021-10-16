@@ -66,6 +66,7 @@ import static com.bignerdranch.android.sc.clockpage.model.RemoteDataSource.STATU
 import static com.bignerdranch.android.sc.login.LoginActivity.key;
 
 public class ClockInActivity extends AppCompatActivity implements ClockInView {
+    private final static String TAG = "aaaClockInActivity";
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
     int yearDay = 0;    //指的是今天
@@ -94,6 +95,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         initView();
         Listener();
+        Log.d(TAG,"onCreate");
     }
 
     /**

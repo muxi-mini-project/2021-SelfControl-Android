@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -49,6 +50,7 @@ import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.g
 import static com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils.monthYearFromDate;
 
 public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemListener, MainContract.View {
+    private final static String TAG = "aaaClockActivity";
     private TextView ticker;
 
     private ArrayList<FlowerFragment> fragments;
@@ -91,6 +93,7 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
         makeStatusBarTransparent(this);
         //状态栏文字自适应
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        Log.d(TAG,"onCreate");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -341,7 +344,7 @@ public class ClockActivity extends StatusBar implements CalendarAdapter.OnItemLi
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         requestBg();
         setWeekView();

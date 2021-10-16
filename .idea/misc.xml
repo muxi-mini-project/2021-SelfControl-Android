@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.25" />
         <entry key="app/src/main/res/layout/choose_open.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/clockin_all.xml" value="0.1" />
         <entry key="app/src/main/res/layout/clockin_item.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/clockin_pager.xml" value="0.11778115501519756" />
         <entry key="app/src/main/res/layout/coin_function.xml" value="0.1453804347826087" />
