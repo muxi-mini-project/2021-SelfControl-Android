@@ -66,7 +66,7 @@ public interface RetrofitApi {
     /**
      * punch
      */
-    @HTTP(method = "DELETE", path = "punch/", hasBody = true)//删除标签
+    @HTTP(method = "DELETE", path = "punch", hasBody = true)//删除标签
     Call<SingleMessage> removeLabel(@Header("token") String token, @Body LabelPunchTitle clockInLabelTitle);
 
     @GET("punch")//我的打卡
