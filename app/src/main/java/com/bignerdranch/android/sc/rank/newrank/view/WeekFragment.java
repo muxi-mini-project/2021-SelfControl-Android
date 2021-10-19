@@ -92,7 +92,10 @@ public class WeekFragment extends Fragment implements WeekContract.VP {
             } else {
                 textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
             }
-            yes.setOnClickListener(v -> changeRank(selectedItemPosition, token));
+            yes.setOnClickListener(v -> {
+                changeRank(selectedItemPosition, token);
+                dialog.dismiss();
+            });
         });
 
         no.setOnClickListener(v -> dialog.dismiss());

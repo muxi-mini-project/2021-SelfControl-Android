@@ -70,11 +70,12 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 //        Uri url = Uri.parse(mList.get(position).getUser_picture());
         shake = AnimationUtils.loadAnimation(mActivity, R.anim.shake);
-        holder.mRate.setText("打卡天数: " + mList.get(position).getNumber() + " 天");
+        holder.mRate.setText("打卡次数: " + mList.get(position).getNumber() + " 次");
         holder.mName.setText("" + mList.get(position).getName());
         holder.mUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,18 +91,18 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                                          }
         );
         //    holder.mUser.setImageURI(url);
-        switch (position) {
-            case 0:
+        switch (mList.get(position).getRanking()) {
+            case 1:
                 holder.mRank.setBackgroundResource(R.mipmap.rank1);
                 break;
-            case 1:
+            case 2:
                 holder.mRank.setBackgroundResource(R.mipmap.rank2);
                 break;
-            case 2:
+            case 3:
                 holder.mRank.setBackgroundResource(R.mipmap.rank3);
                 break;
             default:
-                holder.mRank.setText(String.valueOf(position+1));
+                holder.mRank.setText(String.valueOf(mList.get(position).getRanking()));
                 break;
         }
 

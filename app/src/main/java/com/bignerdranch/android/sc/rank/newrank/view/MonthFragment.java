@@ -97,7 +97,10 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
                 }else {
                     textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
                 }
-                yes.setOnClickListener(v -> changeRank(selectedItemPosition,token));
+                yes.setOnClickListener(v -> {
+                    changeRank(selectedItemPosition,token);
+                    dialog.dismiss();
+                });
             }
         });
 
@@ -122,7 +125,7 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
 
     @Override
     public void ListFail() {
-
+        Toast.makeText(getContext(), "出错啦！请稍后再试！", Toast.LENGTH_SHORT).show();
     }
 
     @Override

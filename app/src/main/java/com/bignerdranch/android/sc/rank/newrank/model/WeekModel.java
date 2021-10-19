@@ -72,7 +72,6 @@ public class WeekModel implements WeekContract.M {
                             mP.noCoin();
                         }else if(response.getCode() == 200){
                             mP.changeSuccess();
-                            requestRank();
                         }else if(response.getCode() == 201){
                             mP.noRank();
                         }
