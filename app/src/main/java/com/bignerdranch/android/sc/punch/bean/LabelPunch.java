@@ -18,11 +18,11 @@ public class LabelPunch {
     @ColumnInfo(name = "title")
     public String title;
     @ColumnInfo(name = "LabelStatus")
-    public boolean LabelStatus; //该日是否打卡
+    public int LabelStatus = 0; //该日是否打卡 0未打卡，1已打卡，2已打卡已删除, 3无操作
     @ColumnInfo(name = "ImgId")
     public int mImgID;
 
-    public LabelPunch(int id, int number, String title, boolean labelStatus, int imgID) {
+    public LabelPunch(int id, int number, String title, int labelStatus, int imgID) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -93,11 +93,11 @@ public class LabelPunch {
         this.title = title;
     }
 
-    public boolean getLabelStatus() {
+    public int getLabelStatus() {
         return LabelStatus;
     }
 
-    public void setLabelStatus(boolean clockInStatus) {
+    public void setLabelStatus(int clockInStatus) {
         LabelStatus = clockInStatus;
     }
 }

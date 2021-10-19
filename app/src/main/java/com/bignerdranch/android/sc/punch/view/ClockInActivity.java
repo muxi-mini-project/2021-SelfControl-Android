@@ -40,6 +40,7 @@ import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.bean.ResponseData;
+import com.bignerdranch.android.sc.punch.bean.SingleMessage;
 import com.bignerdranch.android.sc.punch.presenter.ClockInPresenter;
 import com.bignerdranch.android.sc.rank.newrank.view.RankActivity;
 import com.bignerdranch.android.sc.user.bean.Week;
@@ -95,7 +96,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         initView();
         Listener();
-        Log.d(TAG,"onCreate");
+        Log.d(TAG, "onCreate");
     }
 
     /**
@@ -160,22 +161,44 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
     @Override
     public void showLabelInfo(List<LabelPunch> clockInLabels) {
-        mClockInLabelList = clockInLabels;
+        for (LabelPunch labelPunch : clockInLabels) {
+            labelPunch.setLabelStatus(3);
+        }
         String url = "http://39.99.53.8:2333/api/v1/punch/day/" + String.valueOf(viewDay);
         NetUtil.getInstance().getApi().getClockDayList(token, url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
                 if (response.body().getData() != null)
-                    for (LabelPunch labelPunch : response.body().getData()) {
-                        for (LabelPunch label : mClockInLabelList) {
-                            if (labelPunch.getId() == label.getId()) {
-                                labelPunch.setLabelStatus(true);
-                                mClockInLabelList.remove(label);
-                                mClockInLabelList.add(labelPunch);
+                    mClockInLabelList = response.body().getData();
+                else
+                    mClockInLabelList = new ArrayList<>();
+                //判断该天已打卡是否在获取的标签中
+                if (mClockInLabelList != null)
+                    for (LabelPunch alreadyClockIn : mClockInLabelList) {
+                        boolean isContain = false;
+                        for (LabelPunch labelPunch : clockInLabels) {
+                            if (alreadyClockIn.getId() == labelPunch.getId()) {
+                                isContain = true;
+                                alreadyClockIn.setLabelStatus(1);
                                 break;
                             }
                         }
+                        if (!isContain) alreadyClockIn.setLabelStatus(2);
                     }
+
+                //将所有打卡合并道list中
+
+                for (LabelPunch labelPunch : clockInLabels) {
+                    boolean isAdded = false;
+                    if (mClockInLabelList != null)
+                        for (LabelPunch alreadyClockIn : mClockInLabelList) {
+                            if (labelPunch.getId() == alreadyClockIn.getId()) {
+                                isAdded = true;
+                                break;
+                            }
+                        }
+                    if (!isAdded) mClockInLabelList.add(labelPunch);
+                }
                 updateRVUI();
             }
 
@@ -217,7 +240,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
     @Override
     public void checkStatusSuccess(LabelPunch labelPunch, boolean status) {
-        labelPunch.setLabelStatus(status);
     }
 
     /**
@@ -298,12 +320,37 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
             clockIn_title.setText(clockInLabel.getTitle());
             clockIn_times.setText("累计打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
-            if (clockInLabel.getLabelStatus()) {
+
+            switch (clockInLabel.getLabelStatus()) {
+                case 2:
+                    clockIn_title.setText(clockInLabel.getTitle() + "(已删除)");
+                case 1:
+                    clockIn_button.setBackgroundResource(R.drawable.punch_done);
+                    clockIn_button.setTextColor(Color.parseColor("#FDD682"));
+                    clockIn_button.setEnabled(false);
+                    clockIn_button.setText("已打卡");
+                    break;
+                case 3:
+                    if (viewDay < yearDay) {
+                        clockIn_button.setBackgroundResource(R.drawable.punch_missed);
+                        clockIn_button.setEnabled(false);
+                        clockIn_button.setText("未打卡");
+                    } else if (viewDay > yearDay) {
+                        clockIn_button.setBackgroundResource(R.drawable.punch_missed);
+                        clockIn_button.setEnabled(false);
+                        clockIn_button.setText("未到打卡日");
+                    }
+                    break;
+                default:
+                    break;
+            }
+            /*
+            if (clockInLabel.getLabelStatus() == 1) {
                 clockIn_button.setBackgroundResource(R.drawable.punch_done);
                 clockIn_button.setTextColor(Color.parseColor("#FDD682"));
                 clockIn_button.setEnabled(false);
                 clockIn_button.setText("已打卡");
-            } else {
+            } else if(clockInLabel.getLabelStatus() == 0){
                 if (viewDay < yearDay) {
                     clockIn_button.setBackgroundResource(R.drawable.punch_missed);
                     clockIn_button.setEnabled(false);
@@ -313,7 +360,8 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     clockIn_button.setEnabled(false);
                     clockIn_button.setText("未到打卡日");
                 }
-            }
+            } else if(clockInLabel.getLabelStatus() == 2)
+             */
         }
     }
 
@@ -343,7 +391,7 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                 @Override
                 public void onClick(View v) {
                     toClockIn(new LabelPunchTitle(clockInLabel.getTitle()));
-                    clockInLabel.setLabelStatus(true);
+                    clockInLabel.setLabelStatus(1);
                     int temp = clockInLabel.getNumber() + 1;
                     clockInLabel.setNumber(temp);
                     notifyDataSetChanged();
@@ -411,7 +459,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                         @Override
                         public void onClick(View v) {
                             backgroundAlpha(1f);
-                            removeLabel(new LabelPunchTitle(clockInLabel.getTitle()));
+                            RemoveLabel(new LabelPunchTitle(clockInLabel.getTitle()));
+                            mClockInLabelList.remove(clockInLabel);
+                            notifyDataSetChanged();
                             popupWindow.dismiss();
                             updateRVUI();
                         }
@@ -546,5 +596,19 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         loading.setVisibility(View.VISIBLE);
         loading.setImageResource(R.mipmap.loading_foreground);
         connection();
+    }
+
+    public void RemoveLabel(LabelPunchTitle labelPunchTitle){
+        NetUtil.getInstance().getApi().removeLabel(token, labelPunchTitle).enqueue(new Callback<SingleMessage>() {
+            @Override
+            public void onResponse(Call<SingleMessage> call, Response<SingleMessage> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<SingleMessage> call, Throwable t) {
+
+            }
+        });
     }
 }
