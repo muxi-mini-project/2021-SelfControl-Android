@@ -33,6 +33,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.bignerdranch.android.sc.Utils;
+import com.bignerdranch.android.sc.clockpage.model.FlowerResponse;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.login.User;
@@ -133,8 +135,20 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         addLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (STATUS == true) {
-                    addLabel.setEnabled(false);
+                NetUtil.getInstance().getApi().ifDayAllPunch(token,yearDay).enqueue(new Callback<FlowerResponse>() {
+                    @Override
+                    public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
+                        if(response.body().getData() == mClockInLabelList.size()) STATUS = true;
+                        else STATUS = false;
+                    }
+
+                    @Override
+                    public void onFailure(Call<FlowerResponse> call, Throwable t) {
+
+                    }
+                });
+
+                if (!STATUS) {
                     Toast.makeText(ClockInActivity.this, "今日已完成全部打卡，不能再新增标签", Toast.LENGTH_SHORT).show();
                 } else {
                     key = 1;
