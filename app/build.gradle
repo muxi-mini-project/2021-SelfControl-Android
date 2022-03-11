@@ -3,8 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.bignerdranch.android.sc"
@@ -31,12 +30,14 @@ android {
 
 dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    def room_version = "2.2.0-alpha01"
+    def room_version = "2.4.2"
 
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
-    // Test helpers
-    testImplementation "android.arch.persistence.room:testing:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     //Gson converter

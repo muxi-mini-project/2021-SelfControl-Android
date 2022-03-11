@@ -292,8 +292,9 @@ public class StudyFragment extends Fragment {
 
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
-                mLabelPunchList = response.body().getData();
-                if(response.body() != null) {
+
+                if(response.isSuccessful() && response.body() != null) {
+                    mLabelPunchList = response.body().getData();
                     for (int i = 0; i < mLabelPunchList.size() ; i++ ){
                         if(mLabelPunchList.get(i).getTitle().equals("自习")) {mzixi.setBackgroundResource(R.mipmap.yixuanbiaoqian); f1 = 1;}
                         if(mLabelPunchList.get(i).getTitle().equals("阅读新闻")) {myueduxinwen.setBackgroundResource(R.mipmap.yixuanbiaoqian); f2 = 1;}

@@ -74,7 +74,7 @@ public class LoginActivity extends StatusBar {
         NetUtil.getInstance().getApi().getCall(new User.DataDTO(id,password)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()==true){
+                if(response.isSuccessful()){
                     Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     token = response.body().getData();
@@ -85,7 +85,6 @@ public class LoginActivity extends StatusBar {
                     editor.putString("Token",token);
                     editor.commit();
                     editor.apply();
-
                 }else {
                     Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
                 }
