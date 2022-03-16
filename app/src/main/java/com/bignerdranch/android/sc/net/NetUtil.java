@@ -12,7 +12,7 @@ public class NetUtil {
     private final OkHttpClient client;
     private final RetrofitApi api;
     private final Gson gson;
-    private static final String baseUrl = "http://self-control.muxixyz.com:30001/api/v1/";
+    private static final String baseUrl = "http://self-control.muxixyz.com/api/v1/";
 
     private NetUtil() {
         gson = new Gson();
