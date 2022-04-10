@@ -1,54 +1,34 @@
 package com.bignerdranch.android.sc.punch.presenter;
 
-import com.bignerdranch.android.sc.punch.bean.LabelPunch;
 import com.bignerdranch.android.sc.punch.bean.LabelPunchTitle;
 import com.bignerdranch.android.sc.punch.model.ClockInModel;
-import com.bignerdranch.android.sc.punch.model.ClockInResponseListener;
-import com.bignerdranch.android.sc.punch.view.ClockInView;
-
-import java.util.List;
+import com.bignerdranch.android.sc.punch.view.CallBackInView;
 
 public class ClockInPresenter {
-    ClockInView mClockInView;
-    ClockInModel mClockInModel = new ClockInModel();
+    private ClockInModel mClockInModel;
+    private String token;
 
-    public ClockInPresenter(ClockInView clockInView) {
-        this.mClockInView = clockInView;
+    public ClockInPresenter(String token) {
+        this.token = token;
+        mClockInModel = new ClockInModel();
     }
 
-    public void getLabels(String token){
-        mClockInModel.getClockInLabels(token, new ClockInResponseListener() {
-            @Override
-            public void clockInRequestLabelSuccess(List<LabelPunch> list) { mClockInView.showLabelInfo(list); }
-
-            @Override
-            public void clockInRequestFail(String message) {
-                mClockInView.showError(message);
-            }
-        });
+    // 删除标签
+    public void removeLabels(LabelPunchTitle title, CallBackInView.RemoveCallBack removeCallBack){
+        mClockInModel.removeLabel(token, title, removeCallBack::getRemoveMessage);   //不知道这是什么高级的写法！！！
     }
 
-    public void toClockIn(String token, LabelPunchTitle clockInLabelTitle){
-        mClockInModel.toClockIn(token, clockInLabelTitle, new ClockInResponseListener() {
-            @Override
-            public void clockInRequestFail(String message) {
-                mClockInView.showError(message);
-            }
-        });
+    //设置背景色
+    public void setBG(CallBackInView.BGCallBack bgCallBack){
+        mClockInModel.setBG(bgCallBack::getBGData, token);
     }
 
-    public void removeLabel(String token, LabelPunchTitle clockInLabelTitle){
-        mClockInModel.removeLabel(token, clockInLabelTitle, new ClockInResponseListener() {
-            @Override
-            public void clockInRequestFail(String message) {
-                mClockInView.showError(message);
-            }
+    public void getLabels(CallBackInView.LabelListCallBack labelListCallBack){
+        mClockInModel.getClockInLabels(token, labelListCallBack::getList);
+    }
 
-            @Override
-            public void removeLabelSuccess(String message) {
-                mClockInView.showRemoveSuccess(message);
-            }
-        });
+    public void toClockIn(LabelPunchTitle clockInLabelTitle, CallBackInView.ClockInCallBack clockInCallBack){
+        mClockInModel.toClockIn(token, clockInLabelTitle, clockInCallBack::getIsClockIn);
     }
 /*
     public void CheckLabelStatus(String token, String url, LabelPunch clockInLabel){
@@ -65,17 +45,7 @@ public class ClockInPresenter {
         });
     }
 */
-    public void ifDayAllPunch(String token, int day){
-        mClockInModel.getFlowerStatus(token, day, new ClockInResponseListener(){
-            @Override
-            public void ifDayAllPunch() {
-                mClockInView.ifDayAllPunchTodo();
-            }
-
-            @Override
-            public void clockInRequestFail(String message) {
-                mClockInView.showError(message);
-            }
-        });
+    public void ifDayAllPunch(int day, CallBackInView.IfAllPunchCallBack ifAllPunchCallBack){
+        mClockInModel.getFlowerStatus(token, day, ifAllPunchCallBack::getIsAllPunch);
     }
 }
