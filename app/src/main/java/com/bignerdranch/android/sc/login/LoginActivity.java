@@ -93,6 +93,7 @@ public class LoginActivity extends StatusBar {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
+                Toast.makeText(LoginActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
                 throwable.printStackTrace();
                 Log.e("tag",throwable.getMessage());
