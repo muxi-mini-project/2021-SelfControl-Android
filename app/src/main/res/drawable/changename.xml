@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item >
     <shape>
@@ -10,11 +9,4 @@
     </shape>
 </item>
 </selector>
-=======
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/white"/>
-    <corners android:radius="20dp"/>
-    <stroke android:color="@color/purple"
-        android:width="2dp"/>
-</shape>
->>>>>>> 866a5c0b999424e4fe31b67e1153fea0762bb186
+
