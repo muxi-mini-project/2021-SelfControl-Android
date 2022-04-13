@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user.presenter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentUris;
@@ -172,6 +173,7 @@ public class UserImageChange {
     }
 
 
+    @SuppressLint("Range")
     private String getImagePath(Uri uri, String selection) {
         String path = null;
         Cursor cursor = activity.getContentResolver().query(uri, null, selection, null, null);

@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.user.view;
 
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -213,7 +214,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         if(mUser!=null){
             int background = mUser.getCurrent_backdrop();

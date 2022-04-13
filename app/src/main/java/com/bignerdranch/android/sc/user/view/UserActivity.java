@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,6 +40,8 @@ import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.user.presenter.UserImageChange;
 import com.bignerdranch.android.sc.user.presenter.UserPresenter;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -173,6 +176,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                     Bitmap bitmap = u.getScaledBitmap(u.getFile().getPath(), UserActivity.this);
                     iv_photo.setImageBitmap(bitmap);
                     savePhotos(u.getFile().getPath());
+                    Handle.sendPicture(token,u.getFile());
                 }
 
             }else if(requestCode==PICK_PHOTO){
@@ -185,10 +189,11 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                 } else {
                     path = u.handleImageBeforeKitKat(uri);
                 }
+
                 Bitmap bitmap = BitmapFactory.decodeFile(path);
                 iv_photo.setImageBitmap(bitmap);
                 savePhotos(path);
-
+                Handle.sendPicture(token,u.getFile());
             } else {
                 Log.d("Demo", "结果无");
             }
@@ -303,10 +308,16 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u,Bitmap bitmap) {
         this.mUser = u;
         if(mUser!=null){
             mName.setText(mUser.getName());
+            RequestOptions options = new RequestOptions().placeholder(new BitmapDrawable(bitmap));
+            Glide.with(this)
+                    .asBitmap()
+                    .apply(options)
+                    .load(Uri.parse(u.getUser_picture()))
+                    .into(iv_photo);
         } else{
             Intent i = new Intent(UserActivity.this,LoginActivity.class);
             startActivity(i);

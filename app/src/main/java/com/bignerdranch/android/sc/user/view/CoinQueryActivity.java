@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.user.view;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -97,7 +98,7 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         Log.d("CoinActivity","here");
         if(mUser!=null){

@@ -12,6 +12,7 @@ import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.user.presenter.UsePresent;
 
+import java.io.File;
 import java.util.List;
 
 import io.reactivex.Observer;
@@ -96,7 +97,7 @@ public class UserService_send  {
 
                     @Override
                     public void onNext(@NonNull User user) {
-                        usePresent.transUser(user.getData());
+                        usePresent.transUser(user.getData(),null);
                         Log.d("UserPresent", "用户信息部分网络连接成功");
                     }
 
@@ -199,5 +200,9 @@ public class UserService_send  {
 
                     }
                 });
+    }
+
+    public void updateUserPicture(File file){
+
     }
 }

@@ -100,7 +100,7 @@ public class RankQueryActivity extends StatusBar implements com.bignerdranch.and
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         if(mUser!=null){
             mName.setText(mUser.getName());

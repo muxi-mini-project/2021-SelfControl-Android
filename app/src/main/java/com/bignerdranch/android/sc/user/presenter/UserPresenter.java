@@ -1,5 +1,7 @@
 package com.bignerdranch.android.sc.user.presenter;
 
+import android.graphics.Bitmap;
+
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.bean.GoldHistory;
 import com.bignerdranch.android.sc.user.bean.Rank;
@@ -21,7 +23,6 @@ public class UserPresenter implements UsePresent {
         this.handler = handler;
         userService_send = new UserService_send(this);
     }
-
 
     @Override
     public void transMessageWeek(List<Week.DataDTO> list) {
@@ -64,8 +65,8 @@ public class UserPresenter implements UsePresent {
     }
 
     @Override
-    public void transUser(User.DataDTO u) {
-        handler.getUser(u);
+    public void transUser(User.DataDTO u,Bitmap bitmap) {
+        handler.getUser(u, bitmap);
     }
 
     @Override

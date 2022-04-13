@@ -2,6 +2,8 @@ package com.bignerdranch.android.sc.net;
 
 import com.google.gson.Gson;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -12,7 +14,7 @@ public class NetUtil {
     private final OkHttpClient client;
     private final RetrofitApi api;
     private final Gson gson;
-    private static final String baseUrl = "http://self-control.muxixyz.com:30001/api/v1/";
+    private static final String baseUrl = "http://self-control.muxixyz.com/api/v1/";
 
     private NetUtil() {
         gson = new Gson();
@@ -20,6 +22,7 @@ public class NetUtil {
                 .setLevel(HttpLoggingInterceptor.Level.BODY);
         client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
+                .connectTimeout(60000, TimeUnit.MILLISECONDS)
                 .build();
 
         api = new Retrofit.Builder()

@@ -18,17 +18,21 @@ import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.rank.newrank.bean.Message;
+import com.bignerdranch.android.sc.user.view.UserPic;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import io.reactivex.Observable;
 import retrofit2.http.Url;
@@ -122,5 +126,10 @@ public interface RetrofitApi {
 
     @GET("user/privacy/{id}")//隐私
     Call<Message> askPrivacy(@Path("id") String id);
+
+
+    @Multipart
+    @PUT("user/avatar")
+    Call<UserPic> sendPicture(@Header("token") String token, @Part MultipartBody.Part file);
 
 }
