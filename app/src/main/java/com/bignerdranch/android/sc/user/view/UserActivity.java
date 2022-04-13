@@ -179,7 +179,6 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                 }
 
             }else if(requestCode==PICK_PHOTO){
-
                 Uri uri = data.getData();
                 UserActivity.this.revokeUriPermission(uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 Log.d("TRy", uri.toString());
@@ -190,6 +189,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                 }
 
                 Bitmap bitmap = BitmapFactory.decodeFile(path);
+                Log.d("相册",path);
                 iv_photo.setImageBitmap(bitmap);
                 savePhotos(path);
                 Handle.sendPicture(token,u.getFile());

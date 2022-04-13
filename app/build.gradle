@@ -5,6 +5,10 @@ plugins {
 android {
     compileSdkVersion 31
 
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
     defaultConfig {
         applicationId "com.bignerdranch.android.sc"
         minSdkVersion 19

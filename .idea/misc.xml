@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/button_style.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/changename.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/connection_failed_background.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/delete_popupwindow_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/dialog_button.xml" value="0.22685185185185186" />
@@ -25,6 +26,7 @@
         <entry key="app/src/main/res/drawable/shape_rectangle.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/shape_yuanjiao.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/shape_yuanjiao_gray.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/backgroud_theme.xml" value="0.1" />
         <entry key="app/src/main/res/layout/calendar_cell.xml" value="0.25" />
         <entry key="app/src/main/res/layout/choose_open.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/clock_main_page.xml" value="0.12537993920972645" />
@@ -41,14 +43,20 @@
         <entry key="app/src/main/res/layout/login_page.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/month_rank.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/month_report.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/month_report_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/novice_course.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/pager_label.xml" value="0.13541666666666666" />
         <entry key="app/src/main/res/layout/rank_background.xml" value="0.48813056379821956" />
         <entry key="app/src/main/res/layout/rank_dialog.xml" value="0.1453804347826087" />
-        <entry key="app/src/main/res/layout/rank_query.xml" value="0.12537993920972645" />
+        <entry key="app/src/main/res/layout/rank_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/rank_query.xml" value="0.1" />
         <entry key="app/src/main/res/layout/rank_rolldialog.xml" value="0.1453804347826087" />
         <entry key="app/src/main/res/layout/see_user_label.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/see_user_label_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/see_user_nomotion.xml" value="0.13632246376811594" />
+        <entry key="app/src/main/res/layout/setting.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/sport_pager.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/study_pager.xml" value="0.1" />
         <entry key="app/src/main/res/layout/uesr_dialog.xml" value="0.12537993920972645" />
         <entry key="app/src/main/res/layout/user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/week_rank.xml" value="0.12537993920972645" />

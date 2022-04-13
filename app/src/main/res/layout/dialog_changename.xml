@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/delete_popupwindow_background">
 
-=======
-    android:background="@drawable/changename"
-    android:orientation="vertical"
-    android:layout_marginRight="50dp"
-    android:layout_marginLeft="50dp">
->>>>>>> 866a5c0b999424e4fe31b67e1153fea0762bb186
     <TextView
         android:id="@+id/changename_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="更换名称"
-<<<<<<< HEAD
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/changename_edit"
-        app:layout_constraintStart_toStartOf="@+id/changename_edit"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/changename_edit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-=======
         android:textSize="25sp"
         android:textColor="@color/purple"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/changename_edit"
         android:layout_width="match_parent"
@@ -46,9 +26,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:theme="@style/MyEditView"
->>>>>>> 866a5c0b999424e4fe31b67e1153fea0762bb186
         android:hint="请输入您的新名字"
-        android:theme="@style/MyEditView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +50,6 @@
         <Button
             android:id="@+id/changeName_button2"
             android:layout_width="0dp"
-<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="15dp"
@@ -81,21 +58,9 @@
             android:text="确定"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
-=======
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/white"
-            android:text="取消"
-            android:textSize="18sp"
-            android:background="@drawable/button_style"/>
->>>>>>> 866a5c0b999424e4fe31b67e1153fea0762bb186
         <Button
             android:id="@+id/changeName_button1"
             android:layout_width="0dp"
-<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
@@ -105,16 +70,6 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-=======
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="30dp"
-            android:textColor="@color/white"
-            android:text="确定"
-            android:textSize="18sp"
-            android:background="@drawable/button_style"/>
->>>>>>> 866a5c0b999424e4fe31b67e1153fea0762bb186
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
