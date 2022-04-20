@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="5dp"
-                android:text="点击木槿花进入当天的打卡界面，一天打卡内容完成才可获得金币，并且木槿花变换颜色表示打卡完成。"
+                android:text="比当前排名上升一名需消耗50个金币，自此每往上一名增加 2 个金币。"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
