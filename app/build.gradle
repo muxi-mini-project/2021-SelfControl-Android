@@ -94,6 +94,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation('com.squareup.okhttp3:logging-interceptor:3.10.0')
 
+    implementation 'com.facebook.fresco:fresco:2.0.0'
+
     //滚动选择
     implementation 'com.github.duanhong169:picker-view:1.0.0'
 }

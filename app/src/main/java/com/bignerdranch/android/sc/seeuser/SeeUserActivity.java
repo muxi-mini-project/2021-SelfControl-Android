@@ -2,6 +2,7 @@ package com.bignerdranch.android.sc.seeuser;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bignerdranch.android.sc.R;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -21,7 +23,8 @@ public class SeeUserActivity extends AppCompatActivity implements SeeUserContrac
     private TextView userName;
     private String name;
     private String id;
-
+    String uri;
+    private SimpleDraweeView user;
     private RecyclerView mRecyclerView;
     private UserLabelAdapter adapter;
     private SeeUserPresenter mP = new SeeUserPresenter();
@@ -34,9 +37,11 @@ public class SeeUserActivity extends AppCompatActivity implements SeeUserContrac
         Intent intent = getIntent();
         name = intent.getStringExtra("data1");
         id = intent.getStringExtra("data");
-
+        uri = intent.getStringExtra("uri");
+        //Log.d("touxiangurl",uri);
         userName = findViewById(R.id.see_user_name);
         userName.setText(name);
+      ///  user.setImageURI(uri);
         mP.bindView(this);
 
         getLabel(id);

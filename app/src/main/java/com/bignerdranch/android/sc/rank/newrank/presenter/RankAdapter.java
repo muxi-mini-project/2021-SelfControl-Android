@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.rank.newrank.bean.Message;
 import com.bignerdranch.android.sc.rank.newrank.bean.RankItem;
 import com.bignerdranch.android.sc.seeuser.SeeUserActivity;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -48,7 +50,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView mRank;
-        private final ImageView mUser;
+        private final SimpleDraweeView mUser;
         private final TextView mName;
         private final TextView mRate;
         private final ImageView mThumb;
@@ -73,14 +75,15 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-//        Uri url = Uri.parse(mList.get(position).getUser_picture());
+        Uri uri = Uri.parse(mList.get(position).getUser_picture());
         shake = AnimationUtils.loadAnimation(mActivity, R.anim.shake);
         holder.mRate.setText("打卡次数: " + mList.get(position).getNumber() + " 次");
         holder.mName.setText("" + mList.get(position).getName());
+        holder.mUser.setImageURI(uri);
         holder.mUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName());
+                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName(), mList.get(position).getUser_picture());
             }
         });
         holder.mThumb.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +93,6 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                                              }
                                          }
         );
-        //    holder.mUser.setImageURI(url);
         switch (mList.get(position).getRanking()) {
             case 1:
                 holder.mRank.setBackgroundResource(R.mipmap.rank1);
@@ -118,7 +120,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         //return 0;
     }
 
-    public void seeUserRequest(String id, String name) {
+    public void seeUserRequest(String id, String name, String uri) {
         NetUtil.getInstance().getApi().askPrivacy(id).enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
@@ -130,6 +132,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                         Intent intent = new Intent(getActivity(), SeeUserActivity.class);
                         intent.putExtra("data", id);
                         intent.putExtra("data1", name);
+                        //intent.putExtra("touxiang",uri);
                         mActivity.startActivity(intent);
                     }
                 }

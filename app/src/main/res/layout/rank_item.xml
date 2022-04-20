@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constraintLayout11"
     android:layout_width="match_parent"
     android:layout_height="85dp"
@@ -25,7 +26,7 @@
         app:layout_constraintVertical_bias="0.553"
         app:srcCompat="@mipmap/thumbsup" />
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/m_user"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -33,7 +34,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/m_rank"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/user_profile" />
+        fresco:placeholderImage="@mipmap/user_profile"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundAsCircle="true"/>
 
     <TextView
         android:id="@+id/m_rank"

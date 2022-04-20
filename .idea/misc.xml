@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/2021-SelfControl-Android/app/src/main/res/layout/month_rank.xml" value="0.25364583333333335" />
+        <entry key="..\:/2021-SelfControl-Android/app/src/main/res/layout/month_report_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/2021-SelfControl-Android/app/src/main/res/layout/rank_item.xml" value="0.536" />
+        <entry key="..\:/2021-SelfControl-Android/app/src/main/res/layout/see_user_nomotion.xml" value="0.15942028985507245" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clockin_pager.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/login_page.xml" value="0.1109375" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/rank_rolldialog.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/see_user_label.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/see_user_label_item.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/see_user_nomotion.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/sport_pager.xml" value="0.1109375" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/study_pager.xml" value="0.1109375" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/uesr_dialog.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/user.xml" value="0.20425724637681159" />
         <entry key="app/src/main/res/drawable/connection_failed_background.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/dialog_button.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.22685185185185186" />

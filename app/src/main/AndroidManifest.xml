@@ -18,6 +18,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SC"
         android:networkSecurityConfig = "@xml/network"
+        android:name=".MyApplication"
         tools:targetApi="n">
         <activity android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustPan">
