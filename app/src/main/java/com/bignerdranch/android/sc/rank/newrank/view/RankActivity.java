@@ -21,6 +21,7 @@ import com.bignerdranch.android.sc.label.MyFragmentPagerAdapter;
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.net.NetUtil;
 import com.bignerdranch.android.sc.settings.view.SettingPageActivity;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

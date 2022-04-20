@@ -35,6 +35,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bignerdranch.android.sc.R;
 import com.bignerdranch.android.sc.Utils;
 import com.bignerdranch.android.sc.clockpage.model.FlowerResponse;
+import com.bignerdranch.android.sc.clockpage.view.ClockActivity;
 import com.bignerdranch.android.sc.clockpage.weekcalendar.CalendarUtils;
 import com.bignerdranch.android.sc.label.LabelPagerActivity;
 import com.bignerdranch.android.sc.login.User;
@@ -68,7 +69,7 @@ import static com.bignerdranch.android.sc.R.drawable.popup_background;
 import static com.bignerdranch.android.sc.clockpage.model.RemoteDataSource.STATUS;
 import static com.bignerdranch.android.sc.login.LoginActivity.key;
 
-public class ClockInActivity extends AppCompatActivity implements ClockInView {
+public class ClockInActivity extends AppCompatActivity{
     private final static String TAG = "aaaClockInActivity";
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
@@ -79,9 +80,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
     ClockInPresenter mClockInPresenter;
     String token;
     ImageView back, addLabel, loading;
-    ImageButton rank;
     ConstraintLayout mLayout;
     boolean connection;
+    boolean isAllFinish;
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -109,62 +110,87 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
 
         SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
         token = sharedPreferences.getString("Token", null);
+
         mLayout = findViewById(R.id.clockin_pager);
-        requestBg();
 
         back = findViewById(R.id.back);
         addLabel = findViewById(R.id.add);
         loading = findViewById(R.id.loading);
 
-        mClockInPresenter = new ClockInPresenter(this);
+        mClockInPresenter = new ClockInPresenter(token);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        mClockInAdapter = new ClockInAdapter(viewDay, yearDay);
 
         connection();
+        setBG();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void Listener() {
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        back.setOnClickListener( v-> {
+            finish();
+        });
+
+        addLabel.setOnClickListener( v -> {
+            if(!isAllFinish) {
+                key = 1;
+                Intent intent = new Intent(ClockInActivity.this, LabelPagerActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this,"今日任务已经全部完成，无法增加咯~",Toast.LENGTH_SHORT).show();
             }
         });
 
-        addLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NetUtil.getInstance().getApi().ifDayAllPunch(token,yearDay).enqueue(new Callback<FlowerResponse>() {
-                    @Override
-                    public void onResponse(Call<FlowerResponse> call, Response<FlowerResponse> response) {
-                        if(response.body().getData() == mClockInLabelList.size()) STATUS = true;
-                        else STATUS = false;
-                    }
+        loading.setOnClickListener( v -> {
+            loading.setImageResource(R.mipmap.loading_foreground);
+            connection();
+        });
 
-                    @Override
-                    public void onFailure(Call<FlowerResponse> call, Throwable t) {
-
-                    }
-                });
-
-                if (!STATUS) {
-                    Toast.makeText(ClockInActivity.this, "今日已完成全部打卡，不能再新增标签", Toast.LENGTH_SHORT).show();
-                } else {
-                    key = 1;
-                    Intent intent = new Intent(ClockInActivity.this, LabelPagerActivity.class);
-                    startActivity(intent);
+        mClockInAdapter.setPopupWindowCallBack( label -> {
+            Button ok, no;
+            TextView sayingText;
+            View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_popupwindow, null, false);
+            final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+            popupWindow.setFocusable(true);
+            popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                @Override
+                public void onDismiss() {
+                    backgroundAlpha(1.0f);
                 }
-            }
+            });
+
+            ok = view.findViewById(R.id.delete_yes);
+            no = view.findViewById(R.id.delete_no);
+            sayingText = view.findViewById(R.id.sayings);
+            setSayingText(sayingText);
+
+            backgroundAlpha(0.5f);
+            no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    backgroundAlpha(1f);
+                    popupWindow.dismiss();
+                }
+            });
+
+            ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    backgroundAlpha(1f);
+                    removeLabel(new LabelPunchTitle(label.getTitle()));
+                    mClockInLabelList.remove(label);
+                    popupWindow.dismiss();
+                    updateRVUI();
+                }
+            });
+
+            popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
         });
 
-        loading.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loading.setImageResource(R.mipmap.loading_foreground);
-                connection();
-            }
-        });
+        mClockInAdapter.setClockInCallBack(this::toClockIn);
     }
 
     /**
@@ -173,12 +199,11 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
      * @param clockInLabels
      */
 
-    @Override
     public void showLabelInfo(List<LabelPunch> clockInLabels) {
         for (LabelPunch labelPunch : clockInLabels) {
             labelPunch.setLabelStatus(3);
         }
-        String url = "http://39.99.53.8:2333/api/v1/punch/day/" + String.valueOf(viewDay);
+        String url = "http://self-control.muxixyz.com/api/v1/punch/day/" + String.valueOf(viewDay);
         NetUtil.getInstance().getApi().getClockDayList(token, url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
@@ -201,7 +226,6 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
                     }
 
                 //将所有打卡合并道list中
-
                 for (LabelPunch labelPunch : clockInLabels) {
                     boolean isAdded = false;
                     if (mClockInLabelList != null)
@@ -224,78 +248,59 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         loading.setVisibility(View.GONE);
     }
 
-    @Override
-    public void showError(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showRemoveSuccess(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        getClockInLabel();
-    }
-
-    @Override
-    public void ifDayAllPunchTodo() {
-        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
-        final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
-        //参数为1.View 2.宽度 3.高度
-        popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
-        popupWindow.setFocusable(true);
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                backgroundAlpha(1.0f);
-            }
-        });
-        backgroundAlpha(0.5f);
-        popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
-    }
-
-    @Override
-    public void checkStatusSuccess(LabelPunch labelPunch, boolean status) {
-    }
-
     /**
      * 网络请求: 删除、打卡、获取标签、检查打卡
      */
-    public void removeLabel(LabelPunchTitle clockInLabelTitle) {
-        mClockInPresenter.removeLabel(token, clockInLabelTitle);
-    }
-
-    public void toClockIn(LabelPunchTitle clockInLabelTitle) {
-        mClockInPresenter.toClockIn(token, clockInLabelTitle);
+    // 删除标签
+    public void removeLabel(LabelPunchTitle labelPunchTitle){
+        mClockInPresenter.removeLabels(labelPunchTitle, message -> {
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            getClockInLabel();
+        });
     }
 
     public void getClockInLabel() {
-        mClockInPresenter.getLabels(token);
+        mClockInPresenter.getLabels(this::showLabelInfo);
     }
 
-    /*
-    public void CheckLabelStatus(String url, LabelPunch clockInLabel) {
-        NetUtil.getInstance().getApi().isClockInToday(token, url).enqueue(new Callback<ResponseData<Boolean>>() {
-            @Override
-            public void onResponse(Call<ResponseData<Boolean>> call, Response<ResponseData<Boolean>> response) {
-                    mLabelPunchDao.InsertLabelPunch(new LabelPunch(clockInLabel.id
-                            , clockInLabel.number
-                            , clockInLabel.getTitle()
-                            , response.body().getData()
-                            , clockInLabel.getImgID(clockInLabel.getTitle())));
+    //每次打卡之后都判断一次是否全部打完卡了，全部打完卡则弹出弹窗
+    @SuppressLint("NotifyDataSetChanged")
+    public void toClockIn(LabelPunch label){
+        mClockInPresenter.toClockIn(new LabelPunchTitle(label.getTitle()), isFinish -> {
+            label.setLabelStatus(1);
+            int temp = label.getNumber() + 1;
+            label.setNumber(temp);
+            mClockInAdapter.notifyDataSetChanged();
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-            @Override
-            public void onFailure(Call<ResponseData<Boolean>> call, Throwable t) {
-            }
+            ifDayAllPunch();
         });
-
-        mClockInPresenter.CheckLabelStatus(token, url, clockInLabel);
-
     }
-
-     */
 
     public void ifDayAllPunch() {
-        mClockInPresenter.ifDayAllPunch(token, viewDay);
+        mClockInPresenter.ifDayAllPunch(viewDay, isFinish -> {
+            isAllFinish = isFinish;
+            if(isFinish){
+                View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
+                final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
+                //参数为1.View 2.宽度 3.高度
+                popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
+                popupWindow.setFocusable(true);
+                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        backgroundAlpha(1.0f);
+                    }
+                });
+                backgroundAlpha(0.5f);
+                popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+            }
+        });
     }
 
     /**
@@ -305,202 +310,13 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         if (mRecyclerView.getChildCount() > 0) {
             mRecyclerView.setAdapter(null);
         }
-        mClockInAdapter = new ClockInAdapter(mClockInLabelList);
+        mClockInAdapter.setClockInLabels(mClockInLabelList);
         mRecyclerView.setAdapter(mClockInAdapter);
     }
 
     public void openRank(View view) {
         Intent intent = new Intent(ClockInActivity.this, RankActivity.class);
         startActivity(intent);
-    }
-
-    private class ClockInHolder extends RecyclerView.ViewHolder {
-        ConstraintLayout mConstraintLayout;
-        TextView clockIn_title, clockIn_times;
-        Button clockIn_button, clockIn_delete;
-        ImageView clockIn_image;
-
-        public ClockInHolder(@NonNull View itemView) {
-            super(itemView);
-            clockIn_title = itemView.findViewById(R.id.title);
-            clockIn_times = itemView.findViewById(R.id.time);
-            clockIn_button = itemView.findViewById(R.id.punch);
-            clockIn_image = itemView.findViewById(R.id.Label);
-            clockIn_delete = itemView.findViewById(R.id.delete);
-            mConstraintLayout = itemView.findViewById(R.id.linearLayout15);
-        }
-
-        public void bind(LabelPunch clockInLabel) {
-            clockIn_title.setText(clockInLabel.getTitle());
-            clockIn_times.setText("累计打卡：" + String.valueOf(clockInLabel.getNumber()) + "次");
-            clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
-
-            switch (clockInLabel.getLabelStatus()) {
-                case 2:
-                    clockIn_title.setText(clockInLabel.getTitle() + "(已删除)");
-                case 1:
-                    clockIn_button.setBackgroundResource(R.drawable.punch_done);
-                    clockIn_button.setTextColor(Color.parseColor("#FDD682"));
-                    clockIn_button.setEnabled(false);
-                    clockIn_button.setText("已打卡");
-                    break;
-                case 3:
-                    if (viewDay < yearDay) {
-                        clockIn_button.setBackgroundResource(R.drawable.punch_missed);
-                        clockIn_button.setEnabled(false);
-                        clockIn_button.setText("未打卡");
-                    } else if (viewDay > yearDay) {
-                        clockIn_button.setBackgroundResource(R.drawable.punch_missed);
-                        clockIn_button.setEnabled(false);
-                        clockIn_button.setText("未到打卡日");
-                    }
-                    break;
-                default:
-                    break;
-            }
-            /*
-            if (clockInLabel.getLabelStatus() == 1) {
-                clockIn_button.setBackgroundResource(R.drawable.punch_done);
-                clockIn_button.setTextColor(Color.parseColor("#FDD682"));
-                clockIn_button.setEnabled(false);
-                clockIn_button.setText("已打卡");
-            } else if(clockInLabel.getLabelStatus() == 0){
-                if (viewDay < yearDay) {
-                    clockIn_button.setBackgroundResource(R.drawable.punch_missed);
-                    clockIn_button.setEnabled(false);
-                    clockIn_button.setText("未打卡");
-                } else if (viewDay > yearDay) {
-                    clockIn_button.setBackgroundResource(R.drawable.punch_missed);
-                    clockIn_button.setEnabled(false);
-                    clockIn_button.setText("未到打卡日");
-                }
-            } else if(clockInLabel.getLabelStatus() == 2)
-             */
-        }
-    }
-
-    private class ClockInAdapter extends RecyclerView.Adapter<ClockInHolder> {
-        List<LabelPunch> mClockInLabels;
-
-        public ClockInAdapter(List<LabelPunch> labels) {
-            mClockInLabels = labels;
-        }
-
-        @NonNull
-        @Override
-        public ClockInHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.clockin_item, parent, false);
-            ClockInHolder clockInHolder = new ClockInHolder(view);
-            clockInHolder.setIsRecyclable(false);
-            return clockInHolder;
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ClockInHolder holder, @SuppressLint("RecyclerView") int position) {
-            LabelPunch clockInLabel = mClockInLabels.get(position);
-
-            holder.bind(clockInLabel);
-
-            holder.clockIn_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    toClockIn(new LabelPunchTitle(clockInLabel.getTitle()));
-                    clockInLabel.setLabelStatus(1);
-                    int temp = clockInLabel.getNumber() + 1;
-                    clockInLabel.setNumber(temp);
-                    notifyDataSetChanged();
-
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    ifDayAllPunch();
-                }
-            });
-
-            holder.mConstraintLayout.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    holder.clockIn_delete.setVisibility(View.VISIBLE);
-                    holder.clockIn_button.setVisibility(View.GONE);
-                    return true;
-                }
-            });
-
-            holder.mConstraintLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    holder.clockIn_delete.setVisibility(View.GONE);
-                    holder.clockIn_button.setVisibility(View.VISIBLE);
-                }
-            });
-
-            holder.clockIn_delete.setOnClickListener(new View.OnClickListener() {
-                Button ok, no;
-                TextView sayingText;
-
-                @Override
-                public void onClick(View v) {
-                    View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_popupwindow, null, false);
-                    final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    popupWindow.setOutsideTouchable(true);//设置点击外部区域可以取消popupWindow
-                    popupWindow.setFocusable(true);
-                    popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                        @Override
-                        public void onDismiss() {
-                            backgroundAlpha(1.0f);
-                        }
-                    });
-
-
-                    ok = view.findViewById(R.id.delete_yes);
-                    no = view.findViewById(R.id.delete_no);
-                    sayingText = view.findViewById(R.id.sayings);
-                    setSayingText(sayingText);
-
-                    backgroundAlpha(0.5f);
-                    no.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            backgroundAlpha(1f);
-                            popupWindow.dismiss();
-                        }
-                    });
-
-                    ok.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            backgroundAlpha(1f);
-                            RemoveLabel(new LabelPunchTitle(clockInLabel.getTitle()));
-                            mClockInLabelList.remove(clockInLabel);
-                            notifyDataSetChanged();
-                            popupWindow.dismiss();
-                            updateRVUI();
-                        }
-                    });
-
-                    popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return mClockInLabels.size();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return position;
-        }
-    }
-
-    public void backgroundAlpha(float v) {
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = v; //0.0-1.0
-        getWindow().setAttributes(lp);
     }
 
     public void setSayingText(TextView sayingText) {
@@ -539,52 +355,21 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         }
     }
 
-    public void requestBg() {
-        NetUtil.getInstance().getApi().userInfo(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<User>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(@NonNull User user) {
-                        if (user != null) {
-                            if (user.getData().getCurrent_backdrop() == 1) {
-                                mLayout.setBackgroundResource(R.mipmap.background_default);
-                            }
-                            if (user.getData().getCurrent_backdrop() == 2) {
-                                mLayout.setBackgroundResource(R.mipmap.theme_1);
-                            }
-                            if (user.getData().getCurrent_backdrop() == 3) {
-                                mLayout.setBackgroundResource(R.mipmap.theme_2);
-                            }
-                            if (user.getData().getCurrent_backdrop() == 4) {
-                                mLayout.setBackgroundResource(R.mipmap.theme_3);
-                            }
-                            if (user.getData().getCurrent_backdrop() == 5) {
-                                mLayout.setBackgroundResource(R.mipmap.theme_4);
-                            }
-                            if (user.getData().getCurrent_backdrop() == 6) {
-                                mLayout.setBackgroundResource(R.mipmap.theme_5);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+    //设置主题背景
+    public void setBG() {
+        mClockInPresenter.setBG(data -> {
+            switch (data){
+                case 1: mLayout.setBackgroundResource(R.mipmap.background_default); break;
+                case 2: mLayout.setBackgroundResource(R.mipmap.theme_1); break;
+                case 3: mLayout.setBackgroundResource(R.mipmap.theme_2); break;
+                case 4: mLayout.setBackgroundResource(R.mipmap.theme_3); break;
+                case 5: mLayout.setBackgroundResource(R.mipmap.theme_4); break;
+                case 6: mLayout.setBackgroundResource(R.mipmap.theme_5); break;
+            }
+        });
     }
 
+    //检查网络连接
     public void connection() {
         ConnectivityManager conn = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo net = conn.getActiveNetworkInfo();
@@ -612,17 +397,9 @@ public class ClockInActivity extends AppCompatActivity implements ClockInView {
         connection();
     }
 
-    public void RemoveLabel(LabelPunchTitle labelPunchTitle){
-        NetUtil.getInstance().getApi().removeLabel(token, labelPunchTitle).enqueue(new Callback<SingleMessage>() {
-            @Override
-            public void onResponse(Call<SingleMessage> call, Response<SingleMessage> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<SingleMessage> call, Throwable t) {
-
-            }
-        });
+    public void backgroundAlpha(float v) {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = v; //0.0-1.0
+        getWindow().setAttributes(lp);
     }
 }
