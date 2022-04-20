@@ -30,7 +30,8 @@ public class FlowerFragment extends Fragment {
     }
 
     public void setWhiteFlower(){
-        unflower.setBackgroundResource(R.mipmap.undone);
+        if (unflower!=null)
+            unflower.setBackgroundResource(R.mipmap.undone);
     }
 
     private void initWidgets(View view)

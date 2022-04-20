@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/month_report_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#9A9AF3"
-    android:scaleType="fitXY"
-    android:id="@+id/month_report_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:scaleType="fitXY">
 
     <ImageButton
         android:id="@+id/month_report_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="55dp"
-        android:background="#00000000"
+        android:background="@drawable/ic_baseline_chevron_left_24"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/back" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/month_number"
