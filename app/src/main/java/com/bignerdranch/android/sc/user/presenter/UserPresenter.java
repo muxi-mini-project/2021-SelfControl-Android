@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.user.presenter;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.bean.GoldHistory;
@@ -11,6 +12,8 @@ import com.bignerdranch.android.sc.user.view.UserViewHandler;
 import com.bignerdranch.android.sc.user.model.UserService_send;
 
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.List;
 
 public class UserPresenter implements UsePresent {
@@ -79,5 +82,9 @@ public class UserPresenter implements UsePresent {
         handler.showMonthReport(report);
     }
 
+
+    public void changeAvatar(String path, String token){
+        userService_send.updateUserPicture(path, token);
+    }
 
 }

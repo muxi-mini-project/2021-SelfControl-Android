@@ -37,10 +37,4 @@ public class Handle {
         });
     }
 
-    public static String makeUriToPath(Uri uri){
-        String path = uri.getPath();
-
-        return  path;
-    }
-
 }

@@ -60,7 +60,7 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
     private String path;
     private static final int TAKE_PHOTO = 0X66;
     private static final int PICK_PHOTO = 0X88;
-    private UserPresenter userPresenter = new UserPresenter(UserActivity.this);
+    private final UserPresenter userPresenter = new UserPresenter(UserActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +175,8 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                     Bitmap bitmap = u.getScaledBitmap(u.getFile().getPath(), UserActivity.this);
                     iv_photo.setImageBitmap(bitmap);
                     savePhotos(u.getFile().getPath());
-                    Handle.sendPicture(token,u.getFile());
+                    userPresenter.changeAvatar(u.getFile().getPath(),token);
+                    //Handle.sendPicture(token,u.getFile());
                 }
 
             }else if(requestCode==PICK_PHOTO){
@@ -192,7 +193,8 @@ public class UserActivity extends StatusBar implements View.OnClickListener, com
                 Log.d("相册",path);
                 iv_photo.setImageBitmap(bitmap);
                 savePhotos(path);
-                Handle.sendPicture(token,u.getFile());
+                //Handle.sendPicture(token,u.getFile());
+                userPresenter.changeAvatar(path,token);
             } else {
                 Log.d("Demo", "结果无");
             }
