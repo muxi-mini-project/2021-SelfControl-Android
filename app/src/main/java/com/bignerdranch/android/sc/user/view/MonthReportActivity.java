@@ -65,7 +65,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
                 finish();
             }
         });
-
+        mWeek = findViewById(R.id.report_week);
         mMonth_number = findViewById(R.id.month_number);
         mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH)) + "月");
 
