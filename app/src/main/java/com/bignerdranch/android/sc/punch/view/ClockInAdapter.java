@@ -22,8 +22,9 @@ import java.util.List;
 
 class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> {
     List<LabelPunch> mClockInLabels;
-    public int viewDay;
-    public int yearDay;
+    private int viewDay;
+    private int yearDay;
+    private int buttonBG;
 
     AdapterCallBack.popupCallBack popupCallBack;
     AdapterCallBack.clockInCallBack clockInCallBack;
@@ -33,8 +34,9 @@ class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> 
         this.yearDay = yearDay;
     }
 
-    public void setClockInLabels(List<LabelPunch> labels){
+    public void setClockInLabels(List<LabelPunch> labels, int buttonBG){
         mClockInLabels = labels;
+        this.buttonBG = buttonBG;
     }
 
     public void setPopupWindowCallBack(AdapterCallBack.popupCallBack popupCallBack){this.popupCallBack = popupCallBack;}
@@ -66,8 +68,10 @@ class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> 
         holder.mConstraintLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                holder.clockIn_delete.setVisibility(View.VISIBLE);
-                holder.clockIn_button.setVisibility(View.GONE);
+                if(clockInLabel.getLabelStatus() != 2) {
+                    holder.clockIn_delete.setVisibility(View.VISIBLE);
+                    holder.clockIn_button.setVisibility(View.GONE);
+                }
                 return true;
             }
         });
@@ -112,6 +116,19 @@ class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> 
             clockIn_image = itemView.findViewById(R.id.Label);
             clockIn_delete = itemView.findViewById(R.id.delete);
             mConstraintLayout = itemView.findViewById(R.id.linearLayout15);
+            setClockIn_button(clockIn_button);
+        }
+
+        // 设置打卡button为主题色
+        public void setClockIn_button(Button button){
+            switch (buttonBG){
+                case 1: button.setBackgroundResource(R.mipmap.background_default); break;
+                case 2: button.setBackgroundResource(R.mipmap.theme_1); break;
+                case 3: button.setBackgroundResource(R.mipmap.theme_2); break;
+                case 4: button.setBackgroundResource(R.mipmap.theme_3); break;
+                case 5: button.setBackgroundResource(R.mipmap.theme_4); break;
+                case 6: button.setBackgroundResource(R.mipmap.theme_5); break;
+            }
         }
 
         public void bind(LabelPunch clockInLabel) {

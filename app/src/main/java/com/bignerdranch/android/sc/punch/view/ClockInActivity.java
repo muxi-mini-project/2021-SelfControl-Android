@@ -83,6 +83,7 @@ public class ClockInActivity extends AppCompatActivity{
     ConstraintLayout mLayout;
     boolean connection;
     boolean isAllFinish;
+    int buttonBG = 1;
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -122,6 +123,11 @@ public class ClockInActivity extends AppCompatActivity{
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mClockInAdapter = new ClockInAdapter(viewDay, yearDay);
+
+        if(yearDay!=viewDay) {
+            addLabel.setVisibility(View.GONE);
+        }
+        ifDayAllPunchAtBeginning();
 
         connection();
         setBG();
@@ -164,6 +170,8 @@ public class ClockInActivity extends AppCompatActivity{
 
             ok = view.findViewById(R.id.delete_yes);
             no = view.findViewById(R.id.delete_no);
+            setBG(ok, buttonBG);
+            setBG(no, buttonBG);
             sayingText = view.findViewById(R.id.sayings);
             setSayingText(sayingText);
 
@@ -282,9 +290,19 @@ public class ClockInActivity extends AppCompatActivity{
         });
     }
 
+    public void ifDayAllPunchAtBeginning(){
+        mClockInPresenter.ifDayAllPunch(viewDay, isFinish -> {
+            if(isFinish){
+                isAllFinish = true;
+                addLabel.setImageResource(R.drawable.add_gray_foreground);
+            }
+        });
+    }
+
     public void ifDayAllPunch() {
         mClockInPresenter.ifDayAllPunch(viewDay, isFinish -> {
             isAllFinish = isFinish;
+            addLabel.setImageResource(R.drawable.add_gray_foreground);
             if(isFinish){
                 View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
                 final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
@@ -310,7 +328,7 @@ public class ClockInActivity extends AppCompatActivity{
         if (mRecyclerView.getChildCount() > 0) {
             mRecyclerView.setAdapter(null);
         }
-        mClockInAdapter.setClockInLabels(mClockInLabelList);
+        mClockInAdapter.setClockInLabels(mClockInLabelList, buttonBG);
         mRecyclerView.setAdapter(mClockInAdapter);
     }
 
@@ -358,15 +376,20 @@ public class ClockInActivity extends AppCompatActivity{
     //设置主题背景
     public void setBG() {
         mClockInPresenter.setBG(data -> {
-            switch (data){
-                case 1: mLayout.setBackgroundResource(R.mipmap.background_default); break;
-                case 2: mLayout.setBackgroundResource(R.mipmap.theme_1); break;
-                case 3: mLayout.setBackgroundResource(R.mipmap.theme_2); break;
-                case 4: mLayout.setBackgroundResource(R.mipmap.theme_3); break;
-                case 5: mLayout.setBackgroundResource(R.mipmap.theme_4); break;
-                case 6: mLayout.setBackgroundResource(R.mipmap.theme_5); break;
-            }
+            setBG(mLayout, data);
+            buttonBG = data;
         });
+    }
+
+    public void setBG(View view, int BG){
+        switch (BG){
+            case 1: view.setBackgroundResource(R.mipmap.background_default); break;
+            case 2: view.setBackgroundResource(R.mipmap.theme_1); break;
+            case 3: view.setBackgroundResource(R.mipmap.theme_2); break;
+            case 4: view.setBackgroundResource(R.mipmap.theme_3); break;
+            case 5: view.setBackgroundResource(R.mipmap.theme_4); break;
+            case 6: view.setBackgroundResource(R.mipmap.theme_5); break;
+        }
     }
 
     //检查网络连接
