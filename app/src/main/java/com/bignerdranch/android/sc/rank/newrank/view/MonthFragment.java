@@ -120,6 +120,7 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
     @Override
     public void haveList(List mList) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        //mRecyclerView.getRecycledViewPool().setMaxRecycledViews();
         mRecyclerView.setAdapter(new RankAdapter(mList, getActivity()));
     }
 
