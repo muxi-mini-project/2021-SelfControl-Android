@@ -83,6 +83,7 @@ public class ClockInActivity extends AppCompatActivity{
     ConstraintLayout mLayout;
     boolean connection;
     boolean isAllFinish;
+    int buttonBG = 1;
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -122,6 +123,10 @@ public class ClockInActivity extends AppCompatActivity{
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mClockInAdapter = new ClockInAdapter(viewDay, yearDay);
+
+        if(yearDay!=viewDay){
+            addLabel.setVisibility(View.GONE);
+        }
 
         connection();
         setBG();
@@ -310,7 +315,7 @@ public class ClockInActivity extends AppCompatActivity{
         if (mRecyclerView.getChildCount() > 0) {
             mRecyclerView.setAdapter(null);
         }
-        mClockInAdapter.setClockInLabels(mClockInLabelList);
+        mClockInAdapter.setClockInLabels(mClockInLabelList, buttonBG);
         mRecyclerView.setAdapter(mClockInAdapter);
     }
 
@@ -366,6 +371,7 @@ public class ClockInActivity extends AppCompatActivity{
                 case 5: mLayout.setBackgroundResource(R.mipmap.theme_4); break;
                 case 6: mLayout.setBackgroundResource(R.mipmap.theme_5); break;
             }
+            buttonBG = data;
         });
     }
 
