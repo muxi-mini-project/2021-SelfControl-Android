@@ -37,12 +37,14 @@
             android:id="@+id/add"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/ic_baseline_add_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/rank_ImageButton"
+            app:layout_constraintEnd_toStartOf="@+id/rank_ImageButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/daka"
+            app:layout_constraintTop_toTopOf="@+id/rank_ImageButton"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/daka"
@@ -53,8 +55,7 @@
             android:textColor="@color/white"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/add"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintEnd_toEndOf="@+id/rank_ImageButton"
             app:layout_constraintStart_toStartOf="@id/back"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,13 +63,12 @@
             android:id="@+id/rank_ImageButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginEnd="15dp"
             android:background="@mipmap/rank"
             android:onClick="openRank"
-            app:layout_constraintBottom_toBottomOf="@+id/add"
-            app:layout_constraintEnd_toStartOf="@+id/add"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toEndOf="@+id/daka"
-            app:layout_constraintTop_toTopOf="@+id/add" />
+            app:layout_constraintBottom_toBottomOf="@+id/daka"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/daka" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

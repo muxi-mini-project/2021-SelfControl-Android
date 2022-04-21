@@ -132,7 +132,7 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                         Intent intent = new Intent(getActivity(), SeeUserActivity.class);
                         intent.putExtra("data", id);
                         intent.putExtra("data1", name);
-                        //intent.putExtra("touxiang",uri);
+                        intent.putExtra("uri",uri);
                         mActivity.startActivity(intent);
                     }
                 }

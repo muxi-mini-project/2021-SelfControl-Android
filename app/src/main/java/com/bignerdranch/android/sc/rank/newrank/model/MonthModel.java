@@ -47,9 +47,9 @@ public class MonthModel implements MonthContract.M {
 
                     @Override
                     public void onComplete() {
-                        if(mList.size() == 0){
+                        if (mList.size() == 0) {
                             mP.ListNull();
-                        }else{
+                        } else {
                             mP.haveList(mList);
                         }
                     }
@@ -57,7 +57,7 @@ public class MonthModel implements MonthContract.M {
     }
 
     @Override
-    public void exchange(int ranking,String token) {
+    public void exchange(int ranking, String token) {
         NetUtil.getInstance().getApi().putMonth(token, new RankItem.RankDataBean(ranking))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -69,12 +69,12 @@ public class MonthModel implements MonthContract.M {
 
                     @Override
                     public void onNext(@NonNull ChangeRank response) {
-                        if(response.getCode()==203){
-                            mP.noCoin();
-                        }else if(response.getCode() == 200){
+                        if (response.getCode() == 200) {
                             mP.changeSuccess();
-                        }else if(response.getCode() == 201){
+                        } else if (response.getCode() == 201) {
                             mP.noRank();
+                        } else if (response.getCode() == 203) {
+                            mP.noCoin();
                         }
                     }
 

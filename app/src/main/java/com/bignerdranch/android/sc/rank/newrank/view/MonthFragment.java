@@ -35,7 +35,7 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
     private ImageView mExchange;
     //private List<RankItem> mList;
     private final MonthPresenter mP = new MonthPresenter();
-   // String token = sharedPreferences.getString("Token",null);
+    // String token = sharedPreferences.getString("Token",null);
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.month_rank, container, false);
@@ -52,7 +52,7 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
     public void showWheelDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();
-        builder.setView(View.inflate(getActivity(),R.layout.rank_rolldialog,null));
+        builder.setView(View.inflate(getActivity(), R.layout.rank_rolldialog, null));
         dialog.show();
         dialog.getWindow().clearFlags(
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
@@ -92,13 +92,13 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
         pickerView.setOnSelectedItemChangedListener(new PickerView.OnSelectedItemChangedListener() {
 
             public void onSelectedItemChanged(PickerView pickerView, int previousPosition, int selectedItemPosition) {
-                if(selectedItemPosition == 0){
+                if (selectedItemPosition == 0) {
                     textView.setText(String.valueOf(0));
-                }else {
+                } else {
                     textView.setText(String.valueOf(selectedItemPosition * 2 + 50));
                 }
                 yes.setOnClickListener(v -> {
-                    changeRank(selectedItemPosition,token);
+                    changeRank(selectedItemPosition, token);
                     dialog.dismiss();
                 });
             }
@@ -114,13 +114,13 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
 
     @Override
     public void changeRank(int rank, String token) {
-        mP.changeRank(rank,token);
+        mP.changeRank(rank, token);
     }
 
     @Override
     public void haveList(List mList) {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        mRecyclerView.setAdapter(new RankAdapter(mList,getActivity()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        mRecyclerView.setAdapter(new RankAdapter(mList, getActivity()));
     }
 
     @Override
@@ -130,27 +130,27 @@ public class MonthFragment extends Fragment implements MonthContract.VP {
 
     @Override
     public void changeSuccess() {
-        Toast.makeText(getContext(),"兑换成功！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "兑换成功！", Toast.LENGTH_SHORT).show();
         requestList();
     }
 
     @Override
     public void changeFail() {
-        Toast.makeText(getContext(),"出错啦！请稍后再试！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "出错啦！请稍后再试！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void ListNull() {
-        Toast.makeText(getContext(),"当前排行榜还没有数据哦！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "当前排行榜还没有数据哦！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void noCoin() {
-        Toast.makeText(getContext(),"金币不足！快去打卡赚金币吧！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "金币不足！快去打卡赚金币吧！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void noRank() {
-        Toast.makeText(getContext(),"兑换的排名前没有该排名哦~请减小兑换的排名！",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "兑换的排名前没有该排名哦~请减小兑换的排名！", Toast.LENGTH_SHORT).show();
     }
 }

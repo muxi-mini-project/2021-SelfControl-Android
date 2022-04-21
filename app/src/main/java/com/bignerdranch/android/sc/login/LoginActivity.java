@@ -3,7 +3,6 @@ package com.bignerdranch.android.sc.login;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,50 +42,50 @@ public class LoginActivity extends StatusBar {
     }
 
     private void initWidgets() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
-        token = sharedPreferences.getString("Token",null);
+        SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
+        token = sharedPreferences.getString("Token", null);
         IsToken(token);
 
-        mStudent_Id =findViewById(R.id.username);
-        mPassword =findViewById(R.id.password);
-        mLoginButton =findViewById(R.id.login_B);
+        mStudent_Id = findViewById(R.id.username);
+        mPassword = findViewById(R.id.password);
+        mLoginButton = findViewById(R.id.login_B);
     }
 
     public void loginAction(View view) {
-        if (Utils.isFastClick()){
+        if (Utils.isFastClick()) {
             key = 0;
             String id = mStudent_Id.getText().toString();
             String password = mPassword.getText().toString();
-            request(id,password);
+            request(id, password);
         }
     }
 
-    public void IsToken(String token){
-        if (token != null){
+    public void IsToken(String token) {
+        if (token != null) {
             Intent intent = new Intent(LoginActivity.this, ClockActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
-    public void request(String id,String password){
+    public void request(String id, String password) {
 
-        NetUtil.getInstance().getApi().getCall(new User.DataDTO(id,password)).enqueue(new Callback<LoginResponse>() {
+        NetUtil.getInstance().getApi().getCall(new User.DataDTO(id, password)).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()){
-                    Intent intent=new Intent(LoginActivity.this, LabelPagerActivity.class);
+                System.out.println(response.code());
+                if (response.code() == 200) {
+                    Intent intent = new Intent(LoginActivity.this, LabelPagerActivity.class);
                     startActivity(intent);
                     token = response.body().getData();
-                    Log.d("tag", "token "+response.body().getData());
 
-                    SharedPreferences sharedPreferences = getSharedPreferences("Token",0);
+                    SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("Token",token);
+                    editor.putString("Token", token);
                     editor.commit();
                     editor.apply();
-                }else {
-                    Toast.makeText(LoginActivity.this,"账号或密码错误",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "账号或密码错误", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -94,9 +93,7 @@ public class LoginActivity extends StatusBar {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable throwable) {
                 Toast.makeText(LoginActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(LoginActivity.this,"网络连接失败",Toast.LENGTH_SHORT).show();
-                throwable.printStackTrace();
-                Log.e("tag",throwable.getMessage());
+                Toast.makeText(LoginActivity.this, "网络连接失败", Toast.LENGTH_SHORT).show();
             }
 
         });

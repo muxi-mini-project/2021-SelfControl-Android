@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/drawable/add_gray_foreground.xml" value="0.217" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.217" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clock_main_page.xml" value="0.1296875" />
         <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clockin_item.xml" value="0.19791666666666666" />
-        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clockin_pager.xml" value="0.20425724637681159" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clockin_pager.xml" value="0.37613293051359514" />
+        <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/clockin_popupwindow.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/login_page.xml" value="0.1109375" />
         <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/rank_rolldialog.xml" value="0.20425724637681159" />
         <entry key="..\:/Users/tiddler/Desktop/2021-SelfControl-Android/app/src/main/res/layout/see_user_label.xml" value="0.12335359675785208" />
