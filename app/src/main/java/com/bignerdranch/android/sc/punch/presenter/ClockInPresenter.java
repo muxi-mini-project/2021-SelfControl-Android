@@ -23,8 +23,8 @@ public class ClockInPresenter {
         mClockInModel.setBG(bgCallBack::getBGData, token);
     }
 
-    public void getLabels(CallBackInView.LabelListCallBack labelListCallBack){
-        mClockInModel.getClockInLabels(token, labelListCallBack::getList);
+    public void getLabels(String url, CallBackInView.LabelListCallBack labelListCallBack){
+        mClockInModel.getClockInLabels(token, url, labelListCallBack::getList);
     }
 
     public void toClockIn(LabelPunchTitle clockInLabelTitle, CallBackInView.ClockInCallBack clockInCallBack){
@@ -47,5 +47,9 @@ public class ClockInPresenter {
 */
     public void ifDayAllPunch(int day, CallBackInView.IfAllPunchCallBack ifAllPunchCallBack){
         mClockInModel.getFlowerStatus(token, day, ifAllPunchCallBack::getIsAllPunch);
+    }
+
+    public void viewDayPunch(String url, CallBackInView.ViewDayLabelCallBack viewDayPunchCallBack){
+        mClockInModel.getViewDayPunch(viewDayPunchCallBack::getViewDayLabels, url, token);
     }
 }

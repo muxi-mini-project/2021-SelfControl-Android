@@ -25,6 +25,7 @@ public class LoginActivity extends StatusBar {
     private EditText mPassword;
     private Button mLoginButton;
     public static String token;
+    public static String studentID;
 
     public static int key = 2;
 
@@ -55,6 +56,7 @@ public class LoginActivity extends StatusBar {
         if (Utils.isFastClick()) {
             key = 0;
             String id = mStudent_Id.getText().toString();
+            studentID = id;
             String password = mPassword.getText().toString();
             request(id, password);
         }
@@ -82,6 +84,7 @@ public class LoginActivity extends StatusBar {
                     SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("Token", token);
+                    editor.putString("StudentID", studentID);
                     editor.commit();
                     editor.apply();
                 } else {

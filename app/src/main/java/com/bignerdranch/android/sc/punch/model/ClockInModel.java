@@ -38,8 +38,8 @@ public class ClockInModel {
         });
     }
 
-    public void getClockInLabels(String token,CallBackInPresenter.LabelListCallBack labelListCallBack){
-        NetUtil.getInstance().getApi().getLabels(token).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
+    public void getClockInLabels(String token,String url,CallBackInPresenter.LabelListCallBack labelListCallBack){
+        NetUtil.getInstance().getApi().getLabels(token,url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
                 if(response.body() != null)
@@ -108,5 +108,19 @@ public class ClockInModel {
 
                     }
                 });
+    }
+
+    public void getViewDayPunch(CallBackInPresenter.ViewDayLabelCallBack viewDayPunchCallBack, String url, String token){
+        NetUtil.getInstance().getApi().getClockDayList(token, url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
+            @Override
+            public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
+                viewDayPunchCallBack.setList(response.body().getData());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseData<List<LabelPunch>>> call, Throwable t) {
+
+            }
+        });
     }
 }

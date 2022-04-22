@@ -94,7 +94,7 @@ class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> 
 
     @Override
     public int getItemCount() {
-        return mClockInLabels.size();
+        return mClockInLabels == null ? 0 : mClockInLabels.size();
     }
 
     @Override
@@ -137,23 +137,26 @@ class ClockInAdapter extends RecyclerView.Adapter<ClockInAdapter.ClockInHolder> 
             clockIn_image.setImageResource(clockInLabel.getImgID(clockInLabel.getTitle()));
 
             switch (clockInLabel.getLabelStatus()) {
-                case 2:
+                case LabelPunch.DELETED_AND_DONE:
                     clockIn_title.setText(clockInLabel.getTitle() + "(已删除)");
-                case 1:
+                case LabelPunch.DONE:
                     clockIn_button.setBackgroundResource(R.drawable.punch_done);
                     clockIn_button.setTextColor(Color.parseColor("#FDD682"));
                     clockIn_button.setEnabled(false);
                     clockIn_button.setText("已打卡");
                     break;
-                case 3:
-                    if (viewDay < yearDay) {
+                case LabelPunch.NOT_ARRIVE_CLOCK_IN_DAY:
+                    clockIn_button.setBackgroundResource(R.drawable.punch_missed);
+                    clockIn_button.setEnabled(false);
+                    clockIn_button.setText("未到打卡日");
+                    break;
+                case LabelPunch.DELETED_AND_UNDONE:
+                    clockIn_title.setText(clockInLabel.getTitle() + "(已删除)");
+                case LabelPunch.UNDONE:
+                    if(viewDay != yearDay) {
                         clockIn_button.setBackgroundResource(R.drawable.punch_missed);
                         clockIn_button.setEnabled(false);
                         clockIn_button.setText("未打卡");
-                    } else if (viewDay > yearDay) {
-                        clockIn_button.setBackgroundResource(R.drawable.punch_missed);
-                        clockIn_button.setEnabled(false);
-                        clockIn_button.setText("未到打卡日");
                     }
                     break;
                 default:

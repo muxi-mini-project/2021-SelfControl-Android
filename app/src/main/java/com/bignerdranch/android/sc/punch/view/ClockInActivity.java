@@ -72,6 +72,7 @@ import static com.bignerdranch.android.sc.login.LoginActivity.key;
 public class ClockInActivity extends AppCompatActivity{
     private final static String TAG = "aaaClockInActivity";
     List<LabelPunch> mClockInLabelList = new ArrayList<>();
+    List<LabelPunch> nowList = new ArrayList<>();
     Calendar mCalendar = Calendar.getInstance();
     int yearDay = 0;    //指的是今天
     int viewDay = 0;    //指的是从主页面点进来查看的一天
@@ -84,6 +85,7 @@ public class ClockInActivity extends AppCompatActivity{
     boolean connection;
     boolean isAllFinish;
     int buttonBG = 1;
+    String studentID;
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -111,6 +113,7 @@ public class ClockInActivity extends AppCompatActivity{
 
         SharedPreferences sharedPreferences = getSharedPreferences("Token", 0);
         token = sharedPreferences.getString("Token", null);
+        studentID = sharedPreferences.getString("StudentID", null);
 
         mLayout = findViewById(R.id.clockin_pager);
 
@@ -189,7 +192,7 @@ public class ClockInActivity extends AppCompatActivity{
                 public void onClick(View v) {
                     backgroundAlpha(1f);
                     removeLabel(new LabelPunchTitle(label.getTitle()));
-                    mClockInLabelList.remove(label);
+                    //mClockInLabelList.remove(label);
                     popupWindow.dismiss();
                     updateRVUI();
                 }
@@ -211,10 +214,11 @@ public class ClockInActivity extends AppCompatActivity{
         for (LabelPunch labelPunch : clockInLabels) {
             labelPunch.setLabelStatus(3);
         }
-        String url = "http://self-control.muxixyz.com/api/v1/punch/day/" + String.valueOf(viewDay);
+        String url = "http://self-control.muxixyz.com/api/v1/punch/oneday/109";//+ String.valueOf(viewDay);
         NetUtil.getInstance().getApi().getClockDayList(token, url).enqueue(new Callback<ResponseData<List<LabelPunch>>>() {
             @Override
             public void onResponse(Call<ResponseData<List<LabelPunch>>> call, Response<ResponseData<List<LabelPunch>>> response) {
+                /*
                 if (response.body().getData() != null)
                     mClockInLabelList = response.body().getData();
                 else
@@ -244,7 +248,8 @@ public class ClockInActivity extends AppCompatActivity{
                             }
                         }
                     if (!isAdded) mClockInLabelList.add(labelPunch);
-                }
+                }*/
+                mClockInLabelList = response.body().getData();
                 updateRVUI();
             }
 
@@ -268,14 +273,56 @@ public class ClockInActivity extends AppCompatActivity{
     }
 
     public void getClockInLabel() {
-        mClockInPresenter.getLabels(this::showLabelInfo);
+        String url = "http://self-control.muxixyz.com/api/v1/punch/punch/" + studentID;
+        mClockInPresenter.getLabels(url, list -> {
+            nowList = list;
+            getViewDayLabel();
+        });
+    }
+
+
+    public void getViewDayLabel(){
+        String url = "http://self-control.muxixyz.com/api/v1/punch/oneday/" + String.valueOf(viewDay);
+        mClockInPresenter.viewDayPunch(url, list -> {
+            if(viewDay <= yearDay)
+            {
+                if(list == null){
+                    Toast.makeText(this, "获取列表出错啦", Toast.LENGTH_SHORT).show();
+                } else {
+                    mClockInLabelList = list;
+                    for (LabelPunch label : mClockInLabelList) {
+                        int isContain = 0;
+                        int isOk = 0;
+                        for (LabelPunch nowLabel : nowList) {
+                            if (label.getId() == nowLabel.getId()) {
+                                isContain = 1;
+                                break;
+                            }
+                        }
+                        if (label.isOk()) {
+                            isOk = 1;
+                        }
+                        label.setLabelStatus(isContain * 10 + isOk);
+                    }
+                }
+            }
+            else
+            {
+                mClockInLabelList = nowList;
+                for(LabelPunch label : mClockInLabelList){
+                    label.setLabelStatus(LabelPunch.NOT_ARRIVE_CLOCK_IN_DAY);
+                }
+            }
+            updateRVUI();
+            loading.setVisibility(View.GONE);
+        });
     }
 
     //每次打卡之后都判断一次是否全部打完卡了，全部打完卡则弹出弹窗
     @SuppressLint("NotifyDataSetChanged")
     public void toClockIn(LabelPunch label){
         mClockInPresenter.toClockIn(new LabelPunchTitle(label.getTitle()), isFinish -> {
-            label.setLabelStatus(1);
+            label.setLabelStatus(LabelPunch.DONE);
             int temp = label.getNumber() + 1;
             label.setNumber(temp);
             mClockInAdapter.notifyDataSetChanged();
@@ -302,7 +349,6 @@ public class ClockInActivity extends AppCompatActivity{
     public void ifDayAllPunch() {
         mClockInPresenter.ifDayAllPunch(viewDay, isFinish -> {
             isAllFinish = isFinish;
-            addLabel.setImageResource(R.drawable.add_gray_foreground);
             if(isFinish){
                 View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.clockin_all, null, false);
                 final PopupWindow popupWindow = new PopupWindow(view, 950, 1550);
@@ -317,6 +363,8 @@ public class ClockInActivity extends AppCompatActivity{
                 });
                 backgroundAlpha(0.5f);
                 popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+
+                addLabel.setImageResource(R.drawable.add_gray_foreground);
             }
         });
     }
