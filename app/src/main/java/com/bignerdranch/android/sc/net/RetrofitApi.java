@@ -76,6 +76,9 @@ public interface RetrofitApi {
     @GET("punch")//我的打卡
     Call<ResponseData<List<LabelPunch>>> getLabels(@Header("token") String token);
 
+    @GET("")//我的打卡
+    Call<ResponseData<List<LabelPunch>>> getLabels(@Header("token") String token, @Url String url);
+
     @POST("punch")//完成打卡
     Call<SingleMessage> toClockIn(@Header("token") String token, @Body LabelPunchTitle clockInLabelTitle);
 

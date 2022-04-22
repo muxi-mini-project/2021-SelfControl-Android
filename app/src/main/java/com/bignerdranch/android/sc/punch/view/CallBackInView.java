@@ -15,4 +15,6 @@ public interface CallBackInView {
     interface LabelListCallBack{void getList(List<LabelPunch> list);}
 
     interface ClockInCallBack{void getIsClockIn(boolean isFinish);}
+
+    interface ViewDayLabelCallBack{void getViewDayLabels(List<LabelPunch> list);}
 }

@@ -7,20 +7,21 @@ import androidx.room.PrimaryKey;
 
 import com.bignerdranch.android.sc.R;
 
-@Entity
+
 public class LabelPunch {
-    @PrimaryKey(autoGenerate = true)
-    public int iid;
-    @ColumnInfo(name = "id")
+    //试图用二进制表示...
+    public static final int DONE = 11;  // 10 + 1
+    public static final int UNDONE = 10;  // 10 + 0
+    public static final int DELETED_AND_DONE = 1;  // 0 + 1
+    public static final int DELETED_AND_UNDONE = 0;  // 0 + 0
+    public static final int NOT_ARRIVE_CLOCK_IN_DAY = 2;
+
     public int id;
-    @ColumnInfo(name = "number")
     public int number;
-    @ColumnInfo(name = "title")
     public String title;
-    @ColumnInfo(name = "LabelStatus")
     public int LabelStatus = 0; //该日是否打卡 0未打卡，1已打卡，2已打卡已删除, 3无操作
-    @ColumnInfo(name = "ImgId")
     public int mImgID;
+    public boolean ok;
 
     public LabelPunch(int id, int number, String title, int labelStatus, int imgID) {
         this.id = id;
@@ -100,5 +101,10 @@ public class LabelPunch {
     public void setLabelStatus(int clockInStatus) {
         LabelStatus = clockInStatus;
     }
+
+    public boolean isOk() {
+        return ok;
+    }
+
 }
 
