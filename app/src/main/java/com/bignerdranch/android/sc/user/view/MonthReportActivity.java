@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.user.view;
 
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -48,6 +49,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
     /*此后为qyh进行修改而添加的变量*/
     private UserPresenter userPresenter = new UserPresenter(MonthReportActivity.this);
     List<Entry> list = new ArrayList<>();
+    private TextView mWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
                 finish();
             }
         });
-
+        mWeek = findViewById(R.id.report_week);
         mMonth_number = findViewById(R.id.month_number);
         mMonth_number.setText(String.valueOf(calendar.get(Calendar.MONTH)) + "月");
 
@@ -71,9 +73,6 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
 
         userPresenter.SendMonthReport(token);
         userPresenter.SendUser(token);
-        //userPresenter.SendMonthReport("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");
-        //userPresenter.SendUser("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I");//获取背景颜色
-
 
         lineChart = findViewById(R.id.linechart);
         linechart();
@@ -136,36 +135,6 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
         //userPresenter.GetMessageWeek("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50X2lkIjoiMjAyMDIxMzc5MCIsImV4cCI6MTYyOTE5MzMwOSwiaWF0IjoxNjI4NDczMzA5fQ.9pX34Mio1K2p4_2pB_nXMzPj3ShDf_6LzBk_SD4si3I",calendar.get(Calendar.MONTH));
         userPresenter.SendLineChart(token, calendar.get(Calendar.MONTH));
         //qyh这一块修改结束
-
-
-        /*
-        list.add(new Entry(1,8));
-        list.add(new Entry(2,7));
-        list.add(new Entry(3,8));
-        list.add(new Entry(4,0));
-        list.add(new Entry(5,6));
-
-        //将数据赋给数据集,一个数据集表示一条线
-        LineDataSet lineDataSet = new LineDataSet(list,"每周打卡总次数");
-        LineData lineData = new LineData(lineDataSet);
-        //线条颜色
-        lineDataSet.setColor(Color.parseColor("#FDD682"));
-        //线宽度
-        lineDataSet.setLineWidth(3.0f);
-        //显示圆点
-        lineDataSet.setDrawCircles(true);
-        lineDataSet.setDrawCircleHole(true);
-        lineDataSet.setCircleHoleRadius(3);
-        //设置圆点颜色(外圈)
-        lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
-        //不显示曲线点的具体数值
-        lineData.setDrawValues(false);
-        //lineData.setValueTextSize(15f);
-
-        lineChart.setData(lineData);
-
-        lineChart.animateY(3000);
-    }*/
     }
 
 
@@ -174,6 +143,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
     public void showTheWeekPicture(List<Week.DataDTO> list) {
         weekList = list;
         if(this.weekList!=null){
+            mWeek.setText("周");
             for(Week.DataDTO week : weekList){
                 this.list.add(new Entry(week.getWeek(),week.getNumber()));
             }
@@ -191,8 +161,8 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
             //设置圆点颜色(外圈)
             lineDataSet.setCircleColor(Color.parseColor("#FDD682"));
             //不显示曲线点的具体数值
-            lineData.setDrawValues(false);
-            //lineData.setValueTextSize(15f);
+            lineData.setDrawValues(true);
+            lineData.setValueTextSize(16f);
 
             lineChart.setData(lineData);
 
@@ -213,7 +183,7 @@ public class MonthReportActivity extends StatusBar implements com.bignerdranch.a
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         if(mUser!=null){
             int background = mUser.getCurrent_backdrop();

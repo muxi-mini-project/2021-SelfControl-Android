@@ -1,5 +1,8 @@
 package com.bignerdranch.android.sc.user.presenter;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+
 import com.bignerdranch.android.sc.login.User;
 import com.bignerdranch.android.sc.user.bean.GoldHistory;
 import com.bignerdranch.android.sc.user.bean.Rank;
@@ -9,6 +12,8 @@ import com.bignerdranch.android.sc.user.view.UserViewHandler;
 import com.bignerdranch.android.sc.user.model.UserService_send;
 
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.List;
 
 public class UserPresenter implements UsePresent {
@@ -21,7 +26,6 @@ public class UserPresenter implements UsePresent {
         this.handler = handler;
         userService_send = new UserService_send(this);
     }
-
 
     @Override
     public void transMessageWeek(List<Week.DataDTO> list) {
@@ -64,8 +68,8 @@ public class UserPresenter implements UsePresent {
     }
 
     @Override
-    public void transUser(User.DataDTO u) {
-        handler.getUser(u);
+    public void transUser(User.DataDTO u,Bitmap bitmap) {
+        handler.getUser(u, bitmap);
     }
 
     @Override
@@ -78,5 +82,9 @@ public class UserPresenter implements UsePresent {
         handler.showMonthReport(report);
     }
 
+
+    public void changeAvatar(String path, String token){
+        userService_send.updateUserPicture(path, token);
+    }
 
 }

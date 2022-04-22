@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bignerdranch.android.sc.R;
@@ -100,7 +99,7 @@ public class RankQueryActivity extends StatusBar implements com.bignerdranch.and
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         if(mUser!=null){
             mName.setText(mUser.getName());

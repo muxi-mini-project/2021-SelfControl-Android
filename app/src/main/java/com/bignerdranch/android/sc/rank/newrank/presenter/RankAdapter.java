@@ -80,19 +80,8 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         holder.mRate.setText("打卡次数: " + mList.get(position).getNumber() + " 次");
         holder.mName.setText("" + mList.get(position).getName());
         holder.mUser.setImageURI(uri);
-        holder.mUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName(), mList.get(position).getUser_picture());
-            }
-        });
-        holder.mThumb.setOnClickListener(new View.OnClickListener() {
-                                             @Override
-                                             public void onClick(View v) {
-                                                 v.startAnimation(shake);
-                                             }
-                                         }
-        );
+        holder.mUser.setOnClickListener(v -> seeUserRequest(mList.get(position).getStudent_id(), mList.get(position).getName(), mList.get(position).getUser_picture()));
+        holder.mThumb.setOnClickListener(v -> v.startAnimation(shake));
         switch (mList.get(position).getRanking()) {
             case 1:
                 holder.mRank.setBackgroundResource(R.mipmap.rank1);
@@ -107,7 +96,6 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
                 holder.mRank.setText(String.valueOf(mList.get(position).getRanking()));
                 break;
         }
-
     }
 
 
@@ -145,6 +133,11 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         });
     }
 
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
     private void showPrivateDialog() {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
         AlertDialog dialog = builder.create();

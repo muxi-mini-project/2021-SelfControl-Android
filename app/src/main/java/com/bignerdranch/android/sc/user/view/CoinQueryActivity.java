@@ -1,6 +1,7 @@
 package com.bignerdranch.android.sc.user.view;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,7 +47,7 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
         init();
         userPresenter.SendUser(token);
         userPresenter.SendGoldHistory(token);
-        makeStatusBarTransparent(this);
+        makeStatusBarTransparent(CoinQueryActivity.this);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
     }
@@ -97,7 +98,7 @@ public class CoinQueryActivity extends StatusBar implements com.bignerdranch.and
     }
 
     @Override
-    public void getUser(User.DataDTO u) {
+    public void getUser(User.DataDTO u, Bitmap bitmap) {
         this.mUser = u;
         Log.d("CoinActivity","here");
         if(mUser!=null){

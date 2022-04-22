@@ -1,5 +1,6 @@
 package com.bignerdranch.android.sc.user.model;
 
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -11,7 +12,9 @@ import com.bignerdranch.android.sc.user.bean.Rank;
 import com.bignerdranch.android.sc.user.bean.Report;
 import com.bignerdranch.android.sc.user.bean.Week;
 import com.bignerdranch.android.sc.user.presenter.UsePresent;
+import com.bignerdranch.android.sc.user.view.SendToRemote;
 
+import java.io.File;
 import java.util.List;
 
 import io.reactivex.Observer;
@@ -21,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class UserService_send  {
     private UsePresent usePresent ;
-
+    private static User.DataDTO user_info;
     public UserService_send(UsePresent u){
         this.usePresent = u;
     }
@@ -96,7 +99,8 @@ public class UserService_send  {
 
                     @Override
                     public void onNext(@NonNull User user) {
-                        usePresent.transUser(user.getData());
+                        usePresent.transUser(user.getData(),null);
+                        user_info = user.getData();
                         Log.d("UserPresent", "用户信息部分网络连接成功");
                     }
 
@@ -199,5 +203,42 @@ public class UserService_send  {
 
                     }
                 });
+    }
+
+    private void changeAvatar(String token,String path){
+        user_info.setUser_picture(path);
+        NetUtil.getInstance().getApi().changName(token, user_info)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<User>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull User user) {
+                        usePresent.transChangedName();
+                        Log.d("UserPresent", "用户信息改变成功");
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Log.d("UserPresent", "用户信息改变失败");
+                        Log.d("UserPresent",e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void updateUserPicture(String path, String token){
+        SendToRemote sendToRemote = new SendToRemote();
+        sendToRemote.upLoad1(path,user_info.getStudent_id());
+        String url = sendToRemote.getUrl();
+        changeAvatar(token,url);
     }
 }

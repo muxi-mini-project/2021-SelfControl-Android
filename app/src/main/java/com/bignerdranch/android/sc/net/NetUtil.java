@@ -2,6 +2,8 @@ package com.bignerdranch.android.sc.net;
 
 import com.google.gson.Gson;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -20,6 +22,7 @@ public class NetUtil {
                 .setLevel(HttpLoggingInterceptor.Level.BODY);
         client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
+                .connectTimeout(60000, TimeUnit.MILLISECONDS)
                 .build();
 
         api = new Retrofit.Builder()
